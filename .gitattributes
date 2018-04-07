@@ -1,0 +1,35 @@
+*.2da text
+*.baf text
+*.bat text eol=crlf
+*.d text
+*.html text
+*.ids text
+*.ini text
+*.mus text
+*.sh text eol=lf
+*.tp2 text
+*.tph text
+*.tra text
+*.txt text
+
+*.acm binary
+*.are binary
+*.bam binary
+*.bmp binary
+*.cre binary
+*.dll binary
+*.eff binary
+*.exe binary
+*.itm binary
+*.jpg binary
+*.mos binary
+*.png binary
+*.pvrz binary
+*.pro binary
+*.spl binary
+*.sto binary
+*.tis binary
+*.vef binary
+*.vvc binary
+*.wav binary
+*.wed binary
