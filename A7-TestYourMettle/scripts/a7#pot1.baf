@@ -1,0 +1,31 @@
+// Helper script: Rejuvenation Potion
+
+IF
+  !StateCheck(LastSummonerOf(Myself),STATE_REALLY_DEAD)
+  !AreaType(RUBICON)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    DisplayString(LastSummonerOf(Myself),@2072) // Ineffective
+    SetInterrupt(TRUE)
+    Continue()
+END
+
+IF
+  !StateCheck(LastSummonerOf(Myself),STATE_REALLY_DEAD)
+  AreaType(RUBICON)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    ApplySpellRES("a7#pot1",LastSummonerOf(Myself))
+    DisplayString(LastSummonerOf(Myself),@2073) // Refreshed
+    SetInterrupt(TRUE)
+    Continue()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    DestroySelf()
+END

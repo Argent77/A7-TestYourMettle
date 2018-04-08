@@ -1,0 +1,76 @@
+// Cutscene: Modrons disappear
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    FadeToColor([10.0],0)
+    Wait(1)
+    FadeFromColor([45.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronDirector")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronGuard1")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronGuard2")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronWorker1")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronWorker2")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronWorker3")
+  Wait(1)
+  DestroySelf()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+  CutSceneId("ModronLaborer")
+  Wait(1)
+  DestroySelf()
+END

@@ -1,0 +1,301 @@
+// Reward exchange script: A Goody!
+
+// Reward for 1 item
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",1)
+  NumItems("a7#jgood",Myself,1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre01",0,0,0)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre02",0,0,0)
+    Continue()
+END
+
+// Reward for 2-9 items
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",1)
+  NumItemsGT("a7#jgood",Myself,1)
+  NumItemsLT("a7#jgood",Myself,10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre02",0,0,0)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre03",0,0,0)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre02",0,0,0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre03",0,0,0)
+    Continue()
+END
+
+// Reward for 10-49 items
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",1)
+  NumItemsGT("a7#jgood",Myself,9)
+  NumItemsLT("a7#jgood",Myself,50)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre03",0,0,0)
+    Continue()
+  RESPONSE #66
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #66
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre03",0,0,0)
+    Continue()
+  RESPONSE #33
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #33
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre03",0,0,0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+END
+
+// Reward for 50-99 items
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",1)
+  NumItemsGT("a7#jgood",Myself,49)
+  NumItemsLT("a7#jgood",Myself,100)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #75
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #75
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #66
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #66
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #33
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #33
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+END
+
+// Reward for 100 or more items
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",1)
+  NumItemsGT("a7#jgood",Myself,99)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #80
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #80
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #80
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #80
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #60
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #60
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #60
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("a7#rdr11",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #60
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #40
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #40
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #40
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("a7#rdr12",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #40
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",2)
+    CreateItem("a7#rdr15",0,0,0)
+    CreateItem("a7#rdr14",0,0,0)
+    CreateItem("a7#rdr13",0,0,0)
+    CreateItem("rndtre05",0,0,0)
+    CreateItem("rndtre04",0,0,0)
+    Continue()
+END
+
+IF
+  !Global("A7#RecycleGoodies3","A7#1FY",0)
+  HasItem("a7#jgood",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("a7#jgood")
+    DestroyItem("a7#jgood")
+    DestroyItem("a7#jgood")
+END
+
+IF
+  Global("A7#RecycleGoodies3","A7#1FY",2)
+THEN
+  RESPONSE #100
+    DisplayString("ContainerMarker3", @50008) // Goodies recycled.
+    Continue()
+END
+
+IF
+  !Global("A7#RecycleGoodies3","A7#1FY",0)
+  !HasItem("a7#jgood",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies3","A7#1FY",0)
+END

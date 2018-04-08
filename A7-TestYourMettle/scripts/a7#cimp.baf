@@ -1,0 +1,165 @@
+// Class script: Imp
+
+IF
+  Global("bonus","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("bonus","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #20
+    ApplySpellRES("a7#fx01",Myself) // Luck +1
+    Continue()
+  RESPONSE #10
+    ApplySpellRES("a7#fx02",Myself) // Luck +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #30
+    ApplySpellRES("a7#fx01",Myself) // Luck +1
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx02",Myself) // Luck +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx03",Myself) // THAC0 +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx03",Myself) // THAC0 +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx05",Myself) // Damage +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx05",Myself) // Damage +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx09",Myself) // AC +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx09",Myself) // AC +2
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #20
+    ApplySpellRES("a7#fx18",Myself) // HP +25%
+    Continue()
+  RESPONSE #10
+    ApplySpellRES("a7#fx19",Myself) // HP +50%
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #40
+    ApplySpellRES("a7#fx18",Myself) // HP +25%
+    Continue()
+  RESPONSE #20
+    ApplySpellRES("a7#fx19",Myself) // HP +50%
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx20",Myself) // Slashing +25%
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx23",Myself) // Piercing/Missile +25%
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx26",Myself) // Crushing +25%
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+

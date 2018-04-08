@@ -1,0 +1,99 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    Continue()
+END
+
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    TriggerActivation("Exit2_1",FALSE)
+    TriggerActivation("Exit2_2",FALSE)
+    TriggerActivation("Exit2_3",FALSE)
+    TriggerActivation("Exit2_4",FALSE)
+    TriggerActivation("Exit2_5",FALSE)
+    TriggerActivation("Exit2_6",FALSE)
+    TriggerActivation("Exit2_7",FALSE)
+    TriggerActivation("Exit2_8",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Switch("A7#MazeConfig","GLOBAL")
+THEN
+  RESPONSE #0
+    TriggerActivation("Exit2_3",TRUE)
+    Continue()
+  RESPONSE #1
+    TriggerActivation("Exit2_5",TRUE)
+    Continue()
+  RESPONSE #2
+    TriggerActivation("Exit2_6",TRUE)
+    Continue()
+  RESPONSE #3
+    TriggerActivation("Exit2_7",TRUE)
+    Continue()
+  RESPONSE #4
+    TriggerActivation("Exit2_8",TRUE)
+    Continue()
+  RESPONSE #5
+    TriggerActivation("Exit2_1",TRUE)
+    Continue()
+  RESPONSE #6
+    TriggerActivation("Exit2_2",TRUE)
+    Continue()
+  RESPONSE #7
+    TriggerActivation("Exit2_4",TRUE)
+    Continue()
+  RESPONSE #8
+    TriggerActivation("Exit2_3",TRUE)
+    Continue()
+  RESPONSE #9
+    TriggerActivation("Exit2_3",TRUE)
+    Continue()
+  RESPONSE #10
+    TriggerActivation("Exit2_7",TRUE)
+    Continue()
+  RESPONSE #11
+    TriggerActivation("Exit2_1",TRUE)
+    Continue()
+  RESPONSE #12
+    TriggerActivation("Exit2_7",TRUE)
+    Continue()
+  RESPONSE #13
+    TriggerActivation("Exit2_6",TRUE)
+    Continue()
+  RESPONSE #14
+    TriggerActivation("Exit2_5",TRUE)
+    Continue()
+  RESPONSE #15
+    TriggerActivation("Exit2_1",TRUE)
+    Continue()
+END
+
+IF
+  Global("A7#PortalClosed","A7#1FD",0)
+  Dead("Taskmaster")
+THEN
+  RESPONSE #100
+    SetGlobal("A7#PortalClosed","A7#1FD",1)
+    TriggerActivation("PortalInfo",FALSE)
+    AmbientActivate("PortaltoHellClosing",TRUE)
+    AmbientActivate("PortaltoHell",FALSE)
+    SmallWait(37)
+    AmbientActivate("PortaltoHellClosing",FALSE)
+END
+
+IF
+  Dead("Taskmaster")
+  PartyHasItem("a7#ward")
+  Global("A7#Wardstone","A7#1FD",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#Wardstone","A7#1FD",1)
+    AddJournalEntry(@60016,QUEST)
+END

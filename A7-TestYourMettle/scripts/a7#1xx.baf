@@ -1,0 +1,1576 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    Continue()
+END
+
+// *** Spawn dead adventurer with modron journal ***
+IF
+  OnCreation()
+  RandomNum(10,10)
+  Global("A7#DeadAdventurer","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#DeadAdventurer","GLOBAL",1)
+    CreateCreature("A7#DBDY",[605.542],8)
+    ContainerEnable("Journal",TRUE)
+    ActionOverride("Journal",CreateItem("a7#mdjrn",1,0,0))
+    Continue()
+END
+
+
+// *** Abandoned maze: don't spawn creatures ***
+IF
+  OnCreation()
+  !Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+END
+
+
+// Active maze: spawning creatures
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyLT(10)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #10
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #1
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Continue()
+END
+
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #5
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Continue()
+END
+
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #15
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Continue()
+END
+
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
+    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    Continue()
+  RESPONSE #55
+    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
+    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
+    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  LevelPartyGT(18)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #20
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #25
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Continue()
+END
+
+
+// Disable modron helpers on higher levels
+IF
+  OnCreation()
+  LevelPartyGT(15)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+  Switch("A7#DungeonType","MYAREA")
+THEN  
+  RESPONSE #1
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    Continue()
+  RESPONSE #2
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Continue()
+  RESPONSE #3
+    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
+    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
+    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
+    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
+    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    Continue()
+END
+
+
+// *** Arming random traps ***
+IF
+  OnCreation()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #93
+    Continue()
+  RESPONSE #4
+    TriggerActivation("TrapA1",TRUE)
+    Continue()
+  RESPONSE #3
+    TriggerActivation("TrapA2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #93
+    Continue()
+  RESPONSE #4
+    TriggerActivation("TrapB1",TRUE)
+    Continue()
+  RESPONSE #3
+    TriggerActivation("TrapB2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #93
+    Continue()
+  RESPONSE #4
+    TriggerActivation("TrapC1",TRUE)
+    Continue()
+  RESPONSE #3
+    TriggerActivation("TrapC2",TRUE)
+    Continue()
+END
+
+
+// *** Delayed ambush initialization ***
+IF
+  Global("A7#Ambush","MYAREA",0)
+THEN
+  RESPONSE #10
+    SetGlobal("A7#Ambush","MYAREA",1)
+    SetGlobalTimer("A7#AmbushTimer","MYAREA",24)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#Ambush","MYAREA",1)
+    SetGlobalTimer("A7#AmbushTimer","MYAREA",42)
+    Continue()
+  RESPONSE #30
+    SetGlobal("A7#Ambush","MYAREA",1)
+    SetGlobalTimer("A7#AmbushTimer","MYAREA",60)
+    Continue()
+  RESPONSE #40
+    SetGlobal("A7#Ambush","MYAREA",1)
+    SetGlobalTimer("A7#AmbushTimer","MYAREA",78)
+    Continue()
+  RESPONSE #100
+    SetGlobal("A7#Ambush","MYAREA",2)
+    SetGlobalTimer("A7#AmbushTimer","MYAREA",60)
+    Continue()
+END
+
+
+// *** Delayed ambush trigger ***
+IF
+  !Global("A7#Ambush","MYAREA",0)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+THEN
+  RESPONSE #10
+    SetGlobal("A7#Ambush","MYAREA",0)
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    CreateCreatureEffect("a7#imp","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #15
+    CreateCreatureEffect("a7#abb","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #10
+    CreateCreatureEffect("a7#abg","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #5
+    CreateCreatureEffect("a7#abr","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #1
+    CreateCreatureEffect("a7#erin","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    SmallWait(5)
+    CreateCreatureEffect("a7#imp","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #15
+    SmallWait(5)
+    CreateCreatureEffect("a7#abb","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #10
+    SmallWait(5)
+    CreateCreatureEffect("a7#abg","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #5
+    SmallWait(5)
+    CreateCreatureEffect("a7#abr","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #1
+    SmallWait(5)
+    CreateCreatureEffect("a7#erin","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    SmallWait(10)
+    CreateCreatureEffect("a7#imp","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #15
+    SmallWait(10)
+    CreateCreatureEffect("a7#abb","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #10
+    SmallWait(10)
+    CreateCreatureEffect("a7#abg","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #5
+    SmallWait(10)
+    CreateCreatureEffect("a7#abr","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #1
+    SmallWait(10)
+    CreateCreatureEffect("a7#erin","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    SmallWait(15)
+    CreateCreatureEffect("a7#imp","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #15
+    SmallWait(15)
+    CreateCreatureEffect("a7#abb","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #10
+    SmallWait(15)
+    CreateCreatureEffect("a7#abg","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #5
+    SmallWait(15)
+    CreateCreatureEffect("a7#abr","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #1
+    SmallWait(15)
+    CreateCreatureEffect("a7#erin","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    SmallWait(20)
+    CreateCreatureEffect("a7#imp","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #15
+    SmallWait(20)
+    CreateCreatureEffect("a7#abb","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #10
+    SmallWait(20)
+    CreateCreatureEffect("a7#abg","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #5
+    SmallWait(20)
+    CreateCreatureEffect("a7#abr","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #1
+    SmallWait(20)
+    CreateCreatureEffect("a7#erin","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #75
+    CreateCreatureEffect("a7#imp","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #25
+    CreateCreatureEffect("a7#abb","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #20
+    CreateCreatureEffect("a7#abg","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #15
+    CreateCreatureEffect("a7#abr","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #10
+    CreateCreatureEffect("a7#erin","ddoorh",[652.418],SW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #75
+    SmallWait(5)
+    CreateCreatureEffect("a7#imp","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #25
+    SmallWait(5)
+    CreateCreatureEffect("a7#abb","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #20
+    SmallWait(5)
+    CreateCreatureEffect("a7#abg","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #15
+    SmallWait(5)
+    CreateCreatureEffect("a7#abr","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #10
+    SmallWait(5)
+    CreateCreatureEffect("a7#erin","ddoorh",[410.478],SE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #75
+    SmallWait(10)
+    CreateCreatureEffect("a7#imp","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #25
+    SmallWait(10)
+    CreateCreatureEffect("a7#abb","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #20
+    SmallWait(10)
+    CreateCreatureEffect("a7#abg","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #15
+    SmallWait(10)
+    CreateCreatureEffect("a7#abr","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #10
+    SmallWait(10)
+    CreateCreatureEffect("a7#erin","ddoorh",[702.536],W)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #75
+    SmallWait(15)
+    CreateCreatureEffect("a7#imp","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #25
+    SmallWait(15)
+    CreateCreatureEffect("a7#abb","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #20
+    SmallWait(15)
+    CreateCreatureEffect("a7#abg","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #15
+    SmallWait(15)
+    CreateCreatureEffect("a7#abr","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #10
+    SmallWait(15)
+    CreateCreatureEffect("a7#erin","ddoorh",[554.644],N)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",2)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #75
+    SmallWait(20)
+    CreateCreatureEffect("a7#imp","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #25
+    SmallWait(20)
+    CreateCreatureEffect("a7#abb","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #20
+    SmallWait(20)
+    CreateCreatureEffect("a7#abg","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #15
+    SmallWait(20)
+    CreateCreatureEffect("a7#abr","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #10
+    SmallWait(20)
+    CreateCreatureEffect("a7#erin","ddoorh",[360.605],NE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #75
+    CreateCreatureEffect("a7#imp","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #20
+    CreateCreatureEffect("a7#abb","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #15
+    CreateCreatureEffect("a7#abg","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #10
+    CreateCreatureEffect("a7#abr","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #5
+    CreateCreatureEffect("a7#erin","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #75
+    SmallWait(5)
+    CreateCreatureEffect("a7#imp","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #20
+    SmallWait(5)
+    CreateCreatureEffect("a7#abb","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #15
+    SmallWait(5)
+    CreateCreatureEffect("a7#abg","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #10
+    SmallWait(5)
+    CreateCreatureEffect("a7#abr","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #5
+    SmallWait(5)
+    CreateCreatureEffect("a7#erin","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #75
+    SmallWait(10)
+    CreateCreatureEffect("a7#imp","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #20
+    SmallWait(10)
+    CreateCreatureEffect("a7#abb","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #15
+    SmallWait(10)
+    CreateCreatureEffect("a7#abg","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #10
+    SmallWait(10)
+    CreateCreatureEffect("a7#abr","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #5
+    SmallWait(10)
+    CreateCreatureEffect("a7#erin","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #75
+    SmallWait(15)
+    CreateCreatureEffect("a7#imp","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #20
+    SmallWait(15)
+    CreateCreatureEffect("a7#abb","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #15
+    SmallWait(15)
+    CreateCreatureEffect("a7#abg","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #10
+    SmallWait(15)
+    CreateCreatureEffect("a7#abr","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #5
+    SmallWait(15)
+    CreateCreatureEffect("a7#erin","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #75
+    SmallWait(20)
+    CreateCreatureEffect("a7#imp","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #20
+    SmallWait(20)
+    CreateCreatureEffect("a7#abb","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #15
+    SmallWait(20)
+    CreateCreatureEffect("a7#abg","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #10
+    SmallWait(20)
+    CreateCreatureEffect("a7#abr","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #5
+    SmallWait(20)
+    CreateCreatureEffect("a7#erin","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #100
+    CreateCreatureEffect("a7#imp","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #50
+    CreateCreatureEffect("a7#abb","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #40
+    CreateCreatureEffect("a7#abg","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #30
+    CreateCreatureEffect("a7#abr","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #20
+    CreateCreatureEffect("a7#erin","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #10
+    CreateCreatureEffect("a7#cor","ddoorh",[516.420],S)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #100
+    SmallWait(5)
+    CreateCreatureEffect("a7#imp","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #50
+    SmallWait(5)
+    CreateCreatureEffect("a7#abb","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #40
+    SmallWait(5)
+    CreateCreatureEffect("a7#abg","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #30
+    SmallWait(5)
+    CreateCreatureEffect("a7#abr","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #20
+    SmallWait(5)
+    CreateCreatureEffect("a7#erin","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #10
+    SmallWait(5)
+    CreateCreatureEffect("a7#cor","ddoorh",[600.506],SW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #100
+    SmallWait(10)
+    CreateCreatureEffect("a7#imp","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #50
+    SmallWait(10)
+    CreateCreatureEffect("a7#abb","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #40
+    SmallWait(10)
+    CreateCreatureEffect("a7#abg","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #30
+    SmallWait(10)
+    CreateCreatureEffect("a7#abr","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #20
+    SmallWait(10)
+    CreateCreatureEffect("a7#erin","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #10
+    SmallWait(10)
+    CreateCreatureEffect("a7#cor","ddoorh",[462.548],E)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #100
+    SmallWait(15)
+    CreateCreatureEffect("a7#imp","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #50
+    SmallWait(15)
+    CreateCreatureEffect("a7#abb","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #40
+    SmallWait(15)
+    CreateCreatureEffect("a7#abg","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #30
+    SmallWait(15)
+    CreateCreatureEffect("a7#abr","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #20
+    SmallWait(15)
+    CreateCreatureEffect("a7#erin","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #10
+    SmallWait(15)
+    CreateCreatureEffect("a7#cor","ddoorh",[394.640],NE)
+    Continue()
+  RESPONSE #100
+    Continue()
+END
+
+IF
+  Global("A7#DungeonType","MYAREA",3)
+  Global("A7#Ambush","MYAREA",1)
+  GlobalTimerExpired("A7#AmbushTimer","MYAREA")
+  LevelPartyGT(14)
+THEN
+  RESPONSE #100
+    SmallWait(20)
+    CreateCreatureEffect("a7#imp","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #50
+    SmallWait(20)
+    CreateCreatureEffect("a7#abb","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #40
+    SmallWait(20)
+    CreateCreatureEffect("a7#abg","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #30
+    SmallWait(20)
+    CreateCreatureEffect("a7#abr","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #20
+    SmallWait(20)
+    CreateCreatureEffect("a7#erin","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #10
+    SmallWait(20)
+    CreateCreatureEffect("a7#cor","ddoorh",[624.614],NW)
+    Continue()
+  RESPONSE #100
+    Continue()
+END

@@ -1,0 +1,58 @@
+// Planar Sphere: Modron Spawn Script
+
+IF
+  XPLT(Player1,400000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("a7#mdrqp",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    Continue()
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,1000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("a7#mdrqp",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    Continue()
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,2000000)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("a7#mdrqp",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrqo",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    Continue()
+END
+
+IF
+  XPGT(Player1,1999999)
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    CreateCreature("a7#mdrqp",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrqo",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrqo",[-1.-1],S)  // Rogue Modron (melee)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrro",[-1.-1],S)  // Rogue Modron (ranged)
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    CreateCreature("a7#mdrmo",[-1.-1],S)  // Rogue Modron
+    Continue()
+END

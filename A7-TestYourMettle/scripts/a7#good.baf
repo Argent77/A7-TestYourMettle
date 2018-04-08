@@ -1,0 +1,64 @@
+// Default combat script (good)
+
+IF
+  IsWeaponRanged(Myself)
+  OR(3)
+    See([0.0.DEMONIC])
+    See([0.0.DRONE])
+    See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  OR(3)
+    See([0.0.DEMONIC])
+    See([0.0.DRONE])
+    See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  OR(3)
+    See([0.0.DEMONIC])
+    See([0.0.DRONE])
+    See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  OR(8)
+    See([0.0.DEMONIC])
+    See([0.0.DRONE])
+    See(NearestEnemyOf(Myself))
+    See(SecondNearestEnemyOf(Myself))
+    See(ThirdNearestEnemyOf(Myself))
+    See(FourthNearestEnemyOf(Myself))
+    See(FifthNearestEnemyOf(Myself))
+    See(SixthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+  RESPONSE #25
+    RandomTurn()
+  RESPONSE #25
+    NoAction()
+END

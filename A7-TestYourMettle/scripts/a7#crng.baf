@@ -1,0 +1,90 @@
+// Default combat script (favor ranged attack)
+
+IF
+  Heard([ANYONE],111)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+    Continue()
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Allegiance(Myself,NEUTRAL)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  CanEquipRanged()
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  CanEquipRanged()
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    EquipRanged()
+    RunAwayFromNoInterrupt(NearestEnemyOf(Myself),30)
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !CanEquipRanged()
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Continue()
+END
+
+IF
+  HasWeaponEquiped(Myself)
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  !HasWeaponEquiped(Myself)
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),5)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    RunAwayFromNoInterrupt(NearestEnemyOf(Myself),30)
+    SetInterrupt(TRUE)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  !Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastAttackerOf(Myself),15)
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+  Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    RunAwayFromNoInterrupt(LastAttackerOf(Myself),30)
+    AttackReevaluate(LastAttackerOf(Myself),15)
+    SetInterrupt(TRUE)
+END

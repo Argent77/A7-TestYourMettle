@@ -1,0 +1,8 @@
+// Override script for Modrons
+
+IF
+  Global("A7#MazeAbandoned","GLOBAL",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END

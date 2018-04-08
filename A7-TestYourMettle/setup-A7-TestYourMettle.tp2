@@ -1,0 +1,1072 @@
+BACKUP ~A7-TestYourMettle/backup~
+AUTHOR ~Argent77 at Beamdog Forums~
+VERSION ~0.1 (beta)~
+
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
+END
+
+README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
+       ~%MOD_FOLDER%/readme/readme.txt~
+
+LANGUAGE ~English~
+         ~english~
+         ~%MOD_FOLDER%/languages/english/setup.tra~
+         ~%MOD_FOLDER%/languages/english/mod.tra~
+
+BEGIN @1  // Modron Maze
+  REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~ && FILE_EXISTS ~engine.lua~) @100  // Requires BG2:EE or EET patched to 2.0 or higher.
+  DESIGNATED 0
+
+  // ***************
+  // *** Journal ***
+  // ***************
+
+  // An alien place
+  ADD_JOURNAL TITLE (@60000) @60011
+  // Mazes and Modrons
+  ADD_JOURNAL TITLE (@60001) @60012 @60013 @60014 @60015 @60016 @60017 @60018 @60100 @60101
+
+
+  // *************
+  // *** Music ***
+  // *************
+
+  COPY ~%MOD_FOLDER%/music/a7bt~ ~music/a7bt~
+  ADD_MUSIC ~a7bt~ ~%MOD_FOLDER%/music/a7bt.mus~
+  COPY ~%MOD_FOLDER%/music/a7mod~ ~music/a7mod~
+  ADD_MUSIC ~a7mod~ ~%MOD_FOLDER%/music/a7mod.mus~
+
+
+  // ***************************
+  // *** Creature animations ***
+  // ***************************
+
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
+    ~modm~ => ~MODRON_MONO~
+    ~modq~ => ~MODRON_QUAD_MELEE~
+    ~modr~ => ~MODRON_QUAD_RANGED~
+    ~clow~ => ~DRONE_LIGHT~
+    ~chigh~ => ~DRONE_HEAVY~
+    ~cwiz~ => ~DRONE_WIZARD~
+  END
+  ACTION_PHP_EACH anims AS folder => symbol BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7000 RET slot END
+    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+    COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
+    OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
+    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
+  END
+
+  // Gelugon animation
+  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/a7#mrav2.bmp~ ~override~
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 RET slot END
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%hexNumber%.ini~
+  OUTER_SET slot_gelugon = slot   // save animation slot number for later
+  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% RAVER_BLUE~
+
+  // Black Cornugon animation
+  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/a7#mcor2.bmp~ ~override~
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe0e0 RET slot END
+  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
+  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%hexNumber%.ini~
+  OUTER_SET slot_cornugon = slot   // save animation slot number for later
+  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% CORNUGON_BLACK~
+
+  // Abishai animations
+  ACTION_FOR_EACH folder IN ~abishai_black~ ~abishai_green~ ~abishai_red~ BEGIN
+    COPY ~%MOD_FOLDER%/creatures/animations/%folder%~ ~override~
+  END
+
+  // Shared animation stuff
+  COPY ~%MOD_FOLDER%/creatures/animations/shared~ ~override~
+
+  COPY_EXISTING ~race.ids~ ~override~
+    LPF ADD_IDS_ENTRY INT_VAR index = 16 STR_VAR symbol = ~DRONE~ RET race_drone = index END
+    LPF ADD_IDS_ENTRY INT_VAR index = 44 STR_VAR symbol = ~MODRON~ RET race_modron = index END
+  CLEAR_IDS_MAP
+
+  OUTER_SET slot_cor = IDS_OF_SYMBOL(~ANIMATE~ ~CORNUGON~)
+  OUTER_SET slot_erin = IDS_OF_SYMBOL(~ANIMATE~ ~MAGE_FEMALE_ELF~)
+  OUTER_SET slot_abb = IDS_OF_SYMBOL(~ANIMATE~ ~ABISHAI_BLACK~)
+  OUTER_SET slot_abg = IDS_OF_SYMBOL(~ANIMATE~ ~ABISHAI_GREEN~)
+  OUTER_SET slot_abr = IDS_OF_SYMBOL(~ANIMATE~ ~ABISHAI_RED~)
+  OUTER_SET slot_imp = IDS_OF_SYMBOL(~ANIMATE~ ~IMP~)
+
+
+  // *****************
+  // *** Creatures ***
+  // *****************
+
+  COPY ~%MOD_FOLDER%/creatures/a7#cwiz.cre~ ~override~
+    SAY NAME1 @1000 // Wizard Construct
+    SAY NAME2 @1000 // Wizard Construct
+    WRITE_LONG 0x28 slot_cwiz
+    WRITE_BYTE 0x272 race_drone
+
+  COPY ~%MOD_FOLDER%/creatures/a7#chigh.cre~ ~override~
+    SAY NAME1 @1010 // High Threat Construct
+    SAY NAME2 @1010 // High Threat Construct
+    WRITE_LONG 0x28 slot_chigh
+    WRITE_BYTE 0x272 race_drone
+
+  COPY ~%MOD_FOLDER%/creatures/a7#clow.cre~ ~override~
+    SAY NAME1 @1020 // Low Threat Construct
+    SAY NAME2 @1020 // Low Threat Construct
+    WRITE_LONG 0x28 slot_clow
+    WRITE_BYTE 0x272 race_drone
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrm.cre~ ~override~
+    SAY NAME1 @1030 // Modron
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modm
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrmo.cre~ ~override~
+    SAY NAME1 @1031 // Rogue Modron
+    SAY NAME2 @1031 // Rogue Modron
+    WRITE_LONG 0x28 slot_modm
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrm1.cre~ ~override~
+    SAY NAME1 @1032 // Modron Laborer
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modm
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrq.cre~ ~override~
+    SAY NAME1 @1030 // Modron
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modq
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrqo.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#mdrqp.cre~ ~override~
+    SAY NAME1 @1031 // Rogue Modron
+    SAY NAME2 @1031 // Rogue Modron
+    WRITE_LONG 0x28 slot_modq
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrq1.cre~ ~override~
+    SAY NAME1 @1033 // Modron Guard
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modq
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrq2.cre~ ~override~
+    SAY NAME1 @1034 // Modron Director
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modq
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrq3.cre~ ~override~
+    SAY NAME1 @1035 // Modron Guide
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modq
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrr.cre~ ~override~
+    SAY NAME1 @1030 // Modron
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modr
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrro.cre~ ~override~
+    SAY NAME1 @1031 // Rogue Modron
+    SAY NAME2 @1031 // Rogue Modron
+    WRITE_LONG 0x28 slot_modr
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#mdrr1.cre~ ~override~
+    SAY NAME1 @1036 // Modron Worker
+    SAY NAME2 @1030 // Modron
+    WRITE_LONG 0x28 slot_modr
+    WRITE_BYTE 0x272 race_modron
+
+  COPY ~%MOD_FOLDER%/creatures/a7#gelu.cre~ ~override~
+    SAY NAME1 @1041 // Gelugon Mastermind
+    SAY NAME2 @1040 // Gelugon
+    WRITE_LONG 0x28 slot_gelugon
+
+  COPY ~%MOD_FOLDER%/creatures/a7#abb.cre~ ~override~
+    SAY NAME1 @1050 // Black Abishai
+    SAY NAME2 @1050 // Black Abishai
+
+  COPY ~%MOD_FOLDER%/creatures/a7#abg.cre~ ~override~
+    SAY NAME1 @1060 // Green Abishai
+    SAY NAME2 @1060 // Green Abishai
+
+  COPY ~%MOD_FOLDER%/creatures/a7#abr.cre~ ~override~
+    SAY NAME1 @1070 // Red Abishai
+    SAY NAME2 @1070 // Red Abishai
+
+  COPY ~%MOD_FOLDER%/creatures/a7#cor.cre~ ~override~
+    SAY NAME1 #68099  // Cornugon
+    SAY NAME2 #68100  // Cornugon
+
+  COPY ~%MOD_FOLDER%/creatures/a7#cor1.cre~ ~override~
+    SAY NAME1 @1080   // Cornugon Taskmaster
+    SAY NAME2 #68100  // Cornugon
+    WRITE_LONG 0x28 slot_cornugon
+
+  COPY ~%MOD_FOLDER%/creatures/a7#erin.cre~ ~override~
+    SAY NAME1 #70635  // Erinyes
+    SAY NAME2 #70636  // Erinyes
+
+  COPY ~%MOD_FOLDER%/creatures/a7#imp.cre~ ~override~
+    SAY NAME1 #35009  // Imp
+    SAY NAME2 #35011  // Imp
+
+  COMPILE ~%MOD_FOLDER%/scripts/a7#good.baf~
+          ~%MOD_FOLDER%/scripts/a7#evil.baf~
+          ~%MOD_FOLDER%/scripts/a7#evil2.baf~
+          ~%MOD_FOLDER%/scripts/a7#enmy.baf~
+          ~%MOD_FOLDER%/scripts/a7#imp.baf~
+          ~%MOD_FOLDER%/scripts/a7#abs.baf~
+          ~%MOD_FOLDER%/scripts/a7#erin.baf~
+          ~%MOD_FOLDER%/scripts/a7#cor.baf~
+          ~%MOD_FOLDER%/scripts/a7#cor1.baf~
+          ~%MOD_FOLDER%/scripts/a7#gelu.baf~
+          ~%MOD_FOLDER%/scripts/a7#dron2.baf~
+          ~%MOD_FOLDER%/scripts/a7#dron3.baf~
+          ~%MOD_FOLDER%/scripts/a7#cimp.baf~
+          ~%MOD_FOLDER%/scripts/a7#cabb.baf~
+          ~%MOD_FOLDER%/scripts/a7#cabg.baf~
+          ~%MOD_FOLDER%/scripts/a7#cabr.baf~
+          ~%MOD_FOLDER%/scripts/a7#ccor.baf~
+          ~%MOD_FOLDER%/scripts/a7#cerin.baf~
+          ~%MOD_FOLDER%/scripts/a7#chigh.baf~
+          ~%MOD_FOLDER%/scripts/a7#clow.baf~
+          ~%MOD_FOLDER%/scripts/a7#cwiz.baf~
+          ~%MOD_FOLDER%/scripts/a7#modr.baf~
+          ~%MOD_FOLDER%/scripts/a7#modrq.baf~
+          ~%MOD_FOLDER%/scripts/a7#modrw.baf~
+          ~%MOD_FOLDER%/scripts/a7#mdrm1.baf~
+          ~%MOD_FOLDER%/scripts/a7#ctm1.baf~
+          ~%MOD_FOLDER%/scripts/a7#crng.baf~
+          ~%MOD_FOLDER%/scripts/a7#cdef.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct01a.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct01b.baf~
+
+  COMPILE ~%MOD_FOLDER%/dialogs/a7#dgelu.d~
+          ~%MOD_FOLDER%/dialogs/a7#dcor1.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdrm.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdrq.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdrr.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdr1.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdr2.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdr3.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdr4.d~
+          ~%MOD_FOLDER%/dialogs/a7#dmdr5.d~
+
+  COPY ~%MOD_FOLDER%/portraits/a7#mdrm.bmp~ ~override~
+       ~%MOD_FOLDER%/portraits/a7#mdrq.bmp~ ~override~
+       ~%MOD_FOLDER%/portraits/a7#cor1.bmp~ ~override~
+       ~%MOD_FOLDER%/portraits/a7#gelu.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#mqblt.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#mqxbw.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#erin1.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcor1.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorb.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorb.vvc~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorf.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorf.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#gelu1.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#gelu2.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#gelu3.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum1.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum2.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum3.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum4.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum1.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum2.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum3.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#gate.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fire.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#tel1.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#tgaz.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#aufr.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sp01.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sp01a.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sp01b.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sp01.bmp~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sp01.vvc~ ~override~
+
+  COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
+    SAY NAME1 ~Produce Flame~
+    SAY NAME2 ~Produce Flame~
+
+  COPY ~%MOD_FOLDER%/spells/a7#pain.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@50004) // Wracking Pains
+    END
+
+  // Spells for random monster bonuses
+  COPY ~%MOD_FOLDER%/spells/a7#fx11.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx12.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx13.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx14.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx01.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx02.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx03.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx04.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx05.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx06.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx07.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx08.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx09.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx10.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx11.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx12.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx13.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx14.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx15.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx16.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx17.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx18.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx19.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx20.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx21.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx22.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx23.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx24.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx25.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx26.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx27.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx28.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx29.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx30.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx31.spl~ ~override~
+  COPY ~%MOD_FOLDER%/spells/a7#fx15a.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@50013) // THAC0 Penalty
+    END
+  COPY ~%MOD_FOLDER%/spells/a7#fx16a.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@50014) // Armor Class Penalty
+    END
+
+
+  // *************
+  // *** Areas ***
+  // *************
+
+  // Adding new area type "RUBICON"
+  OUTER_SET area_type_id = 512
+  OUTER_TEXT_SPRINT area_type_name ~RUBICON~
+  COPY_EXISTING ~areatype.ids~ ~override~
+    COUNT_2DA_ROWS 2 numRows
+    SET id = 1
+    FOR (row = 0; row < numRows; ++row) BEGIN
+      READ_2DA_ENTRY row 0 2 value
+      PATCH_IF (IS_AN_INT ~value~) BEGIN
+        PATCH_IF (value > id) BEGIN SET id = value END
+      END
+    END
+    FOR (value = BIT0 ; value < BIT16 ; value <<= 1) BEGIN
+      PATCH_IF (value > id) BEGIN
+        SET area_type_id = value
+        SET value = BIT16
+      END
+    END
+    INSERT_2DA_ROW numRows 2 ~%area_type_id% %area_type_name%~
+
+  // Generic stuff
+  COPY ~%MOD_FOLDER%/sounds/a7#slnt.wav~ ~override~
+
+  ACTION_FOR_EACH pattern IN ~.+\.bam~ ~.+\.wav~ BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~.+\.bam~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+  END
+
+  // Boss Room
+  COMPILE ~%MOD_FOLDER%/scripts/a7#1wz.baf~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1wz.*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
+  COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    READ_LONG 0xbc ofsSongs
+    WRITE_LONG (ofsSongs + 0x00) a7mod
+    WRITE_LONG (ofsSongs + 0x04) a7mod
+    WRITE_LONG (ofsSongs + 0x0c) a7bt
+
+
+  // Engine Room and Foyer
+  COMPILE ~%MOD_FOLDER%/scripts/a7#1en.baf~
+          ~%MOD_FOLDER%/scripts/a7#1fy.baf~
+          ~%MOD_FOLDER%/scripts/a7#rwd1.baf~
+          ~%MOD_FOLDER%/scripts/a7#rwd2.baf~
+          ~%MOD_FOLDER%/scripts/a7#rwd3.baf~
+          ~%MOD_FOLDER%/scripts/a7#rwd4.baf~
+          ~%MOD_FOLDER%/scripts/a7#rwdx.baf~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1\(en\|fy\).*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
+  COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
+  COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
+       ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    READ_LONG 0x54 ofsActors
+    READ_SHORT 0x58 numActors
+    FOR (idx = 0; idx < numActors; ++idx) BEGIN
+      SET ofs = ofsActors + idx * 0x110
+      READ_ASCII (ofs + 0x80) resref (8) NULL
+      PATCH_IF (~%resref%~ STR_EQ ~A7#MDRR1~) BEGIN
+        WRITE_SHORT (ofs + 0x30) slot_modr
+      END ELSE BEGIN
+        WRITE_SHORT (ofs + 0x30) slot_modq
+      END
+    END
+    READ_LONG 0xbc ofsSongs
+    WRITE_LONG (ofsSongs + 0x00) a7mod
+    WRITE_LONG (ofsSongs + 0x04) a7mod
+    WRITE_LONG (ofsSongs + 0x0c) a7bt
+    PATCH_IF (~%SOURCE_RES%~ STR_EQ ~A7#1FY~) BEGIN
+      READ_LONG 0xc4 ofsMaps
+      READ_LONG 0xc8 numMaps
+      PATCH_IF (numMaps > 0) BEGIN
+        SAY (ofsMaps + 0x04) @50009 // Dungeon Maze
+      END
+      PATCH_IF (numMaps > 1) BEGIN
+        SAY (ofsMaps + 0x34 + 0x04) @50010  // Control Center
+      END
+    END
+
+  // Disintegrated room
+  COMPILE ~%MOD_FOLDER%/scripts/a7#1fd.baf~
+  COPY ~%MOD_FOLDER%/areas/a7#gate.bmp~ ~override~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1fd.*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
+  COPY ~%MOD_FOLDER%/areas/a7#1fd.are~ ~override~
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    READ_LONG 0x54 ofsActors
+    READ_SHORT 0x58 numActors
+    FOR (idx = 0; idx < numActors; ++idx) BEGIN
+      SET ofs = ofsActors + idx * 0x110
+      READ_ASCII (ofs + 0x80) resref (8) NULL
+      PATCH_MATCH ~%resref%~ WITH
+        ~A7#COR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_cor END
+        ~A7#ERIN~ BEGIN WRITE_SHORT (ofs + 0x30) slot_erin END
+        ~A7#ABB~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abb END
+        ~A7#ABG~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abg END
+        ~A7#ABR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abr END
+        ~A7#IMP~ BEGIN WRITE_SHORT (ofs + 0x30) slot_imp END
+        DEFAULT
+      END
+    END
+
+    LPF GET_TRIGGER_OFFSET
+    STR_VAR name = ~Portal Info~
+    RET offset
+    END
+    PATCH_IF (offset > 0) BEGIN
+      SAY (offset + 0x64) @50003  // This portal seems to be the source of the devil invasion....
+    END
+
+    READ_LONG 0xbc ofsSongs
+    WRITE_LONG (ofsSongs + 0x00) a7mod
+    WRITE_LONG (ofsSongs + 0x04) a7mod
+    WRITE_LONG (ofsSongs + 0x0c) a7bt
+
+  // Maze rooms
+  COMPILE ~%MOD_FOLDER%/scripts/a7#1xx.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gdn.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gde.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gds.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gdw.baf~
+          ~%MOD_FOLDER%/scripts/a7#ward.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gt1.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gt2.baf~
+          ~%MOD_FOLDER%/scripts/a7#1gt3.baf~
+
+  ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1g[1-3].*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
+  END
+
+  OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
+    OUTER_SET x = grid REM 8
+    OUTER_SET y = grid / 8
+    OUTER_SET type = (grid REM 3) + 1
+    OUTER_TEXT_SPRINT mapNameSrc ~A7#1G%type%~
+    ACTION_IF (grid < 10) BEGIN
+      OUTER_TEXT_SPRINT mapNameDest ~A7#10%grid%~
+    END ELSE BEGIN
+      OUTER_TEXT_SPRINT mapNameDest ~A7#1%grid%~
+    END
+    COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
+      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+      READ_LONG 0x54 ofsActors
+      READ_SHORT 0x58 numActors
+      FOR (idx = 0; idx < numActors; ++idx) BEGIN
+        SET ofs = ofsActors + idx * 0x110
+        READ_ASCII (ofs + 0x80) resref (8) NULL
+        PATCH_MATCH ~%resref%~ WITH
+          ~A7#MDRM~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modm END
+          ~A7#MDRQ~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modq END
+          ~A7#MDRR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modr END
+          ~A7#CLOW~ BEGIN WRITE_SHORT (ofs + 0x30) slot_clow END
+          ~A7#CHIGH~ BEGIN WRITE_SHORT (ofs + 0x30) slot_chigh END
+          ~A7#CWIZ~ BEGIN WRITE_SHORT (ofs + 0x30) slot_cwiz END
+          ~A7#COR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_cor END
+          ~A7#ERIN~ BEGIN WRITE_SHORT (ofs + 0x30) slot_erin END
+          ~A7#ABB~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abb END
+          ~A7#ABG~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abg END
+          ~A7#ABR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abr END
+          ~A7#IMP~ BEGIN WRITE_SHORT (ofs + 0x30) slot_imp END
+          DEFAULT
+        END
+      END
+
+      READ_LONG 0xbc ofsSongs
+      WRITE_LONG (ofsSongs + 0x00) a7mod
+      WRITE_LONG (ofsSongs + 0x04) a7mod
+      WRITE_LONG (ofsSongs + 0x0c) a7bt
+
+      // Connecting rooms
+      READ_SHORT 0x5a numTriggers
+      READ_LONG 0x5c ofsTriggers
+      FOR (dir = 0; dir < 4; ++dir) BEGIN
+        SET ofsTrigger = "-1"
+        SET ofsDoor = "-1"
+        SET ofsTrans = "-1"
+        SET ofsAnim = "-1"
+        PATCH_MATCH dir WITH
+        0 // north
+        BEGIN
+          PATCH_IF (y > 0) BEGIN
+            SET gridDest = (y - 1) * 8 + x
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit1~ RET ofsTrigger = offset END
+          END ELSE BEGIN
+            LPF GET_DOOR_OFFSET STR_VAR name = ~NorthDoor~ RET ofsDoor = offset END
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit1~ RET ofsTrans = offset END
+            LPF GET_ANIMATION_OFFSET STR_VAR name = ~A7#1xDN~ RET ofsAnim = offset END
+          END
+        END
+        1 // east
+        BEGIN
+          PATCH_IF (x < 7) BEGIN
+            SET gridDest = y * 8 + (x + 1)
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit2~ RET ofsTrigger = offset END
+          END ELSE BEGIN
+            LPF GET_DOOR_OFFSET STR_VAR name = ~EastDoor~ RET ofsDoor = offset END
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit2~ RET ofsTrans = offset END
+            LPF GET_ANIMATION_OFFSET STR_VAR name = ~A7#1xDE~ RET ofsAnim = offset END
+          END
+        END
+        2 // south
+        BEGIN
+          PATCH_IF (y < 7) BEGIN
+            SET gridDest = (y + 1) * 8 + x
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit3~ RET ofsTrigger = offset END
+          END ELSE BEGIN
+            LPF GET_DOOR_OFFSET STR_VAR name = ~SouthDoor~ RET ofsDoor = offset END
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit3~ RET ofsTrans = offset END
+            LPF GET_ANIMATION_OFFSET STR_VAR name = ~A7#1xDS~ RET ofsAnim = offset END
+          END
+        END
+        3 // west
+        BEGIN
+          PATCH_IF (x > 0) BEGIN
+            SET gridDest = y * 8 + (x - 1)
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit4~ RET ofsTrigger = offset END
+          END ELSE BEGIN
+            LPF GET_DOOR_OFFSET STR_VAR name = ~WestDoor~ RET ofsDoor = offset END
+            LPF GET_TRIGGER_OFFSET STR_VAR name = ~Exit4~ RET ofsTrans = offset END
+            LPF GET_ANIMATION_OFFSET STR_VAR name = ~A7#1xDW~ RET ofsAnim = offset END
+          END
+        END
+        DEFAULT
+        END
+
+        PATCH_IF (ofsTrigger > 0) BEGIN
+          PATCH_IF (gridDest < 10) BEGIN
+            TEXT_SPRINT name ~A7#10%gridDest%~
+          END ELSE BEGIN
+            TEXT_SPRINT name ~A7#1%gridDest%~
+          END
+          WRITE_ASCIIE (ofsTrigger + 0x38) ~%name%~ (8)
+        END
+        PATCH_IF (ofsDoor > 0) BEGIN
+          WRITE_LONG (ofsDoor + 0x28) (THIS & ` BIT0) // door closed by default
+        END
+        PATCH_IF (ofsTrans > 0) BEGIN
+          WRITE_LONG (ofsTrans + 0x60) (THIS | BIT8)  // travel trigger disabled by default
+        END
+        PATCH_IF (ofsAnim > 0) BEGIN
+          WRITE_LONG (ofsAnim + 0x34) (THIS | BIT0)   // show door animation by default
+        END
+      END
+  END
+
+
+  // *************
+  // *** Items ***
+  // *************
+
+  // Modron Cube
+  COPY ~%MOD_FOLDER%/items/a7#icube.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#ccube.bam~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#mcube.itm~ ~override~
+    SAY NAME1 @2000 // Metal Toy
+    SAY NAME2 @2001 // Modron Cube
+    SAY UNIDENTIFIED_DESC @2002 // ...
+    SAY IDENTIFIED_DESC @2003 // ...
+  COMPILE EVAL ~%MOD_FOLDER%/dialogs/a7#mcube.d~
+
+  COPY_EXISTING ~itemdial.2da~ ~override~
+    LPF ADD_ITEM_DIALOG
+    INT_VAR
+      button_strref = RESOLVE_STR_REF(@2004)  // Use
+      name_strref   = RESOLVE_STR_REF(@2001)  // Modron Cube
+    STR_VAR
+      itm_resref    = ~A7#MCUBE~
+      dlg_resref    = ~A7#MCUBE~
+    END
+  BUT_ONLY
+
+  // Vortex cube
+  COPY ~%MOD_FOLDER%/items/a7#ivtx.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#cvtx.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#gvtx.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#spv1.spl~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#cvtx.itm~ ~override~
+    SAY NAME1 @2060 // Black Cube
+    SAY NAME2 @2061 // Vortex Cube
+    SAY UNIDENTIFIED_DESC @2062 // ...
+    SAY IDENTIFIED_DESC @2063 // ...
+  COMPILE ~%MOD_FOLDER%/dialogs/a7#dvtx.d~
+
+  COPY_EXISTING ~itemdial.2da~ ~override~
+    LPF ADD_ITEM_DIALOG
+    INT_VAR
+      button_strref = RESOLVE_STR_REF(@2004)  // Use
+      name_strref   = RESOLVE_STR_REF(@2061)  // Modron Cube
+    STR_VAR
+      itm_resref    = ~A7#CVTX~
+      dlg_resref    = ~A7#DVTX~
+    END
+  BUT_ONLY
+
+  // Modron Cloaking Device
+  COPY ~%MOD_FOLDER%/items/a7#cclk.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#gclk.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#iclk.bam~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#dclk.itm~ ~override~
+    SAY NAME1 @2110 // Dodecahedron
+    SAY NAME2 @2111 // Modron Cloaking Device
+    SAY UNIDENTIFIED_DESC @2112 // ...
+    SAY IDENTIFIED_DESC @2113 // ...
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@2114) // Protected from Constructs
+    END
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 100  // Protection from creature type
+      parameter1    = race_drone
+    END
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 219  // Attack roll penalty
+      parameter1    = race_modron
+    END
+
+  // Rejuvenation potion
+  COMPILE ~%MOD_FOLDER%/scripts/a7#pot1.baf~
+  COPY ~%MOD_FOLDER%/items/a7#cpot1.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#ipot1.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#pot1.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#pot1.spl~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#pot1.cre~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#pot1.itm~ ~override~
+    SAY NAME2 @2070 // Rejuvenation Potion
+    SAY IDENTIFIED_DESC @2071 // ...
+
+  // Trade items from maze
+  COPY ~%MOD_FOLDER%/items/a7#iclue.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#icoin.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#igood.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#imitm.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#cmitm.bam~ ~override~
+
+  COPY ~%MOD_FOLDER%/items/a7#jclue.itm~ ~override~
+    SAY NAME1 @2010 // Strange Item
+    SAY NAME2 @2011 // A Clue!
+    SAY UNIDENTIFIED_DESC @2012 // ...
+    SAY IDENTIFIED_DESC @2013 // ...
+
+  COPY ~%MOD_FOLDER%/items/a7#jcoin.itm~ ~override~
+    SAY NAME1 @2020 // Weird Item
+    SAY NAME2 @2021 // Bag of Coins
+    SAY UNIDENTIFIED_DESC @2012 // ...
+    SAY IDENTIFIED_DESC @2023 // ...
+
+  COPY ~%MOD_FOLDER%/items/a7#jgood.itm~ ~override~
+    SAY NAME1 @2030 // Bizarre Item
+    SAY NAME2 @2031 // A Goody!
+    SAY UNIDENTIFIED_DESC @2012 // ...
+    SAY IDENTIFIED_DESC @2033 // ...
+
+  COPY ~%MOD_FOLDER%/items/a7#jmitm.itm~ ~override~
+    SAY NAME1 @2040 // Odd Item
+    SAY NAME2 @2041 // A Magic Item!
+    SAY UNIDENTIFIED_DESC @2012 // ...
+    SAY IDENTIFIED_DESC @2043 // ...
+
+  COPY ~%MOD_FOLDER%/items/a7#scrl1.itm~ ~override~
+    SAY NAME2 @2080 // Recycling instructions
+    SAY UNIDENTIFIED_DESC @2081 // ...
+
+  COPY ~%MOD_FOLDER%/creatures/a7#dbdy.cre~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#mdjrn.itm~ ~override~
+    SAY NAME2 @2090 // Notes about Modron Society
+    SAY IDENTIFIED_DESC @2091 // ...
+
+  // Baatezu Wardstone
+  COPY ~%MOD_FOLDER%/items/a7#iward.bam~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#ward.itm~ ~override~
+    SAY NAME1 @2050 // Wardstone
+    SAY NAME2 @2051 // Baatezu Wardstone
+    SAY UNIDENTIFIED_DESC @2052 // ...
+    SAY IDENTIFIED_DESC @2053 // ...
+
+  // Gelugon's spear
+  COPY ~%MOD_FOLDER%/items/a7#isper.bam~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#sper1.itm~ ~override~
+    SAY NAME2 @2100 // Spear of Dread +4
+    SAY IDENTIFIED_DESC @2101 // ...
+
+
+  // Rod of Modron Might
+  COPY ~%MOD_FOLDER%/items/a7#rod1.itm~ ~override~
+    SAY NAME2 @2120 // Rod of Modron Might
+    SAY IDENTIFIED_DESC @2121 // ...
+
+  ACTION_FOR_EACH bam IN ~a7#crod1~ ~a7#irod1~ BEGIN
+    COPY ~%MOD_FOLDER%/items/%bam%.bam~ ~override~
+      LPF UPDATE_PVRZ_INDICES RET original_base_index new_base_index END
+    ACTION_IF (original_base_index >= 0 && new_base_index >= 0) BEGIN
+      LAF INSTALL_PVRZ
+      INT_VAR
+        original_base_index
+        new_base_index
+      STR_VAR
+        source_file = EVAL ~%MOD_FOLDER%/items/mos%original_base_index%.pvrz~
+      END
+    END
+  END
+
+  COPY ~%MOD_FOLDER%/creatures/a7#cwsu.cre~ ~override~
+    SAY NAME1 @1000 // Wizard Construct
+    SAY NAME2 @1000 // Wizard Construct
+    WRITE_LONG 0x28 slot_cwiz
+    WRITE_BYTE 0x272 race_drone
+  COPY ~%MOD_FOLDER%/creatures/a7#chsu.cre~ ~override~
+    SAY NAME1 @1010 // High Threat Construct
+    SAY NAME2 @1010 // High Threat Construct
+    WRITE_LONG 0x28 slot_chigh
+    WRITE_BYTE 0x272 race_drone
+  COPY ~%MOD_FOLDER%/creatures/a7#clsu.cre~ ~override~
+    SAY NAME1 @1020 // Low Threat Construct
+    SAY NAME2 @1020 // Low Threat Construct
+    WRITE_LONG 0x28 slot_clow
+    WRITE_BYTE 0x272 race_drone
+
+  COPY ~%MOD_FOLDER%/items/a7#rod1.eff~ ~override~
+       ~%MOD_FOLDER%/items/a7#csum.2da~ ~override~
+       ~%MOD_FOLDER%/items/a7#clwp.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#chwp.itm~ ~override~
+       ~%MOD_FOLDER%/items/a7#cwwp.itm~ ~override~
+
+
+  // Random treasure: trade goodies (A7#JCOIN, A7#JGOOD, A7#JCLUE, A7#JMITM and A7#POT1)
+  COPY ~%MOD_FOLDER%/items/a7#empty.itm~ ~override~
+  LAF DEFINE_RANDOM_TREASURE_EX INT_VAR chance_0 = 8 STR_VAR treasure = "A7#RDTR1" item_0 = "A7#JCOIN" END
+  LAF DEFINE_RANDOM_TREASURE_EX INT_VAR chance_0 = 10 chance_1 = 8 STR_VAR treasure = "A7#RDTR2" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" END
+  LAF DEFINE_RANDOM_TREASURE_EX INT_VAR chance_0 = 15 chance_1 = 13 chance_2 = 10 STR_VAR treasure = "A7#RDTR3" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" END
+  LAF DEFINE_RANDOM_TREASURE_EX 
+    INT_VAR chance_0 = 10 chance_1 = 10 chance_2 = 8 chance_3 = 5
+    STR_VAR treasure = "A7#RDTR4" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM"
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 15 chance_1 = 15 chance_2 = 13 chance_3 = 8 chance_4 = 3
+    STR_VAR treasure = "A7#RDTR5" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM" item_4 = "A7#POT1"
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 20 chance_1 = 20 chance_2 = 15 chance_3 = 10 chance_4 = 3
+    STR_VAR treasure = "A7#RDTR6" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM" item_4 = "A7#POT1"
+  END
+
+  // Random treasure: reward items (scrolls)
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 5 
+            chance_10 = 10 chance_11 = 5 chance_12 = 5 chance_13 = 5 chance_14 = 5 chance_15 = 5 chance_16 = 5 chance_17 = 5 chance_18 = 5 
+    STR_VAR treasure = "A7#RDR01"
+            item_0 = "SCRL66" item_1 = "SCRL67" item_2 = "SCRL68" item_3 = "SCRL69" item_4 = "SCRL70" item_5 = "SCRL71" item_6 = "SCRL72" item_7 = "SCRL73" item_8 = "SCRL75" item_9 = "SCRL77" 
+            item_10 = "SCRL78" item_11 = "SCRL79" item_12 = "SCRL80" item_13 = "SCRL81" item_14 = "SCRL82" item_15 = "SCRL83" item_16 = "SCRL84" item_17 = "SCRL5U" item_18 = "SCRLA6"
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR02"
+            item_0 = "SCRL85" item_1 = "SCRL86" item_2 = "SCRL87" item_3 = "SCRL89" item_4 = "SCRL90" item_5 = "SCRL91" item_6 = "SCRL93" item_7 = "SCRL96" item_8 = "SCRL95" item_9 = "SCRL96" 
+            item_10 = "SCRL97" item_11 = "SCRL98" item_12 = "SCRL99" item_13 = "SCRL1B" item_14 = "SCRL3G" item_15 = "SCRL6E" item_16 = "SCRL6F" item_17 = "SCRLA2" item_18 = "SCRLA3" item_19 = "SCRLA6"
+            item_20 = ~SCRL1D~ item_21 = ~SCRLA7~ item_22 = ~SCRL1F~ item_23 = ~SCRL1H~ item_24 = ~SCRL1I~ item_25 = ~SCRL1J~ item_26 = ~SCRL1K~ item_27 = ~SCRL1M~ item_28 = ~SCRL1N~ item_29 = ~SCRL1O~ 
+            item_30 = ~SCRL1P~ item_31 = ~SCRL1R~ item_32 = ~SCRL1S~ item_33 = ~SCRL6G~ item_34 = ~SCRL6H~ item_35 = ~SCRL6I~ item_36 = ~SCRL6J~ item_37 = ~SCRL6K~ item_38 = ~SCRLA5~ item_39 = ~SCRL1E~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR03"
+            item_0 = "SCRL1U" item_1 = "SCRL1W" item_2 = "SCRL1X" item_3 = "SCRL1Y" item_4 = "SCRL1Z" item_5 = "SCRL2B" item_6 = "SCRLA8" item_7 = "SCRL5G" item_8 = "SCRL5H" item_9 = "SCRL5I" 
+            item_10 = "SCRL5J" item_11 = "SCRL5L" item_12 = "SCRL5M" item_13 = "SCRL6M" item_14 = "SCRL6N" item_15 = "SCRL6O" item_16 = "SCRL6P" item_17 = "SCRL6Q" item_18 = "SCRL6R" item_19 = "SCRLA1"
+            item_20 = ~SCRL2E~ item_21 = ~SCRL2F~ item_22 = ~SCRL2H~ item_23 = ~SCRL5N~ item_24 = ~SCRL5O~ item_25 = ~SCRL5P~ item_26 = ~SCRL5Q~ item_27 = ~SCRL6S~ item_28 = ~SCRL6T~ item_29 = ~SCRL5T~ 
+            item_30 = ~SCRL6U~ item_31 = ~SCRL6V~ item_32 = ~SCRL6W~ item_33 = ~SCRL6X~ item_34 = ~SCRL6Y~ item_35 = ~SCRL6Z~ item_36 = ~SCRL8X~ item_37 = ~SCRL7B~ item_38 = ~SCRL7C~ item_39 = ~SCRL7D~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR04"
+            item_0 = "SCRL7E" item_1 = "SCRL7F" item_2 = "SCRL7I" item_3 = "SCRL7J" item_4 = "SCRL7K" item_5 = "SCRL7L" item_6 = "SCRL7M" item_7 = "SCRL7O" item_8 = "SCRL7P" item_9 = "SCRL7Q" 
+            item_10 = "SCRL7R" item_11 = "SCRL7S" item_12 = "SCRL7T" item_13 = "SCRL7U" item_14 = "SCRL7V" item_15 = "SCRL7X" item_16 = "SCRL7Y" item_17 = "SCRL7Z" item_18 = "SCRL8B" item_19 = "SCRL7G"
+            item_20 = ~SCRL8D~ item_21 = ~SCRL8E~ item_22 = ~SCRL8F~ item_23 = ~SCRL8G~ item_24 = ~SCRL8H~ item_25 = ~SCRL8I~ item_26 = ~SCRL8J~ item_27 = ~SCRL8L~ item_28 = ~SCRL8M~ item_29 = ~SCRL8N~ 
+            item_30 = ~SCRL8O~ item_31 = ~SCRL8P~ item_32 = ~SCRL8Q~ item_33 = ~SCRL8R~ item_34 = ~SCRL8S~ item_35 = ~SCRL8T~ item_36 = ~SCRL8U~ item_37 = ~SCRL8V~ item_38 = ~SCRL8W~ item_39 = ~SCRLA4~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 5 
+            chance_10 = 4 chance_11 = 4 chance_12 = 4 chance_13 = 4 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 2 chance_19 = 2 
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2 
+    STR_VAR treasure = "A7#RDR05"
+            item_0 = "SCRL8Y" item_1 = "SCRL8Z" item_2 = "SCRL9A" item_3 = "SCRL9B" item_4 = "SCRL9C" item_5 = "SCRL9D" item_6 = "SCRL9E" item_7 = "SCRL9F" item_8 = "SCRL9G" item_9 = "SCRL9H" 
+            item_10 = "SCRL9J" item_11 = "SCRLAP" item_12 = "SCRLAO" item_13 = "SCRLB1" item_14 = "SCRL9L" item_15 = "SCRL9M" item_16 = "SCRL9N" item_17 = "SCRL9P" item_18 = "SCRL9Q" item_19 = "SCRL9R"
+            item_20 = ~SCRL9S~ item_21 = ~SCRL9T~ item_22 = ~SCRL9U~ item_23 = ~SCRL9V~ item_24 = ~SCRL9W~ item_25 = ~SCRL9X~ item_26 = ~SCRL9Y~ item_27 = ~SCRL9Z~ item_28 = ~SCRLB2~ item_29 = ~SCRLB4~ 
+  END
+
+  // Random treasure: reward items (trinkets)
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 2 chance_3 = 5 chance_4 = 5 chance_5 = 2 chance_6 = 5 chance_7 = 5 chance_8 = 2 chance_9 = 5 
+            chance_10 = 5 chance_11 = 2 chance_12 = 5 chance_13 = 5 chance_14 = 3 chance_15 = 5 chance_16 = 5 chance_17 = 3 chance_18 = 5 chance_19 = 5  
+            chance_20 = 3 chance_21 = 5 chance_22 = 5 chance_23 = 3
+    STR_VAR treasure = "A7#RDR11"
+            item_0 = "AMUL02" item_1 = "AMUL05" item_2 = "AMUL06" item_3 = "AMUL07" item_4 = "AMUL09" item_5 = "RING01" item_6 = "RING04" item_7 = "RING10" item_8 = "RING11" item_9 = "RING12" 
+            item_10 = "RING14" item_11 = "POTN32" item_12 = "MISC16" item_13 = "MISC17" item_14 = "MISC18" item_15 = "MISC19" item_16 = "MISC20" item_17 = "MISC21" item_18 = "MISC22" item_19 = "MISC23"
+            item_20 = ~MISC24~ item_21 = ~MISC25~ item_22 = ~MISC26~ item_23 = ~MISC27~
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 5 
+            chance_10 = 4 chance_11 = 4 chance_12 = 4 chance_13 = 4 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 2 chance_19 = 2 
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2 
+    STR_VAR treasure = "A7#RDR12"
+            item_0 = "AMUL04" item_1 = "AMUL08" item_2 = "AMUL10" item_3 = "RING13" item_4 = "RING15" item_5 = "RING16" item_6 = "RING17" item_7 = "RING23" item_8 = "MISC28" item_9 = "MISC29" 
+            item_10 = "MISC30" item_11 = "MISC31" item_12 = "MISC32" item_13 = "MISC33" item_14 = "MISC34" item_15 = "MISC35" item_16 = ~MISC36~ item_17 = ~MISC37~ item_18 = ~POTN08~ item_19 = ~POTN10~ 
+            item_20 = ~POTN17~ item_21 = ~POTN20~ item_22 = ~POTN22~ item_23 = ~POTN27~ item_24 = ~POTN30~ item_25 = ~POTN31~ item_26 = ~POTN40~ item_27 = ~POTN45~ item_28 = ~POTN47~ item_29 = ~MISC97~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 5 
+            chance_10 = 4 chance_11 = 4 chance_12 = 4 chance_13 = 4 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 2 chance_19 = 2 
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2 
+    STR_VAR treasure = "A7#RDR13"
+            item_0 = "AMUL11" item_1 = "AMUL13" item_2 = "RING18" item_3 = "RING21" item_4 = "MISC38" item_5 = "MISC39" item_6 = "MISC40" item_7 = "MISC42" item_8 = "POTN02" item_9 = "POTN03" 
+            item_10 = "POTN04" item_11 = "POTN05" item_12 = "POTN09" item_13 = "POTN12" item_14 = "POTN13" item_15 = "POTN14" item_16 = ~POTN52~ item_17 = ~POTN16~ item_18 = ~POTN18~ item_19 = ~POTN19~ 
+            item_20 = ~POTN21~ item_21 = ~POTN24~ item_22 = ~POTN26~ item_23 = ~POTN28~ item_24 = ~POTN29~ item_25 = ~POTN34~ item_26 = ~POTN36~ item_27 = ~POTN37~ item_28 = ~POTN38~ item_29 = ~POTN43~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 5 
+            chance_10 = 4 chance_11 = 4 chance_12 = 4 chance_13 = 4 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 2 chance_19 = 2 
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2 
+    STR_VAR treasure = "A7#RDR14"
+            item_0 = "AMUL01" item_1 = "AMUL14" item_2 = "AMUL15" item_3 = "AMUL19" item_4 = "AMUL21" item_5 = "AMUL22" item_6 = "AMUL23" item_7 = "AMUL25" item_8 = "BDAMUL02" item_9 = "RING02" 
+            item_10 = "RING05" item_11 = "RING06" item_12 = "RING19" item_13 = "RING27" item_14 = "RING28" item_15 = "RING29" item_16 = ~RING31~ item_17 = ~RING35~ item_18 = ~RING36~ item_19 = ~RING40~ 
+            item_20 = ~MISC41~ item_21 = ~MISC43~ item_22 = ~MISC44~ item_23 = ~MISC45~ item_24 = ~MISC6Z~ item_25 = ~POTN06~ item_26 = ~POTN07~ item_27 = ~POTN11~ item_28 = ~POTN41~ item_29 = ~BELT02~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 2 chance_3 = 5 chance_4 = 5 chance_5 = 2 chance_6 = 5 chance_7 = 5 chance_8 = 2 chance_9 = 5 
+            chance_10 = 5 chance_11 = 2 chance_12 = 5 chance_13 = 5 chance_14 = 3 chance_15 = 5 chance_16 = 5 chance_17 = 3 chance_18 = 5 chance_19 = 5  
+            chance_20 = 3 chance_21 = 5 chance_22 = 5 chance_23 = 3
+    STR_VAR treasure = "A7#RDR15"
+            item_0 = "AMUL12" item_1 = "AMUL17" item_2 = "RING07" item_3 = "RING08" item_4 = "RING34" item_5 = "RING41" item_6 = "RING42" item_7 = "MISC45" item_8 = "BELT06" item_9 = "BELT07" 
+            item_10 = "BELT08" item_11 = "BOOT12" item_12 = "BRAC07" item_13 = "BRAC10" item_14 = "BRAC15" item_15 = "HELM16" item_16 = ~HELM19~ item_17 = ~HELM20~ item_18 = ~HELM26~ item_19 = ~CLCK01~ 
+            item_20 = ~CLCK26~ item_21 = ~WAND04~ item_22 = ~WAND11~ item_23 = ~WAND13~
+  END
+
+  // Random treasure: reward items (magic items, weapons, armor, ...)
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 5 
+            chance_10 = 3 chance_11 = 5 chance_12 = 5 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 5  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2
+    STR_VAR treasure = "A7#RDR21"
+            item_0 = "AX1H02" item_1 = "BLUN03" item_2 = "BLUN05" item_3 = "BLUN07" item_4 = "OHBLUN50" item_5 = "BOW04" item_6 = "BOW06" item_7 = "CHAN02" item_8 = "CHAN05" item_9 = "DAGG02" 
+            item_10 = "HALB02" item_11 = "HAMM02" item_12 = "LEAT02" item_13 = "LEAT05" item_14 = "PLAT10" item_15 = "SHLD17" item_16 = "SHLD02" item_17 = "SHLD04" item_18 = "SHLD06" item_19 = "SLNG02" 
+            item_20 = "SPER02" item_21 = ~STAF02~ item_22 = ~SW1H02~ item_23 = ~SW1H05~ item_24 = ~SW1H08~ item_25 = ~SW1H22~ item_26 = ~SW1H47~ item_27 = ~SW1H49~ item_28 = ~SW2H02~ item_29 = ~XBOW02~ 
+            item_30 = ~XBOW05~
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR22"
+            item_0 = "AX1H11" item_1 = "BLUN13" item_2 = "BLUN21" item_3 = "BLUN15" item_4 = "BOW02" item_5 = "BOW18" item_6 = "BRAC18" item_7 = "CHAN08" item_8 = "CHAN12" item_9 = "CLCK01" 
+            item_10 = "CLCK09" item_11 = "CLCK10" item_12 = "CLCK11" item_13 = "DAGG15" item_14 = "HALB07" item_15 = "HAMM03" item_16 = "HAMM08" item_17 = "HELM05" item_18 = "LEAT03" item_19 = "LEAT07"
+            item_20 = ~LEAT11~ item_21 = ~LEAT15~ item_22 = ~PLAT02~ item_23 = ~PLAT05~ item_24 = ~PLAT14~ item_25 = ~SHLD28~ item_26 = ~SHLD29~ item_27 = ~SHLD30~ item_28 = ~SLNG04~ item_29 = ~SPER03~ 
+            item_30 = ~SPER05~ item_31 = ~STAF06~ item_32 = ~STAF07~ item_33 = ~SW1H03~ item_34 = ~SW1H34~ item_35 = ~SW1H41~ item_36 = ~SW1H09~ item_37 = ~SW1H44~ item_38 = ~XBOW07~ item_39 = ~XBOW09~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR23"
+            item_0 = "AX1H05" item_1 = "BELT02" item_2 = "BELT03" item_3 = "BELT04" item_4 = "BLUN18" item_5 = "BLUN17" item_6 = "BLUN23" item_7 = "BOW16" item_8 = "BOW17" item_9 = "BOW14" 
+            item_10 = "CHAN09" item_11 = "CHAN13" item_12 = "CLCK12" item_13 = "CLCK13" item_14 = "CLCK14" item_15 = "DAGG03" item_16 = "DART08" item_17 = "HALB08" item_18 = "HAMM04" item_19 = "HELM04"
+            item_20 = ~HELM06~ item_21 = ~LEAT09~ item_22 = ~LEAT12~ item_23 = ~PLAT19~ item_24 = ~SHLD24~ item_25 = ~SHLD26~ item_26 = ~SHLD07~ item_27 = ~SLNG03~ item_28 = ~SLNG07~ item_29 = ~SPER09~ 
+            item_30 = ~STAF18~ item_31 = ~SW1H42~ item_32 = ~SW1H24~ item_33 = ~SW1H37~ item_34 = ~SW1H27~ item_35 = ~SW1H23~ item_36 = ~SW1H55~ item_37 = ~SW2H11~ item_38 = ~XBOW17~ item_39 = ~XBOW18~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 3 chance_1 = 3 chance_2 = 3 chance_3 = 3 chance_4 = 3 chance_5 = 3 chance_6 = 3 chance_7 = 3 chance_8 = 3 chance_9 = 3 
+            chance_10 = 3 chance_11 = 3 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 3 chance_19 = 3  
+            chance_20 = 2 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2 chance_28 = 2 chance_29 = 2  
+            chance_30 = 2 chance_31 = 2 chance_32 = 2 chance_33 = 2 chance_34 = 2 chance_35 = 2 chance_36 = 2 chance_37 = 2 chance_38 = 2 chance_39 = 2  
+    STR_VAR treasure = "A7#RDR24"
+            item_0 = "AMUL21" item_1 = "AX1H09" item_2 = "BELT07" item_3 = "BLUN28" item_4 = "BLUN34" item_5 = "BLUN22" item_6 = "BOW10" item_7 = "BOW13" item_8 = "BOW15" item_9 = "BRAC19" 
+            item_10 = "CHAN14" item_11 = "CLCK15" item_12 = "CLCK16" item_13 = "CLCK17" item_14 = "DAGG12" item_15 = "DAGG13" item_16 = "HALB05" item_17 = "HAMM06" item_18 = "HELM03" item_19 = "LEAT14"
+            item_20 = ~LEAT17~ item_21 = ~LEAT20~ item_22 = ~PLAT12~ item_23 = ~PLAT13~ item_24 = ~PLAT15~ item_25 = ~SHLD25~ item_26 = ~SHLD27~ item_27 = ~SHLD23~ item_28 = ~SLNG05~ item_29 = ~SPER08~ 
+            item_30 = ~STAF08~ item_31 = ~SW1H39~ item_32 = ~SW1H28~ item_33 = ~SW1H52~ item_34 = ~SW1H45~ item_35 = ~SW2H06~ item_36 = ~WA2HALB~ item_37 = ~WA2RING~ item_38 = ~XBOW06~ item_39 = ~XBOW08~ 
+  END
+  LAF DEFINE_RANDOM_TREASURE_EX
+    INT_VAR chance_0 = 5 chance_1 = 5 chance_2 = 5 chance_3 = 5 chance_4 = 5 chance_5 = 5 chance_6 = 5 chance_7 = 5 chance_8 = 5 chance_9 = 3 
+            chance_10 = 3 chance_11 = 5 chance_12 = 3 chance_13 = 3 chance_14 = 3 chance_15 = 3 chance_16 = 3 chance_17 = 3 chance_18 = 2 chance_19 = 5  
+            chance_20 = 5 chance_21 = 2 chance_22 = 2 chance_23 = 2 chance_24 = 2 chance_25 = 2 chance_26 = 2 chance_27 = 2
+    STR_VAR treasure = "A7#RDR25"
+            item_0 = "AMUL28" item_1 = "AX1H16" item_2 = "BELT08" item_3 = "BELT11" item_4 = "BLUN35" item_5 = "BRAC15" item_6 = "BRAC21" item_7 = "BRAC26" item_8 = "CHAN16" item_9 = "CHAN19" 
+            item_10 = "CHAN20" item_11 = "CLCK31" item_12 = "DAGG20" item_13 = "HALB06" item_14 = "LEAT23" item_15 = "LEAT24" item_16 = "PLAT22" item_17 = "SHLD32" item_18 = "SHLD31" item_19 = "SLNG06" 
+            item_20 = "SPER10" item_21 = "STAF11" item_22 = "SW1H77" item_23 = "SW1H66" item_24 = "SW1H67" item_25 = "SW2H09" item_26 = "SW2H21" item_27 = "WA2ROBE" 
+  END
+
+
+  // Adding rogue modrons to Planar Sphere
+  COPY_EXISTING ~ar0411.are~ ~override~
+    LPF GET_TRIGGER_OFFSET
+    STR_VAR name = ~Chapter 6 trap 4~
+    RET offset index
+    END
+    PATCH_IF (offset < 0) BEGIN
+      LPF fj_are_structure
+      INT_VAR
+        fj_type         = 0
+        fj_box_left     = 3163
+        fj_box_top      = 2862
+        fj_box_right    = 3255
+        fj_box_bottom   = 2930
+        fj_trap_detect  = 100
+        fj_trap_remove  = 100
+        fj_trap_active  = 1
+        fj_loc_x        = 1609
+        fj_loc_y        = 642
+        fj_vertex_0     = 3225 << (2862 << 16)
+        fj_vertex_1     = 3163 << (2913 << 16)
+        fj_vertex_2     = 3183 << (2930 << 16)
+        fj_vertex_3     = 3255 << (2883 << 16)
+      STR_VAR
+        fj_structure_type = ~region~
+        fj_name           = ~Chapter 6 trap 4~
+        fj_reg_script     = ~SPWNGOL~
+      RET
+        offset = fj_return_offset
+      END
+    END
+    WRITE_LONG (offset + 0x60) (THIS & ` BIT8)  // make sure trigger is active
+    WRITE_SHORT (offset + 0x6c) (THIS | 1)      // make sure trigger is armed
+    READ_ASCII (offset + 0x7c) spawn_script (8) NULL
+    PATCH_IF (~%spawn_script%~ STR_EQ ~~) BEGIN
+      TEXT_SPRINT spawn_script ~SPWNGOL~
+      WRITE_ASCII (offset + 0x7c) ~SPWNGOL~ (8)
+    END
+  BUT_ONLY
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%spawn_script%.bcs~) BEGIN
+    COPY_EXISTING ~%spawn_script%.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~CreateCreature.+~ ~~
+      END
+  END ELSE BEGIN
+    <<<<<<<< .../inlined/modronmaze/%spawn_script%.baf
+    >>>>>>>>
+    COMPILE ~.../inlined/modronmaze/%spawn_script%.baf~
+  END
+  EXTEND_TOP ~%spawn_script%.bcs~ ~%MOD_FOLDER%/scripts/a7#spwnm.baf~
+
+
+BEGIN @11 // Reduce by 50%
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  SUBCOMPONENT @10 // Reduced experience for killing monsters
+  DESIGNATED 11
+
+  INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
+  LAF REDUCE_XP
+  INT_VAR
+    reduce_by = 50
+    constructs_only = 0
+  END
+
+
+BEGIN @12 // Reduce by 75%
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  SUBCOMPONENT @10 // Reduced experience for killing monsters
+  DESIGNATED 12
+
+  INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
+  LAF REDUCE_XP
+  INT_VAR
+    reduce_by = 75
+    constructs_only = 0
+  END
+
+
+BEGIN @13 // Reduce by 90%
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  SUBCOMPONENT @10 // Reduced experience for killing monsters
+  DESIGNATED 13
+
+  INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
+  LAF REDUCE_XP
+  INT_VAR
+    reduce_by = 90
+    constructs_only = 0
+  END
+
+
+BEGIN @14 // No experience
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  SUBCOMPONENT @10 // Reduced experience for killing monsters
+  DESIGNATED 14
+
+  INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
+  LAF REDUCE_XP
+  INT_VAR
+    reduce_by = 100
+    constructs_only = 0
+  END

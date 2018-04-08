@@ -1,0 +1,181 @@
+// Behavior script: Cornugon Taskmaster
+
+IF
+  OnCreation()
+  Global("A7#BarrierGone","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7#BarrierTimer","LOCALS",TWO_TURNS)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("A7#TaskmasterSpeech","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+END
+
+IF
+  Global("A7#TaskmasterSpeech","LOCALS",0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TaskmasterSpeech","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+
+IF
+  Global("A7#BarrierGone","LOCALS",0)
+  GlobalTimerExpired("A7#BarrierTimer","LOCALS")
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("A7#BarrierGone","LOCALS",1)
+    FaceObject([PC])
+    DisplayStringHead(Myself, @50000) // That's it! I will take care of you myself.
+    Wait(2)
+    SetSequence(SEQ_CAST)
+    SmallWait(5)
+    ScreenShake([20.20],25)
+    CreateVisualEffect("A7#FIRE",[509.602])
+    SmallWait(3)
+    CreateVisualEffect("A7#FIRE",[589.657])
+    SmallWait(5)
+    CreateVisualEffect("A7#FIRE",[576.608])
+    SmallWait(3)
+    CreateVisualEffect("A7#FIRE",[542.706])
+    SmallWait(5)
+    CreateVisualEffect("A7#FIRE",[490.660])
+    DestroyItem("A7#BCOR1")
+    SmallWait(5)
+    OpenDoor("DevilBarrier")
+    Enemy()
+    ChangeAIScript("",OVERRIDE)
+    ChangeAIScript("A7#COR",RACE)
+    ChangeAIScript("A7#EVIL2",DEFAULT)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("conjure","LOCALS")
+  Global("A7#BarrierGone","LOCALS",0)
+  LevelPartyLT(10)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum1",[408.650])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum1",[542.530])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum1",[772.570])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum1",[685.662])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum1",[586.752])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50001) // Your soul will be mine!
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50002) // Cower in fear, mortal!
+END
+
+IF
+  !GlobalTimerNotExpired("conjure","LOCALS")
+  Global("A7#BarrierGone","LOCALS",0)
+  LevelPartyGT(9)
+  LevelPartyLT(14)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum2",[408.650])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum2",[542.530])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum2",[772.570])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum2",[685.662])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum2",[586.752])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50001) // Your soul will be mine!
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50002) // Cower in fear, mortal!
+END
+
+IF
+  !GlobalTimerNotExpired("conjure","LOCALS")
+  Global("A7#BarrierGone","LOCALS",0)
+  LevelPartyGT(13)
+  LevelPartyLT(18)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[408.650])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[542.530])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[772.570])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[685.662])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[586.752])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50001) // Your soul will be mine!
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50002) // Cower in fear, mortal!
+END
+
+IF
+  !GlobalTimerNotExpired("conjure","LOCALS")
+  Global("A7#BarrierGone","LOCALS",0)
+  LevelPartyGT(17)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[408.650])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[542.530])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[772.570])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[685.662])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    ForceSpellPointRES("a7#sum3",[586.752])
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50001) // Your soul will be mine!
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50002) // Cower in fear, mortal!
+END
+
+IF
+  Global("A7#BarrierGone","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    FaceObject(LastSeenBy(Myself))
+END

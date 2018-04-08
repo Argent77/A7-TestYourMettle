@@ -1,0 +1,517 @@
+// -*- coding: utf-8 -*- 
+
+// Creatures
+@1000 = ~Wizard Construct~
+@1010 = ~High Threat Construct~
+@1020 = ~Low Threat Construct~
+@1030 = ~Modron~
+@1031 = ~Rogue Modron~
+@1032 = ~Modron Laborer~
+@1033 = ~Modron Guard~
+@1034 = ~Modron Director~
+@1035 = ~Modron Guide~
+@1036 = ~Modron Worker~
+@1040 = ~Gelugon~
+@1041 = ~Gelugon Mastermind~
+@1050 = ~Black Abishai~
+@1060 = ~Green Abishai~
+@1070 = ~Red Abishai~
+@1080 = ~Dogreth the Taskmaster~
+
+
+// Items
+@2000 = ~Metal Toy~
+@2001 = ~Modron Cube~
+@2002 = ~This small metal toy is a replica of a cube-like creature with huge eyes on one of its faces. The toy has two legs, two arms, two folding wings, and at least eighteen points of articulation. Maybe it's a collector's item.
+
+STATISTICS:
+
+Weight: 1~
+@2003 = ~This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. The intricacy of this artifact is incredible; its joints are composed of tiny gears, cogs, pulleys, and swivel joints, and there are even tiny springs on the legs that help support the feet. There is a little switch on the back that moves the eyes back and forth, and the wings are made of some tissue-like metal that folds up neatly when the wings are flush with the body. Artifacts like these are commonly infused with magic, which activates when certain conditions are met.
+
+STATISTICS:
+
+Weight: 1~
+@2004 = ~Use~
+
+@2010 = ~Strange Item~
+@2011 = ~A Clue!~
+@2012 = ~This item doesn't appear to have any apparent use. You have found it in the modron maze.
+
+STATISTICS:
+
+Weight: 0~
+@2013 = ~This cryptic piece of parchment simply states:
+
+"You now have a better understanding of what is going on..."
+
+There is a small code "C#1793" scribbled on the back of the parchment.
+
+STATISTICS:
+
+Weight: 0~
+
+@2020 = ~Weird Item~
+@2021 = ~Bag of Coins~
+@2023 = ~A small bag filled with some strange coins. The coins have unusual pictures and writing on them. They don't appear to be of any value.
+
+There is a small code engraved on each coin: M#3164.
+
+STATISTICS:
+
+Weight: 0~
+
+@2030 = ~Bizarre Item~
+@2031 = ~A Goody!~
+@2033 = ~It looks like a small stone rod of some sort. Interesting, but useless.
+
+The code "G#5886" has been etched onto the bottom of the rod.
+
+STATISTICS:
+
+Weight: 0~
+
+@2040 = ~Odd Item~
+@2041 = ~A Magic Item!~
+@2043 = ~It's something, but Mechanus be damned if you can figure out what. It does radiate magic however.
+
+You can make out a small marking or code on the side of the item: X#9438.
+
+STATISTICS:
+
+Weight: 0~
+
+@2050 = ~Wardstone~
+@2051 = ~Baatezu Wardstone~
+@2052 = ~Often marked with magical glyphs, runes, or symbols, wardstones are powerfully enchanted items intended to grant their bearer passage through magically guarded areas. As most wardstones are quite unique and specific in their nature, it is rare to find one with more than one purpose.
+
+STATISTICS:
+
+Weight: 1~
+@2053 = ~This wardstone was found on the corpse of a high-ranking baatezu devil. It is unnaturally heavy, and touching it triggers a feeling of uneasiness. The glyph etched deep into this wardstone is difficult to discern. It burns into your eyes whenever you look at it, which makes it difficult to examine it more closely. However, it is most likely used to gain access to an important region of the dungeon.
+
+STATISTICS:
+
+Weight: 1~
+
+@2060 = ~Black Cube~
+@2061 = ~Vortex Cube~
+@2062 = ~This cube looks rather unremarkable, except for faint swirling markings on each side. It seems to be made from a material that you can't recognize.
+
+STATISTICS:
+
+Weight: 3~
+@2063 = ~This cube is made of an unknown material. It is almost totally black and contains swirling markings on each side. This item is apparently of great importance to the modrons of this construct.
+
+STATISTICS:
+
+Weight: 3~
+
+@2070 = ~Rejuvenation Potion~
+@2071 = ~When consumed, this potion refreshes body and mind of the imbiber as if rested for a full day. The effect is instantaneous, and the potion is destroyed in the process.
+
+The potion draws its power from the surrounding matter of the artificial modron construct. It is unlikely to function outside that place.
+
+STATISTICS:
+
+Special: Refreshes spells and fatigue and removes temporary effects as if rested for a day
+
+Weight: 1~
+@2072 = ~Ineffective~
+@2073 = ~Refreshed~
+
+@2080 = ~Recycling instructions~
+@2081 = ~This scroll describes in an excruciatingly detailed way how to use the containers at the entrance area to recycle treasure from the dungeon maze, or in other words, how to trade treasure for usable items.
+
+In a nutshell:
+1. Place one or more treasure items of a given type into a matching container.
+2. Use the recycling console to initiate the recycling process.
+3. Retrieve recycled items from the containers.
+
+Each container accepts only treasure of specific type:
+- Northwest container: Type C
+- Northeast container: Type M
+- Southwest container: Type G
+- Southeast container: Type X
+
+The amount of treasure placed into a container determines the worth of the resulting items.~
+
+@2090 = ~Notes about Modron Society~
+@2091 = ~This tattered journal seems to be a collection of notes about the society of modrons, written down by an anonymous scholar.
+
+"I have lived for many years on Mechanus, the home plane of the modrons. Although I could find out everything about their physiology that can be found out without divine support, I have still trouble understanding their thought processes. This is what I could gather so far:
+
+To understand modron society, one must abandon all understanding of the 'self'. It is a fundamental property of the modrons that each rank can only comprehend the existence of the rank directly above and below it. For example, the monodrones obey the will of the duodrones, but they cannot even conceive of the existence of the tridrones. When a monodrone sees a tridrone, it does not see a modron, and it could not even say what it sees. Some aphasia apparently breaks the link between the sight of the higher modron and what it actually is. This blindness leads to an interesting conclusion, as each rank believes that those immediately above it are the highest form of life and the fountainhead of supreme logic.
+
+There is an awareness of all ranks below a modron's station, yet communication is exclusively limited to adjacent ranks. It would seem that the monodrone is almost as alien to the tridrone as the tridrone is to the monodrone. This is not the result of elitism. Rather, the strict order observed by the race completely negates the slightest necessity for communication beyond immediate inferiors and superiors.
+
+A modron's perception of its immediate superiors should not be mistaken for deification, either. What others might call a god, the modrons cannot imagine, for they are unable to conceive of such an individual existence. Instead, all life and direction spring from a pool of logical action – all that is right happens because it must inescapably be, and all that is wrong is that which must not be. These metal limitations make dealings with modrons a challenge.
+
+(I have noticed however, modrons that are cut off from the source on Mechanus adjust their command chain very quickly. Otherwise they would cease to function if no modrons of adjacent ranks are present to tell them what to do. So it is possible that a duodrone becomes aware of a pentadrone, and a quadrone may give orders directly to a monodrone.)
+
+Within each rank there is no individuality, either in form or thought. All modrons call themselves "we", and a character has no way of knowing if the pentadrone he spoke to today is the same as the one who held the same post yesterday.
+
+Even the size of modron society is rigidly fixed. In each rank there are only a set number of modrons. Should a modron of any rank die, an available candidate from the next lowest rank is promoted, and then the gap in the lower rank is filled by promoting from the still lower rank. This continues until the rank of monodrone is reached. With no lower ranks, the creatures at this level reproduce by fission, as one of their members mysteriously divides into two. (Given this, the claim that all modrons are one might be truer than it first seems.)
+
+From greatest to least, the castes of the modrons are as follows. The hierarch modrons consist of Primus (the absolute ruler of all modrons), secundi, tertians, quartons, quintons, hextons, septons, octons, nonatons and decatons. The base modrons consist of pentadrones, quadrones, tridrones, duodrones and monodrones."
+
+The remainder of the notes deals with information about Mechanus, the physiology of modrons and many other topics that are of no particular relevance to you.
+
+However, one section of the appendix draws your interest. It deals with the various language codes used by the modron society. You should keep the notes close, as they might help you to improve communication with the modrons.~
+
+@2100 = ~Spear of Dread +4~
+@2101 = ~Forged in the frozen depths of Cania, the eighth circle of the Nine Hells, this weapon radiates an aura of cold hatred and malice that represents both the nature of its origin as well as the mindset of its former master. The spear strikes its victim with magically enhanced damage and inflicts additional freezing pain that travels through the whole body to the very core. Moreover, each hit seems to fill the victim's mind with dread and fear that slows their reflexes or halts them altogether.
+
+STATISTICS:
+
+Combat abilities:
+– 75% chance target must save vs. Death with a -4 penalty or be slowed for three rounds
+- 25% chance target must save vs. Death with a -4 penalty or be stunned for one round
+
+THAC0: +4
+Damage: 1d6+4 (piercing), +1d6 cold damage
+Speed Factor: 2
+Proficiency Type: Spear 
+Type: Two-handed
+Requires:
+ 8 Strength
+
+Weight: 5~
+
+@2110 = ~Dodecahedron~
+@2111 = ~Modron Cloaking Device~
+@2112 = ~This featureless item is shaped like a dodecahedron. It it cold and smooth to the touch and seems to be made from a metallic substance.
+
+STATISTICS:
+
+Weight: 1~
+@2113 = ~This heavy dodecahedron, manufactured on Mechanus, contains a device that wraps the user in a cloud of microscopic particicles. This cloud absorbs thermal energy from the user and thus acts as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation.
+
+STATISTICS:
+
+Charge abilities:
+– Thermo-optic Shroud: Wraps the user in a cloud of heat-absorbing particles, which causes mechanical constructs of modron design to ignore the user.
+  Area of effect: User
+  Duration: One turn
+
+Requires:
+ 9 Intelligence
+
+Weight: 1~
+@2114 = ~Protected from Constructs~
+
+@2120 = ~Rod of Modron Might~
+@2121 = ~This magical rod allows the user to summon 2 to 4 constructs of Modron design to do battle with his enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
+
+STATISTICS:
+
+Charge Abilities:
+– Summon 2 to 4 constructs of Modron design
+  Range: 20 ft.
+  Duration: 1 hour
+
+Requires:
+ 9 Intelligence
+
+Weight: 5~
+
+
+// Dialogs
+
+// Modron Introduction
+@3000 = ~You see a cube with two arms, two legs, and two small wings sprouting from its sides. On the front of the cube is an animated face. As you approach, the creature focuses its eyes upon you.~
+@3001 = ~You see a cube with four arms and two legs sprouting from its sides. On the front of the cube is an animated face. As you approach, the creature focuses its eyes upon you.~
+@3002 = ~You see an orb with two arms and two legs sprouting from its sides. On the front of the orb you can make out a single eye. As you approach, the creature focuses its eye upon you.~
+@3003 = ~This modron has a spherical body with only a single eye. Two arms and two legs are sprouting from its sides. It doesn't appear to notice you.~
+@3004 = ~This modron has a cube-shaped body with two arms, two legs, and two small wings sprouting from its sides. On the front of the cube is an animated face. It is ignoring you completely.~
+@3005 = ~This modron has a cube-shaped body with four arms and two legs. On the front of the cube is an animated face. It is ignoring you completely.~
+
+// Modron Generic
+@3500 = ~Greetings.~
+@3501 = ~Direct your questions to the director.~
+@3502 = ~You may find the director in the control center.~
+@3503 = ~I have some questions...~
+@3504 = ~Never mind, I must be going. Farewell.~
+@3505 = ~Where do I find the director?~
+@3506 = ~I must be going now. Farewell.~
+@3507 = ~State your question.~
+@3508 = ~Who are you?~
+@3509 = ~What are you?~
+@3510 = ~What is this place?~
+@3511 = ~What are you doing here?~
+@3512 = ~We are modron.~
+@3513 = ~Your name is modron?~
+@3514 = ~We are modron. We do not have a name. We are modron. All that you see here are modron. We are one.~
+@3515 = ~Alright. I have more questions...~
+@3516 = ~We are modron, we are quadrone.~
+@3517 = ~What is a modron?~
+@3518 = ~What is a quadrone?~
+@3519 = ~We are modron. Our race is identified as such.~
+@3520 = ~Then what is a quadrone?~
+@3521 = ~Within our race, we are identified as type quadrone.~
+@3522 = ~Then what is a modron?~
+@3523 = ~Rubikon dungeon construct.~
+@3524 = ~What exactly is that?~
+@3525 = ~Address your query to the director.~
+@3526 = ~Awaiting instructions.~
+@3527 = ~Instructions for what?~
+@3528 = ~Instructions for what tasks need to be performed.~
+@3529 = ~What tasks? Just what is it that you are doing here?~
+@3530 = ~Thank you. Farewell.~
+
+// Modron Director
+@4000 = ~I have found out the source of invasion.~
+@4001 = ~I have returned the vortex cube.~
+@4002 = ~Never mind. Farewell.~
+@4003 = ~What is this place again?~
+@4004 = ~Are there any dangers associated with Rubikon that I should be aware of?~
+@4005 = ~May I take part in the Rubikon project?~
+@4006 = ~Can you tell me again how I can help you?~
+@4007 = ~What can you tell me about the cube-like toy creature in my possession?~
+@4008 = ~Never mind. I must be going now. Farewell.~
+@4009 = ~Alright. I have more questions...~
+@4010 = ~I must be going now. Farewell.~
+@4011 = ~This is the Rubikon Dungeon Construct Project®.~
+@4012 = ~What is the Rubikon Dungeon Construct Project®?~
+@4013 = ~Can you tell me again what is the Rubikon Dungeon Construct Project®?~
+@4014 = ~Rubikon: Project goal is to determine the dynamics, both social and asocial, surrounding the environment commonly construed as a dungeon and to attempt to explain the aberrations that tend to occur in such environments.~
+@4015 = ~How do you do that?~
+@4016 = ~What aberrations are you talking about?~
+@4017 = ~Rubikon is capable of forming a series of rooms linked in such a fashion as to form what is commonly referred to as a *dungeon*. The dungeon is populated with monsters, traps and treasure.~
+@4018 = ~Each section of the dungeon is created dynamically on demand and adjusts difficulty based on the experience level of the adventurer who takes part in it. After creation the dungeon section can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance afterwards.~
+@4019 = ~Recycled?~
+@4020 = ~You said something about aberrations?~
+@4021 = ~I am an adventurer. May I try out your dungeon experiment?~
+@4022 = ~The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console can be found in the northwest corner of the Entrance to Rubikon.~
+@4023 = ~Queries to be answered: What attracts people to dungeons? Why do people often seek to enter them if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand.~
+@4024 = ~Interesting. May I try out your dungeon experiment?~
+@4025 = ~Yes. Do not become separated from any companions while in the maze. Each individual section of the maze is generated and reset on demand. Anyone left would be killed when the area is reset.~
+@4026 = ~I see... I will not leave anyone or anything behind. Anything else?~
+@4027 = ~I'll keep that in mind. May I try out your dungeon experiment?~
+@4028 = ~Yes. Do not drop items or equipment in the maze. It will be destroyed when the area of the maze is reset.~
+@4029 = ~I see... I will not drop anything of importance. If the area of the maze is reset, anything left would be destroyed. Anything else?~
+@4030 = ~No... (The modron pauses for a moment.) No, there is nothing else.~
+@4031 = ~I see. May I try out your dungeon experiment?~
+@4032 = ~(There is a significant pause before the modron answers you.) Request denied... Project is showing signs of abnormal behavior.~
+@4033 = ~(There is another pause before the modron continues.) We have lost partial control over the Rubikon Dungeon Construct Project®.~
+@4034 = ~How did you lose control?~
+@4035 = ~I see. I have more questions...~
+@4036 = ~Interesting. I must be going now. Farewell.~
+@4037 = ~We do not know. Access to the dungeon construct has been restricted by an unknown force. A modron squad charged with the task to investigate the abnormality has not yet reported back.~
+@4038 = ~We... (The modron pauses again.) We have also lost our connection to Mechanus. Without further instructions from our superiors we are unable to solve the problem.~
+@4039 = ~Mechanus?~
+@4040 = ~Mechanus is a plane of perfect law and order. It is our home. Without the vortex cube we are unable to establish a connection to Mechanus.~
+@4041 = ~Vortex cube?~
+@4042 = ~The vortex cube enables us to keep a stable connection to Mechanus. Without the vortex cube we are unable to perform our assigned task or return home after completing the task.~
+@4043 = ~How did you lose the cube?~
+@4044 = ~I see. I have more questions though...~
+@4045 = ~The vortex cube has been taken by an unknown force. It is highly probable that the same force is also responsible for the malfunctions in the Rubikon Dungeon Construct Project®.~
+@4046 = ~Can I do something to help you?~
+@4047 = ~We require help with the following tasks. Determine the nature of the intruders. Restore control over the Rubikon Dungeon Construct Project®. Return the vortex cube to us.~
+@4048 = ~Any idea where I can find the intruders?~
+@4049 = ~How do I restore control over the Rubikon Dungeon Construct Project®?~
+@4050 = ~Where can I find the vortex cube?~
+@4051 = ~I see what I can do. I have more questions though...~
+@4052 = ~Understood. I must be going now. Farewell.~
+@4053 = ~(The room is suddenly filled with a buzzing sound that just as suddenly subsides.) Assistance is welcome. You are granted access to the dungeon construct.~
+@4054 = ~We request your help for the following tasks. Determine the nature of the intruders. Restore control over the Rubikon Dungeon Construct Project®. Return the vortex cube to us.~
+@4055 = ~The intruders have been located in the dungeon construct. We do not know the nature of the intruders. We do not know the source of intrusion.~
+@4056 = ~We do not have enough information to answer your query.~
+@4057 = ~The vortex cube has been taken by an unknown force. It is likely that the vortex cube is still in possession of the force. The current whereabouts of this force is not known to us.~
+@4058 = ~This object is a portal cube. The user is to position the appendages of the portal cube in such manner that it will activate. Once activated, the portal cube will transport the user to whatever destination it was tuned to during its creation.~
+@4059 = ~What's the proper position to activate this one?~
+@4060 = ~Can you tell me again the proper position to activate this one?~
+@4061 = ~The cube is tuned to the following two destinations: Entrance to the Rubikon Dungeon Construct Project®, user's place of origin.~
+@4062 = ~To activate transport to the Entrance of the Rubikon Dungeon Construct Project®, bend the left knee until the leg forms a fifteen-degree angle, unfold both wings to maximum extension, then rotate the right arm 180 degrees in its socket.~
+@4063 = ~To activate transport to the user's place of origin, rotate the right arm 180 degrees to its socket, unfold both wings to maximum extension, then bend the left knee until the leg forms a fifteen-degree angle.~
+@4064 = ~Your knowledge about the nature of the intruders is appreciated. (Again the room is filled with a buzzing sound that subsides as quickly as it came.) Our analysis shows that destroying the leader of the baatezu force allows us to regain control over the Rubikon Dungeon Construct Project®. This task is given to you.~
+@4065 = ~Why me?~
+@4066 = ~Sure, why not? I'll do it.~
+@4067 = ~I'm not interested. Especially if it involves fighting the leader of a devil army.~
+@4068 = ~You are capable of completing the given task. At present there is no alternative available.~
+@4069 = ~I suppose I have no other choice? I'll do it.~
+@4070 = ~I'm not interested. You have to solve it by yourself.~
+@4071 = ~Your help is appreciated. To support you in your task, we have devised a tool that provides protection from the threat constructs of the Rubikon Dungeon Construct Project®.~
+@4072 = ~Thank you. Anything else?~
+@4073 = ~We assume that the vortex cube is in possession of the baatezu leader.~
+@4074 = ~Your decision has been noted. We will further analyze data to find potential errors in our conclusion.~
+@4075 = ~We are grateful. A reward is given to you in exchange for the vortex cube.~
+@4076 = ~(The modron pauses for a moment and there is the buzzing sound again.) Connection with Mechanus has been established. Rubikon Dungeon Construct Project® is on hold until further instructions are given. We will now return home. Farewell, adventurer.~
+
+// Modron Guide
+@5001 = ~Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may request access to Rubikon from the director.~
+@5002 = ~The creature stares at you blankly.~
+@5003 = ~You may find the director in the control center.~
+@5004 = ~What is Rubikon?~
+@5005 = ~What is a dungeon simulator?~
+@5006 = ~Where can I find the director?~
+@5007 = ~Thanks. I'll do that. Farewell.~
+@5008 = ~Nevermind. I've got to go. Farewell.~
+@5009 = ~Where is the control center?~
+@5010 = ~Nevermind. I'll find it on my own. Farewell.~
+@5011 = ~Thanks. I'll do that.~
+@5012 = ~Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may access Rubikon through this door. Please enjoy yourself!~
+@5013 = ~The creature blinks at you but gives no indication it has heard your question.~
+@5014 = ~The creature stares at you without answering.~
+
+// Modron Laborer
+@5501 = ~01011001 01100101 01110011? (Yes?)~
+@5502 = ~01011001 01100101 01110011?~
+@5503 = ~01000010 01111001 01100101. (Farewell.)~
+@5504 = ~Farewell.~
+@5505 = ~01001110 01100001 01101101 01100101? (Who are you?)~
+@5506 = ~Who are you?~
+@5507 = ~01001010 01101111 01100010? (What are you doing?)~
+@5508 = ~What are you doing?~
+@5509 = ~01001111 01101110 01100101. (We are one.)~
+@5510 = ~01010111 01101111 01110010 01101011. (We do work.)~
+@5511 = ~This modron speaks a language you can't comprehend. Maybe someone more knowledgeable can find a way to communicate with it.~
+@5512 = ~You prepare the scholarly notes about modron language codes, as the creature attempts to communicate with you.~
+
+// Cornugon Taskmaster
+@6000 = ~Ah, another clueless adventurer finds its way to the taskmaster. That is good. Guarding the portal is a privilege, but it gets tiresome after a while.~
+@6001 = ~But introductions first. I am Dogreth the Taskmaster. I would ask for your name, but your soul will be mine soon. Then I will know all about you anyway.~
+@6002 = ~Are you responsible for the malfunctions of the dungeon maze?~
+@6003 = ~Do you have the vortex cube in your possession?~
+@6004 = ~The maze? It is of little use to us. But we can still take advantage of it, by keeping the annoying modrons at bay while we are busy with our task. My master certainly thinks so.~
+@6005 = ~So, you know about the vortex cube? Maybe we had a hand or two in its disappearance. The cube is a powerful tool in the right hands. And I can assure you that my master knows how to use it effectively.~
+@6006 = ~But that doesn't concern you. My master is safe behind powerful wards, and only I have the means to overcome them. You will be dead soon, after my servants had their fun with you. I'm certain your soul will make a good trophy for my master.~
+
+// Gelugon Mastermind
+@6500 = ~You have come far, <CHARNAME>. Oh don't look so surprised. Did you really think you could take me unawares?~
+@6501 = ~Who are you?~
+@6502 = ~What do you want?~
+@6503 = ~My true name is not for the likes of you. You may call me "Mastermind". An apt title in a place where all entities are named by their function, don't you think?~
+@6504 = ~Straight to the point. Your directness is a refreshing change when one is surrounded by cunning and deceit.~
+@6505 = ~Power is our goal, <PRO_RACE>. Power enough to expand our dominion in the planes. The race of modrons is a force that can be tapped into. They are obedient creatures without emotions that could get in their way.~
+@6506 = ~Now imagine an endless stream of obedient modrons fighting to the death for our cause in the Blood War. To accomplish this we need control over the source of modrons on Mechanus. Taking over this construct is just a small step towards the realization of this plan.~
+@6507 = ~How do you plan to enter the plane of Mechanus?~
+@6508 = ~Does the vortex cube play a role in your plan?~
+@6509 = ~No more speeches. Prepare yourself!~
+@6510 = ~This is not for you to know, mortal.~
+@6511 = ~You are very perceptive for a <PRO_RACE>. Yes, the vortex cube will be useful indeed when I have uncovered all of its secrets.~
+@6512 = ~Your empty threats don't impress me in the least. I have heard them from you mortals far too often.~
+@6513 = ~I have pondered a while what I would do when you finally reach me. You have fought through a host of my minions, and even defeated my first lieutenant. An impressive deed. You would have made it far in our service.~
+@6514 = ~Alas, you are too volatile for my purposes. It is best that you simply disappear. Perhaps I can put your soul to good use.~
+
+// Vortex Cube
+@8000 = ~The cube is cold to the touch. Whatever magic it might contain, doesn't seem to work in this place.~
+@8001 = ~The cube vibrates slightly in your hands. You have no idea what it could be used for.~
+@8002 = ~The cube is cold to the touch. Even the swirling markings on the sides are barely changing anymore. The magic of the item doesn't seem to work in this place.~
+@8003 = ~The cube vibrates slightly in your hands. It is made of an unusual material and has strange markings on each side.~
+@8004 = ~You inspect the swirling markings on the faces of the cube more closely. They resemble vortices and change their patterns constantly, but you can't determine what function they may serve.~
+@8005 = ~You have no idea what could happen when you reach into one of the vortices. It could throw you onto an alien plane or destroy you utterly. Do you really want to continue?~
+@8006 = ~When you reach into one of the vortices, you are immediately sucked in. For a brief moment there is total blackness to all your senses and you feel your life force being sucked away by the endless void, only to suffer the brutal impact of the outside world a short time later. The cube didn't survive the ride, and you almost didn't make it either.~
+@8007 = ~You decide against tinkering with the cube and put it back into your pack. Discretion is the better part of valor after all.~
+@8008 = ~Put the cube away.~
+@8009 = ~Examine the sides of the cube.~
+@8010 = ~Reach into one of the vortices.~
+@8011 = ~No, it's too dangerous.~
+@8012 = ~Yes, let's do it!~
+
+// Modron Cube
+@9000 = ~Put the cube away.~
+@9001 = ~This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. You notice that the item doesn't emit the low humming and buzzing sounds when you try to manipulate its appendages. There may be something in this location interfering with its operation.~
+@9002 = ~This small metal toy is a replica of a cube-like creature with huge eyes on one of its faces. The toy has two legs, two arms, two folding wings, and at least eighteen points of articulation. Maybe it's a collector's item.~
+@9003 = ~This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. The intricacy of this artifact is incredible; its joints are composed of tiny gears, cogs, pulleys, and swivel joints, and there are even tiny springs on the legs that help support the feet.~
+@9004 = ~Manipulate the toy and look for some sort of effect.~
+@9005 = ~Use the combination that activates transport to the Rubikon dungeon entrance.~
+@9006 = ~Use the combination that activates transport back to the Rubikon dungeon entrance.~
+@9007 = ~Use the combination that activates transport back home.~
+@9008 = ~You bend, twist and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you bend its left knee, the toy makes an odd *pop!* and shudders in your hands...~
+@9009 =  ~The toy's limbs suddenly revert to their original positions with a soft *click*.~
+@9010 = ~The toy makes an odd *pop!* and shudders in your hands.~
+@9011 = ~The toy makes a soft *whir* sound.~
+@9012 = ~The toy *hmmmms* slightly, growing warm to the touch.~
+@9013 = ~There is a *whirrrr,* a *click,* then a blinding white light suddenly explodes in your hands...~
+@9014 = ~Rotate the left arm.~
+@9015 = ~Rotate the right arm.~
+@9016 = ~Extend the left wing.~
+@9017 = ~Extend the right wing.~
+@9018 = ~Bend the right knee.~
+@9019 = ~Bend the left knee.~
+@9020 = ~Wh...!~
+@9021 = ~You manipulate the toy's appendages to activate the portal magic. Before the magic can take effect, it is quickly absorbed by the surrounding matter however. It looks like this area interferes with the magic of the cube. You may have to try again somewhere else.~
+@9022 = ~The special nature of the current area interferes with the portal magic of the cube.~
+@9023 = ~For some reason the cube failed to transport you back to the prime material plane the last time. You try again and focus on places that may be more safe to travel to.~
+@9024 = ~To the Planar Sphere in Athkatlas's Slums.~
+@9025 = ~To Athkatlas's Slums.~
+@9026 = ~To the Underdark.~
+@9027 = ~To Saradush.~
+@9028 = ~To the wilderness near Saradush.~
+@9029 = ~To Amkethran.~
+@9030 = ~Try to figure out the combination for the transport back home.~
+@9031 = ~You bend, twist and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you rotate its right arm, the toy makes an odd *pop!* and shudders in your hands...~
+@9032 = ~There is a *whirrrr,* a *click,* then energy builds up for a moment. But it is quickly absorbed by the surrounding matter. It looks like this area interferes with the magic of the cube. You may have to try again somewhere else.~
+@9033 = ~You try to focus on manipulating the toy's various appendages, but you are too distracted by the combat noise around you.~
+
+
+// Misc.
+@50000 = ~That's it! I will take care of you myself.~
+@50001 = ~Your soul will be mine!~
+@50002 = ~Cower in fear, mortal!~
+@50003 = ~This portal seems to be the source of the devil invasion. A protective barrier prevents you from entering it yourself.~
+@50004 = ~Wracking Pains~
+@50005 = ~Recycling process started.~ [a7#rwdx]
+@50006 = ~Recycling process is still in operation.~
+@50007 = ~The console doesn't appear to be operational.~
+@50008 = ~Goodies recycled.~
+@50009 = ~Dungeon Maze~
+@50010 = ~Control Center~
+@50011 = ~The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.~
+@50012 = ~The console displays a number of unidentifiable symbols. Shortly after a scroll with instructions materializes in your backpack.~
+@50013 = ~THAC0 Penalty~
+@50014 = ~Armor Class Penalty~
+
+
+// Quest entries
+@60000 = ~An alien place~
+@60001 = ~Mazes and Modrons~
+
+@60011 = ~An alien place
+
+The Modron Cube transported me to an alien location, which appears to be inhabited by strange but harmless metal creatures.~
+
+@60012 = ~Mazes and Modrons
+
+No joke, but this place is used by the modrons as a "field test" to help them understand why adventurers are drawn to dungeons.
+
+For this reason they created a freely configurable maze that imitates a dungeon, complete with monsters, traps and everything else that can be found in dungeons. Apparently modrons, being creatures of pure logic, have trouble understanding the way of life of species with a less pronounced relation to law and logic. "Adventurers" seems to be of special interest, as they are drawn to places that may spell certain death for them.~
+
+@60013 = ~Mazes and Modrons
+
+The director of this place told me that they lost control over the dungeon simulator some time ago.
+
+Apparently a group of invaders has infiltrated the maze and stolen a vortex cube from the modrons, which is needed to control the dungeon simulator as well as establish the connection with their home plane Mechanus.~
+
+@60014 = ~Mazes and Modrons
+
+The modrons accepted my offer to help them. I am to find out who invaded the dungeon maze, restore control and return the vortex cube, which has been stolem from them. In return I have been granted access to the dungeon maze.~
+
+@60015 = ~Mazes and Modrons
+
+The modron director mentioned a "Recycling Device" located in the dungeon entrance area. It can be used to exchange dungeon treasure into useful items.~
+
+@60016 = ~Mazes and Modrons
+
+I have found the source of invasion in a partially disintegrated area of the dungeon maze. It was guarded by a host of fiends. Defeating the "Taskmaster" caused the portal to the Nine Hells to collapse.
+
+If the taskmaster of the devils is to believed, I can find the mastermind of the whole operation in a hidden lair behind a magical barrier. The wardstone I found on his dead body should allow me to gain entry. I should report the news to the modron director.~
+
+@60017 = ~Mazes and Modrons
+
+The modrons took the news about the devil invasion in their usual stoic manner.
+
+However, they rewarded my efforts with a unique item that allows me to cloak temporarily from the senses of the hostile drones that are populating the dungeon.~
+
+@60018 = ~Mazes and Modrons
+
+I have finally met the mastermind of the devils. It was a gelugon, a greater baatezu. The theft of the vortex cube was just one step towards a greater plan to take control over the source of modrons on Mechanus. It would allow the devils to produce an endless stream of obedient modron soldiers to fight for them in the Blood War. His death should at least delay their plans somewhat. I should return the cube to the modron director.~
+
+@60100 = ~Mazes and Modrons
+
+I have returned the vortex cube to the modrons. They were grateful in their own way and rewarded me with the Rod of Modron Might. With the cube in their possession they re-established connection with Mechanus and shut down the malfunctioning dungeon construct before returning home.~
+
+@60101 = ~Mazes and Modrons
+
+Curiosity got the better of me and I used the vortex cube myself, which resulted in its destruction. It looks like the modrons will be stuck in the construct of their making a little longer.~

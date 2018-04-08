@@ -1,0 +1,24 @@
+// Component: Reduced experience for killing monsters
+
+DEFINE_ACTION_FUNCTION REDUCE_XP
+INT_VAR
+  reduce_by       = 0   // reduce by "value" (in percent, can be negative)
+  constructs_only = 0   // 1: apply only to constructs, 0: apply to all monsters of the maze
+BEGIN
+  ACTION_IF (reduce_by > 100) BEGIN OUTER_SET reduce_by = 100 END
+  OUTER_SET reduce_by = 100 - reduce_by
+
+  ACTION_IF (constructs_only) BEGIN
+    ACTION_FOR_EACH cre IN ~a7#chigh~ ~a7#clow~ ~a7#cwiz~ BEGIN 
+      COPY_EXISTING ~%cre%.cre~ ~override~
+        WRITE_LONG 0x14 (THIS * reduce_by / 100)
+      BUT_ONLY
+    END
+  END ELSE BEGIN
+    ACTION_FOR_EACH cre IN ~a7#abb~ ~a7#abg~ ~a7#abr~ ~a7#chigh~ ~a7#clow~ ~a7#cwiz~ ~a7#cor~ ~a7#erin~ ~a7#imp~ BEGIN 
+      COPY_EXISTING ~%cre%.cre~ ~override~
+        WRITE_LONG 0x14 (THIS * reduce_by / 100)
+      BUT_ONLY
+    END
+  END
+END

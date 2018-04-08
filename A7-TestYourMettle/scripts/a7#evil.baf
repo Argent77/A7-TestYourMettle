@@ -1,0 +1,254 @@
+// Default combat script (evil)
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  !IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  Range(LastAttackerOf(Myself),8)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  !IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Range(LastAttackerOf(Myself),8)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See([0.0.MODRON])
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See([0.0.MODRON])
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See([0.0.MODRON])
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See([0.0.MODRON])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See(SecondNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See(ThirdNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See(FourthNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See(NearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See(SecondNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See(ThirdNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See(FourthNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(ThirdNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(FourthNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(FifthNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(SixthNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(SecondNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(ThirdNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(FourthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(FifthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See(SixthNearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END

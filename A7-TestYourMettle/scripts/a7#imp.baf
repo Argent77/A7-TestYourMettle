@@ -1,0 +1,455 @@
+// Combat script: Imp
+
+IF
+  OR(3)
+    !Allegiance(Myself,EVILCUTOFF)
+    StateCheck(Myself,STATE_IMMOBILE)
+    StateCheck(Myself,STATE_REALLY_DEAD)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  StateCheck(Myself,STATE_PANIC)
+THEN
+  RESPONSE #100
+    RandomWalkContinuous()
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID.0.FIGHTER])
+  !Class(LastSeenBy(Myself),MONK)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(SecondNearest([GOODCUTOFF.HUMANOID.0.FIGHTER]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID.0.RANGER])
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(SecondNearest([GOODCUTOFF.HUMANOID.0.RANGER]))
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID.0.FIGHTER_ALL])
+  !Class(LastSeenBy(Myself),MONK)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID.0.RANGER_ALL])
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID])
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(SecondNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(ThirdNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(FourthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(FifthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("charm","LOCALS",1)
+  !See([0.0.MODRON])
+  See(SixthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),3,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !HasItemEquiped("HELM06",LastSeenBy(Myself))  // Helmet of Charm Protection
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    IncrementGlobal("charm","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_CHARM_PERSON)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !GlobalTimerNotExpired("invis","LOCALS")
+  !See([0.0.MODRON])
+  Range([GOODCUTOFF],4)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !CheckSpellState(Myself,CANNOT_TURN_INVISIBLE)
+  !CheckStatGT(Player1,0,TRUE_SIGHT)
+  !CheckStatGT(Player2,0,TRUE_SIGHT)
+  !CheckStatGT(Player3,0,TRUE_SIGHT)
+  !CheckStatGT(Player4,0,TRUE_SIGHT)
+  !CheckStatGT(Player5,0,TRUE_SIGHT)
+  !CheckStatGT(Player6,0,TRUE_SIGHT)
+  !CheckStatGT([GOODCUTOFF.0.PLANATAR],0,TRUE_SIGHT)
+  !CheckStatGT([GOODCUTOFF.0.DARKPLANATAR],0,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(Myself,WIZARD_INVISIBILITY)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !GlobalTimerNotExpired("invis","LOCALS")
+  !See([0.0.MODRON])
+  !See([GOODCUTOFF])
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !CheckSpellState(Myself,CANNOT_TURN_INVISIBLE)
+  !CheckStatGT(Player1,0,TRUE_SIGHT)
+  !CheckStatGT(Player2,0,TRUE_SIGHT)
+  !CheckStatGT(Player3,0,TRUE_SIGHT)
+  !CheckStatGT(Player4,0,TRUE_SIGHT)
+  !CheckStatGT(Player5,0,TRUE_SIGHT)
+  !CheckStatGT(Player6,0,TRUE_SIGHT)
+  !CheckStatGT([GOODCUTOFF.0.PLANATAR],0,TRUE_SIGHT)
+  !CheckStatGT([GOODCUTOFF.0.DARKPLANATAR],0,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("invis","LOCALS",ONE_ROUND)
+    ForceSpell(Myself,WIZARD_INVISIBILITY)
+END
+

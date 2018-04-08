@@ -1,0 +1,1465 @@
+// Northern door script (auto-generated)
+
+// Opening WZ Door without effect
+IF
+  OnCreation()
+  AreaCheck("A7#100")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",11)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#101")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#102")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",9)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#103")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",8)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#104")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#105")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#106")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#107")
+  Global("A7#WZOpen","GLOBAL",1)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Continue()
+END
+
+
+// Handling doors to adjacent dungeon areas
+IF
+  OnCreation()
+  AreaCheck("A7#100")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#101")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#102")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#103")
+  OpenState(Myself,TRUE)
+  OR(9)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#104")
+  OpenState(Myself,TRUE)
+  OR(9)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#105")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#106")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#107")
+  OpenState(Myself,TRUE)
+  OR(8)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#108")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#109")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",6)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#110")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#111")
+  OpenState(Myself,TRUE)
+  Global("A7#MazeConfig","GLOBAL",4)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#112")
+  OpenState(Myself,TRUE)
+  Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#113")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#114")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#115")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#116")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#117")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#118")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#119")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#120")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#121")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",5)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#122")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",6)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#123")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#124")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",7)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#125")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#126")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",7)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#127")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#128")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#129")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#130")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#131")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",14)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#132")
+  OpenState(Myself,TRUE)
+  Global("A7#MazeConfig","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#133")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",11)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#134")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#135")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#136")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#137")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#138")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",3)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#139")
+  OpenState(Myself,TRUE)
+  Global("A7#MazeConfig","GLOBAL",9)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#140")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#141")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",14)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#142")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#143")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#144")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#145")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",9)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#146")
+  OpenState(Myself,TRUE)
+  OR(5)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#147")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",14)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#148")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#149")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",2)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#150")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#151")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#152")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",12)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#153")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#154")
+  OpenState(Myself,TRUE)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",8)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#155")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",8)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#156")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#157")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#158")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#159")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#160")
+  OpenState(Myself,TRUE)
+  OR(6)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#161")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",13)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#162")
+  OpenState(Myself,TRUE)
+  OR(4)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",11)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#163")
+  OpenState(Myself,TRUE)
+  OR(3)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",9)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    CloseDoor(Myself)
+    AmbientActivate("A7#1xDN",TRUE)
+    TriggerActivation("Exit1",FALSE)
+    Continue()
+END
+
+
+// Marking WZ Door for first-time opening
+IF
+  OnCreation()
+  AreaCheck("A7#100")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",4)
+    Global("A7#MazeConfig","GLOBAL",11)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#101")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",5)
+    Global("A7#MazeConfig","GLOBAL",10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#102")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",6)
+    Global("A7#MazeConfig","GLOBAL",9)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#103")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",7)
+    Global("A7#MazeConfig","GLOBAL",8)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#104")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",0)
+    Global("A7#MazeConfig","GLOBAL",15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#105")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",1)
+    Global("A7#MazeConfig","GLOBAL",14)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#106")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",2)
+    Global("A7#MazeConfig","GLOBAL",13)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  AreaCheck("A7#107")
+  PartyHasItem("a7#ward")
+  Global("A7#WZOpen","GLOBAL",0)
+  Global("A7#ExitWZ","MYAREA",0)
+  OR(2)
+    Global("A7#MazeConfig","GLOBAL",3)
+    Global("A7#MazeConfig","GLOBAL",12)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",1)
+    Continue()
+END
+
+
+// Opening WZ Door first time with effect
+IF
+  Global("A7#ExitWZ","MYAREA",10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player1)
+    ActionOverride(Player1,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+
+IF
+  Global("A7#ExitWZ","MYAREA",11)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player2)
+    ActionOverride(Player2,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+
+IF
+  Global("A7#ExitWZ","MYAREA",12)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player3)
+    ActionOverride(Player3,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+
+IF
+  Global("A7#ExitWZ","MYAREA",13)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player4)
+    ActionOverride(Player4,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+
+IF
+  Global("A7#ExitWZ","MYAREA",14)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player5)
+    ActionOverride(Player5,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+
+IF
+  Global("A7#ExitWZ","MYAREA",15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ExitWZ","MYAREA",2)
+    SetGlobal("A7#WZOpen","GLOBAL",1)
+    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player6)
+    ActionOverride(Player6,DestroyItem("a7#ward"))
+    SmallWait(5)
+    OpenDoor(Myself)
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+END
+

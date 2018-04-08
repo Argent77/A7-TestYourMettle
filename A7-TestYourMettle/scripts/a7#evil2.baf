@@ -1,0 +1,391 @@
+// Default combat script (intelligent evil)
+
+// IF
+  // !Allegiance(Myself,ENEMY)
+// THEN
+  // RESPONSE #100
+    // Enemy()
+    // Continue()
+// END
+
+IF
+  IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Race(LastAttackerOf(Myself),MODRON)
+  Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Race(LastAttackerOf(Myself),MODRON)
+  !Range(LastAttackerOf(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  !IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Race(LastAttackerOf(Myself),MODRON)
+  Range(LastAttackerOf(Myself),8)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  !IsWeaponRanged(Myself)
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Race(LastAttackerOf(Myself),MODRON)
+  !Range(LastAttackerOf(Myself),8)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastAttackerOf(Myself),30)
+END
+
+IF
+  IsWeaponRanged(Myself)
+  See([0.0.MODRON])
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  CanEquipRanged()
+  See([0.0.MODRON])
+  !Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See([0.0.MODRON])
+  Range(LastSeenBy(Myself),5)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+IF
+  See([0.0.MODRON])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),30)
+END
+
+
+IF
+  OR(6)
+    See(Player1)
+    See(Player2)
+    See(Player3)
+    See(Player4)
+    See(Player5)
+    See(Player6)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  See(NearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(SixthNearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(SixthNearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(SixthNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(SixthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(FifthNearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(FifthNearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(FifthNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(FifthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(FourthNearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(FourthNearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(FourthNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(FourthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(ThirdNearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(ThirdNearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(ThirdNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(ThirdNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(SecondNearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(SecondNearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(SecondNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(SecondNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  !StateCheck(NearestEnemyOf(Myself),STATE_PANIC)
+  CheckStatLT(NearestEnemyOf(Myself),1,STONESKINS)
+  !StateCheck(NearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+  See(NearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+  WeaponEffectiveVs(LastAttackerOf(Myself),MAINHAND)
+  WeaponCanDamage(LastAttackerOf(Myself),MAINHAND)
+  !StateCheck(LastAttackerOf(Myself),STATE_PANIC)
+  !StateCheck(LastAttackerOf(Myself),STATE_MIRRORIMAGE)
+  CheckStatLT(LastAttackerOf(Myself),1,STONESKINS)
+  Range(LastAttackerOf(Myself),8)
+  RandomNum(3,1)
+  See(LastAttackerOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  AttackedBy(NearestEnemyOf(Myself),DEFAULT)
+  WeaponEffectiveVs(LastAttackerOf(Myself),MAINHAND)
+  WeaponCanDamage(LastAttackerOf(Myself),MAINHAND)
+  !StateCheck(LastAttackerOf(Myself),STATE_PANIC)
+  !StateCheck(LastAttackerOf(Myself),STATE_MIRRORIMAGE)
+  CheckStatLT(LastAttackerOf(Myself),1,STONESKINS)
+  Range(LastAttackerOf(Myself),4)
+  See(LastAttackerOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  StateCheck(SixthNearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(SixthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+  StateCheck(FifthNearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(FifthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+  StateCheck(FourthNearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(FourthNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+  StateCheck(ThirdNearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(ThirdNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+  StateCheck(SecondNearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(SecondNearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  StateCheck(NearestEnemyOf(Myself),STATE_IMMOBILE)
+  See(NearestEnemyOf(Myself))
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player6,MAINHAND)
+  WeaponCanDamage(Player6,MAINHAND)
+  StateCheck(Player6,STATE_IMMOBILE)
+  See(Player6)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player5,MAINHAND)
+  WeaponCanDamage(Player5,MAINHAND)
+  StateCheck(Player5,STATE_IMMOBILE)
+  See(Player5)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player4,MAINHAND)
+  WeaponCanDamage(Player4,MAINHAND)
+  StateCheck(Player4,STATE_IMMOBILE)
+  See(Player4)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player3,MAINHAND)
+  WeaponCanDamage(Player3,MAINHAND)
+  StateCheck(Player3,STATE_IMMOBILE)
+  See(Player3)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player2,MAINHAND)
+  WeaponCanDamage(Player2,MAINHAND)
+  StateCheck(Player2,STATE_IMMOBILE)
+  See(Player2)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  WeaponEffectiveVs(Player1,MAINHAND)
+  WeaponCanDamage(Player1,MAINHAND)
+  StateCheck(Player1,STATE_IMMOBILE)
+  See(Player1)
+  False()
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  IsWeaponRanged(Myself)
+  !Range(LastSeenBy(Myself),5)
+  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+THEN
+  RESPONSE #100
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  CanEquipRanged()
+  !Range(LastSeenBy(Myself),5)
+  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  Range(LastSeenBy(Myself),5)
+  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackOneRound(LastSeenBy(Myself))
+END

@@ -1,0 +1,63 @@
+// Cutscene: Approach Mastermind #1
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    SmallWait(15)
+    MoveViewPoint([600.736],VERY_FAST)
+    MoveToPointNoInterrupt([600.736])
+    FaceObject("a7#gelugon")
+    StartCutScene("a7#ct01b")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)
+    SmallWait(20)
+    MoveToPoint([519.742])
+    FaceObject("a7#gelugon")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)
+    SmallWait(15)
+    MoveToPoint([624.800])
+    FaceObject("a7#gelugon")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)
+    SmallWait(25)
+    MoveToPoint([545.803])
+    FaceObject("a7#gelugon")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)
+    SmallWait(30)
+    MoveToPoint([460.804])
+    FaceObject("a7#gelugon")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    SmallWait(25)
+    MoveToPoint([558.882])
+    FaceObject("a7#gelugon")
+END

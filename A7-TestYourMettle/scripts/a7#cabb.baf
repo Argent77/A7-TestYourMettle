@@ -1,0 +1,380 @@
+// Class script: Black Abishai
+
+IF
+  Global("bonus","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("bonus","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx01",Myself) // Luck +1
+    // DisplayString(Myself,~DEBUG: Luck +1~)
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx02",Myself) // Luck +2
+    // DisplayString(Myself,~DEBUG: Luck +2~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Luck~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx01",Myself) // Luck +1
+    // DisplayString(Myself,~DEBUG: Luck +1~)
+    Continue()
+  RESPONSE #30
+    ApplySpellRES("a7#fx02",Myself) // Luck +2
+    // DisplayString(Myself,~DEBUG: Luck +2~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Luck~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx03",Myself) // THAC0 +2
+    // DisplayString(Myself,~DEBUG: THAC0 +2~)
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx04",Myself) // THAC0 +4
+    // DisplayString(Myself,~DEBUG: THAC0 +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No THAC0~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx03",Myself) // THAC0 +2
+    // DisplayString(Myself,~DEBUG: THAC0 +2~)
+    Continue()
+  RESPONSE #30
+    ApplySpellRES("a7#fx04",Myself) // THAC0 +4
+    // DisplayString(Myself,~DEBUG: THAC0 +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No THAC0~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #25
+    ApplySpellRES("a7#fx05",Myself) // Damage +2
+    // DisplayString(Myself,~DEBUG: Damage +2~)
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx06",Myself) // Damage +4
+    // DisplayString(Myself,~DEBUG: Damage +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Damage~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx05",Myself) // Damage +2
+    // DisplayString(Myself,~DEBUG: Damage +2~)
+    Continue()
+  RESPONSE #30
+    ApplySpellRES("a7#fx06",Myself) // Damage +4
+    // DisplayString(Myself,~DEBUG: Damage +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Damage~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #20
+    ApplySpellRES("a7#fx09",Myself) // AC +2
+    // DisplayString(Myself,~DEBUG: AC +2~)
+    Continue()
+  RESPONSE #10
+    ApplySpellRES("a7#fx10",Myself) // AC +4
+    // DisplayString(Myself,~DEBUG: AC +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No AC~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    ApplySpellRES("a7#fx09",Myself) // AC +2
+    // DisplayString(Myself,~DEBUG: AC +2~)
+    Continue()
+  RESPONSE #30
+    ApplySpellRES("a7#fx10",Myself) // AC +4
+    // DisplayString(Myself,~DEBUG: AC +4~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No AC~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #5
+    ApplySpellRES("a7#fx11",Myself) // Inflict fire damage
+    // DisplayString(Myself,~DEBUG: Fire Damage~)
+    Continue()
+  RESPONSE #5
+    ApplySpellRES("a7#fx12",Myself) // Inflict cold damage
+    // DisplayString(Myself,~DEBUG: Cold Damage~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No elemental damage~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx11",Myself) // Inflict fire damage
+    // DisplayString(Myself,~DEBUG: Fire Damage~)
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx12",Myself) // Inflict cold damage
+    // DisplayString(Myself,~DEBUG: Cold Damage~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No elemental damage~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #10
+    ApplySpellRES("a7#fx15",Myself) // Apply THAC0 -4 on critical hit
+    // DisplayString(Myself,~DEBUG: Critical THAC0 -4~)
+    Continue()
+  RESPONSE #10
+    ApplySpellRES("a7#fx16",Myself) // Apply AC -4 on critical hit
+    // DisplayString(Myself,~DEBUG: Critical AC -4~)
+    Continue()
+  RESPONSE #5
+    ApplySpellRES("a7#fx17",Myself) // Apply Blindness on critical hit
+    // DisplayString(Myself,~DEBUG: Critical Blindness~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Critical Effect~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #20
+    ApplySpellRES("a7#fx15",Myself) // Apply THAC0 -4 on critical hit
+    // DisplayString(Myself,~DEBUG: Critical THAC0 -4~)
+    Continue()
+  RESPONSE #20
+    ApplySpellRES("a7#fx16",Myself) // Apply AC -4 on critical hit
+    // DisplayString(Myself,~DEBUG: Critical AC -4~)
+    Continue()
+  RESPONSE #15
+    ApplySpellRES("a7#fx17",Myself) // Apply Blindness on critical hit
+    // DisplayString(Myself,~DEBUG: Critical Blindness~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Critical Effect~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #20
+    ApplySpellRES("a7#fx18",Myself) // HP +25%
+    // DisplayString(Myself,~DEBUG: HP +25%~)
+    Continue()
+  RESPONSE #10
+    ApplySpellRES("a7#fx19",Myself) // HP +50%
+    // DisplayString(Myself,~DEBUG: HP +50%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No HP~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #40
+    ApplySpellRES("a7#fx18",Myself) // HP +25%
+    // DisplayString(Myself,~DEBUG: HP +25%~)
+    Continue()
+  RESPONSE #20
+    ApplySpellRES("a7#fx19",Myself) // HP +50%
+    // DisplayString(Myself,~DEBUG: HP +50%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No HP~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #8
+    ApplySpellRES("a7#fx20",Myself) // Slashing +25%
+    // DisplayString(Myself,~DEBUG: Slashing +25%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Slashing~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx20",Myself) // Slashing +25%
+    // DisplayString(Myself,~DEBUG: Slashing +25%~)
+    Continue()
+  RESPONSE #8
+    ApplySpellRES("a7#fx21",Myself) // Slashing +50%
+    // DisplayString(Myself,~DEBUG: Slashing +50%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Slashing~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #8
+    ApplySpellRES("a7#fx23",Myself) // Piercing/Missile +25%
+    // DisplayString(Myself,~DEBUG: Piercing/Missile +25%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Piercing/Missile~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx23",Myself) // Piercing/Missile +25%
+    // DisplayString(Myself,~DEBUG: Piercing/Missile +25%~)
+    Continue()
+  RESPONSE #8
+    ApplySpellRES("a7#fx24",Myself) // Piercing/Missile +50%
+    // DisplayString(Myself,~DEBUG: Piercing/Missile +50%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Piercing/Missile~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #8
+    ApplySpellRES("a7#fx26",Myself) // Crushing +25%
+    // DisplayString(Myself,~DEBUG: Crushing +25%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Crushing~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #15
+    ApplySpellRES("a7#fx26",Myself) // Crushing +25%
+    // DisplayString(Myself,~DEBUG: Crushing +25%~)
+    Continue()
+  RESPONSE #8
+    ApplySpellRES("a7#fx27",Myself) // Crushing +50%
+    // DisplayString(Myself,~DEBUG: Crushing +50%~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No Crushing~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #5
+    ApplySpellRES("a7#fx29",Myself) // Immune spell level 1
+    // DisplayString(Myself,~DEBUG: Immune spell level 1~)
+    Continue()
+  RESPONSE #2
+    ApplySpellRES("a7#fx30",Myself) // Immune spell level 1-3
+    // DisplayString(Myself,~DEBUG: Immune spell level 1-3~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No spell immunity~)
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
+  LevelPartyGT(14)
+THEN
+  RESPONSE #10
+    ApplySpellRES("a7#fx29",Myself) // Immune spell level 1
+    // DisplayString(Myself,~DEBUG: Immune spell level 1~)
+    Continue()
+  RESPONSE #5
+    ApplySpellRES("a7#fx30",Myself) // Immune spell level 1-3
+    // DisplayString(Myself,~DEBUG: Immune spell level 1-3~)
+    Continue()
+  RESPONSE #100
+    // DisplayString(Myself,~DEBUG: No spell immunity~)
+    Continue()
+END
+

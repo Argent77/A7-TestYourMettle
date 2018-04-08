@@ -1,0 +1,10 @@
+// Default script: Modron Laborer
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #20
+    NoAction()
+  RESPONSE #80
+    RandomWalk()
+END

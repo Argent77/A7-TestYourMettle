@@ -1,0 +1,21 @@
+// Special script: Modron/Quadrone
+
+IF
+  HPPercentLT(Myself,10)
+  Allegiance(Myself,GOODCUTOFF)
+  Global("split","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("split","LOCALS",1)
+    // CreateVisualEffectObject("ICCSWOUI",Myself)
+    CreateVisualEffectObject("SPFIREPI",Myself)
+    SmallWait(10)
+    CreateCreature("a7#mdrm",[-1.-1],0)
+    CreateCreature("a7#mdrm",[-1.-1],0)
+    DestroySelf()
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    SetGlobal("split","LOCALS",1)
+    Continue()
+END

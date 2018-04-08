@@ -1,0 +1,19 @@
+// Modron Worker class script
+
+IF
+  !GlobalTimerNotExpired("work","LOCALS")
+  RandomNum(3,2)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("work","LOCALS",ONE_ROUND)
+    Face(NW)
+    SetSequence(SEQ_CAST)
+  RESPONSE #100
+    SetGlobalTimer("work","LOCALS",ONE_ROUND)
+    Face(NW)
+    SetSequence(SEQ_CONJURE)
+  RESPONSE #100
+    SetGlobalTimer("work","LOCALS",ONE_ROUND)
+    Face(NW)
+    SetSequence(SEQ_ATTACK)
+END

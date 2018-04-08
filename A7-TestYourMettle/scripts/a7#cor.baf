@@ -1,0 +1,450 @@
+// Combat script: Cornugon
+
+IF
+  OR(3)
+    !Allegiance(Myself,EVILCUTOFF)
+    StateCheck(Myself,STATE_IMMOBILE)
+    StateCheck(Myself,STATE_REALLY_DEAD)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+
+IF
+  !GlobalTimerNotExpired("rest","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("rest","LOCALS",EIGHT_HOURS)
+    ApplySpell(Myself,RESTORE_FULL_HEALTH)
+    SetGlobal("lbolt","LOCALS",0)
+    Rest()
+END
+
+IF
+  StateCheck(Myself,STATE_PANIC)
+THEN
+  RESPONSE #100
+    RandomWalkContinuous()
+END
+
+IF
+  !GlobalTimerNotExpired("pfear","LOCALS")
+  !See([0.0.MODRON])
+  Range(NearestEnemyOf(Myself),20)
+  !StateCheck(Myself,STATE_INVISIBLE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("pfear","LOCALS",THREE_ROUNDS)
+    ReallyForceSpellRES("a7#aufr",Myself)  // Aura of Fear
+    Continue()
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  Exists(LastAttackerOf(Myself))
+  !Range(LastAttackerOf(Myself),6)
+  Allegiance(LastAttackerOf(Myself),GOODCUTOFF)
+  !StateCheck(LastAttackerOf(Myself),STATE_REALLY_DEAD)
+  !StateCheck(LastAttackerOf(Myself),STATE_INVISIBLE)
+  WeaponEffectiveVs(LastAttackerOf(Myself),MAINHAND)
+  WeaponCanDamage(LastAttackerOf(Myself),MAINHAND)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpellRES("a7#tel1",LastAttackerOf(Myself))  // Teleport Without Error
+    SetInterrupt(TRUE)
+END
+
+IF
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("tactic","LOCALS")
+  !See([0.0.MODRON])
+  See(NearestEnemyOf(Myself))
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobal("bhave","LOCALS",1)
+    SetGlobalTimer("tactic","LOCALS",TWO_ROUNDS)
+END
+
+IF
+  !GlobalTimerNotExpired("tactic","LOCALS")
+  !See([0.0.MODRON])
+  See(NearestEnemyOf(Myself))
+  RandomNum(3,2)
+THEN
+  RESPONSE #100
+    SetGlobal("bhave","LOCALS",2)
+    SetGlobalTimer("tactic","LOCALS",TWO_ROUNDS)
+END
+
+IF
+  !GlobalTimerNotExpired("tactic","LOCALS")
+  !Global("bhave","LOCALS",0)
+  !See([0.0.MODRON])
+THEN
+  RESPONSE #100
+    SetGlobal("bhave","LOCALS",0)
+    SetGlobalTimer("tactic","LOCALS",TWO_ROUNDS)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(NearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(SecondNearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(ThirdNearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(FourthNearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(FifthNearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",1)
+  GlobalLT("lbolt","LOCALS",3)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(SixthNearestEnemyOf(Myself))
+  HPGT(LastSeenBy(Myself),19)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTELECTRICITY)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),6,WIZARD_SPELL_IMMUNITY)
+THEN
+  RESPONSE #100
+    IncrementGlobal("lbolt","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy(Myself),WIZARD_LIGHTNING_BOLT)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See([GOODCUTOFF.HUMANOID])
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(SecondNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(ThirdNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(FourthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(FifthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  Global("bhave","LOCALS",2)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !See([0.0.MODRON])
+  See(SixthNearest([GOODCUTOFF.HUMANOID]))
+  !Class(LastSeenBy(Myself),MONK)
+  !Kit(LastSeenBy(Myself),INQUISITOR)
+  !Kit(LastSeenBy(Myself),CAVALIER)
+  !Race(LastSeenBy(Myself),ELF)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_DISABLED)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatGT(LastSeenBy(Myself),0,SAVEVSSPELL)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),MINSC_BERSERK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_CHAOTIC_COMMANDS)
+  !CheckStat(LastSeenBy(Myself),4,WIZARD_SPELL_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpell(LastSeenBy,WIZARD_DIRE_CHARM)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !Range(NearestEnemyOf(Myself),6)
+  !See([0.0.MODRON])
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_PANIC)
+    HPLT(LastSeenBy(Myself),11)
+  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTMAGIC)
+  CheckStatLT(LastSeenBy(Myself),50,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpellRES("a7#pflm",LastSeenBy(Myself))  // Produce Flame
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  !Range(NearestEnemyOf(Myself),8)
+  !See([0.0.MODRON])
+  See(NearestEnemyOf(Myself))
+  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+  WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
+  WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ForceSpellRES("a7#tel1",LastSeenBy(Myself))  // Teleport Without Error
+    SetInterrupt(TRUE)
+END

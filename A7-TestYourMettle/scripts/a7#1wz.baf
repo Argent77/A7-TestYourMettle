@@ -1,0 +1,26 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    Continue()
+END
+
+IF
+  Global("A7#MazeMasterMind","A7#1WZ",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#MazeMasterMind","A7#1WZ",1)
+    StartCutSceneMode()
+    StartCutScene("a7#ct01a")
+END
+
+IF
+  Dead("Mastermind")
+  PartyHasItem("a7#cvtx")
+  Global("A7#VortexCube","A7#1WZ",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#VortexCube","A7#1WZ",1)
+    AddJournalEntry(@60018,QUEST)
+END

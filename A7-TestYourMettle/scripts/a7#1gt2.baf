@@ -1,0 +1,36 @@
+IF
+  Entered([GOODCUTOFF])
+  LevelPartyLT(10)
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,TRAP_MAGIC_MISSILE)
+END
+
+IF
+  Entered([GOODCUTOFF])
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #50
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,TRAP_MAGIC_MISSILE)
+  RESPONSE #100
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,WIZARD_SKULL_TRAP)
+END
+
+IF
+  Entered([GOODCUTOFF])
+  LevelPartyGT(14)
+THEN
+  RESPONSE #25
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,TRAP_MAGIC_MISSILE)
+  RESPONSE #50
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,WIZARD_SKULL_TRAP)
+  RESPONSE #100
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,TRAP_CLOUDKILL)
+END

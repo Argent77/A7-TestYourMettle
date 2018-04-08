@@ -1,0 +1,15 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    Continue()
+END
+
+IF
+  Global("A7#ModronQuest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ModronQuest","GLOBAL",1)
+    AddJournalEntry(@60011,QUEST)
+END

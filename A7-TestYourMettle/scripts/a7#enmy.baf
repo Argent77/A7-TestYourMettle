@@ -1,0 +1,15 @@
+// Preparation script: Hostile creatures
+
+// IF
+  // !IsActive(Myself)
+// THEN
+  // RESPONSE #100
+    // NoAction()
+// END
+
+IF
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END

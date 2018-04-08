@@ -1,0 +1,186 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    Explore()
+    Continue()
+END
+
+IF
+  Global("A7#MazeActive","GLOBAL",1)
+  Global("A7#MazeActive","A7#1FY",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#MazeActive","A7#1FY",1)
+    OpenDoor("NorthDoor")
+    AmbientActivate("A7#1XDN",FALSE)
+    TriggerActivation("Recycler",TRUE)
+    AmbientActivate("RecyclerPulse",TRUE)
+    AmbientActivate("RecyclerPulseOff",FALSE)
+    ContainerEnable("Container1",TRUE)
+    ContainerEnable("Container2",TRUE)
+    ContainerEnable("Container3",TRUE)
+    ContainerEnable("Container4",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  Global("A7#MazeActive","GLOBAL",1)
+  Global("A7#MazeConfigSet","A7#1FY",0)
+THEN
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",0)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",1)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",2)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",3)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",4)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",5)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",6)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",7)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",8)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",9)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",10)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",11)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",12)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",13)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",14)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#MazeConfig","GLOBAL",15)
+    SetGlobal("A7#MazeConfigSet","A7#1FY",1)
+    Continue()
+END
+
+IF
+  Global("A7#MazeActive","GLOBAL",1)
+  Global("A7#MazeConfigSet","A7#1FY",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#MazeConfigSet","A7#1FY",0)
+    TriggerActivation("Exit1_1",FALSE)
+    TriggerActivation("Exit1_2",FALSE)
+    TriggerActivation("Exit1_3",FALSE)
+    TriggerActivation("Exit1_4",FALSE)
+    TriggerActivation("Exit1_5",FALSE)
+    TriggerActivation("Exit1_6",FALSE)
+    TriggerActivation("Exit1_7",FALSE)
+    TriggerActivation("Exit1_8",FALSE)
+    Continue()
+END
+
+IF
+  Global("A7#MazeActive","GLOBAL",1)
+  Global("A7#MazeConfigSet","A7#1FY",1)
+  Switch("A7#MazeConfig","GLOBAL")
+THEN
+  RESPONSE #0
+    TriggerActivation("Exit1_1",TRUE)
+    Continue()
+  RESPONSE #1
+    TriggerActivation("Exit1_2",TRUE)
+    Continue()
+  RESPONSE #2
+    TriggerActivation("Exit1_3",TRUE)
+    Continue()
+  RESPONSE #3
+    TriggerActivation("Exit1_4",TRUE)
+    Continue()
+  RESPONSE #4
+    TriggerActivation("Exit1_5",TRUE)
+    Continue()
+  RESPONSE #5
+    TriggerActivation("Exit1_6",TRUE)
+    Continue()
+  RESPONSE #6
+    TriggerActivation("Exit1_7",TRUE)
+    Continue()
+  RESPONSE #7
+    TriggerActivation("Exit1_8",TRUE)
+    Continue()
+  RESPONSE #8
+    TriggerActivation("Exit1_8",TRUE)
+    Continue()
+  RESPONSE #9
+    TriggerActivation("Exit1_7",TRUE)
+    Continue()
+  RESPONSE #10
+    TriggerActivation("Exit1_6",TRUE)
+    Continue()
+  RESPONSE #11
+    TriggerActivation("Exit1_5",TRUE)
+    Continue()
+  RESPONSE #12
+    TriggerActivation("Exit1_4",TRUE)
+    Continue()
+  RESPONSE #13
+    TriggerActivation("Exit1_3",TRUE)
+    Continue()
+  RESPONSE #14
+    TriggerActivation("Exit1_2",TRUE)
+    Continue()
+  RESPONSE #15
+    TriggerActivation("Exit1_1",TRUE)
+    Continue()
+END
+
+IF
+  Global("A7#ModronQuest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ModronQuest","GLOBAL",1)
+    AddJournalEntry(@60011,QUEST)
+END
+
+IF
+  !Global("A7#MazeAbandoned","GLOBAL",0)
+  Global("A7#ConsoleDisabled","A7#1FY",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ConsoleDisabled","A7#1FY",1)
+    AmbientActivate("RecyclerPulseOff",TRUE)
+    AmbientActivate("RecyclerPulse",FALSE)
+END

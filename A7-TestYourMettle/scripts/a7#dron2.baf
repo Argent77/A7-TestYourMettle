@@ -1,0 +1,63 @@
+// Combat script: High Threat Construct
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  See([0.0.MODRON])
+  !Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",THREE_ROUNDS)
+    ForceSpellRES("A7#SPX1",LastSeenBy(Myself)) // Lightning Bolt
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  See([0.0.MODRON])
+  Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",THREE_ROUNDS)
+    RunAwayFromNoInterrupt(LastSeenBy(Myself),30)
+    ForceSpellRES("A7#SPX1",LastSeenBy(Myself)) // Lightning Bolt
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  OR(6)
+    See(NearestEnemyOf(Myself))
+    See(SecondNearestEnemyOf(Myself))
+    See(ThirdNearestEnemyOf(Myself))
+    See(FourthNearestEnemyOf(Myself))
+    See(FifthNearestEnemyOf(Myself))
+    See(SixthNearestEnemyOf(Myself))
+  !Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",THREE_ROUNDS)
+    ForceSpellRES("A7#SPX1",LastSeenBy(Myself)) // Lightning Bolt
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  OR(6)
+    See(NearestEnemyOf(Myself))
+    See(SecondNearestEnemyOf(Myself))
+    See(ThirdNearestEnemyOf(Myself))
+    See(FourthNearestEnemyOf(Myself))
+    See(FifthNearestEnemyOf(Myself))
+    See(SixthNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),4)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",THREE_ROUNDS)
+    RunAwayFromNoInterrupt(LastSeenBy(Myself),30)
+    ForceSpellRES("A7#SPX1",LastSeenBy(Myself)) // Lightning Bolt
+    SetInterrupt(TRUE)
+END

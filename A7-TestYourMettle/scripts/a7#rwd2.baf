@@ -1,0 +1,90 @@
+// Reward exchange script: Bag of Coins
+
+// Reward for 1 item
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",1)
+  NumItems("a7#jcoin",Myself,1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",2)
+    SetGlobalRandomPlus("A7#Goodies2Value","A7#1FY",1,4,2)
+    CreateItemGlobal("A7#Goodies2Value","A7#1FY","misc07")
+    Continue()
+END
+
+// Reward for 2-9 items
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",1)
+  NumItemsGT("a7#jcoin",Myself,1)
+  NumItemsLT("a7#jcoin",Myself,10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",2)
+    SetGlobalRandomPlus("A7#Goodies2Value","A7#1FY",1,16,56)
+    CreateItemGlobal("A7#Goodies2Value","A7#1FY","misc07")
+    Continue()
+END
+
+// Reward for 10-49 items
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",1)
+  NumItemsGT("a7#jcoin",Myself,9)
+  NumItemsLT("a7#jcoin",Myself,50)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",2)
+    SetGlobalRandomPlus("A7#Goodies2Value","A7#1FY",1,256,896)
+    CreateItemGlobal("A7#Goodies2Value","A7#1FY","misc07")
+    Continue()
+END
+
+// Reward for 50-99 items
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",1)
+  NumItemsGT("a7#jcoin",Myself,49)
+  NumItemsLT("a7#jcoin",Myself,100)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",2)
+    SetGlobalRandomPlus("A7#Goodies2Value","A7#1FY",1,2048,7168)
+    CreateItemGlobal("A7#Goodies2Value","A7#1FY","misc07")
+    Continue()
+END
+
+// Reward for 100 or more items
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",1)
+  NumItemsGT("a7#jcoin",Myself,99)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",2)
+    SetGlobalRandomPlus("A7#Goodies2Value","A7#1FY",1,16384,57344)
+    CreateItemGlobal("A7#Goodies2Value","A7#1FY","misc07")
+    Continue()
+END
+
+IF
+  !Global("A7#RecycleGoodies2","A7#1FY",0)
+  HasItem("a7#jcoin",Myself)
+THEN
+  RESPONSE #100
+    DestroyItem("a7#jcoin")
+    DestroyItem("a7#jcoin")
+    DestroyItem("a7#jcoin")
+END
+
+IF
+  Global("A7#RecycleGoodies2","A7#1FY",2)
+THEN
+  RESPONSE #100
+    DisplayString("ContainerMarker2", @50008) // Goodies recycled.
+    Continue()
+END
+
+IF
+  !Global("A7#RecycleGoodies2","A7#1FY",0)
+  !HasItem("a7#jcoin",Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#RecycleGoodies2","A7#1FY",0)
+END
