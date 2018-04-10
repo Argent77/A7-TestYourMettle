@@ -367,6 +367,7 @@ Weight: 5~
 @5510 = ~01010111 01101111 01110010 01101011. (We do work.)~
 @5511 = ~This modron speaks a language you can't comprehend. Maybe someone more knowledgeable can find a way to communicate with it.~
 @5512 = ~You prepare the scholarly notes about modron language codes, as the creature attempts to communicate with you.~
+@5513 = ~The creature seems to communicate by emitting sequences of low and high tones. You quickly notice that it is a code of some kind. After some trial and error you are confident that you have grasped the basic meaning of the code.~
 
 // Cornugon Taskmaster
 @6000 = ~Ah, another clueless adventurer finds its way to the taskmaster. That is good. Guarding the portal is a privilege, but it gets tiresome after a while.~

@@ -4,25 +4,31 @@ BEGIN ~a7#dmdr4~
 
 IF ~Global("A7#ModronMIntro","GLOBAL",0)~ Intro
   SAY @3002 /* You see an orb with two arms and two legs sprouting from its sides. On the front of the orb you can make out a single eye. As you approach, the creature focuses its eye upon you. */
-  IF ~CheckStatGT(LastTalkedToBy,15,INT)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand
-  IF ~CheckStatLT(LastTalkedToBy,16,INT) PartyHasItem("a7#mdjrn") GlobalGT("A7#MonodroneTalk","GLOBAL",1)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand
-  IF ~CheckStatLT(LastTalkedToBy,16,INT) PartyHasItem("a7#mdjrn") GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand.Notes
-  IF ~CheckStatLT(LastTalkedToBy,16,INT) !PartyHasItem("a7#mdjrn")~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + NotUnderstand
+  IF ~OR(2) CheckStatGT(LastTalkedToBy,15,INT) CheckStatGT(LastTalkedToBy,29,LORE) GlobalGT("A7#MonodroneTalk","GLOBAL",1)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand
+  IF ~OR(2) CheckStatGT(LastTalkedToBy,15,INT) CheckStatGT(LastTalkedToBy,29,LORE) GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand.INT
+  IF ~CheckStatLT(LastTalkedToBy,16,INT) CheckStatLT(LastTalkedToBy,30,LORE) PartyHasItem("a7#mdjrn") GlobalGT("A7#MonodroneTalk","GLOBAL",1)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand
+  IF ~CheckStatLT(LastTalkedToBy,16,INT) CheckStatLT(LastTalkedToBy,30,LORE) PartyHasItem("a7#mdjrn") GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + Understand.Notes
+  IF ~CheckStatLT(LastTalkedToBy,16,INT) CheckStatLT(LastTalkedToBy,30,LORE) !PartyHasItem("a7#mdjrn")~ DO ~SetGlobal("A7#ModronMIntro","GLOBAL",1)~ + NotUnderstand
 END
 
-IF ~!Global("A7#ModronMIntro","GLOBAL",0) CheckStatLT(LastTalkedToBy,16,INT) PartyHasItem("a7#mdjrn") GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ Understand.Notes
+IF ~!Global("A7#ModronMIntro","GLOBAL",0) OR(2) CheckStatGT(LastTalkedToBy,15,INT) CheckStatGT(LastTalkedToBy,29,LORE) GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ Understand.INT
+  SAY @5513 /* The creature seems to communicate by emitting sequences of low and high tones. You quickly notice that it is a code of some kind. After some trial and error you are confident that you have grasped the basic meaning of the code. */
+  IF ~~ DO ~SetGlobal("A7#MonodroneTalk","GLOBAL",2)~ + Understand
+END
+
+IF ~!Global("A7#ModronMIntro","GLOBAL",0) CheckStatLT(LastTalkedToBy,16,INT) CheckStatLT(LastTalkedToBy,30,LORE) PartyHasItem("a7#mdjrn") GlobalLT("A7#MonodroneTalk","GLOBAL",2)~ Understand.Notes
   SAY @5512 /* You prepare the scholarly notes about modron language codes, as the creature attempts to communicate with you. */
   IF ~~ DO ~SetGlobal("A7#MonodroneTalk","GLOBAL",2)~ + Understand
 END
 
-IF ~!Global("A7#ModronMIntro","GLOBAL",0) OR(2) CheckStatGT(LastTalkedToBy,15,INT) PartyHasItem("a7#mdjrn")~ Understand
+IF ~!Global("A7#ModronMIntro","GLOBAL",0) GlobalGT("A7#MonodroneTalk","GLOBAL",1) OR(3) CheckStatGT(LastTalkedToBy,15,INT) CheckStatGT(LastTalkedToBy,29,LORE) PartyHasItem("a7#mdjrn")~ Understand
   SAY @5501 /* 01011001 01100101 01110011? (Yes?) */
   ++ @5505 /* 01001110 01100001 01101101 01100101? (Who are you?) */ + Understand.1
   ++ @5507 /* 01001010 01101111 01100010? (What are you doing?) */ + Understand.2
   ++ @5503 /* 01000010 01111001 01100101. (Farewell.) */ EXIT
 END
 
-IF ~!Global("A7#ModronMIntro","GLOBAL",0) CheckStatLT(LastTalkedToBy,16,INT) !PartyHasItem("a7#mdjrn")~ NotUnderstand
+IF ~!Global("A7#ModronMIntro","GLOBAL",0) CheckStatLT(LastTalkedToBy,16,INT) CheckStatLT(LastTalkedToBy,30,LORE) !PartyHasItem("a7#mdjrn")~ NotUnderstand
   SAY @5502 /* 01011001 01100101 01110011? */
   ++ @5506 /* Who are you? */ + NotUnderstand.1
   ++ @5508 /* What do you do? */ + NotUnderstand.1
