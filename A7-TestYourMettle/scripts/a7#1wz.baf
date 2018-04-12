@@ -17,6 +17,17 @@ END
 
 IF
   Dead("Mastermind")
+  Global("A7#DoorOpen","A7#1WZ",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#DoorOpen","A7#1WZ",1)
+    OpenDoor("Southdoor")
+    TriggerActivation("Exit3",TRUE)
+    AmbientActivate("A7#1xDS",FALSE)
+END
+
+IF
+  Dead("Mastermind")
   PartyHasItem("a7#cvtx")
   Global("A7#VortexCube","A7#1WZ",0)
 THEN
