@@ -649,16 +649,16 @@ BEGIN @1  // Modron Maze
     SAY NAME2 @2061 // Vortex Cube
     SAY UNIDENTIFIED_DESC @2062 // ...
     SAY IDENTIFIED_DESC @2063 // ...
-  COMPILE ~%MOD_FOLDER%/dialogs/a7#dvtx.d~
+  COMPILE ~%MOD_FOLDER%/dialogs/a7#cvtx.d~
 
   COPY_EXISTING ~itemdial.2da~ ~override~
     LPF ADD_ITEM_DIALOG
     INT_VAR
       button_strref = RESOLVE_STR_REF(@2004)  // Use
-      name_strref   = RESOLVE_STR_REF(@2061)  // Modron Cube
+      name_strref   = RESOLVE_STR_REF(@2061)  // Vortex Cube
     STR_VAR
       itm_resref    = ~A7#CVTX~
-      dlg_resref    = ~A7#DVTX~
+      dlg_resref    = ~A7#CVTX~
     END
   BUT_ONLY
 

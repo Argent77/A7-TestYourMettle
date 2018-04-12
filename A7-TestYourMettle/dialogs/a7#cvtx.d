@@ -1,4 +1,4 @@
-BEGIN ~a7#dvtx~
+BEGIN ~a7#cvtx~
 
 IF ~!PartyHasItemIdentified("a7#cvtx") !AreaType(RUBICON)~ Unidentified.2
   SAY @8000 /* The cube is cold to the touch. Whatever magic it might contain, doesn't seem to work in this place. */
