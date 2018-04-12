@@ -27,30 +27,30 @@ IF
   !Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #100
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
 END
 
@@ -62,21 +62,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
     Continue()
 END
 
@@ -86,21 +86,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
     Continue()
 END
 
@@ -110,21 +110,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
     Continue()
 END
 
@@ -134,21 +134,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
     Continue()
 END
 
@@ -158,21 +158,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
     Continue()
 END
 
@@ -182,21 +182,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
     Continue()
 END
 
@@ -206,21 +206,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
     Continue()
 END
 
@@ -230,21 +230,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #10
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #1
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
     Continue()
 END
 
@@ -256,21 +256,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
     Continue()
 END
 
@@ -281,21 +281,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
     Continue()
 END
 
@@ -306,21 +306,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
     Continue()
 END
 
@@ -331,21 +331,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
     Continue()
 END
 
@@ -356,21 +356,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
     Continue()
 END
 
@@ -381,21 +381,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
     Continue()
 END
 
@@ -406,21 +406,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
     Continue()
 END
 
@@ -431,21 +431,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #5
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
     Continue()
 END
 
@@ -457,21 +457,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
     Continue()
 END
 
@@ -482,21 +482,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
     Continue()
 END
 
@@ -507,21 +507,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
     Continue()
 END
 
@@ -532,21 +532,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
     Continue()
 END
 
@@ -557,21 +557,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
     Continue()
 END
 
@@ -582,21 +582,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
     Continue()
 END
 
@@ -607,21 +607,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
     Continue()
 END
 
@@ -632,21 +632,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #15
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
     Continue()
 END
 
@@ -657,21 +657,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1B",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1C") DisableAI("Creature1C",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature1A") DisableAI("Creature1A",TRUE)
-    Deactivate("Creature1B") DisableAI("Creature1B",TRUE)
+    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature1B",DestroySelf())
     Continue()
 END
 
@@ -681,21 +681,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2B",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2C") DisableAI("Creature2C",TRUE)
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2C",DestroySelf())
     Continue()
-  RESPONSE #55
-    Deactivate("Creature2A") DisableAI("Creature2A",TRUE)
-    Deactivate("Creature2B") DisableAI("Creature2B",TRUE)
+  RESPONSE #25
+    ActionOverride("Creature2A",DestroySelf())
+    ActionOverride("Creature2B",DestroySelf())
     Continue()
 END
 
@@ -705,21 +705,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3B",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3C") DisableAI("Creature3C",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature3A") DisableAI("Creature3A",TRUE)
-    Deactivate("Creature3B") DisableAI("Creature3B",TRUE)
+    ActionOverride("Creature3A",DestroySelf())
+    ActionOverride("Creature3B",DestroySelf())
     Continue()
 END
 
@@ -729,21 +729,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4C") DisableAI("Creature4C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
     Continue()
 END
 
@@ -753,21 +753,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5C") DisableAI("Creature5C",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
     Continue()
 END
 
@@ -777,21 +777,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
     Continue()
 END
 
@@ -801,21 +801,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
     Continue()
 END
 
@@ -825,21 +825,21 @@ IF
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #20
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #25
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
     Continue()
 END
 
@@ -852,32 +852,32 @@ IF
   Switch("A7#DungeonType","MYAREA")
 THEN  
   RESPONSE #1
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature4B") DisableAI("Creature4B",TRUE)
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature5B") DisableAI("Creature5B",TRUE)
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature6B") DisableAI("Creature6B",TRUE)
-    Deactivate("Creature6C") DisableAI("Creature6C",TRUE)
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature7C") DisableAI("Creature7C",TRUE)
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
-    Deactivate("Creature8C") DisableAI("Creature8C",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature4B",DestroySelf())
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature5B",DestroySelf())
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature6B",DestroySelf())
+    ActionOverride("Creature6C",DestroySelf())
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature7C",DestroySelf())
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
+    ActionOverride("Creature8C",DestroySelf())
     Continue()
   RESPONSE #2
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature8A",DestroySelf())
     Continue()
   RESPONSE #3
-    Deactivate("Creature4A") DisableAI("Creature4A",TRUE)
-    Deactivate("Creature5A") DisableAI("Creature5A",TRUE)
-    Deactivate("Creature6A") DisableAI("Creature6A",TRUE)
-    Deactivate("Creature7A") DisableAI("Creature7A",TRUE)
-    Deactivate("Creature7B") DisableAI("Creature7B",TRUE)
-    Deactivate("Creature8A") DisableAI("Creature8A",TRUE)
-    Deactivate("Creature8B") DisableAI("Creature8B",TRUE)
+    ActionOverride("Creature4A",DestroySelf())
+    ActionOverride("Creature5A",DestroySelf())
+    ActionOverride("Creature6A",DestroySelf())
+    ActionOverride("Creature7A",DestroySelf())
+    ActionOverride("Creature7B",DestroySelf())
+    ActionOverride("Creature8A",DestroySelf())
+    ActionOverride("Creature8B",DestroySelf())
     Continue()
 END
 
