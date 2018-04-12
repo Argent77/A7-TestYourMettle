@@ -339,18 +339,18 @@ Weight: 5~
 @4076 = ~(The modron pauses for a moment and there is the buzzing sound again.) Connection with Mechanus has been established. Rubikon Dungeon Construct Project® is on hold until further instructions are given. We will now return home. Farewell, adventurer.~
 
 // Modron Guide
-@5001 = ~Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may request access to Rubikon from the director.~
+@5001 = ~Greetings, adventurer. Welcome to the Rubikon, the dungeon construct. You may request access to Rubikon from the director.~
 @5002 = ~The creature stares at you blankly.~
 @5003 = ~You may find the director in the control center.~
 @5004 = ~What is Rubikon?~
-@5005 = ~What is a dungeon simulator?~
+@5005 = ~What is a dungeon construct?~
 @5006 = ~Where can I find the director?~
 @5007 = ~Thanks. I'll do that. Farewell.~
 @5008 = ~Nevermind. I've got to go. Farewell.~
 @5009 = ~Where is the control center?~
 @5010 = ~Nevermind. I'll find it on my own. Farewell.~
 @5011 = ~Thanks. I'll do that.~
-@5012 = ~Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may access Rubikon through this door. Please enjoy yourself!~
+@5012 = ~Greetings, adventurer. Welcome to Rubikon, the dungeon construct. You may access Rubikon through this door. Please enjoy yourself!~
 @5013 = ~The creature blinks at you but gives no indication it has heard your question.~
 @5014 = ~The creature stares at you without answering.~
 

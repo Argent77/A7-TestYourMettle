@@ -9,16 +9,16 @@ IF ~Global("A7#ModronQIntro","GLOBAL",0)~ Intro
 END
 
 IF ~!Global("A7#ModronQIntro","GLOBAL",0) GlobalLT("A7#ModronQuest","GLOBAL",3)~ 1
-  SAY @5001 /* Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may request access to Rubikon from the director. */
+  SAY @5001 /* Greetings, adventurer. Welcome to the Rubikon, the dungeon construct. You may request access to Rubikon from the director. */
   ++ @5004 /* What is Rubikon? */ + 1.1
-  ++ @5005 /* What is a dungeon simulator? */ + 1.2
+  ++ @5005 /* What is a dungeon construct? */ + 1.2
   ++ @5006 /* Where can I find the director? */ + 1.3
   ++ @5007 /* Thanks. I'll do that. Farewell. */ EXIT
 END
 
 IF ~~ 1.1
   SAY @5014 /* The creature stares at you without answering. */
-  ++ @5005 /* What is a dungeon simulator? */ + 1.2
+  ++ @5005 /* What is a dungeon construct? */ + 1.2
   ++ @5006 /* Where can I find the director? */ + 1.3
   ++ @5008 /* Nevermind. I've got to go. Farewell. */ EXIT
 END
@@ -42,15 +42,15 @@ IF ~~ 1.4
 END
 
 IF ~!Global("A7#ModronQIntro","GLOBAL",0) GlobalGT("A7#ModronQuest","GLOBAL",2)~ 2
-  SAY @5012 /* Greetings, adventurer. Welcome to the Rubikon Dungeon Construct Project®. You may access Rubikon through this door. Please enjoy yourself! */
+  SAY @5012 /* Greetings, adventurer. Welcome to the Rubikon, the dungeon construct. You may access Rubikon through this door. Please enjoy yourself! */
   ++ @5004 /* What is Rubikon? */ + 2.1
-  ++ @5005 /* What is a dungeon simulator? */ + 2.2
+  ++ @5005 /* What is a dungeon construct? */ + 2.2
   ++ @5011 /* Thanks. I'll do that. */ EXIT
 END
 
 IF ~~ 2.1
   SAY @5014 /* The creature stares at you without answering. */
-  ++ @5005 /* What is a dungeon simulator? */ + 2.2
+  ++ @5005 /* What is a dungeon construct? */ + 2.2
   ++ @5008 /* Nevermind. I've got to go. Farewell. */ EXIT
 END
 
