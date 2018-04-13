@@ -3,7 +3,7 @@
 BEGIN ~a7#dgelu~
 
 IF ~True()~ Intro
-  SAY @6500 /* You have come far, <CHARNAME>. Oh don't look so surprised. Did you really think you could take me unawares? */
+  SAY @6500 /* You have come far, Bhaalspawn. Oh don't look so surprised. Did you really think you could take me unawares? */
   ++ @6501 /* Who are you? */ + Who
   ++ @6502 /* What do you want? */ + What.1
 END

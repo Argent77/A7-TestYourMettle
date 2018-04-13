@@ -185,7 +185,7 @@ Weight: 5~
 STATISTICS:
 
 Weight: 1~
-@2113 = ~This heavy dodecahedron, manufactured on Mechanus, contains a device that wraps the user in a cloud of microscopic particicles. This cloud absorbs thermal energy from the user and thus acts as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation.
+@2113 = ~This heavy dodecahedron, manufactured on Mechanus, contains a device that wraps the user in a cloud of microscopic particicles. This cloud absorbs thermal energy from the user and thus acts as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
 
 STATISTICS:
 
@@ -379,7 +379,7 @@ Weight: 5~
 @6006 = ~But that doesn't concern you. My master is safe behind powerful wards, and only I have the means to overcome them. You will be dead soon, after my servants had their fun with you. I'm certain your soul will make a good trophy for my master.~
 
 // Gelugon Mastermind
-@6500 = ~You have come far, <CHARNAME>. Oh don't look so surprised. Did you really think you could take me unawares?~
+@6500 = ~You have come far, Bhaalspawn. Oh don't look so surprised. Did you really think you could take me unawares?~
 @6501 = ~Who are you?~
 @6502 = ~What do you want?~
 @6503 = ~My true name is not for the likes of you. You may call me "Mastermind". An apt title in a place where all entities are named by their function, don't you think?~

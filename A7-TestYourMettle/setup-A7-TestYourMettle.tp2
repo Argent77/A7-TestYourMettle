@@ -681,10 +681,16 @@ BEGIN @1  // Modron Maze
       match_opcode  = 100  // Protection from creature type
       parameter1    = race_drone
     END
-    LPF ALTER_SPELL_EFFECT
-    INT_VAR
-      match_opcode  = 219  // Attack roll penalty
-      parameter1    = race_modron
+    // Adding attack penalties for races with innate infravision
+    PATCH_FOR_EACH race IN ~%race_modron%~ 2 3 4 5 6 7 101 104 111 112 122 127 129 130 135 138 143 161 171 BEGIN
+      LPF ADD_SPELL_EFFECT
+      INT_VAR
+        opcode      = 219  // AC bonus vs. creature type
+        target      = 2    // Preset target
+        parameter1  = race
+        parameter2  = 4
+        duration    = 60
+      END
     END
 
   // Rejuvenation potion
