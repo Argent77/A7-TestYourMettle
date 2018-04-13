@@ -28,6 +28,52 @@ THEN
 END
 
 IF
+  Global("prebuff","LOCALS",0)
+  Name("Taskmaster",Myself)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_STONE_SKIN)
+    Continue()
+END
+
+IF
+  Global("prebuff","LOCALS",0)
+  Name("Taskmaster",Myself)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    Continue()
+END
+
+IF
+  Global("prebuff","LOCALS",0)
+  Name("Taskmaster",Myself)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)
+    Continue()
+END
+
+IF
+  Global("prebuff","LOCALS",0)
+  Name("Taskmaster",Myself)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("prebuff","LOCALS",1)
+    DisplayString(Myself,39968) // Spell Trigger—Fired
+    PlaySound("EFF_M02")
+    Continue()
+END
+
+IF
   !GlobalTimerNotExpired("pfear","LOCALS")
   !See([0.0.MODRON])
   Range(NearestEnemyOf(Myself),20)
