@@ -356,8 +356,11 @@ BEGIN
         // use existing entry if available
         FOR (row = 0; row < table; ++row) BEGIN
           READ_2DA_ENTRY_FORMER table row 1 stat
+          PATCH_IF (~%stat%~ STRING_COMPARE_REGEXP ~[*+]~ = 0) BEGIN TEXT_SPRINT stat ~\%stat%~ END
           READ_2DA_ENTRY_FORMER table row 2 value
+          PATCH_IF (~%value%~ STRING_COMPARE_REGEXP ~[*+]~ = 0) BEGIN TEXT_SPRINT value ~\%value%~ END
           READ_2DA_ENTRY_FORMER table row 3 rel
+          PATCH_IF (~%rel%~ STRING_COMPARE_REGEXP ~[*+]~ = 0) BEGIN TEXT_SPRINT rel ~\%rel%~ END
           TEXT_SPRINT regexp ~[ %TAB%]+%stat%[ %TAB%]+%value%[ %TAB%]+%rel%[ %TAB%]*~
           PATCH_IF (~%definition%~ STRING_COMPARE_REGEXP ~%regexp%~ = 0) BEGIN
             SET index = row
@@ -369,7 +372,11 @@ BEGIN
         PATCH_IF (index < 0) BEGIN
           SET index = table
           PATCH_IF (~%label%~ STR_EQ ~~) BEGIN TEXT_SPRINT label ~%index%~ END
-          INSERT_2DA_ROW index numCols ~%label%   %definition%~
+          PATCH_IF (STRING_LENGTH ~%label%~ < 11) BEGIN
+            TEXT_SPRINT label ~%label%          ~
+            INNER_PATCH_SAVE label ~%label%~ BEGIN DELETE_BYTES 10 (BUFFER_LENGTH - 10) END
+          END
+          INSERT_2DA_ROW index numCols ~%label% %definition%~
         END
       END
     BUT_ONLY IF_EXISTS
