@@ -83,6 +83,9 @@ THEN
     SetGlobalTimer("pfear","LOCALS",THREE_ROUNDS)
     ReallyForceSpellRES("a7#aufr",Myself)  // Aura of Fear
     Continue()
+  RESPONSE #50
+    SetGlobalTimer("pfear","LOCALS",ONE_ROUND)
+    Continue()
 END
 
 IF
