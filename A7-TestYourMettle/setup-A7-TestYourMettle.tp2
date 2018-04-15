@@ -268,6 +268,7 @@ BEGIN @1  // Modron Maze
        ~%MOD_FOLDER%/portraits/a7#mdrq.bmp~ ~override~
        ~%MOD_FOLDER%/portraits/a7#cor1.bmp~ ~override~
        ~%MOD_FOLDER%/portraits/a7#gelu.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#ring1.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#mqblt.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#mqxbw.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#erin1.itm~ ~override~
@@ -663,35 +664,120 @@ BEGIN @1  // Modron Maze
   BUT_ONLY
 
   // Modron Cloaking Device
+  COPY_EXISTING ~tooltip.2da~ ~override~
+    COUNT_2DA_COLS numCols
+    COUNT_2DA_ROWS numCols numRows
+    SET strref1 = RESOLVE_STR_REF(@2115)  // Thermo-optic Shroud
+    SET strref2 = RESOLVE_STR_REF(@2116)  // Force Sleep Mode
+    INSERT_2DA_ROW numRows numCols ~A7#DCLK     %strref1%      %strref2%      -1~
+  BUT_ONLY
   COPY ~%MOD_FOLDER%/items/a7#cclk.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#gclk.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#iclk.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#zzz.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#zzz.vvc~ ~override~
+  COPY ~%MOD_FOLDER%/items/a7#zzza.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@2118)  // Sleep Mode terminated
+    END
   COPY ~%MOD_FOLDER%/items/a7#dclk.itm~ ~override~
     SAY NAME1 @2110 // Dodecahedron
     SAY NAME2 @2111 // Modron Cloaking Device
     SAY UNIDENTIFIED_DESC @2112 // ...
     SAY IDENTIFIED_DESC @2113 // ...
-    LPF ALTER_SPELL_EFFECT
+    // Setting up ability #1
+    LPF ALTER_ITEM_EFFECT
     INT_VAR
+      check_headers = 1
+      header        = 1
       match_opcode  = 139  // Display string
       parameter1    = RESOLVE_STR_REF(@2114) // Protected from Constructs
     END
-    LPF ALTER_SPELL_EFFECT
+    LPF ALTER_ITEM_EFFECT
     INT_VAR
+      check_headers = 1
+      header        = 1
       match_opcode  = 100  // Protection from creature type
       parameter1    = race_drone
     END
     // Adding attack penalties for races with innate infravision
     PATCH_FOR_EACH race IN ~%race_modron%~ 2 3 4 5 6 7 101 104 111 112 122 127 129 130 135 138 143 161 171 BEGIN
-      LPF ADD_SPELL_EFFECT
+      LPF ADD_ITEM_EFFECT
       INT_VAR
-        opcode      = 219  // AC bonus vs. creature type
-        target      = 2    // Preset target
+        header      = 1
+        opcode      = 219   // AC bonus vs. creature type
+        target      = 2     // Preset target
         parameter1  = race
         parameter2  = 4
         duration    = 60
       END
     END
+    // Setting up ability #2
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_headers = 1
+      header        = 2
+      match_opcode  = 318  // Protection from spell
+      parameter1    = race_drone
+      special       = RESOLVE_STR_REF(@2072)  // Ineffective
+    END
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_headers = 1
+      header        = 2
+      match_opcode  = 139  // Display string
+      parameter1    = RESOLVE_STR_REF(@2117)  // Sleep Mode activated
+    END
+
+  // Exclude constructs from feeblemind effect of Prismatic Spray
+  OUTER_SET spellCode = IDS_OF_SYMBOL(~spell~ ~WIZARD_PRISMATIC_SPRAY~)
+  ACTION_IF (spellCode > 2000 && spellCode < 3000) BEGIN
+    OUTER_PATCH_SAVE spellRes ~%spellCode%~ BEGIN DELETE_BYTES 0 1 END
+    OUTER_TEXT_SPRINT spellRes ~spwi%spellRes%~
+  END ELSE BEGIN
+    OUTER_TEXT_SPRINT spellRes ~spwi714~
+  END
+  COPY ~%MOD_FOLDER%/items/a7#cimm1.eff~ ~override~
+  COPY_EXISTING ~%spellRes%.spl~ ~override~
+    READ_LONG 0x64 ofsAbils
+    READ_SHORT 0x68 numAbils
+    READ_LONG 0x6a ofsEffects
+    FOR (idx = 0; idx < numAbils; ++idx) BEGIN
+      SET ofs = ofsAbils + idx * 0x28
+      READ_SHORT (ofs + 0x1e) numFx
+      READ_SHORT (ofs + 0x20) idxFx
+      FOR (idx2 = 0; idx2 < numFx; ++idx2) BEGIN
+        SET ofs2 = ofsEffects + (idxFx + idx2) * 0x30
+        READ_SHORT ofs2 opcode
+        PATCH_IF (opcode = 76) BEGIN  // Feeblemindedness
+          READ_BYTE (ofs2 + 0x12) prob1
+          READ_BYTE (ofs2 + 0x13) prob2
+          LPF ADD_SPELL_EFFECT
+          INT_VAR
+            header = idx + 1
+            insert_point = 0
+            opcode = 177  // Use EFF file
+            target = BYTE_AT (ofs2 + 0x02)
+            power = BYTE_AT (ofs2 + 0x03)
+            resist_dispel = BYTE_AT (ofs2 + 0x0d)
+            probability1 = BYTE_AT (ofs2 + 0x12)
+            probability2 = BYTE_AT (ofs2 + 0x13)
+            parameter1 = race_drone
+            parameter2 = 4  // RACE.IDS
+            timing = 0
+            duration = 1
+            savingthrow = LONG_AT (ofs2 + 0x24)
+            savebonus = LONG_AT (ofs2 + 0x28)
+          STR_VAR
+            resource = ~A7#CIMM1~
+          END
+          SET idx2 = numFx
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
 
   // Rejuvenation potion (TODO: remove when patch 2.5 is released)
   COMPILE ~%MOD_FOLDER%/items/a7#pot1.baf~

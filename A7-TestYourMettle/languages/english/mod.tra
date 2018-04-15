@@ -179,13 +179,17 @@ Requires:
 Weight: 5~
 
 @2110 = ~Dodecahedron~
-@2111 = ~Modron Cloaking Device~
+@2111 = ~Drone Control Device~
 @2112 = ~This featureless item is shaped like a dodecahedron. It it cold and smooth to the touch and seems to be made from a metallic substance.
 
 STATISTICS:
 
 Weight: 1~
-@2113 = ~This heavy dodecahedron, manufactured on Mechanus, contains a device that wraps the user in a cloud of microscopic particicles. This cloud absorbs thermal energy from the user and thus acts as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
+@2113 = ~This heavy dodecahedron, manufactured on Mechanus, has been originally designed as a fail-safe device to deal with malfunctioning constructs. It can be switched into two modes, a protective mode and a disabling mode. 
+
+The protective mode wraps the user in a cloud of microscopic particles. This cloud absorbs thermal energy and will therefore act as a cloak against the sensory organs of mechanical construct that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
+
+The disabling mode allows the user to force a construct into sleep mode. While this mode is active the construct remains passive and regenerates one hit point per round. Sleep mode may be overridden by commands of higher priority however, which includes self-defense or instructions from superiors.
 
 STATISTICS:
 
@@ -194,11 +198,19 @@ Charge abilities:
   Area of effect: User
   Duration: One turn
 
+– Force Sleep Mode: Instructs mechanical constructs of modron design to activate sleep mode.
+  Area of effect: Single target
+  Duration: Permanent, unless overridden by higher priority commands
+
 Requires:
  9 Intelligence
 
 Weight: 1~
 @2114 = ~Protected from Constructs~
+@2115 = ~Thermo-optic Shroud~
+@2116 = ~Force Sleep Mode~
+@2117 = ~Sleep Mode activated~
+@2118 = ~Sleep Mode terminated~
 
 @2120 = ~Rod of Modron Might~
 @2121 = ~This magical rod allows the user to summon 2 to 4 constructs of Modron design to do battle with his enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
