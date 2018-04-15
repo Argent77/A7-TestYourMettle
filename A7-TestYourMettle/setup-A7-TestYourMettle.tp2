@@ -663,7 +663,7 @@ BEGIN @1  // Modron Maze
     END
   BUT_ONLY
 
-  // Modron Cloaking Device
+  // Drone Control Device
   COPY_EXISTING ~tooltip.2da~ ~override~
     COUNT_2DA_COLS numCols
     COUNT_2DA_ROWS numCols numRows
@@ -684,7 +684,7 @@ BEGIN @1  // Modron Maze
     END
   COPY ~%MOD_FOLDER%/items/a7#dclk.itm~ ~override~
     SAY NAME1 @2110 // Dodecahedron
-    SAY NAME2 @2111 // Modron Cloaking Device
+    SAY NAME2 @2111 // Drone Control Device
     SAY UNIDENTIFIED_DESC @2112 // ...
     SAY IDENTIFIED_DESC @2113 // ...
     // Setting up ability #1
