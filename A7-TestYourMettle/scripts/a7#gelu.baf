@@ -118,6 +118,17 @@ END
 
 IF
   !GlobalTimerNotExpired("cast","LOCALS")
+  Global("heal","LOCALS",0)
+  HPPercentLT(Myself,20)
+THEN
+  RESPONSE #100
+    SetGlobal("heal","LOCALS",1)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    ReallyForceSpell(Myself,CLERIC_HEAL)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
   Global("pro_good","LOCALS",0)
   Detect([GOODCUTOFF.0.0.0.0.0.MASK_GOOD])
 THEN
@@ -125,6 +136,75 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("pro_good","LOCALS",1)
     ForceSpellRES("a7#sp01",Myself) // Protection from Good
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  GlobalLT("skins","LOCALS",3)
+  CheckStat(Myself,0,STONESKINS)
+  TookDamage()
+  Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    IncrementGlobal("skins","LOCALS",1)
+    ForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("maze","LOCALS",0)
+  See(NearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),8)
+  CheckStatLT(LastSeenBy(Myself),15,INT)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("maze","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("maze","LOCALS",0)
+  See(SecondNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),8)
+  CheckStatLT(LastSeenBy(Myself),15,INT)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("maze","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("maze","LOCALS",0)
+  See(ThirdNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),8)
+  CheckStatLT(LastSeenBy(Myself),15,INT)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("maze","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("maze","LOCALS",0)
+  See(FourthNearestEnemyOf(Myself))
+  Range(LastSeenBy(Myself),8)
+  CheckStatLT(LastSeenBy(Myself),15,INT)
+  RandomNum(3,1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("maze","LOCALS",0)
+    ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
 END
 
 IF

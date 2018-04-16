@@ -90,6 +90,19 @@ END
 
 IF
   !GlobalTimerNotExpired("cast","LOCALS")
+  Global("skins","LOCALS",0)
+  CheckStat(Myself,0,STONESKINS)
+  TookDamage()
+  Detect(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("skins","LOCALS",1)
+    ForceSpell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+  !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
   Exists(LastAttackerOf(Myself))
   !Range(LastAttackerOf(Myself),6)

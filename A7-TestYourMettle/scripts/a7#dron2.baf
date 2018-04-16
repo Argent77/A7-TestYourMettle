@@ -61,3 +61,49 @@ THEN
     ForceSpellRES("A7#SPX1",LastSeenBy(Myself)) // Lightning Bolt
     SetInterrupt(TRUE)
 END
+
+IF
+  Global("hla","LOCALS",0)
+  OR(2)
+    LevelPartyGT(16)
+    RandomNum(20,10)
+  See([PC])
+  Range(LastSeenBy(Myself),6)
+  RandomNum(2,1)
+THEN
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_WHIRLWIND)
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_GREATER_WHIRLWIND)
+    AttackOneRound(LastSeenBy(Myself))
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_CRITICAL_STRIKE)
+    AttackOneRound(LastSeenBy(Myself))
+END
+
+IF
+  Global("hla","LOCALS",0)
+  OR(2)
+    LevelPartyGT(16)
+    RandomNum(20,10)
+  See([PC])
+  Range(LastSeenBy(Myself),12)
+  RandomNum(2,2)
+THEN
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_HARDINESS)
+    Continue()
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_POWER_ATTACK)
+    Continue()
+  RESPONSE #100
+    SetGlobal("hla","LOCALS",1)
+    ForceSpell(Myself,WARRIOR_SMITE)
+    Continue()
+END
