@@ -1379,7 +1379,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player1, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player1)
     ActionOverride(Player1,DestroyItem("a7#ward"))
     SmallWait(5)
@@ -1394,7 +1394,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player2, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player2)
     ActionOverride(Player2,DestroyItem("a7#ward"))
     SmallWait(5)
@@ -1409,7 +1409,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player3, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player3)
     ActionOverride(Player3,DestroyItem("a7#ward"))
     SmallWait(5)
@@ -1424,7 +1424,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player4, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player4)
     ActionOverride(Player4,DestroyItem("a7#ward"))
     SmallWait(5)
@@ -1439,7 +1439,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player5, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player5)
     ActionOverride(Player5,DestroyItem("a7#ward"))
     SmallWait(5)
@@ -1454,7 +1454,7 @@ THEN
   RESPONSE #100
     SetGlobal("A7#ExitWZ","MYAREA",2)
     SetGlobal("A7#WZOpen","GLOBAL",1)
-    DisplayString(Myself, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    DisplayStringHead(Player6, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
     CreateVisualEffectObject("spfirepi",Player6)
     ActionOverride(Player6,DestroyItem("a7#ward"))
     SmallWait(5)
