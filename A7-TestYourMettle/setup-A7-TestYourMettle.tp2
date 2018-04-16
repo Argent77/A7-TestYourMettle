@@ -5,6 +5,7 @@ VERSION ~0.1 (beta)~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
+  OUTER_SET IS_PATCH25 = (FILE_EXISTS ~data/Patch24.bif~) ? 1 : 0
 END
 
 README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
@@ -779,46 +780,45 @@ BEGIN @1  // Modron Maze
     END
   BUT_ONLY IF_EXISTS
 
-  // Rejuvenation potion (TODO: remove when patch 2.5 is released)
-  COMPILE ~%MOD_FOLDER%/items/a7#pot1.baf~
+  // Rejuvenation potion
   COPY ~%MOD_FOLDER%/items/a7#cpot1.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#ipot1.bam~ ~override~
-       ~%MOD_FOLDER%/items/a7#pot1.eff~ ~override~
-       ~%MOD_FOLDER%/items/a7#pot1.spl~ ~override~
-       ~%MOD_FOLDER%/items/a7#pot1.cre~ ~override~
-  COPY ~%MOD_FOLDER%/items/a7#pot1.itm~ ~override~
-    SAY NAME2 @2070 // Rejuvenation Potion
-    SAY IDENTIFIED_DESC @2071 // ...
-
-  // TODO: Activate when patch 2.5 is released
-  /*
-  COPY ~%MOD_FOLDER%/items/a7#cpot1.bam~ ~override~
-       ~%MOD_FOLDER%/items/a7#ipot1.bam~ ~override~
-  LAF ADD_SPLPROT_ENTRY
-  STR_VAR
-    label = ~NOTRUBIKON~
-    definition = EVAL ~0x106      %area_type_id%        9~
-  RET
-    index
+  ACTION_IF (IS_PATCH25) BEGIN
+    // Using area type check via splprot
+    LAF ADD_SPLPROT_ENTRY
+    STR_VAR
+      label = ~NOTRUBIKON~
+      definition = EVAL ~0x106      %area_type_id%        9~
+    RET
+      index
+    END
+    COPY ~%MOD_FOLDER%/items/patch25/a7#pot1.itm~ ~override~
+      SAY NAME2 @2070 // Rejuvenation Potion
+      SAY IDENTIFIED_DESC @2071 // ...
+      LPF ALTER_ITEM_EFFECT
+      INT_VAR
+        check_headers = 1
+        match_opcode  = 318
+        parameter2    = index
+        special       = RESOLVE_STR_REF(@2072)  // Ineffective
+      END
+      LPF ADD_ITEM_EFFECT
+      INT_VAR
+        opcode      = 139 // Display string
+        target      = 1   // Self
+        parameter1  = RESOLVE_STR_REF(@2073)  // Refreshed
+        timing      = 1
+      END
+  END ELSE BEGIN
+    // Using area type check via helper creature
+    COMPILE ~%MOD_FOLDER%/items/a7#pot1.baf~
+    COPY ~%MOD_FOLDER%/items/a7#pot1.eff~ ~override~
+         ~%MOD_FOLDER%/items/a7#pot1.spl~ ~override~
+         ~%MOD_FOLDER%/items/a7#pot1.cre~ ~override~
+    COPY ~%MOD_FOLDER%/items/a7#pot1.itm~ ~override~
+      SAY NAME2 @2070 // Rejuvenation Potion
+      SAY IDENTIFIED_DESC @2071 // ...
   END
-  COPY ~%MOD_FOLDER%/items/patch25/a7#pot1.itm~ ~override~
-    SAY NAME2 @2070 // Rejuvenation Potion
-    SAY IDENTIFIED_DESC @2071 // ...
-    LPF ALTER_ITEM_EFFECT
-    INT_VAR
-      check_headers = 1
-      match_opcode  = 318
-      parameter2    = index
-      special       = RESOLVE_STR_REF(@2072)  // Ineffective
-    END
-    LPF ADD_ITEM_EFFECT
-    INT_VAR
-      opcode      = 139 // Display string
-      target      = 1   // Self
-      parameter1  = RESOLVE_STR_REF(@2073)  // Refreshed
-      timing      = 1
-    END
-  */
 
   // Trade items from maze
   COPY ~%MOD_FOLDER%/items/a7#iclue.bam~ ~override~
