@@ -475,6 +475,8 @@ Weight: 5~
 @50012 = ~The console displays a number of unidentifiable symbols. Shortly after a scroll with instructions materializes in your backpack.~
 @50013 = ~THAC0 Penalty~
 @50014 = ~Armor Class Penalty~
+@50015 = ~Come forth, creature of darkness! Show me your power!~
+@50016 = ~The darkness within you finally retreats, and you are once again in control of body and mind. But it leaves you fatigued and mentally drained.~
 
 
 // Quest entries

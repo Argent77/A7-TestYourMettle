@@ -311,6 +311,20 @@ BEGIN @1  // Modron Maze
       parameter1    = RESOLVE_STR_REF(@50004) // Wracking Pains
     END
 
+  COPY ~%MOD_FOLDER%/spells/a7#slr1.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 100 // Protection from creature type
+      parameter1    = race_drone
+    END
+  COPY ~%MOD_FOLDER%/spells/a7#slr1b.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 139 // Display string
+      parameter1    = RESOLVE_STR_REF(@50016) // The darkness within you finally retreats, and you are once again in control of body and mind. But it leaves you fatigued and mentally drained.
+    END
+
+
   // Spells for random monster bonuses
   COPY ~%MOD_FOLDER%/spells/a7#fx11.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx12.eff~ ~override~

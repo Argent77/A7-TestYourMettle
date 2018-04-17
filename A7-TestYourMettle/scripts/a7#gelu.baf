@@ -152,6 +152,61 @@ THEN
 END
 
 IF
+  DifficultyGT(NORMAL)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("slayer","LOCALS",0)
+  Global("Slayer1","GLOBAL",0)
+  NumInPartyAliveGT(1)
+  See(Player1)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  CheckStat(Player1,0,SANCTUARY)
+  CheckStat(Player1,0,PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("slayer","LOCALS",1)
+    FaceObject(Player1)
+    DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
+    ClearActions(Player1)
+    ActionOverride(Player1,MakeUnselectable(2))
+    ActionOverride(Player1,PlayDead(30))
+    Wait(2)
+    ForceSpellRES("a7#slr1",Player1)
+    SetInterrupt(TRUE)
+  RESPONSE #25
+    SetGlobal("slayer","LOCALS",1)
+    Continue()
+END
+
+IF
+  DifficultyGT(NORMAL)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("slayer","LOCALS",0)
+  !Global("Slayer1","GLOBAL",0)
+  See("Imoen2")
+  !StateCheck("Imoen2",CD_STATE_NOTVALID)
+  CheckStat("Imoen2",0,SANCTUARY)
+  CheckStat("Imoen2",0,PROTECTION_FROM_EVIL)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("slayer","LOCALS",1)
+    FaceObject("Imoen2")
+    DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
+    ClearActions("Imoen2")
+    ActionOverride("Imoen2",MakeUnselectable(2))
+    ActionOverride("Imoen2",PlayDead(30))
+    Wait(2)
+    ForceSpellRES("a7#slr1","Imoen2")
+    SetInterrupt(TRUE)
+  RESPONSE #25
+    SetGlobal("slayer","LOCALS",1)
+    Continue()
+END
+
+IF
   !GlobalTimerNotExpired("cast","LOCALS")
   Global("maze","LOCALS",0)
   See(NearestEnemyOf(Myself))
@@ -161,7 +216,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobal("maze","LOCALS",0)
+    SetGlobal("maze","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
 END
 
@@ -175,7 +230,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobal("maze","LOCALS",0)
+    SetGlobal("maze","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
 END
 
@@ -189,7 +244,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobal("maze","LOCALS",0)
+    SetGlobal("maze","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
 END
 
@@ -203,7 +258,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobal("maze","LOCALS",0)
+    SetGlobal("maze","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_MAZE)
 END
 
