@@ -300,7 +300,7 @@ BEGIN @1  // Modron Maze
        ~%MOD_FOLDER%/spells/a7#sp01.vvc~ ~override~
 
   COPY ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
-    SAY UNIDENTIFIED_DESC @50017
+    SAY UNIDENTIFIED_DESC @50017  // Lightning Bolt description...
 
   COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
     SAY NAME1 ~Produce Flame~

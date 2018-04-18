@@ -486,6 +486,7 @@ Saving Throw: 1/2
 
 Upon using this ability, the construct releases a powerful bolt of electrical energy that inflicts 6d6 points of damage to each creature within the path of the bolt. A successful Saving Throw vs. Wand reduces this damage to half (round fractions down).~
 
+
 // Quest entries
 @60000 = ~An alien place~
 @60001 = ~Mazes and Modrons~
