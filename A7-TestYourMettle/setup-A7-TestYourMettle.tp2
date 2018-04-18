@@ -281,7 +281,6 @@ BEGIN @1  // Modron Maze
        ~%MOD_FOLDER%/spells/a7#gelu1.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#gelu2.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#gelu3.eff~ ~override~
-       ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum1.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum2.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum3.eff~ ~override~
@@ -299,6 +298,9 @@ BEGIN @1  // Modron Maze
        ~%MOD_FOLDER%/spells/a7#sp01b.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.bmp~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.vvc~ ~override~
+
+  COPY ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
+    SAY UNIDENTIFIED_DESC @50017
 
   COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
     SAY NAME1 ~Produce Flame~

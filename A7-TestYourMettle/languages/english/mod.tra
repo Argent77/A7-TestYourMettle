@@ -477,7 +477,14 @@ Weight: 5~
 @50014 = ~Armor Class Penalty~
 @50015 = ~Come forth, creature of darkness! Show me your power!~
 @50016 = ~The darkness within you finally retreats, and you are once again in control of body and mind. But it leaves you fatigued and mentally drained.~
+@50017 = ~Lightning Bolt
 
+Range: Visual range of the construct
+Duration: Instant
+Area of Effect: Path of bolt
+Saving Throw: 1/2
+
+Upon using this ability, the construct releases a powerful bolt of electrical energy that inflicts 6d6 points of damage to each creature within the path of the bolt. A successful Saving Throw vs. Wand reduces this damage to half (round fractions down).~
 
 // Quest entries
 @60000 = ~An alien place~
