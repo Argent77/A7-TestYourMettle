@@ -5,7 +5,7 @@ VERSION ~0.1 (beta)~
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
-  OUTER_SET IS_PATCH25 = (FILE_EXISTS ~data/Patch24.bif~) ? 1 : 0
+  OUTER_SET IS_PATCH25 = (FILE_EXISTS_IN_GAME ~bdcutid.cre~) ? 1 : 0
 END
 
 README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
