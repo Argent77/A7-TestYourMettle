@@ -242,6 +242,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -272,6 +273,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -302,6 +304,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -332,6 +335,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -362,6 +366,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -392,6 +397,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -422,6 +428,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -452,6 +459,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -482,6 +490,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -512,6 +521,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -542,6 +552,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -572,6 +583,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",3)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])

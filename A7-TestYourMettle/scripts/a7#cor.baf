@@ -28,6 +28,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("prebuff","LOCALS",0)
   Name("Taskmaster",Myself)
   Allegiance(Myself,EVILCUTOFF)
@@ -39,6 +40,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("prebuff","LOCALS",0)
   Name("Taskmaster",Myself)
   Allegiance(Myself,EVILCUTOFF)
@@ -50,6 +52,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("prebuff","LOCALS",0)
   Name("Taskmaster",Myself)
   Allegiance(Myself,EVILCUTOFF)
@@ -61,6 +64,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("prebuff","LOCALS",0)
   Name("Taskmaster",Myself)
   Allegiance(Myself,EVILCUTOFF)
@@ -89,6 +93,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   Global("skins","LOCALS",0)
   CheckStat(Myself,0,STONESKINS)
@@ -292,6 +297,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -322,6 +328,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -352,6 +359,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -382,6 +390,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -412,6 +421,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
@@ -442,6 +452,7 @@ THEN
 END
 
 IF
+  DifficultyGT(EASIEST)
   Global("bhave","LOCALS",2)
   !GlobalTimerNotExpired("cast","LOCALS")
   !See([0.0.MODRON])
