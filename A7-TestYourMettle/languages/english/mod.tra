@@ -382,22 +382,22 @@ Weight: 5~
 @5513 = ~The creature seems to communicate by emitting sequences of low and high tones. You quickly notice that it is a code of some kind. After some trial and error you are confident that you have grasped the basic meaning of the code.~
 
 // Cornugon Taskmaster
-@6000 = ~Ah, another clueless adventurer finds its way to the taskmaster. That is good. Guarding the portal is a privilege, but it gets tiresome after a while.~
+@6000 = ~Ah, another clueless adventurer finds their way to the taskmaster. That is good. Guarding the portal is a privilege, but it gets tiresome after a while.~
 @6001 = ~But introductions first. I am Dogreth the Taskmaster, cornugon of the second circle and the master's right hand. I would ask for your name, but your soul will be mine soon. Then I will know all about you anyway.~
 @6002 = ~Are you responsible for the malfunctions of the dungeon maze?~
 @6003 = ~Do you have the vortex cube in your possession?~
-@6004 = ~The maze? It is of little use to us. But we can still take advantage of it, by keeping the annoying modrons at bay while we are busy with our task. My master certainly thinks so.~
+@6004 = ~The maze? It is of little use to us. But we can still take advantage of it, by keeping the annoying modrons at bay until we have finished our task in this place. My master certainly thinks so.~
 @6005 = ~So, you know about the vortex cube? Maybe we had a hand or two in its disappearance. The cube is a powerful tool in the right hands. And I can assure you that my master knows how to use it effectively.~
 @6006 = ~But that doesn't concern you. My master is safe behind powerful wards, and only I have the means to overcome them. You will be dead soon, after my servants had their fun with you. I'm certain your soul will make a good trophy for my master.~
 
 // Gelugon Mastermind
-@6500 = ~You have come far, Bhaalspawn. Oh don't look so surprised. Did you really think you could take me unawares?~
+@6500 = ~You have come far, Bhaalspawn. Oh, don't look so surprised. Did you really think you could take me unawares?~
 @6501 = ~Who are you?~
 @6502 = ~What do you want?~
 @6503 = ~My true name is not for the likes of you. You may call me "Mastermind". An apt title in a place where all entities are named by their function, don't you think?~
 @6504 = ~Straight to the point. Your directness is a refreshing change when one is surrounded by cunning and deceit.~
-@6505 = ~Power is our goal, <PRO_RACE>. Power enough to expand our dominion in the planes. The race of modrons is a force that can be tapped into. They are obedient creatures without emotions that could get in their way.~
-@6506 = ~Now imagine an endless stream of obedient modrons fighting to the death for our cause in the Blood War. To accomplish this we need control over the source of modrons on Mechanus. Taking over this construct is just a small step towards the realization of this plan.~
+@6505 = ~We desire power, <PRO_RACE>. Power enough to expand our dominion in the planes. The race of modrons is a force that can be tapped into. They are obedient creatures without emotions that could get in their way.~
+@6506 = ~Now imagine an endless stream of obedient modrons fighting to the death for our cause in the Blood War. To accomplish this goal, we need control over the source of modrons on Mechanus. Taking over this construct is just a small step towards the realization of this plan.~
 @6507 = ~How do you plan to enter the plane of Mechanus?~
 @6508 = ~Does the vortex cube play a role in your plan?~
 @6509 = ~No more speeches. Prepare yourself!~
