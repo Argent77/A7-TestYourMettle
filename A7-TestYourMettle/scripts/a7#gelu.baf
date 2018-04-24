@@ -361,11 +361,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("invis","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("invis","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
     ForceSpell(Myself,QUICK_INVISIBLE)
-  RESPONSE #50
-    SetGlobalTimer("invis","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
@@ -489,6 +486,7 @@ THEN
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -505,11 +503,10 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(SecondNearestEnemyOf(Myself))
@@ -526,11 +523,10 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(ThirdNearestEnemyOf(Myself))
@@ -547,11 +543,10 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(FourthNearestEnemyOf(Myself))
@@ -568,11 +563,10 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(FifthNearestEnemyOf(Myself))
@@ -589,11 +583,10 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
+  RandomNum(2,1)
   Global("symfear","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(SixthNearestEnemyOf(Myself))
@@ -610,12 +603,11 @@ THEN
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symfear","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_FEAR)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -627,16 +619,15 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(SecondNearestEnemyOf(Myself))
@@ -648,16 +639,15 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(ThirdNearestEnemyOf(Myself))
@@ -669,16 +659,15 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(FourthNearestEnemyOf(Myself))
@@ -690,16 +679,15 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(FifthNearestEnemyOf(Myself))
@@ -711,16 +699,15 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
+  RandomNum(3,1)
   Global("symstun","LOCALS",0)
   !GlobalTimerNotExpired("cast","LOCALS")
   See(SixthNearestEnemyOf(Myself))
@@ -732,108 +719,100 @@ IF
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
 THEN
-  RESPONSE #50
+  RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("symstun","LOCALS",1)
     ForceSpell(LastSeenBy(Myself),WIZARD_SYMBOL_STUN)
-  RESPONSE #100
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(NearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(SecondNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(ThirdNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(FourthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(FifthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF
   DifficultyGT(EASIEST)
   !GlobalTimerNotExpired("cast","LOCALS")
   !GlobalTimerNotExpired("gate","LOCALS")
+  GlobalLT("gatecount","LOCALS",10)
   See(SixthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("gate","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("gate","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
+    IncrementGlobal("gatecount","LOCALS",1)
     ForceSpellRES("a7#gate",LastSeenBy(Myself))
-  RESPONSE #100
-    SetGlobalTimer("gate","LOCALS",ONE_ROUND)
-    Continue()
 END
 
 IF

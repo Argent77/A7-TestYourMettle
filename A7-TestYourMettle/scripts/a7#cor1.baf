@@ -14,7 +14,7 @@ IF
   Global("A7#TaskmasterSpeech","LOCALS",1)
 THEN
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
 END
 
 IF
@@ -66,19 +66,19 @@ IF
     DifficultyLT(EASY)
 THEN
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum1",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum1",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum1",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum1",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum1",[586.752])
   RESPONSE #100
     SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
@@ -96,34 +96,34 @@ IF
   DifficultyGT(EASIEST)
 THEN
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum1",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum1",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum1",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum1",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum1",[586.752])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum2",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum2",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum2",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum2",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum2",[586.752])
   RESPONSE #100
     SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
@@ -143,34 +143,34 @@ IF
   DifficultyGT(EASIEST)
 THEN
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum2",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum2",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum2",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum2",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum2",[586.752])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum3",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum3",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum3",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum3",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",TWO_ROUNDS, FOUR_ROUNDS)
     ForceSpellPointRES("a7#sum3",[586.752])
   RESPONSE #100
     SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
@@ -189,19 +189,19 @@ IF
   DifficultyGT(EASIEST)
 THEN
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[408.650])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[542.530])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[772.570])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[685.662])
   RESPONSE #100
-    SetGlobalTimer("conjure","LOCALS",TWO_ROUNDS)
+    SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[586.752])
   RESPONSE #100
     SetGlobalTimer("conjure","LOCALS",ONE_ROUND)

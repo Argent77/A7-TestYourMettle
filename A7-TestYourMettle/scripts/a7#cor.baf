@@ -84,11 +84,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("pfear","LOCALS",THREE_ROUNDS)
+    SetGlobalTimerRandom("pfear","LOCALS",TWO_ROUNDS, FIVE_ROUNDS)
     ReallyForceSpellRES("a7#aufr",Myself)  // Aura of Fear
-    Continue()
-  RESPONSE #50
-    SetGlobalTimer("pfear","LOCALS",ONE_ROUND)
     Continue()
 END
 
