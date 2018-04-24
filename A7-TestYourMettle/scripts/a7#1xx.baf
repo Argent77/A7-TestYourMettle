@@ -290,7 +290,7 @@ THEN
     ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #15
-    ActionOverride("Creature1A",DestroySelf())
+    ActionOverride("Creature2A",DestroySelf())
     ActionOverride("Creature2C",DestroySelf())
     Continue()
   RESPONSE #5
