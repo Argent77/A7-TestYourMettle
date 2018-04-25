@@ -249,8 +249,8 @@ END
 
 IF ~~ Invasion.Found.2
   SAY @4071 /* Your help is appreciated. To support you in your task, we have devised a tool that provides protection from the threat constructs of the Rubikon Dungeon Construct Project®. */
-  ++ @4072 /* Thank you. Anything else? */ DO ~AddexperienceParty(10000) GiveItemCreate("a7#dclk",LastTalkedToBy,16,16,0)~ + Invasion.Found.3
-  ++ @4052 /* Understood. I must be going now. Farewell. */ DO ~AddexperienceParty(10000) GiveItemCreate("a7#dclk",LastTalkedToBy,16,16,0)~ EXIT
+  ++ @4072 /* Thank you. Anything else? */ DO ~AddexperienceParty(10000) GiveItemCreate("a7#dclk",LastTalkedToBy,12,8,0)~ + Invasion.Found.3
+  ++ @4052 /* Understood. I must be going now. Farewell. */ DO ~AddexperienceParty(10000) GiveItemCreate("a7#dclk",LastTalkedToBy,12,8,0)~ EXIT
 END
 
 IF ~~ Invasion.Found.3
