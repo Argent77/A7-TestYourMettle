@@ -932,23 +932,7 @@ IF
 THEN
   RESPONSE #10
     SetGlobal("A7#Ambush","MYAREA",1)
-    SetGlobalTimer("A7#AmbushTimer","MYAREA",24)
-    Continue()
-  RESPONSE #20
-    SetGlobal("A7#Ambush","MYAREA",1)
-    SetGlobalTimer("A7#AmbushTimer","MYAREA",42)
-    Continue()
-  RESPONSE #30
-    SetGlobal("A7#Ambush","MYAREA",1)
-    SetGlobalTimer("A7#AmbushTimer","MYAREA",60)
-    Continue()
-  RESPONSE #40
-    SetGlobal("A7#Ambush","MYAREA",1)
-    SetGlobalTimer("A7#AmbushTimer","MYAREA",78)
-    Continue()
-  RESPONSE #100
-    SetGlobal("A7#Ambush","MYAREA",2)
-    SetGlobalTimer("A7#AmbushTimer","MYAREA",60)
+    SetGlobalTimerRandom("A7#AmbushTimer","MYAREA",FIVE_ROUNDS,TEN_ROUNDS)
     Continue()
 END
 
