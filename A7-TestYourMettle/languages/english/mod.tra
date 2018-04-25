@@ -88,7 +88,7 @@ Weight: 0~
 STATISTICS:
 
 Weight: 1~
-@2053 = ~This wardstone was found on the corpse of a high-ranking baatezu devil. It is unnaturally heavy, and touching it triggers a feeling of uneasiness. The glyph etched deep into this wardstone is difficult to discern. It burns into your eyes whenever you look at it, which makes it difficult to examine it more closely. However, it is most likely used to gain access to an important region of the dungeon.
+@2053 = ~This wardstone was found on the corpse of a high-ranking baatezu devil. It is unnaturally heavy, and touching it triggers a feeling of uneasiness. The glyph etched deep into this wardstone is hard to discern. It burns into your eyes whenever you look at it, which makes it difficult to examine it more closely. However, it is most likely used to gain access to an important region of the dungeon.
 
 STATISTICS:
 
@@ -108,7 +108,7 @@ STATISTICS:
 Weight: 3~
 
 @2070 = ~Rejuvenation Potion~
-@2071 = ~When consumed, this potion refreshes body and mind of the imbiber as if rested for a full day. The effect is instantaneous, and the potion is destroyed in the process.
+@2071 = ~When wholly consumed, this potion refreshes body and mind of the imbiber as if rested for a full day. The effect is instantaneous, and the potion is destroyed in the process.
 
 The potion draws its power from the surrounding matter of the artificial modron construct. It is unlikely to function outside that place.
 
@@ -134,7 +134,12 @@ Each container accepts only treasure of specific type:
 - Southwest container: Type G
 - Southeast container: Type X
 
-The amount of treasure placed into a container determines the worth of the resulting items.~
+The amount of treasure items placed into a container determines the worth of the resulting reward:
+1 item: minor reward
+2-9 items: average reward
+10-49 items: good reward
+50-99 items: great reward
+100 or more items: ???~
 
 @2090 = ~Notes about Modron Society~
 @2091 = ~This tattered journal seems to be a collection of notes about the society of modrons, written down by an anonymous scholar.
@@ -159,19 +164,19 @@ The remainder of the notes deals with information about Mechanus, the physiology
 
 However, one section of the appendix draws your interest. It deals with the various language codes used by the modron society. You should keep the notes close, as they might help you to improve communication with the modrons.~
 
-@2100 = ~Spear of Dread +4~
+@2100 = ~Spear of Dread +3~
 @2101 = ~Forged in the frozen depths of Cania, the eighth circle of the Nine Hells, this weapon radiates an aura of cold hatred and malice that represents both the nature of its origin as well as the mindset of its former master. The spear strikes its victim with magically enhanced damage and inflicts additional freezing pain that travels through the whole body to the very core. Moreover, each hit seems to fill the victim's mind with dread and fear that slows their reflexes or halts them altogether.
 
 STATISTICS:
 
 Combat abilities:
-– 75% chance target must save vs. Death with a -4 penalty or be slowed for three rounds
-- 25% chance target must save vs. Death with a -4 penalty or be stunned for one round
+– 75% chance target must save vs. Death with a -3 penalty or be slowed for three rounds
+- 25% chance target must save vs. Death with a -3 penalty or be stunned for one round
 
-THAC0: +4
-Damage: 1d6+4 (piercing), +1d6 cold damage
-Speed Factor: 2
-Proficiency Type: Spear 
+THAC0: +3
+Damage: 1d6+3 (piercing), +1d6 cold damage
+Speed Factor: 3
+Proficiency Type: Spear
 Type: Two-handed
 Requires:
  8 Strength
