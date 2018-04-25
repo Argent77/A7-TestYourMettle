@@ -16,7 +16,7 @@ experience.
 
 The adventure starts in the Planar Sphere in Athkatla's Slum District, where you may encounter new victims of Lavok's 
 planar travels. The result of the encounter will enable you to access a dungeon that has been tailor-made for the 
-intrepid adventurer. You have the opportunity to meet exotic races, uncover a devious plan, or simply enjoy battle 
+intrepid adventurer. You have the opportunity to meet exotic races, uncover a devious plot, or simply enjoy battle 
 with an endless stream of monsters.
 
 
