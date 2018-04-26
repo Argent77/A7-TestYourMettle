@@ -265,7 +265,7 @@ END
 
 IF ~~ VortexCube.Found
   SAY @4075 /* We are grateful. A reward is given to you in exchange for the vortex cube. */
-  IF ~~ DO ~AddexperienceParty(15000) GiveItemCreate("a7#rod1",LastTalkedToBy,16,0,0)~ + VortexCube.Found.1
+  IF ~~ DO ~AddexperienceParty(15000) TakePartyItem("a7#cvtx") GiveItemCreate("a7#rod1",LastTalkedToBy,16,0,0)~ + VortexCube.Found.1
 END
 
 IF ~~ VortexCube.Found.1
