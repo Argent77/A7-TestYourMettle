@@ -6,6 +6,15 @@ THEN
     Continue()
 END
 
+IF
+  OnCreation()
+  Global("A7#GridLabelActive","GLOBAL",1)
+THEN
+  RESPONSE #100
+    AmbientActivate("A7#1GRID",TRUE)
+    Continue()
+END
+
 // *** Spawn dead adventurer with modron journal ***
 IF
   OnCreation()
@@ -1557,4 +1566,13 @@ THEN
     Continue()
   RESPONSE #100
     Continue()
+END
+
+// Grid labels can only be activated after visiting the maze first
+IF
+  Global("A7#GridLabelActive","GLOBAL",0)
+  Global("A7#GridLabelRequest","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#GridLabelRequest","GLOBAL",1)
 END

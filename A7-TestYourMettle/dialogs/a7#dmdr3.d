@@ -26,6 +26,7 @@ IF ~~ Questions
   + ~Global("A7#ModronQuest","GLOBAL",2)~ + @4005 /* May I take part in the Rubikon project? */ + Q.Place.Participate
   + ~Global("A7#ModronQuest","GLOBAL",3)~ + @4006 /* Can you tell me again how I can help you? */ + Q.Place.Help
   + ~GlobalGT("A7#ModronQuest","GLOBAL",1) PartyHasItem("a7#mcube")~ + @4007 /* What can you tell me about the cube-like toy creature in my possession? */ + Q.ModronCube
+  + ~Global("A7#GridLabelRequest","GLOBAL",1)~ + @4077 /* It is easy to get lost in the Rubikon dungeon. Do you have a device that can help me find my way through the maze? */ + Q.GridLabel
   + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#ward") Global("A7#InvasionInfo","GLOBAL",0)~ 
     + @4000 /* I have found out the source of invasion. */ DO ~SetGlobal("A7#InvasionInfo","GLOBAL",1)~ + Invasion.Found
   + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#cvtx")~ + @4001 /* I have returned the vortex cube. */ + VortexCube.Found
@@ -232,6 +233,12 @@ IF ~~ Q.ModronCube.1
   = @4063 /* To activate transport to the user's place of origin, rotate the right arm 180 degrees to its socket, unfold both wings to maximum extension, then bend the left knee until the leg forms a fifteen-degree angle. */
   ++ @4044 /* I see. I have more questions though... */ + Questions
   ++ @4036 /* Interesting. I must be going now. Farewell. */ EXIT
+END
+
+IF ~~ Q.GridLabel
+  SAY @4078 /* Your request has been granted. Rubikon navigation system will be activated. */
+  ++ @4079 /* I appreciate it. I have more questions though... */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1)~ + Questions
+  ++ @4080 /* Thank you. I must be going now. Farewell. */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1)~ EXIT
 END
 
 IF ~~ Invasion.Found

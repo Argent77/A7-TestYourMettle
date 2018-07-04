@@ -404,10 +404,8 @@ BEGIN @1  // Modron Maze
   // Generic stuff
   COPY ~%MOD_FOLDER%/sounds/a7#slnt.wav~ ~override~
 
-  ACTION_FOR_EACH pattern IN ~.+\.bam~ ~.+\.wav~ BEGIN
-    ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~.+\.bam~ BEGIN
-      COPY ~%BASH_FOR_FILESPEC%~ ~override~
-    END
+  ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~.+\.\(bam\|wav\)~ BEGIN
+    COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
 
   // Boss Room
@@ -516,6 +514,9 @@ BEGIN @1  // Modron Maze
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
 
+  // Installing grid label bam+pvrz
+  COPY ~%MOD_FOLDER%/areas/a7#grid.bam~ ~override~
+
   OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
     OUTER_SET x = grid REM 8
     OUTER_SET y = grid / 8
@@ -528,6 +529,8 @@ BEGIN @1  // Modron Maze
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
       WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+
+      // updating actor animation ids
       READ_LONG 0x54 ofsActors
       READ_SHORT 0x58 numActors
       FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -550,6 +553,16 @@ BEGIN @1  // Modron Maze
         END
       END
 
+      // updating grid label
+      LPF GET_ANIMATION_OFFSET
+        STR_VAR name = ~A7#1GRID~
+        RET offset index
+      END
+      PATCH_IF (offset > 0) BEGIN
+        WRITE_SHORT (offset + 0x30) grid
+      END
+
+      // updating song references
       READ_LONG 0xbc ofsSongs
       WRITE_LONG (ofsSongs + 0x00) a7mod
       WRITE_LONG (ofsSongs + 0x04) a7mod

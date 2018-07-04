@@ -354,6 +354,10 @@ Weight: 5~
 @4074 = ~Your decision has been noted. We will further analyze data to find potential errors in our conclusion.~
 @4075 = ~We are grateful. A reward is given to you in exchange for the vortex cube.~
 @4076 = ~(The modron pauses for a moment and there is the buzzing sound again.) Connection with Mechanus has been established. Rubikon Dungeon Construct Project® is on hold until further instructions are given. We will now return home. Farewell, adventurer.~
+@4077 = ~It is easy to get lost in the Rubikon dungeon. Do you have a device that can help me find my way through the maze?~
+@4078 = ~Your request has been granted. Rubikon navigation system will be activated.~
+@4079 = ~I appreciate it. I have more questions though...~
+@4080 = ~Thank you. I must be going now. Farewell.~
 
 // Modron Guide
 @5001 = ~Greetings, adventurer. Welcome to the Rubikon, the dungeon construct. You may request access to Rubikon from the director.~
