@@ -410,11 +410,25 @@ BEGIN @1  // Modron Maze
 
   // Boss Room
   COMPILE ~%MOD_FOLDER%/scripts/a7#1wz.baf~
+          ~%MOD_FOLDER%/scripts/a7#wzt01.baf~
   ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1wz.*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
     WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    LPF ALTER_AREA_CONTAINER
+    INT_VAR
+      lockpick_strref = RESOLVE_STR_REF(@50018) // This container is sealed by an unknown force...
+    STR_VAR
+      container_name = ~cont-orb~
+    END
+    LPF ALTER_AREA_REGION
+    INT_VAR
+      info_point = RESOLVE_STR_REF(@50019)  // This construct of spherical design appears to be...
+    STR_VAR
+      region_name = ~info-orb~
+    END
+
     READ_LONG 0xbc ofsSongs
     WRITE_LONG (ofsSongs + 0x00) a7mod
     WRITE_LONG (ofsSongs + 0x04) a7mod
@@ -670,6 +684,15 @@ BEGIN @1  // Modron Maze
     END
   BUT_ONLY
 
+  // Fiendish Seal
+  COPY ~%MOD_FOLDER%/items/a7#seal.itm~ ~override~
+    SAY NAME1 @2140 // Seal
+    SAY NAME2 @2141 // Fiendish Seal
+    SAY UNIDENTIFIED_DESC @2142 // ...
+    SAY IDENTIFIED_DESC @2143 // ...
+  COPY ~%MOD_FOLDER%/items/a7#cseal.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#iseal.bam~ ~override~
+
   // Vortex cube
   COPY ~%MOD_FOLDER%/items/a7#ivtx.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#cvtx.bam~ ~override~
@@ -692,6 +715,48 @@ BEGIN @1  // Modron Maze
       dlg_resref    = ~A7#CVTX~
     END
   BUT_ONLY
+
+  // Spacewarp spell notes
+  ADD_PROJECTILE ~%MOD_FOLDER%/spells/a7#vtx.pro~
+
+  COPY ~%MOD_FOLDER%/spells/a7#spp1.spl~ ~override~
+    SAY UNIDENTIFIED_DESC @2130  // Spacewarp (priest spell)
+    LPF ALTER_SPELL_HEADER
+    INT_VAR projectile = ~a7#vtx~
+    END
+
+  COPY ~%MOD_FOLDER%/spells/a7#spw1.spl~ ~override~
+    SAY UNIDENTIFIED_DESC @2131  // Spacewarp (mage spell)
+    LPF ALTER_SPELL_HEADER
+    INT_VAR projectile = ~a7#vtx~
+    END
+
+  COPY ~%MOD_FOLDER%/spells/a7#mscl2.itm~ ~override~
+    SAY IDENTIFIED_DESC @2131  // Spacewarp (mage spell)
+
+  COPY ~%MOD_FOLDER%/spells/a7#scrl2.itm~ ~override~
+    SAY NAME1 @2132 // Ancient Scroll
+    SAY NAME2 @2133 // Ancient Scholarly Notes
+    SAY UNIDENTIFIED_DESC @2135 // ...
+    SAY IDENTIFIED_DESC @2136   // ...
+  COMPILE EVAL ~%MOD_FOLDER%/dialogs/a7#scrl2.d~
+
+  COPY_EXISTING ~itemdial.2da~ ~override~
+    LPF ADD_ITEM_DIALOG
+    INT_VAR
+      button_strref = RESOLVE_STR_REF(@2134)  // Examine
+      name_strref   = RESOLVE_STR_REF(@2133)  // Ancient Scholarly Notes
+    STR_VAR
+      itm_resref    = ~A7#SCRL2~
+      dlg_resref    = ~A7#SCRL2~
+    END
+  BUT_ONLY
+
+  COPY ~%MOD_FOLDER%/spells/a7#iscl2.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#vtxa.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#vtxb.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx01.wav~ ~override~
+       ~%MOD_FOLDER%/spells/a7#vtx.vvc~ ~override~
 
   // Drone Control Device
   COPY_EXISTING ~tooltip.2da~ ~override~

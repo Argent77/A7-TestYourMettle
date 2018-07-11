@@ -15,6 +15,16 @@ THEN
     Continue()
 END
 
+// *** Map visit counter ***
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    IncrementGlobal("A7#MazeCounter","GLOBAL",1)
+    Continue()
+END
+
+
 // *** Spawn dead adventurer with modron journal ***
 IF
   OnCreation()
@@ -856,7 +866,9 @@ END
 // Disable modron helpers on higher levels
 IF
   OnCreation()
-  LevelPartyGT(15)
+  OR(2)
+    LevelPartyGT(15)
+    GlobalGT("A7#MazeCounter","GLOBAL",64)
   Global("A7#MazeAbandoned","GLOBAL",0)
   Switch("A7#DungeonType","MYAREA")
 THEN  

@@ -19,7 +19,7 @@
 @1080 = ~Dogreth the Taskmaster~
 
 
-// Items
+// Items & Spells
 @2000 = ~Metal Toy~
 @2001 = ~Modron Cube~
 @2002 = ~This small metal toy is a replica of a cube-like creature with huge eyes on one of its faces. The toy has two legs, two arms, two folding wings, and at least eighteen points of articulation. Maybe it's a collector's item.
@@ -144,7 +144,7 @@ The amount of treasure items placed into a container determines the worth of the
 @2090 = ~Notes about Modron Society~
 @2091 = ~This tattered journal seems to be a collection of notes about the society of modrons, written down by an anonymous scholar.
 
-"I have lived for many years on Mechanus, the home plane of the modrons. Although I could find out everything about their physiology that can be found out without divine support, I have still trouble understanding their thought processes. This is what I could gather so far:
+"I have lived for many years on Mechanus, the home plane of the modrons. Although I could find out everything about their physiology that can be found out without divine support, I'm still having trouble understanding their thought processes. This is what I could gather so far:
 
 To understand modron society, one must abandon all understanding of the 'self'. It is a fundamental property of the modrons that each rank can only comprehend the existence of the rank directly above and below it. For example, the monodrones obey the will of the duodrones, but they cannot even conceive of the existence of the tridrones. When a monodrone sees a tridrone, it does not see a modron, and it could not even say what it sees. Some aphasia apparently breaks the link between the sight of the higher modron and what it actually is. This blindness leads to an interesting conclusion, as each rank believes that those immediately above it are the highest form of life and the fountainhead of supreme logic.
 
@@ -165,7 +165,7 @@ The remainder of the notes deals with information about Mechanus, the physiology
 However, one section of the appendix draws your interest. It deals with the various language codes used by the modron society. You should keep the notes close, as they might help you to improve communication with the modrons.~
 
 @2100 = ~Spear of Dread +3~
-@2101 = ~Forged in the frozen depths of Cania, the eighth circle of the Nine Hells, this weapon radiates an aura of cold hatred and malice that represents both the nature of its origin as well as the mindset of its former master. The spear strikes its victim with magically enhanced damage and inflicts additional freezing pain that travels through the whole body to the very core. Moreover, each hit seems to fill the victim's mind with dread and fear that slows their reflexes or halts them altogether.
+@2101 = ~Forged in the frozen depths of Cania, the eighth circle of the Nine Hells, this weapon radiates an aura of cold hatred and malice that represents both the nature of its origin as well as the mindset of its former master. The spear strikes its victim with magically enhanced damage and inflicts additional freezing pain that travels through the whole body. Moreover, each hit seems to fill the victim's mind with dread and fear that slows their reflexes or halts them altogether.
 
 STATISTICS:
 
@@ -231,6 +231,68 @@ Requires:
  9 Intelligence
 
 Weight: 5~
+
+@2130 = ~Spacewarp
+(Alteration)
+
+Level: 7
+Sphere: Numbers
+Range: 150 ft.
+Duration: 1 turn
+Casting Time: 7
+Area of Effect: 15-ft. radius sphere
+Saving Throw: Special
+
+According to one view of the universe, what we perceive as gravity is actually a localized warping of the fabric of space-time. The Spacewarp spell creates a temporary but very intense warping in a limited area.
+
+When the priest casts this spell, <PRO_HESHE> selects a specific point to be the center of effect. This point may be anywhere within 150 feet of the caster.
+
+When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 30 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
+
+@2131 = ~Spacewarp
+(Alteration)
+
+Level: 8
+Sphere: Numbers
+Range: 150 ft.
+Duration: 1 turn
+Casting Time: 5
+Area of Effect: 15-ft. radius sphere
+Saving Throw: Special
+
+According to one view of the universe, what we perceive as gravity is actually a localized warping of the fabric of space-time. The Spacewarp spell creates a temporary but very intense warping in a limited area.
+
+When the mage casts this spell, <PRO_HESHE> selects a specific point to be the center of effect. This point may be anywhere within 150 feet of the caster.
+
+When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 30 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
+
+@2132 = ~Ancient Scroll~
+// @2133 = ~Treatise on space-time theorems~
+@2133 = ~Ancient Scholarly Notes~
+@2134 = ~Examine~
+@2135 = ~Despite its age, this scroll is amazingly well preserved. Strange symbols have been carefully penned onto the parchment.
+
+STATISTICS:
+
+Weight: 0~
+@2136 = ~These notes were written down by a scholar of ancient Netheril. They are filled with complex formulae and charts, representing lost knowledge about time and space. One section appears to be written with a more practical application in mind. It describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.
+
+STATISTICS:
+
+Weight: 0~
+
+@2140 = ~Seal~
+@2141 = ~Fiendish Seal~
+@2142 = ~Often marked with magical runes or symbols, seals are powerfully enchanted items intended to grant the bearer access to magically guarded areas. As most seals are unique and specific in their nature, it is rare to find one with more than one purpose.
+
+STATISTICS:
+
+Weight: 1~
+@2143 = ~Seals are commonly used to access magically guarded areas. This seal is slightly cold to the touch and bears a strange symbol of an unblinking eye. You found it on the body of a gelugon devil.
+
+STATISTICS:
+
+Weight: 1~
 
 
 // Dialogs
@@ -467,6 +529,21 @@ Weight: 5~
 @9032 = ~There is a *whirrrr,* a *click,* then energy builds up for a moment. But it is quickly absorbed by the surrounding matter. It looks like this area interferes with the magic of the cube. You may have to try again somewhere else.~
 @9033 = ~You try to focus on manipulating the toy's various appendages, but you are too distracted by the combat noise around you.~
 
+// Scholarly Notes about Spacewarp
+@10000 = ~Strange symbols have been carefully penned onto the parchment.~
+@10001 = ~This scroll is written in a language, that has been used by scholars of ancient Netheril. It contains complex formulae and charts, representing lost knowledge about time and space.~
+@10002 = ~This scroll is filled with complex formulae and charts, representing lost knowledge about time and space.~
+@10003 = ~One section appears to be written with a more practical application in mind. It describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
+@10004 = ~This scroll describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
+@10005 = ~You try to make sense of the symbols, but have to give up eventually. The technical details are too complex for you to understand.~
+@10006 = ~As you inspect the notes more closely, you can quickly make out a pattern. Using your own arcane knowledge you are able to transform it into a regular spell scroll without much effort.~
+@10007 = ~After committing the notes to memory you begin to understand a higher logic behind the theories. With this newfound insight, you can easily bring it into accordance with your own beliefs.~
+@10008 = ~Examine the scroll more closely.~
+@10009 = ~Put the scroll away.~
+@10010 = ~Turn this effect into a mage scroll.~
+@10011 = ~Memorize this effect as a priest spell.~
+@10012 = ~Transformed scholarly notes into a spell scroll~ [EFF_M02]
+
 
 // Misc.
 @50000 = ~That's it! I will take care of you myself.~
@@ -494,6 +571,8 @@ Area of Effect: Path of bolt
 Saving Throw: 1/2
 
 Upon using this ability, the construct releases a powerful bolt of electrical energy that inflicts 6d6 points of damage to each creature within the path of the bolt. A successful Saving Throw vs. Wand reduces this damage to half (round fractions down).~
+@50018 = ~This container is sealed by an unknown force and guarded by various defensive mechanisms against unauthorized access.~
+@50019 = ~This construct of spherical design appears to be the power core of the Rubikon Dungeon. It is wrapped in a protective field of some kind. Runes indicate that a seal is needed to gain access to the core.~
 
 
 // Quest entries

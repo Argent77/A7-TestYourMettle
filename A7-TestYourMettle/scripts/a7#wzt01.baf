@@ -1,0 +1,11 @@
+// Trap for container in wizard room power core
+IF
+  !PartyHasItem("A7#SEAL")
+  OR(2)
+    Entered([ANYONE])
+    Opened([ANYONE])
+THEN
+  RESPONSE #100
+    DisplayString(LastTrigger,14381)  // Trap Sprung
+    ForceSpell(LastTrigger,WIZARD_CHAIN_LIGHTNING)
+END
