@@ -177,6 +177,7 @@ THEN
     ActionOverride(Player1,MakeUnselectable(2))
     ActionOverride(Player1,PlayDead(30))
     Wait(2)
+    ForceSpellRES("a7#slr0",Myself)
     ForceSpellRES("a7#slr1",Player1)
     SetInterrupt(TRUE)
   RESPONSE #25
@@ -204,6 +205,7 @@ THEN
     ActionOverride("Imoen2",MakeUnselectable(2))
     ActionOverride("Imoen2",PlayDead(30))
     Wait(2)
+    ForceSpellRES("a7#slr0",Myself)
     ForceSpellRES("a7#slr1","Imoen2")
     SetInterrupt(TRUE)
   RESPONSE #25

@@ -313,6 +313,7 @@ BEGIN @1  // Modron Maze
       parameter1    = RESOLVE_STR_REF(@50004) // Wracking Pains
     END
 
+  COPY ~%MOD_FOLDER%/spells/a7#slr0.spl~ ~override~
   COPY ~%MOD_FOLDER%/spells/a7#slr1.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
     INT_VAR
