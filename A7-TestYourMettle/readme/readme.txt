@@ -5,7 +5,8 @@ Version:    0.1-beta
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-TestYourMettle/releases/latest
-Discussion: https://forums.beamdog.com/discussion/70072
+Discussion: http://www.shsforums.net/topic/59860-mod-test-your-mettle/
+            https://forums.beamdog.com/discussion/70072
 
 
 Overview
@@ -20,12 +21,19 @@ intrepid adventurer. You have the opportunity to meet exotic races, uncover a de
 with an endless stream of monsters.
 
 
+Compatibility
+~~~~~~~~~~~~~
+
+The mod is available for BG2:EE 2.0 or higher and EET. It is strongly recommended to patch the game to 2.5 or higher
+to make use of all features the mod has to offer.
+
+
 Installation
 ~~~~~~~~~~~~
 
 This is a WeiDU mod, that means it is very easy to install. Simply unpack the downloaded archive into your game's 
-installation directory (where you can find the file "chitin.key") and run "setup-A7-TestYourMettle.exe". Follow the 
-instructions and you are ready to start.
+installation directory (where you can find the file "chitin.key") and run "setup-A7-TestYourMettle.exe" (Windows) or
+"setup-A7-TestYourMettle.command" (macOS). Follow the instructions and you are ready to start.
 
 It is not needed to start a new game after installing the mod. However, you must install it before entering the Planar 
 Sphere in Athkatla's Slums for the first time.
@@ -36,8 +44,8 @@ Components
 
 1. Test Your Mettle! (requires BG2:EE or EET patched to 2.0 or higher)
 
-This is the main component. It installs new areas, creatures and everything else needed for a unique dungeon crawling 
-experience.
+This is the main component. It installs new areas, creatures, items, spells and everything else needed for a unique
+dungeon crawling experience.
 
 
 2. Reduce experience for killing monsters (requires the main component)
