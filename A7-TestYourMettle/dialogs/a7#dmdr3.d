@@ -86,7 +86,7 @@ END
 
 IF ~~ Q.Place.What.2
   SAY @4017 /* Rubikon is capable of forming a series of rooms linked in such a fashion as to form what is commonly referred to as a *dungeon*. The dungeon is populated with monsters, traps and treasure. */
-  = @4018 /* Each section of the dungeon is created dynamically on demand and adjusts difficulty based on the experience level of the adventurer who takes part in it. After creation the dungeon section can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance afterwards. */
+  = @4018 /* Each section of the dungeon is created dynamically and adjusts difficulty to the experience level of the adventurer that takes part in it. After creation the dungeon can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance area afterwards. */
   ++ @4019 /* Recycled? */ UNSOLVED_JOURNAL @60015 + Q.Place.What.Recycler
   ++ @4020 /* You said something about aberrations? */ + Q.Place.What.3
   ++ @4004 /* Are there any dangers associated with Rubikon that I should be aware of? */ + Q.Place.Dangers
@@ -96,7 +96,7 @@ IF ~~ Q.Place.What.2
 END
 
 IF ~~ Q.Place.What.Recycler
-  SAY @4022 /* The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console can be found in the northwest corner of the Entrance to Rubikon. */
+  SAY @4022 /* The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console is located at the northwest corner of the Entrance to Rubikon. */
   ++ @4020 /* You said something about aberrations? */ + Q.Place.What.3
   ++ @4004 /* Are there any dangers associated with Rubikon that I should be aware of? */ + Q.Place.Dangers
   + ~GlobalLT("A7#ModronQuest","GLOBAL",3)~ + @4021 /* I am an adventurer. May I try out your dungeon experiment? */ + Q.Place.Participate
@@ -105,7 +105,7 @@ IF ~~ Q.Place.What.Recycler
 END
 
 IF ~~ Q.Place.What.3
-  SAY @4023 /* Queries to be answered: What attracts people to dungeons? Why do people often seek to enter them if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand. */
+  SAY @4023 /* Queries to be answered: What attracts people to dungeons? Why do people often seek to enter dungeons if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand. */
   ++ @4004 /* Are there any dangers associated with Rubikon that I should be aware of? */ + Q.Place.Dangers
   + ~GlobalLT("A7#ModronQuest","GLOBAL",3)~ + @4024 /* Interesting. May I try out your dungeon experiment? */ + Q.Place.Participate
   ++ @4009 /* Alright. I have more questions... */ + Questions
@@ -237,12 +237,12 @@ END
 
 IF ~~ Q.GridLabel
   SAY @4078 /* Your request has been granted. Rubikon navigation system will be activated. */
-  ++ @4079 /* I appreciate it. I have more questions though... */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1)~ + Questions
-  ++ @4080 /* Thank you. I must be going now. Farewell. */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1)~ EXIT
+  ++ @4079 /* I appreciate it. I have more questions though... */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1) EraseJournalEntry(@60019)~ + Questions
+  ++ @4080 /* Thank you. I must be going now. Farewell. */ DO ~SetGlobal("A7#GridLabelRequest","GLOBAL",2) SetGlobal("A7#GridLabelActive","GLOBAL",1) EraseJournalEntry(@60019)~ EXIT
 END
 
 IF ~~ Invasion.Found
-  SAY @4064 /* Your knowledge about the nature of the intruders is appreciated. (Again the room is filled with a buzzing sound that subsides as quickly as it came.) Our analysis shows that destroying the leader of the baatezu force allows us to regain control over the Rubikon Dungeon Construct Project®. This task is given to you. */
+  SAY @4064 /* Your knowledge about the nature of the intruders is appreciated. (Again the room is filled with a buzzing sound that subsides as quickly as it came.) Our analysis shows that destroying the leader of the baatezu force will allow us to regain control over the Rubikon Dungeon Construct Project®. This task is given to you. */
   ++ @4065 /* Why me? */ + Invasion.Found.1
   ++ @4066 /* Sure, why not? I'll do it. */ UNSOLVED_JOURNAL @60017 + Invasion.Found.2
   ++ @4067 /* I'm not interested. Especially if it involves fighting the leader of a devil army. */ + Invasion.Found.Refused

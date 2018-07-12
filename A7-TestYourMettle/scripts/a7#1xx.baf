@@ -1671,3 +1671,15 @@ THEN
     SetGlobal("A7#UpdateChallengeRating","MYAREA",0)
     IncrementGlobal("A7#ChallengeRating","GLOBAL",1)
 END
+
+
+// *** Trigger hint about grid labels ***
+IF
+  GlobalGT("A7#MazeCounter","GLOBAL",2)
+  Global("A7#GridLabelActive","GLOBAL",0)
+  Global("A7#GridLabelHint","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#GridLabelHint","GLOBAL",0)
+    AddJournalEntry(@60019,QUEST)
+END

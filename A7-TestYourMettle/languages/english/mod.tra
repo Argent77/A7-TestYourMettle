@@ -123,7 +123,7 @@ Weight: 1~
 @2080 = ~Recycling instructions~
 @2081 = ~This scroll describes in an excruciatingly detailed way how to use the containers at the entrance area to recycle treasure from the dungeon maze, or in other words, how to trade treasure for usable items.
 
-In a nutshell:
+From what you can gather, the procedure is as follows:
 1. Place one or more treasure items of a given type into a matching container.
 2. Use the recycling console to initiate the recycling process.
 3. Retrieve recycled items from the containers.
@@ -139,7 +139,7 @@ The amount of treasure items placed into a container determines the worth of the
 2-9 items: average reward
 10-49 items: good reward
 50-99 items: great reward
-100 or more items: ???~
+100 or more items: exceptional reward~
 
 @2090 = ~Notes about Modron Society~
 @2091 = ~This tattered journal seems to be a collection of notes about the society of modrons, written down by an anonymous scholar.
@@ -152,7 +152,7 @@ There is an awareness of all ranks below a modron's station, yet communication i
 
 A modron's perception of its immediate superiors should not be mistaken for deification, either. What others might call a god, the modrons cannot imagine, for they are unable to conceive of such an individual existence. Instead, all life and direction spring from a pool of logical action – all that is right happens because it must inescapably be, and all that is wrong is that which must not be. These metal limitations make dealings with modrons a challenge.
 
-(I have noticed however, modrons that are cut off from the source on Mechanus adjust their command chain very quickly. Otherwise they would cease to function if no modrons of adjacent ranks are present to tell them what to do. So it is possible that a duodrone becomes aware of a pentadrone, and a quadrone may give orders directly to a monodrone.)
+(I have noticed however, that modrons are quick to adjust their command chain when cut off from the source on Mechanus. So it is possible that a duodrone becomes aware of a pentadrone, and a quadrone may give orders directly to a monodrone. It is conceivable that this behavior is imprinted in the core memory of every modron and becomes accessible only in times of need, as otherwise the whole chain of command may collapse in itself eventually.)
 
 Within each rank there is no individuality, either in form or thought. All modrons call themselves "we", and a character has no way of knowing if the pentadrone he spoke to today is the same as the one who held the same post yesterday.
 
@@ -190,9 +190,9 @@ Weight: 5~
 STATISTICS:
 
 Weight: 1~
-@2113 = ~This heavy dodecahedron, manufactured on Mechanus, has been originally designed as a fail-safe device to deal with malfunctioning constructs. It can be switched into two modes, a protective mode and a disabling mode. 
+@2113 = ~This heavy dodecahedron, manufactured on Mechanus, has been originally designed as a fail-safe device to deal with malfunctioning constructs. It can be switched into two modes: a protective mode and a disabling mode. 
 
-The protective mode wraps the user in a cloud of microscopic particles. This cloud absorbs thermal energy and will therefore act as a cloak against the sensory organs of mechanical construct that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
+The protective mode wraps the user in a cloud of microscopic particles. This cloud absorbs thermal energy and will therefore act as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
 
 The disabling mode allows the user to force a construct into sleep mode. While this mode is active the construct remains passive and regenerates one hit point per round. Sleep mode may be overridden by commands of higher priority however, which includes self-defense or instructions from superiors.
 
@@ -357,12 +357,12 @@ Weight: 1~
 @4015 = ~How do you do that?~
 @4016 = ~What aberrations are you talking about?~
 @4017 = ~Rubikon is capable of forming a series of rooms linked in such a fashion as to form what is commonly referred to as a *dungeon*. The dungeon is populated with monsters, traps and treasure.~
-@4018 = ~Each section of the dungeon is created dynamically on demand and adjusts difficulty based on the experience level of the adventurer who takes part in it. After creation the dungeon section can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance afterwards.~
+@4018 = ~Each section of the dungeon is created dynamically and adjusts difficulty to the experience level of the adventurer that takes part in it. After creation the dungeon can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance area afterwards.~
 @4019 = ~Recycled?~
 @4020 = ~You said something about aberrations?~
 @4021 = ~I am an adventurer. May I try out your dungeon experiment?~
-@4022 = ~The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console can be found in the northwest corner of the Entrance to Rubikon.~
-@4023 = ~Queries to be answered: What attracts people to dungeons? Why do people often seek to enter them if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand.~
+@4022 = ~The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console is located at the northwest corner of the Entrance to Rubikon.~
+@4023 = ~Queries to be answered: What attracts people to dungeons? Why do people often seek to enter dungeons if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand.~
 @4024 = ~Interesting. May I try out your dungeon experiment?~
 @4025 = ~Yes. Do not become separated from any companions while in the maze. Each individual section of the maze is generated and reset on demand. Anyone left would be killed when the area is reset.~
 @4026 = ~I see... I will not leave anyone or anything behind. Anything else?~
@@ -377,7 +377,7 @@ Weight: 1~
 @4035 = ~I see. I have more questions...~
 @4036 = ~Interesting. I must be going now. Farewell.~
 @4037 = ~We do not know. Access to the dungeon construct has been restricted by an unknown force. A modron squad charged with the task to investigate the abnormality has not yet reported back.~
-@4038 = ~We... (The modron pauses again.) We have also lost our connection to Mechanus. Without further instructions from our superiors we are unable to solve the problem.~
+@4038 = ~We... (The modron pauses again.) We have also lost connection to Mechanus. Without further instructions from our superiors we are unable to solve the problem.~
 @4039 = ~Mechanus?~
 @4040 = ~Mechanus is a plane of perfect law and order. It is our home. Without the vortex cube we are unable to establish a connection to Mechanus.~
 @4041 = ~Vortex cube?~
@@ -403,11 +403,11 @@ Weight: 1~
 @4061 = ~The cube is tuned to the following two destinations: Entrance to the Rubikon Dungeon Construct Project®, user's place of origin.~
 @4062 = ~To activate transport to the Entrance of the Rubikon Dungeon Construct Project®, bend the left knee until the leg forms a fifteen-degree angle, unfold both wings to maximum extension, then rotate the right arm 180 degrees in its socket.~
 @4063 = ~To activate transport to the user's place of origin, rotate the right arm 180 degrees to its socket, unfold both wings to maximum extension, then bend the left knee until the leg forms a fifteen-degree angle.~
-@4064 = ~Your knowledge about the nature of the intruders is appreciated. (Again the room is filled with a buzzing sound that subsides as quickly as it came.) Our analysis shows that destroying the leader of the baatezu force allows us to regain control over the Rubikon Dungeon Construct Project®. This task is given to you.~
+@4064 = ~Your knowledge about the nature of the intruders is appreciated. (Again the room is filled with a buzzing sound that subsides as quickly as it came.) Our analysis shows that destroying the leader of the baatezu force will allow us to regain control over the Rubikon Dungeon Construct Project®. This task is given to you.~
 @4065 = ~Why me?~
 @4066 = ~Sure, why not? I'll do it.~
 @4067 = ~I'm not interested. Especially if it involves fighting the leader of a devil army.~
-@4068 = ~You are capable of completing the given task. At present there is no alternative available.~
+@4068 = ~You are capable of completing the given task. At present there is no alternative course of action available.~
 @4069 = ~I suppose I have no other choice? I'll do it.~
 @4070 = ~I'm not interested. You have to solve it by yourself.~
 @4071 = ~Your help is appreciated. To support you in your task, we have devised a tool that provides protection from the threat constructs of the Rubikon Dungeon Construct Project®.~
@@ -448,7 +448,7 @@ Weight: 1~
 @5508 = ~What are you doing?~
 @5509 = ~01001111 01101110 01100101. (We are one.)~
 @5510 = ~01010111 01101111 01110010 01101011. (We do work.)~
-@5511 = ~This modron speaks a language you can't comprehend. Maybe someone more knowledgeable can find a way to communicate with it.~
+@5511 = ~This modron speaks in a language that you can't comprehend. Maybe someone more knowledgeable can find a way to communicate with it.~
 @5512 = ~You prepare the scholarly notes about modron language codes, as the creature attempts to communicate with you.~
 @5513 = ~The creature seems to communicate by emitting sequences of low and high tones. You quickly notice that it is a code of some kind. After some trial and error you are confident that you have grasped the basic meaning of the code.~
 
@@ -457,18 +457,18 @@ Weight: 1~
 @6001 = ~But introductions first. I am Dogreth the Taskmaster, cornugon of the second circle and the master's right hand. I would ask for your name, but your soul will be mine soon. Then I will know all about you anyway.~
 @6002 = ~Are you responsible for the malfunctions of the dungeon maze?~
 @6003 = ~Do you have the vortex cube in your possession?~
-@6004 = ~The maze? It is of little use to us. But we can still take advantage of it, by keeping the annoying modrons at bay until we have finished our task in this place. My master certainly thinks so.~
+@6004 = ~The maze? It is of little use to us. But we can still take advantage of it by keeping the annoying modrons at bay until we have finished our task in this place. My master certainly thinks so.~
 @6005 = ~So, you know about the vortex cube? Maybe we had a hand or two in its disappearance. The cube is a powerful tool in the right hands. And I can assure you that my master knows how to use it effectively.~
 @6006 = ~But that doesn't concern you. My master is safe behind powerful wards, and only I have the means to overcome them. You will be dead soon, after my servants had their fun with you. I'm certain your soul will make a good trophy for my master.~
 
 // Gelugon Mastermind
-@6500 = ~You have come far, Bhaalspawn. Oh, don't look so surprised. Did you really think you could take me unawares?~
+@6500 = ~You have come far, Bhaalspawn. Oh, do not be surprised. Did you really think you could take me unawares?~
 @6501 = ~Who are you?~
 @6502 = ~What do you want?~
 @6503 = ~My true name is not for the likes of you. You may call me "Mastermind". An apt title in a place where all entities are named by their function, don't you think?~
 @6504 = ~Straight to the point. Your directness is a refreshing change when one is surrounded by cunning and deceit.~
-@6505 = ~We desire power, <PRO_RACE>. Power enough to expand our dominion in the planes. The race of modrons is a force that can be tapped into. They are obedient creatures without emotions that could get in their way.~
-@6506 = ~Now imagine an endless stream of obedient modrons fighting to the death for our cause in the Blood War. To accomplish this goal, we need control over the source of modrons on Mechanus. Taking over this construct is just a small step towards the realization of this plan.~
+@6505 = ~We desire power, <PRO_RACE>. Power enough to expand our dominion in the planes. The race of modrons is a force that can be tapped into. They are obedient creatures without emotions nor any trace of self-preservation.~
+@6506 = ~Now imagine an endless stream of obedient modrons fighting to the death for our cause in the Blood War. To accomplish this goal, we need control over the source of modrons on Mechanus. Taking over this construct is just one small step towards the realization of this plan.~
 @6507 = ~How do you plan to enter the plane of Mechanus?~
 @6508 = ~Does the vortex cube play a role in your plan?~
 @6509 = ~No more speeches. Prepare yourself!~
@@ -536,8 +536,8 @@ Weight: 1~
 @10003 = ~One section appears to be written with a more practical application in mind. It describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
 @10004 = ~This scroll describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
 @10005 = ~You try to make sense of the symbols, but have to give up eventually. The technical details are too complex for you to understand.~
-@10006 = ~As you inspect the notes more closely, you can quickly make out a pattern. Using your own arcane knowledge you are able to transform it into a regular spell scroll without much effort.~
-@10007 = ~After committing the notes to memory you begin to understand a higher logic behind the theories. With this newfound insight, you can easily bring it into accordance with your own beliefs.~
+@10006 = ~As you inspect the notes more closely, you can quickly make out a pattern. Using your own arcane knowledge you are able to transform it into a regular spell scroll.~
+@10007 = ~After committing the notes to memory you begin to understand a higher logic behind the theories. With this newfound insight, you are able to bring it into accordance with your own beliefs.~
 @10008 = ~Examine the scroll more closely.~
 @10009 = ~Put the scroll away.~
 @10010 = ~Turn this effect into a mage scroll.~
@@ -587,17 +587,17 @@ The Modron Cube transported me to an alien location, which appears to be inhabit
 
 No joke, but this place is used by the modrons as a "field test" to help them understand why adventurers are drawn to dungeons.
 
-For this reason they created a freely configurable maze that imitates a dungeon, complete with monsters, traps and everything else that can be found in dungeons. Apparently modrons, being creatures of pure logic, have trouble understanding the way of life of species with a less pronounced relation to law and logic. "Adventurers" seems to be of special interest, as they are drawn to places that may spell certain death for them.~
+For this reason they created a freely configurable maze that imitates a dungeon, complete with monsters, traps and everything else that is commonly found in dungeons. Apparently modrons, being creatures of pure logic, have trouble understanding the way of life of species with a less pronounced relation to law and logic. "Adventurers" seems to be of special interest, as they are drawn to places that may spell certain death for them.~
 
 @60013 = ~Mazes and Modrons
 
 The director of this place told me that they lost control over the dungeon simulator some time ago.
 
-Apparently a group of invaders has infiltrated the maze and stolen a vortex cube from the modrons, which is needed to control the dungeon simulator as well as establish the connection with their home plane Mechanus.~
+Apparently a group of invaders has infiltrated the maze and stolen a "vortex cube" from the modrons. It is apparently needed to control the dungeon simulator as well as to establish connection with their home plane Mechanus.~
 
 @60014 = ~Mazes and Modrons
 
-The modrons accepted my offer to help them. I am to find out who invaded the dungeon maze, restore control and return the vortex cube, which has been stolem from them. In return I have been granted access to the dungeon maze.~
+The modrons accepted my offer to help them. I have been tasked to find out who invaded the dungeon maze, restore control and return the vortex cube, which has been stolem from them. In return I have been granted access to the dungeon maze.~
 
 @60015 = ~Mazes and Modrons
 
@@ -605,9 +605,9 @@ The modron director mentioned a "Recycling Device" located in the dungeon entran
 
 @60016 = ~Mazes and Modrons
 
-I have found the source of invasion in a partially disintegrated area of the dungeon maze. It was guarded by a host of fiends. Defeating the "Taskmaster" caused the portal to the Nine Hells to collapse.
+I have found the source of the invasion in a partially disintegrated section of the dungeon maze. It was guarded by a host of fiends. Defeating the "Taskmaster" caused the portal to the Nine Hells to collapse.
 
-If the taskmaster of the devils is to believed, I can find the mastermind of the whole operation in a hidden lair behind a magical barrier. The wardstone I found on his dead body should allow me to gain entry. I should report the news to the modron director.~
+If the taskmaster of the devils is to believed, I can find the mastermind of the whole operation in a hidden lair behind a magical barrier. The wardstone I found on his dead body should allow me to gain entry. I should also report the news to the modron director.~
 
 @60017 = ~Mazes and Modrons
 
@@ -618,6 +618,10 @@ However, they rewarded my efforts with a unique item that provides some protecti
 @60018 = ~Mazes and Modrons
 
 I have finally met the mastermind of the devils. It was a gelugon, a greater baatezu. The theft of the vortex cube was just one step towards a greater plan to take control over the source of modrons on Mechanus. It would allow the devils to produce an endless stream of obedient modron soldiers to fight for them in the Blood War. His death should at least delay their plans somewhat. I should return the cube to the modron director.~
+
+@60019 = ~Mazes and Modrons
+
+The individual sections of the dungeon simulator appear to be of very similar design, which makes it easy to get lost. Maybe the director knows a way to help me navigate the maze.~
 
 @60100 = ~Mazes and Modrons
 
