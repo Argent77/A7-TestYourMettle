@@ -6,6 +6,37 @@ THEN
     Continue()
 END
 
+// *** Calculate initial challenge rating ***
+IF
+  GlobalLT("A7#ChallengeRating","GLOBAL",1)
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ChallengeRating","GLOBAL",1)
+    Continue()
+END
+
+IF
+  GlobalLT("A7#ChallengeRating","GLOBAL",2)
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ChallengeRating","GLOBAL",2)
+    Continue()
+END
+
+IF
+  GlobalLT("A7#ChallengeRating","GLOBAL",3)
+  LevelPartyGT(18)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#ChallengeRating","GLOBAL",3)
+    Continue()
+END
+
+
 IF
   Global("A7#MazeActive","GLOBAL",1)
   Global("A7#MazeActive","A7#1FY",0)

@@ -25,6 +25,103 @@ THEN
 END
 
 
+// *** Calculate challenge rating ***
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",1)
+  LevelPartyGT(9)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",2)
+  LevelPartyGT(14)
+  LevelPartyLT(19)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",3)
+  LevelPartyGT(18)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",1)
+  GlobalGT("A7#MazeCounter","GLOBAL",24)
+  LevelPartyLT(10)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",2)
+  GlobalGT("A7#MazeCounter","GLOBAL",48)
+  LevelPartyLT(15)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",3)
+  GlobalGT("A7#MazeCounter","GLOBAL",96)
+  LevelPartyLT(19)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",1)
+  DifficultyGT(NORMAL)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",2)
+  DifficultyGT(HARD)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+IF
+  OnCreation()
+  GlobalLT("A7#ChallengeRating","GLOBAL",3)
+  NightmareModeOn()
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",1)
+    Continue()
+END
+
+
 // *** Spawn dead adventurer with modron journal ***
 IF
   OnCreation()
@@ -77,7 +174,7 @@ END
 // Active maze: spawning creatures
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -101,7 +198,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -125,7 +222,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -149,7 +246,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -173,7 +270,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -197,7 +294,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -221,7 +318,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -245,7 +342,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyLT(10)
+  Global("A7#ChallengeRating","GLOBAL",0)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #74
@@ -270,8 +367,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -295,8 +391,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -320,8 +415,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -345,8 +439,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -370,8 +463,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -395,8 +487,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -420,8 +511,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -445,8 +535,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #60
@@ -471,8 +560,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -496,8 +584,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -521,8 +608,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -546,8 +632,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -571,8 +656,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -596,8 +680,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -621,8 +704,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -646,8 +728,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(14)
-  LevelPartyLT(19)
+  Global("A7#ChallengeRating","GLOBAL",2)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #50
@@ -672,7 +753,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -696,7 +777,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -720,7 +801,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -744,7 +825,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -768,7 +849,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -792,7 +873,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -816,7 +897,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -840,7 +921,7 @@ END
 
 IF
   OnCreation()
-  LevelPartyGT(18)
+  Global("A7#ChallengeRating","GLOBAL",3)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #30
@@ -866,7 +947,8 @@ END
 // Disable modron helpers on higher levels
 IF
   OnCreation()
-  OR(2)
+  OR(3)
+    DifficultyGT(NORMAL)
     LevelPartyGT(15)
     GlobalGT("A7#MazeCounter","GLOBAL",64)
   Global("A7#MazeAbandoned","GLOBAL",0)
@@ -972,8 +1054,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #50
     CreateCreatureEffect("a7#imp","ddoorh",[652.418],SW)
@@ -998,8 +1079,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #50
     SmallWait(5)
@@ -1029,8 +1109,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #50
     SmallWait(10)
@@ -1060,8 +1139,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #50
     SmallWait(15)
@@ -1091,8 +1169,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #50
     SmallWait(20)
@@ -1123,7 +1200,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     CreateCreatureEffect("a7#imp","ddoorh",[652.418],SW)
@@ -1148,7 +1225,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(5)
@@ -1178,7 +1255,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(10)
@@ -1208,7 +1285,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(15)
@@ -1238,7 +1315,7 @@ IF
   Global("A7#DungeonType","MYAREA",2)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(20)
@@ -1269,8 +1346,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     CreateCreatureEffect("a7#imp","ddoorh",[516.420],S)
@@ -1295,8 +1371,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(5)
@@ -1326,8 +1401,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(10)
@@ -1357,8 +1431,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(15)
@@ -1388,8 +1461,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(9)
-  LevelPartyLT(15)
+  Global("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #75
     SmallWait(20)
@@ -1420,7 +1492,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #100
     CreateCreatureEffect("a7#imp","ddoorh",[516.420],S)
@@ -1448,7 +1520,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #100
     SmallWait(5)
@@ -1482,7 +1554,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #100
     SmallWait(10)
@@ -1516,7 +1588,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #100
     SmallWait(15)
@@ -1550,7 +1622,7 @@ IF
   Global("A7#DungeonType","MYAREA",3)
   Global("A7#Ambush","MYAREA",1)
   GlobalTimerExpired("A7#AmbushTimer","MYAREA")
-  LevelPartyGT(14)
+  GlobalGT("A7#ChallengeRating","GLOBAL",1)
 THEN
   RESPONSE #100
     SmallWait(20)
@@ -1580,6 +1652,7 @@ THEN
     Continue()
 END
 
+
 // Grid labels can only be activated after visiting the maze first
 IF
   Global("A7#GridLabelActive","GLOBAL",0)
@@ -1587,4 +1660,14 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("A7#GridLabelRequest","GLOBAL",1)
+END
+
+
+// *** Calculate challenge rating (continued) ***
+IF
+  Global("A7#UpdateChallengeRating","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#UpdateChallengeRating","MYAREA",0)
+    IncrementGlobal("A7#ChallengeRating","GLOBAL",1)
 END
