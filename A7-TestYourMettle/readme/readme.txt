@@ -1,12 +1,12 @@
 Test your mettle!
 ~~~~~~~~~~~~~~~~~
 
-Version:    0.1-beta
+Version:    0.2-beta
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-TestYourMettle/releases/latest
 Discussion: http://www.shsforums.net/topic/59860-mod-test-your-mettle/
-            https://forums.beamdog.com/discussion/70072
+            https://forums.beamdog.com/discussion/70489
 
 
 Overview

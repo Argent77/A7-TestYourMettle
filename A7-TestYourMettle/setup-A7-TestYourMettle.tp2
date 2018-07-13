@@ -1,6 +1,6 @@
 BACKUP ~A7-TestYourMettle/backup~
 AUTHOR ~Argent77 at Beamdog Forums~
-VERSION ~0.1 (beta)~
+VERSION ~0.2 (beta)~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
