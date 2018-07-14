@@ -65,6 +65,7 @@ END
 
 IF
   DifficultyGT(EASIEST)
+  DifficultyLT(HARD)
   Global("prebuff","LOCALS",0)
   Allegiance(Myself,EVILCUTOFF)
   Detect([GOODCUTOFF])
@@ -75,13 +76,36 @@ THEN
 END
 
 IF
+  DifficultyGT(NORMAL)
+  Global("prebuff","LOCALS",0)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_ABSOLUTE_IMMUNITY)
+    Continue()
+END
+
+IF
   DifficultyGT(EASIEST)
+  DifficultyLT(HARD)
   Global("prebuff","LOCALS",0)
   Allegiance(Myself,EVILCUTOFF)
   Detect([GOODCUTOFF])
 THEN
   RESPONSE #100
     ReallyForceSpell(Myself,WIZARD_SPELL_DEFLECTION)
+    Continue()
+END
+
+IF
+  DifficultyGT(NORMAL)
+  Global("prebuff","LOCALS",0)
+  Allegiance(Myself,EVILCUTOFF)
+  Detect([GOODCUTOFF])
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_SPELL_TRAP)
     Continue()
 END
 
