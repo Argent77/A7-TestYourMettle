@@ -162,53 +162,36 @@ IF
   Global("slayer","LOCALS",0)
   Global("Slayer1","GLOBAL",0)
   NumInPartyAliveGT(1)
-  See(Player1)
-  !StateCheck(Player1,CD_STATE_NOTVALID)
-  CheckStat(Player1,0,SANCTUARY)
-  CheckStat(Player1,0,PROTECTION_FROM_EVIL)
+  OR(2)
+    See(Player1)
+    See("Imoen2")
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+  CheckStat(LastSeenBy(Myself),0,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  RandomNumGT(4,1)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
     SetGlobal("slayer","LOCALS",1)
-    FaceObject(Player1)
+    FaceObject(LastSeenBy(Myself))
     DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
-    ClearActions(Player1)
-    ActionOverride(Player1,MakeUnselectable(2))
-    ActionOverride(Player1,PlayDead(30))
+    ClearActions(LastSeenBy(Myself))
+    ActionOverride(LastSeenBy(Myself),MakeUnselectable(2))
+    ActionOverride(LastSeenBy(Myself),PlayDead(30))
     Wait(2)
     ForceSpellRES("a7#slr0",Myself)
-    ForceSpellRES("a7#slr1",Player1)
+    ForceSpellRES("a7#slr1",LastSeenBy(Myself))
     SetInterrupt(TRUE)
-  RESPONSE #25
-    SetGlobal("slayer","LOCALS",1)
-    Continue()
 END
 
 IF
   DifficultyGT(NORMAL)
   !GlobalTimerNotExpired("cast","LOCALS")
   Global("slayer","LOCALS",0)
-  !Global("Slayer1","GLOBAL",0)
-  See("Imoen2")
-  !StateCheck("Imoen2",CD_STATE_NOTVALID)
-  CheckStat("Imoen2",0,SANCTUARY)
-  CheckStat("Imoen2",0,PROTECTION_FROM_EVIL)
+  Global("Slayer1","GLOBAL",0)
 THEN
   RESPONSE #100
-    SetInterrupt(FALSE)
-    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
-    SetGlobal("slayer","LOCALS",1)
-    FaceObject("Imoen2")
-    DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
-    ClearActions("Imoen2")
-    ActionOverride("Imoen2",MakeUnselectable(2))
-    ActionOverride("Imoen2",PlayDead(30))
-    Wait(2)
-    ForceSpellRES("a7#slr0",Myself)
-    ForceSpellRES("a7#slr1","Imoen2")
-    SetInterrupt(TRUE)
-  RESPONSE #25
     SetGlobal("slayer","LOCALS",1)
     Continue()
 END
