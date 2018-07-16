@@ -1,4 +1,4 @@
-// -*- coding: utf-8 -*- 
+// -*- coding: utf-8 -*-
 
 // Creatures
 @1000 = ~Wizard Construct~
@@ -63,7 +63,7 @@ Weight: 0~
 
 @2030 = ~Bizarre Item~
 @2031 = ~A Goody!~
-@2033 = ~It looks like a small stone rod of some sort. Interesting, but useless.
+@2033 = ~It looks like a small stone rod of some sort. Interesting but useless.
 
 The code "G#5886" has been etched onto the bottom of the rod.
 
@@ -96,7 +96,7 @@ Weight: 1~
 
 @2060 = ~Black Cube~
 @2061 = ~Vortex Cube~
-@2062 = ~This cube looks rather unremarkable, except for faint swirling markings on each side. It seems to be made from a material that you can't recognize.
+@2062 = ~This cube looks rather unremarkable except for faint swirling markings on each side. It seems to be made from a material that you can't recognize.
 
 STATISTICS:
 
@@ -114,14 +114,14 @@ The potion draws its power from the surrounding matter of the artificial modron 
 
 STATISTICS:
 
-Special: Refreshes spells and fatigue and removes temporary effects as if rested for a day
+Special: Refreshes spells and fatigue and removes temporary effects as if rested for a day.
 
 Weight: 1~
 @2072 = ~Ineffective~
 @2073 = ~Refreshed~
 
 @2080 = ~Recycling instructions~
-@2081 = ~This scroll describes in an excruciatingly detailed way how to use the containers at the entrance area to recycle treasure from the dungeon maze, or in other words, how to trade treasure for usable items.
+@2081 = ~This scroll describes in an excruciatingly detailed way how to use the containers at the entrance area to recycle treasure from the dungeon maze, or, in other words, how to trade treasure for usable items.
 
 From what you can gather, the procedure is as follows:
 1. Place one or more treasure items of a given type into a matching container.
@@ -152,13 +152,13 @@ There is an awareness of all ranks below a modron's station, yet communication i
 
 A modron's perception of its immediate superiors should not be mistaken for deification, either. What others might call a god, the modrons cannot imagine, for they are unable to conceive of such an individual existence. Instead, all life and direction spring from a pool of logical action – all that is right happens because it must inescapably be, and all that is wrong is that which must not be. These metal limitations make dealings with modrons a challenge.
 
-(I have noticed however, that modrons are quick to adjust their command chain when cut off from the source on Mechanus. So it is possible that a duodrone becomes aware of a pentadrone, and a quadrone may give orders directly to a monodrone. It is conceivable that this behavior is imprinted in the core memory of every modron and becomes accessible only in times of need, as otherwise the whole chain of command may collapse in itself eventually.)
+(I have noticed, however, that modrons are quick to adjust their command chain when cut off from the source on Mechanus. So it is possible that a duodrone becomes aware of a pentadrone, and a quadrone may give orders directly to a monodrone. It is conceivable that this behavior is imprinted in the core memory of every modron and becomes accessible only in times of need, as otherwise the whole chain of command may collapse in itself eventually.)
 
 Within each rank there is no individuality, either in form or thought. All modrons call themselves "we", and a character has no way of knowing if the pentadrone he spoke to today is the same as the one who held the same post yesterday.
 
 Even the size of modron society is rigidly fixed. In each rank there are only a set number of modrons. Should a modron of any rank die, an available candidate from the next lowest rank is promoted, and then the gap in the lower rank is filled by promoting from the still lower rank. This continues until the rank of monodrone is reached. With no lower ranks, the creatures at this level reproduce by fission, as one of their members mysteriously divides into two. (Given this, the claim that all modrons are one might be truer than it first seems.)
 
-From greatest to least, the castes of the modrons are as follows. The hierarch modrons consist of Primus (the absolute ruler of all modrons), secundi, tertians, quartons, quintons, hextons, septons, octons, nonatons and decatons. The base modrons consist of pentadrones, quadrones, tridrones, duodrones and monodrones."
+From greatest to least, the castes of the modrons are as follows: The hierarch modrons consist of Primus (the absolute ruler of all modrons), secundi, tertians, quartons, quintons, hextons, septons, octons, nonatons, and decatons. The base modrons consist of pentadrones, quadrones, tridrones, duodrones, and monodrones."
 
 The remainder of the notes deals with information about Mechanus, the physiology of modrons and many other topics that are of no particular relevance to you.
 
@@ -190,11 +190,11 @@ Weight: 5~
 STATISTICS:
 
 Weight: 1~
-@2113 = ~This heavy dodecahedron, manufactured on Mechanus, has been originally designed as a fail-safe device to deal with malfunctioning constructs. It can be switched into two modes: a protective mode and a disabling mode. 
+@2113 = ~This heavy dodecahedron, manufactured on Mechanus, has been originally designed as a fail-safe device to deal with malfunctioning constructs. It can be switched into two modes: a protective mode and a disabling mode.
 
 The protective mode wraps the user in a cloud of microscopic particles. This cloud absorbs thermal energy and will therefore act as a cloak against the sensory organs of mechanical constructs that are designed to detect traces of heat radiation. Races with innate infravision may also be distracted by the lack of heat radiation.
 
-The disabling mode allows the user to force a construct into sleep mode. While this mode is active the construct remains passive and regenerates one hit point per round. Sleep mode may be overridden by commands of higher priority however, which includes self-defense or instructions from superiors.
+The disabling mode allows the user to force a construct into sleep mode. While this mode is active the construct remains passive and regenerates one hit point per round. Sleep mode may be overridden by commands of higher priority, however, which includes self-defense or instructions from superiors.
 
 STATISTICS:
 
@@ -218,12 +218,12 @@ Weight: 1~
 @2118 = ~Sleep Mode terminated~
 
 @2120 = ~Rod of Modron Might~
-@2121 = ~This magical rod allows the user to summon 2 to 4 constructs of Modron design to do battle with his enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
+@2121 = ~This magical rod allows the user to summon 2 to 4 constructs of modron design to do battle with his enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
 
 STATISTICS:
 
 Charge Abilities:
-– Summon 2 to 4 constructs of Modron design
+– Summon 2 to 4 constructs of modron design
   Range: 20 ft.
   Duration: 1 hour
 
@@ -322,7 +322,7 @@ Weight: 1~
 @3513 = ~Your name is modron?~
 @3514 = ~We are modron. We do not have a name. We are modron. All that you see here are modron. We are one.~
 @3515 = ~Alright. I have more questions...~
-@3516 = ~We are modron, we are quadrone.~
+@3516 = ~We are modron. We are quadrone.~
 @3517 = ~What is a modron?~
 @3518 = ~What is a quadrone?~
 @3519 = ~We are modron. Our race is identified as such.~
@@ -356,8 +356,8 @@ Weight: 1~
 @4014 = ~Rubikon: Project goal is to determine the dynamics, both social and asocial, surrounding the environment commonly construed as a dungeon and to attempt to explain the aberrations that tend to occur in such environments.~
 @4015 = ~How do you do that?~
 @4016 = ~What aberrations are you talking about?~
-@4017 = ~Rubikon is capable of forming a series of rooms linked in such a fashion as to form what is commonly referred to as a *dungeon*. The dungeon is populated with monsters, traps and treasure.~
-@4018 = ~Each section of the dungeon is created dynamically and adjusts difficulty to the experience level of the adventurer that takes part in it. After creation the dungeon can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance area afterwards.~
+@4017 = ~Rubikon is capable of forming a series of rooms linked in such a fashion as to form what is commonly referred to as a *dungeon*. The dungeon is populated with monsters, traps, and treasure.~
+@4018 = ~Each section of the dungeon is created dynamically and adjusts difficulty to the experience level of the adventurer that takes part in it. After creation, the dungeon can be fully explored. Treasure from the dungeon can be recycled in the dungeon entrance area afterwards.~
 @4019 = ~Recycled?~
 @4020 = ~You said something about aberrations?~
 @4021 = ~I am an adventurer. May I try out your dungeon experiment?~
@@ -502,12 +502,12 @@ Weight: 1~
 @9005 = ~Use the combination that activates transport to the Rubikon dungeon entrance.~
 @9006 = ~Use the combination that activates transport back to the Rubikon dungeon entrance.~
 @9007 = ~Use the combination that activates transport back home.~
-@9008 = ~You bend, twist and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you bend its left knee, the toy makes an odd *pop!* and shudders in your hands...~
+@9008 = ~You bend, twist, and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you bend its left knee, the toy makes an odd *pop!* and shudders in your hands...~
 @9009 =  ~The toy's limbs suddenly revert to their original positions with a soft *click*.~
 @9010 = ~The toy makes an odd *pop!* and shudders in your hands.~
 @9011 = ~The toy makes a soft *whir* sound.~
 @9012 = ~The toy *hmmmms* slightly, growing warm to the touch.~
-@9013 = ~There is a *whirrrr,* a *click,* then a blinding white light suddenly explodes in your hands...~
+@9013 = ~There is a *whirrrr*, a *click*, then a blinding white light suddenly explodes in your hands...~
 @9014 = ~Rotate the left arm.~
 @9015 = ~Rotate the right arm.~
 @9016 = ~Extend the left wing.~
@@ -525,8 +525,8 @@ Weight: 1~
 @9028 = ~To the wilderness near Saradush.~
 @9029 = ~To Amkethran.~
 @9030 = ~Try to figure out the combination for the transport back home.~
-@9031 = ~You bend, twist and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you rotate its right arm, the toy makes an odd *pop!* and shudders in your hands...~
-@9032 = ~There is a *whirrrr,* a *click,* then energy builds up for a moment. But it is quickly absorbed by the surrounding matter. It looks like this area interferes with the magic of the cube. You may have to try again somewhere else.~
+@9031 = ~You bend, twist, and rotate the toy's various points of articulation, noting that the limbs often suddenly revert to their original position. Finally, as you rotate its right arm, the toy makes an odd *pop!* and shudders in your hands...~
+@9032 = ~There is a *whirrrr*, a *click*, then energy builds up for a moment. But it is quickly absorbed by the surrounding matter. It looks like this area interferes with the magic of the cube. You may have to try again somewhere else.~
 @9033 = ~You try to focus on manipulating the toy's various appendages, but you are too distracted by the combat noise around you.~
 
 // Scholarly Notes about Spacewarp
@@ -535,7 +535,7 @@ Weight: 1~
 @10002 = ~This scroll is filled with complex formulae and charts, representing lost knowledge about time and space.~
 @10003 = ~One section appears to be written with a more practical application in mind. It describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
 @10004 = ~This scroll describes how to create a gravitational field of considerable power for a limited period of time. An intelligent mage or wise priest may learn how to put this effect into an arcane formula.~
-@10005 = ~You try to make sense of the symbols, but have to give up eventually. The technical details are too complex for you to understand.~
+@10005 = ~You try to make sense of the symbols but have to give up eventually. The technical details are too complex for you to understand.~
 @10006 = ~As you inspect the notes more closely, you can quickly make out a pattern. Using your own arcane knowledge you are able to transform it into a regular spell scroll.~
 @10007 = ~After committing the notes to memory you begin to understand a higher logic behind the theories. With this newfound insight, you are able to bring it into accordance with your own beliefs.~
 @10008 = ~Examine the scroll more closely.~
@@ -587,7 +587,7 @@ The Modron Cube transported me to an alien location, which appears to be inhabit
 
 No joke, but this place is used by the modrons as a "field test" to help them understand why adventurers are drawn to dungeons.
 
-For this reason they created a freely configurable maze that imitates a dungeon, complete with monsters, traps and everything else that is commonly found in dungeons. Apparently modrons, being creatures of pure logic, have trouble understanding the way of life of species with a less pronounced relation to law and logic. "Adventurers" seems to be of special interest, as they are drawn to places that may spell certain death for them.~
+For this reason they created a freely configurable maze that imitates a dungeon, complete with monsters, traps, and everything else that is commonly found in dungeons. Apparently modrons, being creatures of pure logic, have trouble understanding the way of life of species with a less pronounced relation to law and logic. "Adventurers" seems to be of special interest, as they are drawn to places that may spell certain death for them.~
 
 @60013 = ~Mazes and Modrons
 
@@ -597,7 +597,7 @@ Apparently a group of invaders has infiltrated the maze and stolen a "vortex cub
 
 @60014 = ~Mazes and Modrons
 
-The modrons accepted my offer to help them. I have been tasked to find out who invaded the dungeon maze, restore control and return the vortex cube, which has been stolem from them. In return I have been granted access to the dungeon maze.~
+The modrons accepted my offer to help them. I have been tasked to find out who invaded the dungeon maze, restore control, and return the vortex cube, which has been stolen from them. In return I have been granted access to the dungeon maze.~
 
 @60015 = ~Mazes and Modrons
 

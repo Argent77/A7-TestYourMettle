@@ -61,6 +61,8 @@ Credits
 
 Writing, coding and testing: Argent77
 
+English proofreading: typo_tilly
+
 Monodrone Modron animation based on resources from Erephine's Infinity Animations.
 
 Various resources based on game files from IWD:EE, SoD and BG2:EE.
