@@ -10,7 +10,7 @@ END
 IF ~!Global("A7#ModronQIntro","GLOBAL",0)~ Intro.Director
   SAY @3500 /* Greetings */
   ++ @3503 /* I have some questions... */ + Questions
-  + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#ward") Global("A7#InvasionInfo","GLOBAL",0)~ 
+  + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#ward") Global("A7#InvasionInfo","GLOBAL",0)~
     + @4000 /* I have found out the source of invasion. */ DO ~SetGlobal("A7#InvasionInfo","GLOBAL",1)~ + Invasion.Found
   + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#cvtx")~ + @4001 /* I have returned the vortex cube. */ + VortexCube.Found
   ++ @4002 /* Never mind. Farewell. */ EXIT
@@ -27,7 +27,7 @@ IF ~~ Questions
   + ~Global("A7#ModronQuest","GLOBAL",3)~ + @4006 /* Can you tell me again how I can help you? */ + Q.Place.Help
   + ~GlobalGT("A7#ModronQuest","GLOBAL",1) PartyHasItem("a7#mcube")~ + @4007 /* What can you tell me about the cube-like toy creature in my possession? */ + Q.ModronCube
   + ~Global("A7#GridLabelRequest","GLOBAL",1)~ + @4077 /* It is easy to get lost in the Rubikon dungeon. Do you have a device that can help me find my way through the maze? */ + Q.GridLabel
-  + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#ward") Global("A7#InvasionInfo","GLOBAL",0)~ 
+  + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#ward") Global("A7#InvasionInfo","GLOBAL",0)~
     + @4000 /* I have found out the source of invasion. */ DO ~SetGlobal("A7#InvasionInfo","GLOBAL",1)~ + Invasion.Found
   + ~Global("A7#ModronQuest","GLOBAL",3) PartyHasItem("a7#cvtx")~ + @4001 /* I have returned the vortex cube. */ + VortexCube.Found
   ++ @4008 /* Never mind. I must be going now. Farewell. */ EXIT
@@ -277,8 +277,8 @@ END
 
 IF ~~ VortexCube.Found.1
   SAY @4076 /* (The modron pauses for a moment and there is the buzzing sound again.) Connection with Mechanus has been established. Rubikon Dungeon Construct Project® is on hold until further instructions are given. We will now return home. Farewell, adventurer. */
-  IF ~~ DO ~ClearAllActions() SetGlobal("A7#ModronQuest","GLOBAL",99) SetGlobal("A7#MazeAbandoned","GLOBAL",1) 
-            EraseJournalEntry(@60012) EraseJournalEntry(@60013) EraseJournalEntry(@60014) EraseJournalEntry(@60015) 
+  IF ~~ DO ~ClearAllActions() SetGlobal("A7#ModronQuest","GLOBAL",99) SetGlobal("A7#MazeAbandoned","GLOBAL",1)
+            EraseJournalEntry(@60012) EraseJournalEntry(@60013) EraseJournalEntry(@60014) EraseJournalEntry(@60015)
             EraseJournalEntry(@60016) EraseJournalEntry(@60017) EraseJournalEntry(@60018)
             StartCutSceneMode() StartCutScene("a7#ctm1")~ SOLVED_JOURNAL @60100 EXIT
 END

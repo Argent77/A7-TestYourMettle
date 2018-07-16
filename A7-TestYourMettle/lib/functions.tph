@@ -85,7 +85,7 @@ OUTER_TEXT_SPRINT animationSlotsPath ".../inlined/creature/animation/slots.txt"
  * INT_VAR slotMin    Lowest available creature animation slot for the animation.
  * INT_VAR slotMax    Highest available creature animation slot for the animation.
  * INT_VAR slotSteps  How many slots to skip after each iteration, starting from slotMin.
- *                    Setting this parameter is useful if compatible animation slots are always 
+ *                    Setting this parameter is useful if compatible animation slots are always
  *                    a fixed distance apart (e.g. at a distance of 0x10 each)
  * RET slot           A free animation slot. Returns -1 if none found.
  */
@@ -114,7 +114,7 @@ BEGIN
       LOOKUP_IDS_SYMBOL_OF_INT name ~animate~ idx
       PATCH_IF (~%name%~ STRING_EQUAL ~%idx%~) BEGIN
         LPF TO_HEX_NUMBER INT_VAR value = idx minDigits = 4 RET hexNumber END
-        PATCH_IF (NOT FILE_EXISTS_IN_GAME ~%hexNumber%.ini~ AND 
+        PATCH_IF (NOT FILE_EXISTS_IN_GAME ~%hexNumber%.ini~ AND
                   ~%slotList%~ STRING_CONTAINS_REGEXP ~"%hexNumber%"~ != 0) BEGIN
           SET slot = idx
           SET idx = slotMax

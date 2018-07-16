@@ -19,33 +19,33 @@ END
 
 IF ~PartyHasItemIdentified("a7#mcube")~ Intro2
   SAY @9003 /* This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. The intricacy of this artifact is incredible; its joints are composed of tiny gears, cogs, pulleys, and swivel joints, and there are even tiny springs on the legs that help support the feet. */
-  + ~!ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",0)~ 
+  + ~!ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",0)~
     + @9004 /* Manipulate the toy and look for some sort of effect. */ + Manipulate.Rubikon
-  + ~!ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",1)~ 
+  + ~!ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
     + @9005 /* Use the combination that activates transport to the Rubikon dungeon entrance. */ + ToRubikon
-  + ~ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",1)~ 
+  + ~ActuallyInCombat() !AreaType(RUBICON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
     + @9005 /* Use the combination that activates transport to the Rubikon dungeon entrance. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBICON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
     + @9030 /* Try to figure out the combination for the transport back home. */ + Manipulate.Prime
-  + ~ActuallyInCombat() AreaType(RUBICON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~ 
+  + ~ActuallyInCombat() AreaType(RUBICON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
     + @9030 /* Try to figure out the combination for the transport back home. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",1)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + ToPrime
-  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",0)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",0)~
     + @9007 /* Use the combination that activates transport back home. */ + ToPrime.Failsafe
-  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
     + @9007 /* Use the combination that activates transport back home. */ + Transport.Denied
-  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + Transport.Denied.Known
-  + ~ActuallyInCombat() AreaType(RUBICON) Global("A7#KnowCubePrime","GLOBAL",1)~ 
+  + ~ActuallyInCombat() AreaType(RUBICON) Global("A7#KnowCubePrime","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") !AreaCheck("A7#1FY") !AreaCheck("A7#1EN")~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") !AreaCheck("A7#1FY") !AreaCheck("A7#1EN")~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + ToEntrance
-  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Transport.Denied
-  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~ 
+  + ~!ActuallyInCombat() AreaType(RUBICON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Transport.Denied.Known
-  + ~ActuallyInCombat() AreaType(RUBICON)~ 
+  + ~ActuallyInCombat() AreaType(RUBICON)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Combat.Active
   ++ @9000 /* Put the cube away. */ EXIT
 END
@@ -203,37 +203,37 @@ END
 
 IF ~~ ToPrime.Failsafe
   SAY @9023 /* For some reason the cube failed to transport you back to the prime material plane the last time. You try again and focus on places that may be more safe to travel to. */
-  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_1%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) !Global("Chapter","GLOBAL",%bg2_chapter_5%) Global("KickedOutSphere","GLOBAL",0)~ 
+  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_1%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) !Global("Chapter","GLOBAL",%bg2_chapter_5%) Global("KickedOutSphere","GLOBAL",0)~
     + @9024 /* To the Planar Sphere in Athkatlas's Slums. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR0411","",[2912.2670],NW)) ActionOverride(Player1,LeaveAreaLUA("AR0411","",[2912.2670],NW))
         ActionOverride(Player2,LeaveAreaLUA("AR0411","",[2997.2657],NW)) ActionOverride(Player3,LeaveAreaLUA("AR0411","",[2929.2740],NW))
         ActionOverride(Player4,LeaveAreaLUA("AR0411","",[3016.2735],NW)) ActionOverride(Player5,LeaveAreaLUA("AR0411","",[3068.2684],NW))
         ActionOverride(Player6,LeaveAreaLUA("AR0411","",[2996.2800],NW))~ EXIT
-  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_1%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) !Global("Chapter","GLOBAL",%bg2_chapter_5%) Global("PowerObsidianSphere","GLOBAL",1)~ 
+  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_1%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) !Global("Chapter","GLOBAL",%bg2_chapter_5%) Global("PowerObsidianSphere","GLOBAL",1)~
     + @9025 /* To Athkatlas's Slums. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR0400","",[2962.2873],NW)) ActionOverride(Player1,LeaveAreaLUA("AR0400","",[2962.2873],NW))
        ActionOverride(Player2,LeaveAreaLUA("AR0400","",[3045.2888],NW)) ActionOverride(Player3,LeaveAreaLUA("AR0400","",[2942.2950],NW))
        ActionOverride(Player4,LeaveAreaLUA("AR0400","",[3036.2969],NW)) ActionOverride(Player5,LeaveAreaLUA("AR0400","",[3137.2949],NW))
        ActionOverride(Player6,LeaveAreaLUA("AR0400","",[2974.3033],NW))~ EXIT
-  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_4%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) Global("PowerObsidianSphere","GLOBAL",1)~ 
+  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_4%) GlobalLT("Chapter","GLOBAL",%bg2_chapter_8%) Global("PowerObsidianSphere","GLOBAL",1)~
     + @9026 /* To the Underdark. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR2100","",[322.3389],E)) ActionOverride(Player1,LeaveAreaLUA("AR2100","",[322.3389],E))
         ActionOverride(Player2,LeaveAreaLUA("AR2100","",[256.3340],E)) ActionOverride(Player3,LeaveAreaLUA("AR2100","",[265.3440],E))
         ActionOverride(Player4,LeaveAreaLUA("AR2100","",[212.3390],E)) ActionOverride(Player5,LeaveAreaLUA("AR2100","",[163.3333],E))
         ActionOverride(Player6,LeaveAreaLUA("AR2100","",[174.3454],E))~ EXIT
-  + ~Global("Chapter","GLOBAL",%bg2_chapter_8%) Global("EnteredArea5203","GLOBAL",0) Global("PowerObsidianSphere","GLOBAL",1)~ 
+  + ~Global("Chapter","GLOBAL",%bg2_chapter_8%) Global("EnteredArea5203","GLOBAL",0) Global("PowerObsidianSphere","GLOBAL",1)~
     + @9027 /* To Saradush. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR5000","",[2250.1105],SW)) ActionOverride(Player1,LeaveAreaLUA("AR5000","",[2250.1105],SW))
         ActionOverride(Player2,LeaveAreaLUA("AR5000","",[2237.1037],SW)) ActionOverride(Player3,LeaveAreaLUA("AR5000","",[2329.1096],SW))
         ActionOverride(Player4,LeaveAreaLUA("AR5000","",[2314.1033],SW)) ActionOverride(Player5,LeaveAreaLUA("AR5000","",[2307.965],SW))
         ActionOverride(Player6,LeaveAreaLUA("AR5000","",[2397.1034],SW))~ EXIT
-  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%) Global("PPlaneEscape","GLOBAL",1)~ 
+  + ~GlobalGT("Chapter","GLOBAL",%bg2_chapter_7%) Global("PPlaneEscape","GLOBAL",1)~
     + @9028 /* To the wilderness near Saradush. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR6400","",[220.1320],SE)) ActionOverride(Player1,LeaveAreaLUA("AR6400","",[220.1320],SE))
         ActionOverride(Player2,LeaveAreaLUA("AR6400","",[201.1234],SE)) ActionOverride(Player3,LeaveAreaLUA("AR6400","",[125.1323],SE))
         ActionOverride(Player4,LeaveAreaLUA("AR6400","",[111.1243],SE)) ActionOverride(Player5,LeaveAreaLUA("AR6400","",[100.1160],SE))
         ActionOverride(Player6,LeaveAreaLUA("AR6400","",[39.1300],SE))~ EXIT
-  + ~Global("Chapter","GLOBAL",%bg2_chapter_9%)~ 
+  + ~Global("Chapter","GLOBAL",%bg2_chapter_9%)~
     + @9029 /* To Amkethran. */
     DO ~ActionOverride(Player1,LeaveAreaLUAPanic("AR5500","",[393.2455],NW)) ActionOverride(Player1,LeaveAreaLUA("AR5500","",[393.2455],NW))
         ActionOverride(Player2,LeaveAreaLUA("AR5500","",[487.2456],NW)) ActionOverride(Player3,LeaveAreaLUA("AR5500","",[381.2538],NW))

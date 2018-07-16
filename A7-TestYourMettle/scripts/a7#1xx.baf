@@ -953,7 +953,7 @@ IF
     GlobalGT("A7#MazeCounter","GLOBAL",64)
   Global("A7#MazeAbandoned","GLOBAL",0)
   Switch("A7#DungeonType","MYAREA")
-THEN  
+THEN
   RESPONSE #1
     ActionOverride("Creature4A",DestroySelf())
     ActionOverride("Creature4B",DestroySelf())
