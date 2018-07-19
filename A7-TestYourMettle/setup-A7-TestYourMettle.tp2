@@ -8,7 +8,9 @@ ALWAYS
   OUTER_SET IS_PATCH25 = (FILE_EXISTS_IN_GAME ~bdcutid.cre~) ? 1 : 0
 END
 
-README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
+README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.html~
+       ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
+       ~%MOD_FOLDER%/readme/readme.html~
        ~%MOD_FOLDER%/readme/readme.txt~
 
 LANGUAGE ~English~
