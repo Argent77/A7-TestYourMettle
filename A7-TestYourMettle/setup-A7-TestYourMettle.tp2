@@ -1313,3 +1313,23 @@ BEGIN @14 // No experience
     reduce_by = 100
     constructs_only = 0
   END
+
+
+BEGIN @20 // Add "Spacewarp" spell scrolls to stores
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  DESIGNATED 20
+
+  // Adventurer Mart, special store
+  COPY_EXISTING ~ribald3.sto~ ~override~
+    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #1
+  BUT_ONLY IF_EXISTS
+
+  // Arcana Archives (Lazarus Librarius)
+  COPY_EXISTING ~25spell.sto~ ~override~
+    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #2
+  BUT_ONLY IF_EXISTS
+
+  // Karthis al-Hezzar (Wilderness Area)
+  COPY_EXISTING ~hgkar01.sto~ ~override~
+    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #1
+  BUT_ONLY IF_EXISTS

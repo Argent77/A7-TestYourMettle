@@ -19,6 +19,10 @@ This is the main component. It installs new areas, creatures and everything else
 
 As the monsters you may encounter in the dungeon are numerous, you will quickly gain a lot of experience that could make your party too powerful to enjoy the rest of the game. This component allows you to reduce XP from killing monsters by different amounts, or remove XP altogether. Unique monsters or creatures encountered outside the dungeon are not affected.
 
+### 3. Add "Spacewarp" spell scrolls to stores (requires the main component)
+
+This component adds scrolls of the spell "Spacewarp" to a small number of merchants for sale. In SoA you can purchase them in the Adventurer Mart from Ribald's special store, that becomes available in chapter 6. In ToB they are available from Lazarus Librarus' Arcana Archives in Saradush or Amkethran as well as from Karthis al-Hezzar in the wilderness between Saradush and the Forest of Mir.
+
 
 ## Copyright Notice
 
