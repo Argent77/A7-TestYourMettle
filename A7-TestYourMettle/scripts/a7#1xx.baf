@@ -988,6 +988,7 @@ END
 // *** Arming random traps ***
 IF
   OnCreation()
+  DifficultyLT(NORMAL)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #93
@@ -1002,6 +1003,36 @@ END
 
 IF
   OnCreation()
+  DifficultyGT(EASY)
+  !NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Continue()
+  RESPONSE #25
+    TriggerActivation("TrapA1",TRUE)
+    Continue()
+  RESPONSE #15
+    TriggerActivation("TrapA2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    TriggerActivation("TrapA1",TRUE)
+    Continue()
+  RESPONSE #40
+    TriggerActivation("TrapA2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  DifficultyLT(NORMAL)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #93
@@ -1016,6 +1047,36 @@ END
 
 IF
   OnCreation()
+  DifficultyGT(EASY)
+  !NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Continue()
+  RESPONSE #25
+    TriggerActivation("TrapB1",TRUE)
+    Continue()
+  RESPONSE #15
+    TriggerActivation("TrapB2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    TriggerActivation("TrapB1",TRUE)
+    Continue()
+  RESPONSE #40
+    TriggerActivation("TrapB2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  DifficultyLT(NORMAL)
   Global("A7#MazeAbandoned","GLOBAL",0)
 THEN
   RESPONSE #93
@@ -1024,6 +1085,35 @@ THEN
     TriggerActivation("TrapC1",TRUE)
     Continue()
   RESPONSE #3
+    TriggerActivation("TrapC2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  DifficultyGT(EASY)
+  !NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    Continue()
+  RESPONSE #25
+    TriggerActivation("TrapC1",TRUE)
+    Continue()
+  RESPONSE #15
+    TriggerActivation("TrapC2",TRUE)
+    Continue()
+END
+
+IF
+  OnCreation()
+  NightmareModeOn()
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    TriggerActivation("TrapC1",TRUE)
+    Continue()
+  RESPONSE #40
     TriggerActivation("TrapC2",TRUE)
     Continue()
 END
