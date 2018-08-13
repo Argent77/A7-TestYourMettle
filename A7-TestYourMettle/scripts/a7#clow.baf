@@ -10,6 +10,15 @@ END
 
 IF
   Global("bonus","LOCALS",0)
+  NightmareModeOn()
+THEN
+  RESPONSE #100
+    ApplySpellRES("a7#fx32",Myself) // Protection from Spacewarp
+    Continue()
+END
+
+IF
+  Global("bonus","LOCALS",0)
   LevelPartyLT(15)
 THEN
   RESPONSE #25

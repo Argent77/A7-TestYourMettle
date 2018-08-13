@@ -15,6 +15,16 @@
 //   - 1 Red Abishai + 0-1 Green Abishai + 0-1 Black Abishai + 0-3 Imps
 
 IF
+  Global("init","LOCALS",0)
+  DifficultyGT(EASY)
+THEN
+  RESPONSE #100
+    SetGlobal("init","LOCALS",1)
+    ApplySpellRES("a7#fx32",Myself) // Protection from Spacewarp
+    Continue()
+END
+
+IF
   Global("engaged","LOCALS",0)
   OR(4)
     Allegiance(Myself,EVILCUTOFF)

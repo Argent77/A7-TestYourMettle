@@ -238,6 +238,49 @@ THEN
 END
 
 IF
+  Global("spacewarp","LOCALS",0)
+  !DifficultyGT(NORMAL)
+  See([GOODCUTOFF])
+  NearLocation(LastSeenBy(Myself),530,550,8)
+  TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
+  TriggerOverride(LastSeenBy(Myself),Range(SecondNearestAllyOf(Myself),10))
+THEN
+  RESPONSE #25
+    SetGlobal("spacewarp","LOCALS",1)
+    ForceSpellRES("A7#SPW1",LastSeenBy(Myself))   // Spacewarp
+  RESPONSE #75
+    SetGlobal("spacewarp","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("spacewarp","LOCALS",0)
+  DifficultyGT(NORMAL)
+  !NightmareModeOn()
+  See([GOODCUTOFF])
+  NearLocation(LastSeenBy(Myself),530,550,8)
+  TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
+  TriggerOverride(LastSeenBy(Myself),Range(SecondNearestAllyOf(Myself),10))
+THEN
+  RESPONSE #100
+    SetGlobal("spacewarp","LOCALS",1)
+    ForceSpellRES("A7#SPW1",LastSeenBy(Myself))   // Spacewarp
+END
+
+IF
+  !GlobalTimerNotExpired("SpacewarpTimer","LOCALS")
+  NightmareModeOn()
+  See([GOODCUTOFF])
+  NearLocation(LastSeenBy(Myself),530,550,8)
+  TriggerOverride(LastSeenBy(Myself),Range(NearestAllyOf(Myself),10))
+  TriggerOverride(LastSeenBy(Myself),Range(SecondNearestAllyOf(Myself),10))
+THEN
+  RESPONSE #100
+    SetGlobalTimerRandom("SpacewarpTimer","LOCALS",48, 72)
+    ForceSpellRES("A7#SPW1",LastSeenBy(Myself))   // Spacewarp
+END
+
+IF
   HasItem("MELFMET",Myself)
   OR(7)
     See([0.0.MODRON])

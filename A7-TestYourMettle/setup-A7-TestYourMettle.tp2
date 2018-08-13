@@ -390,6 +390,7 @@ BEGIN @1  // Modron Maze
        ~%MOD_FOLDER%/spells/a7#fx29.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx30.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx31.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx32.spl~ ~override~
   COPY ~%MOD_FOLDER%/spells/a7#fx15a.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
     INT_VAR
