@@ -18,7 +18,7 @@ LANGUAGE ~English~
          ~%MOD_FOLDER%/languages/english/setup.tra~
          ~%MOD_FOLDER%/languages/english/mod.tra~
 
-BEGIN @1  // Modron Maze
+BEGIN @1  // Test Your Mettle!
   REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~ && FILE_EXISTS ~engine.lua~) @100  // Requires BG2:EE or EET patched to 2.0 or higher.
   DESIGNATED 0
 
@@ -1265,7 +1265,7 @@ BEGIN @1  // Modron Maze
 
 
 BEGIN @11 // Reduce by 50%
-  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 11
 
@@ -1278,7 +1278,7 @@ BEGIN @11 // Reduce by 50%
 
 
 BEGIN @12 // Reduce by 75% (recommended)
-  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 12
 
@@ -1291,7 +1291,7 @@ BEGIN @12 // Reduce by 75% (recommended)
 
 
 BEGIN @13 // Reduce by 90%
-  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 13
 
@@ -1304,7 +1304,7 @@ BEGIN @13 // Reduce by 90%
 
 
 BEGIN @14 // No experience
-  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 14
 
@@ -1316,8 +1316,8 @@ BEGIN @14 // No experience
   END
 
 
-BEGIN @20 // Add "Spacewarp" spell scrolls to stores
-  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires main component.
+BEGIN @20 // Make "Spacewarp" available to stores
+  REQUIRE_COMPONENT ~setup-A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   DESIGNATED 20
 
   // Adventurer Mart, special store

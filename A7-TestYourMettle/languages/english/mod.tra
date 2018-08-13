@@ -88,7 +88,7 @@ Weight: 0~
 STATISTICS:
 
 Weight: 1~
-@2053 = ~This wardstone was found on the corpse of a high-ranking baatezu devil. It is unnaturally heavy, and touching it triggers a feeling of uneasiness. The glyph etched deep into this wardstone is hard to discern. It burns into your eyes whenever you look at it, which makes it difficult to examine it more closely. However, it is most likely used to gain access to an important region of the dungeon.
+@2053 = ~This wardstone was found on the corpse of a high-ranking baatezu devil. It is unnaturally heavy, and touching it triggers a feeling of uneasiness. The glyph etched deep into this wardstone is hard to discern. It burns into your eyes whenever you look at it, which makes it difficult to examine it more closely. However, it is most likely used to gain access to an important section of the dungeon.
 
 STATISTICS:
 
@@ -218,7 +218,7 @@ Weight: 1~
 @2118 = ~Sleep Mode terminated~
 
 @2120 = ~Rod of Modron Might~
-@2121 = ~This magical rod allows the user to summon 2 to 4 constructs of modron design to do battle with his enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
+@2121 = ~This magical rod allows the user to summon 2 to 4 constructs of modron design to do battle with <PRO_HISHER> enemies. The type of constructs is determined randomly. The constructs will fight fearlessly until destroyed or one hour has passed.
 
 STATISTICS:
 
