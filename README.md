@@ -1,5 +1,5 @@
 # Test Your Mettle!
-*A mod for BG2:EE that provides you with a unique dungeon crawling experience.*
+*A mod for BG2:EE and EET that provides you with a unique dungeon crawling experience.*
 
 
 ## Overview
