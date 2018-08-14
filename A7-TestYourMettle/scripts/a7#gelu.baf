@@ -751,6 +751,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(NearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -766,6 +769,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(SecondNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -781,6 +787,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(ThirdNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -796,6 +805,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(FourthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -811,6 +823,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(FifthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -826,6 +841,9 @@ IF
   GlobalLT("gatecount","LOCALS",10)
   See(SixthNearestEnemyOf(Myself))
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  OR(2)
+    NumCreatureLT([ENEMY],12)
+    DifficultyGT(NORMAL)
 THEN
   RESPONSE #100
     SetGlobalTimer("cast","LOCALS",ONE_ROUND)
@@ -900,3 +918,17 @@ THEN
     Continue()
 END
 
+IF
+  GlobalTimerExpired("cast","LOCALS")
+  Global("timestop","LOCALS",0)
+  OR(2)
+    LevelPartyGT(16)
+    DifficultyGT(NORMAL)
+  Allegiance(Myself,EVILCUTOFF)
+  See([PC])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("timestop","LOCALS",1)
+    ForceSpell(Myself,WIZARD_TIME_STOP)
+END
