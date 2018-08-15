@@ -553,7 +553,7 @@ Weight: 1~
 @50004 = ~Wracking Pains~
 @50005 = ~Recycling process started.~ [a7#rwdx]
 @50006 = ~Recycling process is still in operation.~
-@50007 = ~The console doesn't appear to be operational.~
+// @50007 = ~The console doesn't appear to be operational.~
 @50008 = ~Goodies recycled.~
 @50009 = ~Dungeon Maze~
 @50010 = ~Control Center~

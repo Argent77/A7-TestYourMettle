@@ -11,7 +11,6 @@ END
 IF
   Clicked([ANYONE])
   Range(LastTrigger,9)
-  Global("A7#MazeAbandoned","GLOBAL",0)
   Global("A7#RecycleInstructions","A7#1FY",0)
 THEN
   RESPONSE #100
@@ -23,7 +22,7 @@ END
 IF
   Clicked([ANYONE])
   Range(LastTrigger,9)
-  Global("A7#MazeAbandoned","GLOBAL",0)
+  !Global("A7#RecycleInstructions","A7#1FY",0)
   Global("A7#RecycleGoodies1","A7#1FY",0)
   Global("A7#RecycleGoodies2","A7#1FY",0)
   Global("A7#RecycleGoodies3","A7#1FY",0)
@@ -40,7 +39,7 @@ END
 IF
   Clicked([ANYONE])
   Range(LastTrigger,9)
-  Global("A7#MazeAbandoned","GLOBAL",0)
+  !Global("A7#RecycleInstructions","A7#1FY",0)
   OR(4)
     !Global("A7#RecycleGoodies1","A7#1FY",0)
     !Global("A7#RecycleGoodies2","A7#1FY",0)
@@ -49,13 +48,4 @@ IF
 THEN
   RESPONSE #100
     DisplayString(Myself,@50006) // Recycling process is still in operation.
-END
-
-IF
-  Clicked([ANYONE])
-  Range(LastTrigger,9)
-  !Global("A7#MazeAbandoned","GLOBAL",0)
-THEN
-  RESPONSE #100
-    DisplayString(LastTrigger,@50007)  // The console doesn't appear to be operational.
 END
