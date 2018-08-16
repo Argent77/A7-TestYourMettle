@@ -34,6 +34,14 @@ SPWI708   Mantle
 */
 
 IF
+  Global("summonTimer","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("summonTimer","LOCALS",6)
+    Continue()
+END
+
+IF
   DifficultyGT(EASIEST)
   Global("prebuff","LOCALS",0)
   RandomNum(3,1)
@@ -235,6 +243,44 @@ THEN
     Spell(Myself,WIZARD_MANTLE)
   RESPONSE #30
     Continue()
+END
+
+IF
+  DifficultyGT(EASIEST)
+  DifficultyLT(HARD)
+  GlobalTimerExpired("summonTimer","LOCALS")
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #50
+    SetGlobalTimerRandom("summonTimer","LOCALS",24,60)
+    ForceSpellRES("A7#SUMD",Myself)
+  RESPONSE #50
+    SetGlobalTimerRandom("summonTimer","LOCALS",24,60)
+    Continue()
+END
+
+IF
+  DifficultyGT(NORMAL)
+  !NightmareModeOn()
+  GlobalTimerExpired("summonTimer","LOCALS")
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #75
+    SetGlobalTimerRandom("summonTimer","LOCALS",12,24)
+    ForceSpellRES("A7#SUMD",Myself)
+  RESPONSE #25
+    SetGlobalTimerRandom("summonTimer","LOCALS",12,24)
+    Continue()
+END
+
+IF
+  NightmareModeOn()
+  GlobalTimerExpired("summonTimer","LOCALS")
+  See([GOODCUTOFF])
+THEN
+  RESPONSE #75
+    SetGlobalTimerRandom("summonTimer","LOCALS",12,24)
+    ForceSpellRES("A7#SUMD",Myself)
 END
 
 IF

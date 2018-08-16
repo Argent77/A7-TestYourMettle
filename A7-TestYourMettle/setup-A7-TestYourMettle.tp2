@@ -287,9 +287,14 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#sum2.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum3.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum4.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum5.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sum6.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum1.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum2.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum3.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sumd.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sumd.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sumd.vvc~ ~override~
        ~%MOD_FOLDER%/spells/a7#gate.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fire.vvc~ ~override~
        ~%MOD_FOLDER%/spells/a7#tel1.spl~ ~override~
