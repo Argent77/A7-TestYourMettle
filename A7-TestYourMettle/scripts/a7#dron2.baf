@@ -1,6 +1,74 @@
 // Combat script: High Threat Construct
 
 IF
+  Global("damaged","LOCALS",0)
+  HPPercentLT(Myself, 50)
+THEN
+  RESPONSE #25
+    SetGlobal("damaged","LOCALS",1)
+    ApplySpellRES("a7#fx33",Myself)   // Sensory abilities damaged
+  RESPONSE #25
+    SetGlobal("damaged","LOCALS",1)
+    ApplySpellRES("a7#fx34",Myself)   // Motor skills damaged
+  RESPONSE #50
+    SetGlobal("damaged","LOCALS",1)
+    Continue()
+END
+
+IF
+  GlobalLT("damaged","LOCALS",2)
+  HPPercentLT(Myself, 33)
+THEN
+  RESPONSE #25
+    SetGlobal("damaged","LOCALS",2)
+    ApplySpellRES("a7#fx35",Myself)   // AI damaged
+  RESPONSE #75
+    SetGlobal("damaged","LOCALS",2)
+    Continue()
+END
+
+IF
+  DifficultyGT(EASIEST)
+  DifficultyLT(HARD)
+  GlobalLT("damaged","LOCALS",3)
+  HPPercentLT(Myself, 20)
+THEN
+  RESPONSE #10
+    SetGlobal("damaged","LOCALS",3)
+    ApplySpellRES("a7#fx36",Myself)  // Self-destruct
+  RESPONSE #90
+    SetGlobal("damaged","LOCALS",3)
+    Continue()
+END
+
+IF
+  DifficultyGT(NORMAL)
+  !NightmareModeOn()
+  GlobalLT("damaged","LOCALS",3)
+  HPPercentLT(Myself, 20)
+THEN
+  RESPONSE #35
+    SetGlobal("damaged","LOCALS",3)
+    ApplySpellRES("a7#fx36",Myself)  // Self-destruct
+  RESPONSE #65
+    SetGlobal("damaged","LOCALS",3)
+    Continue()
+END
+
+IF
+  NightmareModeOn()
+  GlobalLT("damaged","LOCALS",3)
+  HPPercentLT(Myself, 20)
+THEN
+  RESPONSE #75
+    SetGlobal("damaged","LOCALS",3)
+    ApplySpellRES("a7#fx36",Myself)  // Self-destruct
+  RESPONSE #25
+    SetGlobal("damaged","LOCALS",3)
+    Continue()
+END
+
+IF
   !GlobalTimerNotExpired("cast","LOCALS")
   See([0.0.MODRON])
   !Range(LastSeenBy(Myself),4)

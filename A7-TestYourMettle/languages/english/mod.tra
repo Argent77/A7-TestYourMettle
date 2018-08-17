@@ -573,6 +573,10 @@ Saving Throw: 1/2
 Upon using this ability, the construct releases a powerful bolt of electrical energy that inflicts 6d6 points of damage to each creature within the path of the bolt. A successful Saving Throw vs. Wand reduces this damage to half (round fractions down).~
 @50018 = ~This container is sealed by an unknown force and guarded by various defensive mechanisms against unauthorized access.~
 @50019 = ~This construct of spherical design appears to be the power core of the Rubikon Dungeon. It is wrapped in a protective field of some kind. Runes indicate that a seal is needed to gain access to the core.~
+@50020 = ~Sensory abilities damaged~
+@50021 = ~Motor skills damaged~
+@50022 = ~AI damaged~
+@50023 = ~Self-destruct~
 
 
 // Quest entries
