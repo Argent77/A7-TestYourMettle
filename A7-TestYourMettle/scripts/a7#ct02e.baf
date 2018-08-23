@@ -1,0 +1,300 @@
+// Cutscene: Drain Imoen XP (medium)
+
+IF
+  XPGT("Imoen2",9999)
+  XPLT("Imoen2",100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-20000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",99999)
+  XPLT("Imoen2",200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-40000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",199999)
+  XPLT("Imoen2",300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-60000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",299999)
+  XPLT("Imoen2",400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-80000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",399999)
+  XPLT("Imoen2",500000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-100000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",499999)
+  XPLT("Imoen2",600000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-120000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",599999)
+  XPLT("Imoen2",700000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-140000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",699999)
+  XPLT("Imoen2",800000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-160000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",799999)
+  XPLT("Imoen2",900000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-180000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",899999)
+  XPLT("Imoen2",1000000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-200000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",999999)
+  XPLT("Imoen2",1100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-220000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1099999)
+  XPLT("Imoen2",1200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-240000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1199999)
+  XPLT("Imoen2",1300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-260000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1299999)
+  XPLT("Imoen2",1400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-280000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1399999)
+  XPLT("Imoen2",1500000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-300000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1499999)
+  XPLT("Imoen2",1600000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-320000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1599999)
+  XPLT("Imoen2",1700000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-340000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1699999)
+  XPLT("Imoen2",1800000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-360000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1799999)
+  XPLT("Imoen2",1900000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-380000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1899999)
+  XPLT("Imoen2",2000000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-400000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",1999999)
+  XPLT("Imoen2",2100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-420000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",2099999)
+  XPLT("Imoen2",2200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-440000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",2199999)
+  XPLT("Imoen2",2300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-460000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",2299999)
+  XPLT("Imoen2",2400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-480000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT("Imoen2",2399999)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    AddXPObject("Imoen2",-500000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END

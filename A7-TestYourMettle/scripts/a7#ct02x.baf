@@ -1,0 +1,289 @@
+// Cutscene: Finalize deal with devils
+
+IF
+  OR(2)
+    Race("Creature1A",DEMONIC)
+    Race("Creature1A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature1A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature1B",DEMONIC)
+    Race("Creature1B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature1B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature1C",DEMONIC)
+    Race("Creature1C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature1C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature2A",DEMONIC)
+    Race("Creature2A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature2A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature2B",DEMONIC)
+    Race("Creature2B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature2B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature2C",DEMONIC)
+    Race("Creature2C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature2C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature3A",DEMONIC)
+    Race("Creature3A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature3A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature3B",DEMONIC)
+    Race("Creature3B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature3B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature3C",DEMONIC)
+    Race("Creature3C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature3C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature4A",DEMONIC)
+    Race("Creature4A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature4A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature4B",DEMONIC)
+    Race("Creature4B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature4B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature4C",DEMONIC)
+    Race("Creature4C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature4C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature5A",DEMONIC)
+    Race("Creature5A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature5A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature5B",DEMONIC)
+    Race("Creature5B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature5B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature5C",DEMONIC)
+    Race("Creature5C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature5C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature6A",DEMONIC)
+    Race("Creature6A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature6A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature6B",DEMONIC)
+    Race("Creature6B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature6B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature6C",DEMONIC)
+    Race("Creature6C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature6C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature7A",DEMONIC)
+    Race("Creature7A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature7A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature7B",DEMONIC)
+    Race("Creature7B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature7B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature7C",DEMONIC)
+    Race("Creature7C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature7C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature8A",DEMONIC)
+    Race("Creature8A",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature8A")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature8B",DEMONIC)
+    Race("Creature8B",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature8B")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END
+
+IF
+  OR(2)
+    Race("Creature8C",DEMONIC)
+    Race("Creature8C",IMP)
+THEN
+  RESPONSE #100
+    CutSceneId("Creature8C")
+    SetGlobalTimer("BlankTimer","LOCALS",6)
+    ChangeEnemyAlly(Myself,NEUTRAL)
+    EndCutSceneMode()
+END

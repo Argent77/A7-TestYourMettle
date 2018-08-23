@@ -2,8 +2,9 @@
 
 IF
   IsWeaponRanged(Myself)
-  OR(3)
+  OR(4)
     See([0.0.DEMONIC])
+    See([0.0.IMP])
     See([0.0.DRONE])
     See(NearestEnemyOf(Myself))
   !Range(LastSeenBy(Myself),5)
@@ -14,8 +15,9 @@ END
 
 IF
   CanEquipRanged()
-  OR(3)
+  OR(4)
     See([0.0.DEMONIC])
+    See([0.0.IMP])
     See([0.0.DRONE])
     See(NearestEnemyOf(Myself))
   !Range(LastSeenBy(Myself),5)
@@ -26,8 +28,9 @@ THEN
 END
 
 IF
-  OR(3)
+  OR(4)
     See([0.0.DEMONIC])
+    See([0.0.IMP])
     See([0.0.DRONE])
     See(NearestEnemyOf(Myself))
   Range(LastSeenBy(Myself),5)
@@ -38,8 +41,9 @@ THEN
 END
 
 IF
-  OR(8)
+  OR(9)
     See([0.0.DEMONIC])
+    See([0.0.IMP])
     See([0.0.DRONE])
     See(NearestEnemyOf(Myself))
     See(SecondNearestEnemyOf(Myself))

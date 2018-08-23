@@ -1,15 +1,34 @@
 // Preparation script: Hostile creatures
 
-// IF
-  // !IsActive(Myself)
-// THEN
-  // RESPONSE #100
-    // NoAction()
-// END
+IF
+  !Allegiance(Myself,ENEMY)
+  Global("DevilNeutral","MYAREA",0)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  !Allegiance(Myself,NEUTRAL)
+  OR(2)
+    Race(Myself,DEMONIC)
+    Race(Myself,IMP)
+  !Global("DevilNeutral","MYAREA",0)
+THEN
+  RESPONSE #100
+    ChangeEnemyAlly(Myself,NEUTRAL)
+END
 
 IF
   !Allegiance(Myself,ENEMY)
+  OR(2)
+    Race(Myself,DEMONIC)
+    Race(Myself,IMP)
+  !Global("DevilNeutral","MYAREA",0)
+  GlobalTimerExpired("BlankTimer","LOCALS")
+  AttackedBy([PC],0)
 THEN
   RESPONSE #100
+    SetGlobal("DevilNeutral","MYAREA",0)
     Enemy()
 END

@@ -16,3 +16,82 @@ END ELSE BEGIN
   OUTER_TEXT_SPRINT PREFIX_AREA_BG1 ~AR~
   OUTER_TEXT_SPRINT PREFIX_AREA_IWD ~AR~
 END
+
+// Determine Imoen's dialog file
+OUTER_TEXT_SPRINT DLG_IMOEN ~IMOEN2J~
+OUTER_TEXT_SPRINT DLG_IMOEN25 ~IMOEN25J~
+ACTION_IF (GAME_IS ~eet~) BEGIN
+  OUTER_TEXT_SPRINT PDIALOG ~PDIALOG~
+  OUTER_TEXT_SPRINT PDIALOG25 ~25DIALOG~
+  COPY_EXISTING ~campaign.2da~ ~override~
+    COUNT_2DA_COLS numCols
+    PATCH_IF (numCols > 12) BEGIN
+      COUNT_2DA_ROWS numCols numRows
+      FOR (row = 0; row < numRows; ++row) BEGIN
+        READ_2DA_ENTRY row 0 numCols name
+        PATCH_IF (~%name%~ STR_EQ ~SOA~) BEGIN
+          READ_2DA_ENTRY row 2 numCols resref
+          PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.2DA~) BEGIN
+            TEXT_SPRINT PDIALOG ~%resref%~
+          END
+        END ELSE PATCH_IF (~%name%~ STR_EQ ~TOB~) BEGIN
+          READ_2DA_ENTRY row 2 numCols resref
+          PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.2DA~) BEGIN
+            TEXT_SPRINT PDIALOG25 ~%resref%~
+          END
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
+  COPY_EXISTING ~%PDIALOG%.2DA~ ~override~
+    COUNT_2DA_COLS numCols
+    COUNT_2DA_ROWS numCols numRows
+    FOR (row = 0; row < numRows; ++row) BEGIN
+      READ_2DA_ENTRY row 0 numCols name
+      PATCH_IF (~%name%~ STR_EQ ~IMOEN2~) BEGIN
+        READ_2DA_ENTRY row 2 numCols resref
+        PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.DLG~) BEGIN
+          TEXT_SPRINT DLG_IMOEN ~%resref%~
+        END
+        SET row = numRows
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
+  COPY_EXISTING ~%PDIALOG25%.2DA~ ~override~
+    COUNT_2DA_COLS numCols
+    COUNT_2DA_ROWS numCols numRows
+    FOR (row = 0; row < numRows; ++row) BEGIN
+      READ_2DA_ENTRY row 0 numCols name
+      PATCH_IF (~%name%~ STR_EQ ~IMOEN2~) BEGIN
+        READ_2DA_ENTRY row 2 numCols resref
+        PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.DLG~) BEGIN
+          TEXT_SPRINT DLG_IMOEN25 ~%resref%~
+        END
+        SET row = numRows
+      END
+    END
+  BUT_ONLY IF_EXISTS
+END ELSE BEGIN
+  COPY_EXISTING ~pdialog.2da~ ~override~
+    COUNT_2DA_COLS numCols
+    COUNT_2DA_ROWS numCols numRows
+    FOR (row = 0; row < numRows; ++row) BEGIN
+      READ_2DA_ENTRY row 0 numCols name
+      PATCH_IF (~%name%~ STR_EQ ~IMOEN2~) BEGIN
+        READ_2DA_ENTRY row 2 numCols resref
+        PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.DLG~) BEGIN
+          TEXT_SPRINT DLG_IMOEN ~%resref%~
+        END
+        PATCH_IF (numCols > 6) BEGIN
+          READ_2DA_ENTRY row 5 numCols resref
+          PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.DLG~) BEGIN
+            TEXT_SPRINT DLG_IMOEN25 ~%resref%~
+          END
+        END
+        SET row = numRows
+      END
+    END
+  BUT_ONLY
+END

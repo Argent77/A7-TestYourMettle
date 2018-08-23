@@ -1,4 +1,4 @@
-// Default combat screen
+// Default combat script
 
 IF
   Heard([ANYONE],111)

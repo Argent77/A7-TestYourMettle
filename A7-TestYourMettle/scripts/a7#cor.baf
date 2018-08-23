@@ -1,10 +1,47 @@
 // Combat script: Cornugon
 
+// Offering deal for Charname
+IF
+  Global("offer","MYAREA",0)
+  GlobalLT("A7#DevilOffer","GLOBAL",3)
+  See(Player1)
+  !StateCheck(Player1,CD_STATE_NOTVALID)
+  RandomNum(6,1)
+THEN
+  RESPONSE #100
+    SetGlobal("offer","MYAREA",1)
+    StartDialog("A7#DDEVL",Player1)
+END
+
+// Offering deal for Imoen
+IF
+  Global("offer","MYAREA",0)
+  GlobalLT("A7#DevilOffer","GLOBAL",3)
+  InParty("Imoen2")
+  See("Imoen2")
+  !StateCheck("Imoen2",CD_STATE_NOTVALID)
+  RandomNum(11,11)
+THEN
+  RESPONSE #100
+    SetGlobal("offer","MYAREA",1)
+    StartDialog("A7#DDEVL","Imoen2")
+END
+
+IF
+  !Global("offer","MYAREA",2)
+  GlobalLT("A7#DevilOffer","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("offer","MYAREA",2)
+    Continue()
+END
+
 IF
   OR(3)
     !Allegiance(Myself,EVILCUTOFF)
     StateCheck(Myself,STATE_IMMOBILE)
     StateCheck(Myself,STATE_REALLY_DEAD)
+  !See([0.0.MODRON])
 THEN
   RESPONSE #100
     NoAction()
@@ -25,6 +62,14 @@ IF
 THEN
   RESPONSE #100
     RandomWalkContinuous()
+END
+
+IF
+  !Allegiance(Myself,EVILCUTOFF)
+  See([0.0.MODRON])
+THEN
+  RESPONSE #100
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF

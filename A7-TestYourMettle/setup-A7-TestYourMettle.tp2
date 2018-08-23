@@ -255,9 +255,18 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#cdef.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01a.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01b.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02a.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02b.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02c.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02d.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02e.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02f.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct02x.baf~
 
   COMPILE ~%MOD_FOLDER%/dialogs/a7#dgelu.d~
           ~%MOD_FOLDER%/dialogs/a7#dcor1.d~
+          ~%MOD_FOLDER%/dialogs/a7#ddvl2.d~
+          ~%MOD_FOLDER%/dialogs/a7#dimp.d~
           ~%MOD_FOLDER%/dialogs/a7#dmdrm.d~
           ~%MOD_FOLDER%/dialogs/a7#dmdrq.d~
           ~%MOD_FOLDER%/dialogs/a7#dmdrr.d~
@@ -266,6 +275,13 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/dialogs/a7#dmdr3.d~
           ~%MOD_FOLDER%/dialogs/a7#dmdr4.d~
           ~%MOD_FOLDER%/dialogs/a7#dmdr5.d~
+
+  COMPILE EVAL ~%MOD_FOLDER%/dialogs/a7#ddevl.d~
+  OUTER_SET IN_TOB = 0
+  ACTION_FOR_EACH IMOEN_JOINED IN ~%DLG_IMOEN%~ ~%DLG_IMOEN25%~ BEGIN
+    COMPILE EVAL ~%MOD_FOLDER%/dialogs/a7#ddevl_imoen.d~
+    OUTER_SET IN_TOB += 1
+  END
 
   COPY ~%MOD_FOLDER%/portraits/a7#mdrm.bmp~ ~override~
        ~%MOD_FOLDER%/portraits/a7#mdrq.bmp~ ~override~
@@ -1073,6 +1089,29 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/items/a7#chwp.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#cwwp.itm~ ~override~
 
+  // Tongue of Acid +3
+  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdsw1h02.itm~) BEGIN
+    COPY ~%MOD_FOLDER%/items/bdsw1h02.itm~ ~override~
+      SAY NAME2 @2150 // Tongue of Acid +3
+      SAY IDENTIFIED_DESC @2151 // ...
+    COPY ~%MOD_FOLDER%/items/ibds1h02.bam~ ~override~
+         ~%MOD_FOLDER%/items/bdsw1h02.spl~ ~override~
+  END
+
+  // Echo of the Fiend +3
+  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf03.itm~) BEGIN
+    COPY ~%MOD_FOLDER%/items/bdstaf03.itm~ ~override~
+      SAY NAME2 @2160 // Echo of the Fiend +3
+      SAY IDENTIFIED_DESC @2161 // ...
+  END
+
+  // Peacemaker +3
+  COPY ~%MOD_FOLDER%/items/a7#blun1.itm~ ~override~
+    SAY NAME2 @2170 // Peacemaker +3
+    SAY IDENTIFIED_DESC @2171 // ...
+  COPY ~%MOD_FOLDER%/items/a7#ibln1.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#blun1.spl~ ~override~
+
 
   // Random treasure: trade goodies (A7#JCOIN, A7#JGOOD, A7#JCLUE, A7#JMITM and A7#POT1)
   COPY ~%MOD_FOLDER%/items/a7#empty.itm~ ~override~
@@ -1245,8 +1284,8 @@ BEGIN @1  // Test Your Mettle!
             item_20 = "SPER10" item_21 = "STAF11" item_22 = "SW1H77" item_23 = "SW1H66" item_24 = "SW1H67" item_25 = "SW2H09" item_26 = "SW2H21" item_27 = "WA2ROBE"
   END
 
-
   // Adding rogue modrons to Planar Sphere
+  COMPILE ~%MOD_FOLDER%/scripts/a7#spwnm.baf~
   COPY_EXISTING ~ar0411.are~ ~override~
     LPF GET_TRIGGER_OFFSET
     STR_VAR name = ~Chapter 6 trap 4~
@@ -1272,31 +1311,15 @@ BEGIN @1  // Test Your Mettle!
       STR_VAR
         fj_structure_type = ~region~
         fj_name           = ~Chapter 6 trap 4~
-        fj_reg_script     = ~SPWNGOL~
+        fj_reg_script     = ~A7#SPWNM~
       RET
         offset = fj_return_offset
       END
     END
     WRITE_LONG (offset + 0x60) (THIS & ` BIT8)  // make sure trigger is active
     WRITE_SHORT (offset + 0x6c) (THIS | 1)      // make sure trigger is armed
-    READ_ASCII (offset + 0x7c) spawn_script (8) NULL
-    PATCH_IF (~%spawn_script%~ STR_EQ ~~) BEGIN
-      TEXT_SPRINT spawn_script ~SPWNGOL~
-      WRITE_ASCII (offset + 0x7c) ~SPWNGOL~ (8)
-    END
+    WRITE_ASCII (offset + 0x7c) ~A7#SPWNM~ (8)
   BUT_ONLY
-
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%spawn_script%.bcs~) BEGIN
-    COPY_EXISTING ~%spawn_script%.bcs~ ~override~
-      DECOMPILE_AND_PATCH BEGIN
-        REPLACE_TEXTUALLY ~CreateCreature.+~ ~~
-      END
-  END ELSE BEGIN
-    <<<<<<<< .../inlined/modronmaze/%spawn_script%.baf
-    >>>>>>>>
-    COMPILE ~.../inlined/modronmaze/%spawn_script%.baf~
-  END
-  EXTEND_TOP ~%spawn_script%.bcs~ ~%MOD_FOLDER%/scripts/a7#spwnm.baf~
 
 
 BEGIN @11 // Reduce by 50%

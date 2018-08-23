@@ -294,6 +294,67 @@ STATISTICS:
 
 Weight: 1~
 
+@2150 = ~Tongue of Acid +3~
+@2151 = ~This infernal longsword, forged to resemble a devil's tongue, has a blade "sharper than any scream" according to the writing on the hilt. Its edge cuts easily through armor and bone and leaves acid sizzling in the wounds it inflicts. The pain its wounds inflict is so severe that its victims have difficulty functioning, even walking, due to the agony.
+
+STATISTICS:
+
+Combat abilities:
+– 10% chance per hit of slowing the target for 3 rounds (Save vs. Spell negates)
+
+THAC0: +3
+Damage: 1d8+3, +1d3 (acid)
+Damage Type: Slashing
+Speed Factor: 2
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 6 Strength
+
+Weight: 2~
+
+@2160 = ~Echo of the Fiend +3~
+@2161 = ~A devil of Avernus once possessed this gnarled wooden staff. Though the devil long since escaped from the staff, a residue of its essence permeated the weapon and lingers still. When a command word is spoken, an aura of fire springs up around anyone wielding the staff; though the flames leave the wielder untouched, they sear others with devastating heat.
+
+STATISTICS:
+
+Combat abilities:
+– 5% chance per hit of triggering a Sunfire spell centered on the wielder
+
+Charge abilities:
+– Fireshield (Red) twice per day
+
+THAC0: +3
+Damage: 1d6+3 (crushing)
+Speed Factor: 1
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires:
+ 5 Strength
+
+Weight: 2~
+
+@2170 = ~Peacemaker +3~
+@2171 = ~A tough bartender in Westgate named Righteous Tad commissioned the creation of this weapon to deal with his rowdier patrons. Tad would normally pound the club against the bar if things got out of hand, but he frequently had to join the brawl to restore "order." He is said to have clubbed so many thieves over the head with the stick that no major criminal in Westgate could honestly claim they had never felt Peacemaker's sting. One such criminal, a thug named Hellpin, took offense at the beating he received. Hellpin trained his dogs on Righteous Tad one foggy night. Tad managed to kill more than half of the canines before he was overborne and done in. Hellpin kept the club as a trophy in his hangout as a warning to those who might cross him.
+
+STATISTICS:
+
+Equipped abilities:
+– Immunity to berserk
+
+Combat abilities:
+– Renders the target unconscious for 2 rounds after scoring a critical hit (Save vs. Death negates)
+
+THAC0: +3
+Damage: 1d6+3 (crushing)
+Speed Factor: 1
+Proficiency Type: Club
+Type: One-handed
+Requires:
+ 5 Strength
+
+Weight: 1~
+
 
 // Dialogs
 
@@ -543,6 +604,67 @@ Weight: 1~
 @10010 = ~Turn this effect into a mage scroll.~
 @10011 = ~Memorize this effect as a priest spell.~
 @10012 = ~Transformed scholarly notes into a spell scroll~ [EFF_M02]
+
+// Devil offering deals
+@11000 = ~Keep your weapons down, mortal, and hear me out.~
+@11002 = ~Let me offer you a deal. Adventurers such as you are always seeking riches, isn't that so? For a tiny bit of your divine essence I will grant you a fortune of gold. You can certainly afford it. What do you say?~
+@11003 = ~Your offer is tempting. What exactly do you have in mind?~
+@11004 = ~No way! I don't make deals with devils.~
+@11005 = ~How does <A7_GOLD_AMOUNT> gold sound to you? In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11006 = ~Sounds good to me. I accept.~
+@11007 = ~No, I don't think so.~
+@11008 = ~Let me offer you a deal. For a small fraction of your divine essence I may grant you a powerful weapon. You can certainly afford it. What do you say?~
+@11009 = ~You appear to be a fighter of no small skill, so I will offer you this powerful sword. It will cut your opponents sharper than any scream. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11010 = ~You appear to be skilled in the arts, so I will offer you this quarterstaff. It has the power to turn everything around you to ashes. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11011 = ~You appear to follow a spiritual path, so I will offer you this enchanted club. May its enchantments bring peace of mind to your opponents. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11012 = ~You seem to have mastered both mind and body, so I will offer you these gauntlets. They are most useful for a master of unarmed combat. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11013 = ~You appear to be a skilled <PRO_CLASS>, so I will offer you this deadly dagger. It contains most powerful magic to drain the very soul of your opponent. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11014 = ~Let me offer you a deal. For an insignificant portion of your divine essence I will grant you a boost to an attribute of your choice. It will surely come in handy on your path to godhood. You can certainly afford it. What do you say?~
+@11015 = ~I have the power to increase your strength, dexterity, constitution, intelligence, wisdom, or charisma. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11016 = ~Your chosen attribute appears to be of godlike proportions already. I cannot increase it further. Anything else?~
+@11017 = ~Yes, we have. Please increase my strength.~
+@11018 = ~Yes, we have. Please increase my dexterity.~
+@11019 = ~Yes, we have. Please increase my constitution.~
+@11020 = ~Yes, we have. Please increase my intelligence.~
+@11021 = ~Yes, we have. Please increase my wisdom.~
+@11022 = ~Yes, we have. Please increase my charisma.~
+@11023 = ~Yes. Please increase my strength.~
+@11024 = ~Yes. Please increase my dexterity.~
+@11025 = ~Yes. Please increase my constitution.~
+@11026 = ~Yes. Please increase my intelligence.~
+@11027 = ~Yes. Please increase my wisdom.~
+@11028 = ~Yes. Please increase my charisma.~
+@11029 = ~That is unfortunate. Then I have no choice but to take your soul by force.~
+@11030 = ~Leave me be, mortal! I have nothing more to say.~
+@11031 = ~10,000~
+@11032 = ~25,000~
+@11033 = ~50,000~
+@11050 = ~You are powerful, <RACE>. I can sense the divine spark of your soul.~
+@11051 = ~You are powerful, <RACE>. I can sense traces of divinity in your soul. Most interesting.~
+@11052 = ~Huh? An offer for me? Er... how much would be a fortune?~
+@11053 = ~Huh? An offer for me? Er... what kind of weapon do you have in mind?~
+@11054 = ~Huh? An offer for me? Er... you mean I can become even more perfect?~
+@11055 = ~I sure hope you know what kind of "deal" you're getting involved in.~
+@11056 = ~Are you serious, Imoen? Whatever the offer will be, the price is just too high.~
+@11057 = ~Let me offer you a deal. For an insignificant portion of your divine essence I will grant you a boost to an attribute of your choice. You can certainly afford it. What do you say?~
+@11058 = ~Just out of curiosity, what exactly does your deal involve?~
+@11059 = ~It doesn't hurt to know the offer, does it? So what's up with your deal?~
+@11060 = ~Hmm, that much gold for a tiny bit of my soul? I think I can handle it. Agreed!~
+@11061 = ~Hmm, such a powerful weapon for a tiny bit of my soul? I've made worse decisions in the past. It's a deal!~
+@11062 = ~I could always use some more brawn. Increase my strength.~
+@11063 = ~I always wanted to be more agile. Increase my dexterity.~
+@11064 = ~I guess it doesn't hurt to become more resilient. Increase my constitution.~
+@11065 = ~Actually, I prefer to outwit everyone. Increase my intelligence.~
+@11066 = ~I really should think twice before I agree to deals from devils in the future. Increase my wisdom.~
+@11067 = ~I could talk my way out of trouble more easily if I was more convincing. Increase my charisma.~
+@11068 = ~Guess you're right. I'm not interested!~
+@11069 = ~Of course not! I won't fall for your tricks, fiend.~
+@11070 = ~You won't be disappointed.~
+@11071 = ~You appear to be a skilled adventurer, so I will offer you this deadly dagger. It contains most powerful magic to drain the very soul of your opponent. In addition I will grant you free passage through this part of the maze. None of my subordinates will bother you while you are here. Do we have a deal?~
+@11100 = ~Leave me be, mortal! I have nothing to say to your kind.~
+@11101 = ~Your soul is mine!~
+@11102 = ~Obeying orders I am, manling. Not attacking you, must I.~
+@11103 = ~Not bothering me, manling!~
 
 
 // Misc.

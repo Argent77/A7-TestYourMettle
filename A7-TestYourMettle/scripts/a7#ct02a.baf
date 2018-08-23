@@ -1,0 +1,300 @@
+// Cutscene: Drain CHARNAME XP (low)
+
+IF
+  XPGT(Player1,9999)
+  XPLT(Player1,100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-10000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,99999)
+  XPLT(Player1,200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-20000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,199999)
+  XPLT(Player1,300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-30000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,299999)
+  XPLT(Player1,400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-40000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,399999)
+  XPLT(Player1,500000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-50000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,499999)
+  XPLT(Player1,600000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-60000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,599999)
+  XPLT(Player1,700000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-70000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,699999)
+  XPLT(Player1,800000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-80000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,799999)
+  XPLT(Player1,900000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-90000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,899999)
+  XPLT(Player1,1000000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-100000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,999999)
+  XPLT(Player1,1100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-110000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1099999)
+  XPLT(Player1,1200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-120000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1199999)
+  XPLT(Player1,1300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-130000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1299999)
+  XPLT(Player1,1400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-140000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1399999)
+  XPLT(Player1,1500000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-150000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1499999)
+  XPLT(Player1,1600000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-160000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1599999)
+  XPLT(Player1,1700000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-170000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1699999)
+  XPLT(Player1,1800000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-180000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1799999)
+  XPLT(Player1,1900000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-190000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1899999)
+  XPLT(Player1,2000000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-200000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,1999999)
+  XPLT(Player1,2100000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-210000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,2099999)
+  XPLT(Player1,2200000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-220000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,2199999)
+  XPLT(Player1,2300000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-230000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,2299999)
+  XPLT(Player1,2400000)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-240000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
+
+IF
+  XPGT(Player1,2399999)
+THEN
+  RESPONSE #100
+    CutSceneId(Myself)
+    ForceSpell(Player1,SAREVOK_SOULSTEAL)
+    AddXPObject(Player1,-250000)
+    Wait(5)
+    StartCutSceneEx("a7#ct02x",TRUE)
+END
