@@ -1,5 +1,5 @@
 BACKUP ~A7-TestYourMettle/backup~
-AUTHOR ~Argent77 at Beamdog Forums~
+SUPPORT ~http://www.shsforums.net/topic/59860-mod-test-your-mettle/~
 VERSION ~0.2 (beta)~
 
 ALWAYS
@@ -285,7 +285,6 @@ BEGIN @1  // Test Your Mettle!
 
   COPY ~%MOD_FOLDER%/portraits/a7#mdrm.bmp~ ~override~
        ~%MOD_FOLDER%/portraits/a7#mdrq.bmp~ ~override~
-       ~%MOD_FOLDER%/portraits/a7#cor1.bmp~ ~override~
        ~%MOD_FOLDER%/portraits/a7#gelu.bmp~ ~override~
        ~%MOD_FOLDER%/items/a7#ring1.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#mqblt.itm~ ~override~
