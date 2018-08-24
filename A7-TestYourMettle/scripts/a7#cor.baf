@@ -4,6 +4,7 @@
 IF
   Global("offer","MYAREA",0)
   GlobalLT("A7#DevilOffer","GLOBAL",3)
+  !Name("Taskmaster",Myself)
   See(Player1)
   !StateCheck(Player1,CD_STATE_NOTVALID)
   RandomNum(6,1)
@@ -17,6 +18,7 @@ END
 IF
   Global("offer","MYAREA",0)
   GlobalLT("A7#DevilOffer","GLOBAL",3)
+  !Name("Taskmaster",Myself)
   InParty("Imoen2")
   See("Imoen2")
   !StateCheck("Imoen2",CD_STATE_NOTVALID)
