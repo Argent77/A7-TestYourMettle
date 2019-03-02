@@ -325,8 +325,8 @@ BEGIN @1  // Test Your Mettle!
     SAY UNIDENTIFIED_DESC @50017  // Lightning Bolt description...
 
   COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
-    SAY NAME1 ~Produce Flame~
-    SAY NAME2 ~Produce Flame~
+    SAY NAME1 @50024  // Produce Flame
+    SAY NAME2 @50024  // Produce Flame
 
   COPY ~%MOD_FOLDER%/spells/a7#pain.spl~ ~override~
     LPF ALTER_SPELL_EFFECT

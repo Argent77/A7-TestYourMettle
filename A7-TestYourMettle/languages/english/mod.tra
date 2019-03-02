@@ -699,6 +699,7 @@ Upon using this ability, the construct releases a powerful bolt of electrical en
 @50021 = ~Motor skills damaged~
 @50022 = ~AI damaged~
 @50023 = ~Self-destruct~
+@50024 = ~Produce Flame~
 
 
 // Quest entries
