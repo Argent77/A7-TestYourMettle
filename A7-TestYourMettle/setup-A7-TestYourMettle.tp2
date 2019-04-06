@@ -17,6 +17,12 @@ LANGUAGE ~English~
          ~english~
          ~%MOD_FOLDER%/languages/english/setup.tra~
          ~%MOD_FOLDER%/languages/english/mod.tra~
+LANGUAGE ~German~
+         ~german~
+         ~%MOD_FOLDER%/languages/english/setup.tra~
+         ~%MOD_FOLDER%/languages/english/mod.tra~
+         ~%MOD_FOLDER%/languages/german/setup.tra~
+         ~%MOD_FOLDER%/languages/german/mod.tra~
 LANGUAGE ~Russian (translation: tipun)~
          ~russian~
          ~%MOD_FOLDER%/languages/english/setup.tra~

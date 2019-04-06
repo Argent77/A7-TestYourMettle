@@ -1,0 +1,746 @@
+// -*- coding: utf-8 -*-
+
+// Creatures
+@1000 = ~Zauberer-Konstrukt~
+@1010 = ~Konstrukt der starken Drohung~
+@1020 = ~Konstrukt der sanften Drohung~
+@1030 = ~Modron~
+@1031 = ~Abtrünniger Modron~
+@1032 = ~Modron-Arbeiter~
+@1033 = ~Modron-Wächter~
+@1034 = ~Projektleiter~
+@1035 = ~Modron-Reiseführer~
+@1036 = ~Modron-Arbeiter~
+@1040 = ~Gelugon~
+@1041 = ~Gelugon-Drahtzieher~
+@1050 = ~Schwarzer Abishai~
+@1060 = ~Grüner Abishai~
+@1070 = ~Roter Abishai~
+@1080 = ~Zuchtmeister Dogreth~
+
+
+// Items & Spells
+@2000 = ~Metallspielzeug~
+@2001 = ~Modronwürfel~
+@2002 = ~Dieses kleine Metallspielzeug ist die Nachbildung eines würfelähnlichen Wesens mit riesigen Augen in einem seiner Gesichter. Das Spielzeug hat zwei Beine, zwei Arme, zwei zusammenfaltbare Flügel und mindestens achtzehn Gelenke. Vielleicht ist es ein Sammlerstück.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+@2003 = ~Dieses kleine Metallspielzeug ist die Nachbildung eines Modronen - eines Wesens der Welt Mechanus. Dieses Spielzeug ist unglaublich kompliziert gearbeitet; seine Gelenke bestehen aus winzigen Getrieben, Rädchen, Rollen und Drehgelenken, und an den Beinen sind sogar winzige Federn, die die Füße festhalten. Am Rücken ist ein winziger Schalter, der die Augen hin und her bewegt, und die Flügel bestehen aus einem gewebeähnlichen Metall, das sich sauber zusammenfaltet, wenn die Flügel an den Körper angelegt sind. Artefakte wie diese sind häufig mit einem Zauber belegt, der aktiviert wird, sobald bestimmte Bedingungen erfüllt sind.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+@2004 = ~Verwenden~
+
+@2010 = ~Seltsamer Gegenstand~
+@2011 = ~Ein Hinweis!~
+@2012 = ~Dieser Gegenstand scheint keinen besonderen Nutzen zu haben. Du hast ihn im Modron-Irrgarten gefunden.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+@2013 = ~Auf diesem rätselhaften Stück Pergament steht einfach:
+
+"Jetzt verstehst du wohl besser, was vor sich geht..."
+
+Auf der Rückseite des Pergaments wurde ein Code hingekritzelt: C#1793.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@2020 = ~Sonderbarer Gegenstand~
+@2021 = ~Beutel mit Münzen~
+@2023 = ~Ein kleiner Beutel mit ein paar eigenartigen Münzen. Die Münzen haben eine ungewöhnliche Prägung. Sie scheinen nicht besonders wertvoll zu sein.
+
+Auf jeder Münze wurde ein Code eingraviert: M#3164.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@2030 = ~Bizarrer Gegenstand~
+@2031 = ~Ganz was Feines!~
+@2033 = ~Es sieht aus wie ein kleiner Steinstab oder so. Interessant, aber nutzlos.
+
+Auf dem Boden des Steinstabs wurde ein Code eingeätzt: G#5886.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@2040 = ~Merkwürdiger Gegenstand~
+@2041 = ~Ein magischer Gegenstand!~
+@2043 = ~Es ist irgendwas, aber, Mechanus zur Hölle, du hast keine Ahnung was. Es hat jedenfalls eine magische Ausstrahlung.
+
+Auf der Seite des Gegenstands kannst Du eine Kennzeichnung oder einen Code ausmachen: X#9438.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@2050 = ~Schutzstein~
+@2051 = ~Baatezu-Schutzstein~
+@2052 = ~Schutzsteine tragen oft Glyphen, Runen oder Symbole. Sie sind mächtige magische Gegenstände, die es dem Träger erlauben, magisch gesicherte Gebiete zu durchqueren. Die meisten Schutzsteine sind wie Schlüssel für einen einzigen Zweck geschaffen worden und gestatten dem Träger daher Zugang zu genau einem Bereich. Es ist sehr selten, dass man einen Schutzstein findet, der vielseitig einsetzbar ist.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+@2053 = ~Dieser Schutzstein war im Besitz eines ranghohen Baatezu-Teufels. Der Stein ist unnatürlich schwer, und es geht ein Gefühl des Unbehagens von ihm aus. Eine schwer zu entziffernde Glyphe wurde tief in den Stein hineingeätzt, die sich jedoch schmerzhaft in Eure Augen brennt, wenn Ihr zu lange hinseht. Dieser Schutzstein erlaubt Euch höchstwahrscheinlich Zutritt zu einem wichtigen Bereich des Irrgartens.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+
+@2060 = ~Schwarzer Würfel~
+@2061 = ~Würfel der Strömungen~
+@2062 = ~Dieser Würfel sieht eher unscheinbar aus. Allerdings bemerkt Ihr einige blasse wirbelnde Markierungen auf jeder Seite. Er wurde aus einem Material gefertigt, das Ihr nicht identifizieren könnt.
+
+EIGENSCHAFTEN:
+
+Gewicht: 3~
+@2063 = ~Dieser Würfel wurde aus einem unbekannten Material gefertigt. Er ist fast vollständig schwarz und enthält wirbelnde Markierungen auf jeder Seite. Für die Modronen dieses Konstrukts scheint der Gegenstand von sehr großer Bedeutung zu sein.
+
+EIGENSCHAFTEN:
+
+Gewicht: 3~
+
+@2070 = ~Verjüngungstrank~
+@2071 = ~Wenn dieser Trank vollständig eingenommen wird, dann erfrischt er Körper und Geist des Trinkenden, als ob er einen ganzen Tag gerastet hätte. Die Wirkung tritt augenblicklich ein und der Trank wird dabei aufgebraucht.
+
+Der Trank bezieht seine Kräfte von den Energien des Modronkonstrukts. Daher ist es unwahrscheinlich, dass er auch außerhalb jenes Ortes eine Wirkung zeigt.
+
+EIGENSCHAFTEN:
+
+Behebt Erschöpfung, frischt Zauber auf und entfernt zeitlich begrenzte Effekte, wie nach einer ganztägigen Rast.
+
+Gewicht: 1~
+@2072 = ~Wirkungslos~
+@2073 = ~Erfrischt~
+
+@2080 = ~Wiederaufbereitungsanweisungen~
+@2081 = ~Diese Schriftrolle bescheibt bis ins letzte Detail, wie man die Behälter im Eingangsbereich benutzen kann, um Schätze aus dem Modron-Irrgarten aufzubereiten, oder anders ausgedrückt, in verwertbare Gegenstände umzuwandeln.
+
+Aus dem, was Ihr entnehmen könnt, ist die Prozedur wie folgt:
+1. Platziert einen oder mehrere Gegenstände eines bestimmten Typs aus dem Irrgarten in den passenden Behälter.
+2. Benutzt die Aufbereitungskonsole, um die Umwandlung zu veranlassen.
+3. Entnehmt die umgewandelten Schätze aus den Behältern.
+
+Jeder Behälter akzeptiert nur Gegenstände eines bestimmten Typs:
+- Nordöstlicher Behälter: Typ C
+- Südöstlicher Behälter: Typ M
+- Nordwestlicher Behälter: Typ G
+- Südwestlicher Behälter: Typ X
+
+Die Anzahl der Gegenstände, die in einen Behälter gelegt wird, bestimmt den Wert der umgewandelten Schätze:
+1 Gegenstand: geringer Wert
+2-9 Gegenstände: durchschnittlicher Wert
+10-49 Gegenstände: guter Wert
+50-99 Gegenstände: hoher Wert
+100 oder mehr Gegenstände: außergewöhnlicher Wert~
+
+@2090 = ~Notizen über die Modronengemeinschaft~
+@2091 = ~Dieses zerfledderte Tagebuch scheint eine Sammlung von Notizen eines anonymen Gelehrten über die Gemeinschaft der Modronen zu sein.
+
+"Ich habe viele Jahre auf der Heimatwelt der Modronen, Mechanus, gelebt. Obwohl ich alles über ihre Physiologie herausfinden konnte, was ohne göttlichen Beistand herausgefunden werden kann, habe ich immer noch Schwierigkeiten, ihre Denkprozesse zu verstehen. Dies sind meine Erkenntnisse:
+
+Um die Modrongemeinschaft zu verstehen, muss man zuerst jedes Verständnis des "Selbst" aufgeben. Es ist eine grundlegende Eigenschaft der Modronen, dass jeder Rang nur die Existenz des Ranges direkt darüber und darunter verstehen kann. Zum Beispiel gehorchen die Monodronen dem Willen der Duodronen, aber sie können sich nicht einmal die Existenz der Tridronen vorstellen. Wenn ein Monodron einen Tridron sieht, sieht es kein Modron, und es könnte nicht einmal sagen, was es sieht. Eine Art Verarbeitungsblockade bricht offenbar die Verbindung zwischen dem Anblick des höheren Modrons und dem, was er tatsächlich ist. Diese "Blindheit" führt zu einer interessanten Schlussfolgerung, da jeder Rang glaubt, dass die unmittelbar darüber liegende die höchste Lebensform und die Quelle höchster Logik sind.
+
+Es gibt ein Bewusstsein für alle Ränge unter der Station eines Modron, aber die Kommunikation ist ausschließlich auf benachbarte Ränge beschränkt. Es scheint, dass der Monodron fast genauso fremd für den Tridron ist wie der Tridron für den Monodron. Das ist nicht das Ergebnis von Elitedenken. Vielmehr negiert die strenge Ordnung, die von der Rasse eingehalten wird, vollständig die geringste Notwendigkeit der Kommunikation über die unmittelbaren Untergebenen und Vorgesetzten hinaus.
+
+Die Wahrnehmung der unmittelbaren Vorgesetzten eines Modron sollte auch nicht mit Vergöttlichung verwechselt werden. Was andere einen Gott nennen könnten, können sich die Modronen nicht einmal vorstellen, denn sie können sich eine solche individuelle Existenz nicht vorstellen. Stattdessen entspringt alles Leben und jede Richtung einem Pool von logischen Handlungen - alles, was richtig ist, geschieht, weil es unausweichlich sein muss, und alles, was falsch ist, ist das, was nicht sein darf. Diese metalischen Einschränkungen machen den Umgang mit Modronen zu einer Herausforderung.
+
+(Ich habe allerdings bemerkt, dass sich Modronen schnell an eine Veränderung der Befehlshierarchie anpassen können, sollte die Notwendigkeit bestehen. So wäre es möglich, dass ein Duodron einen Pentadron wahrnehmen kann, und dass ein Quadron einem Monodron direkt einen Befehl geben kann. Es ist denkbar, dass dieses Verhalten in den Kernspeicher jedes Modronen eingeprägt ist und nur in Zeiten der Not zugänglich wird, da sonst die gesamte Befehlskette in sich zusammenbrechen kann.)
+
+In jedem Rang gibt es keine Individualität, weder in Form noch im Denken. Alle Modronen nennen sich "wir", und ein Außenstehender hat keine Möglichkeit zu wissen, ob der Pentadron, mit dem er heute gesprochen hat, der gleiche ist wie derjenige, der gestern den gleichen Posten innehatte.
+
+Selbst die Größe der Modronengesellschaft ist starr festgelegt. In jedem Rang gibt es nur eine bestimmte Anzahl von Modronen. Stirbt ein Modron eines Ranges, wird ein verfügbarer Kandidat aus dem nächstniedrigeren Rang befördert, und dann wird die Lücke im unteren Rang durch die Beförderung aus dem noch niedrigeren Rang geschlossen. Dies geht so lange weiter, bis der Rang des Monodrons erreicht ist. Ohne niedrigere Ränge vermehren sich die Kreaturen auf dieser Ebene durch Spaltung, indem sich eines ihrer Mitglieder auf mysteriöse Weise in zwei Teile teilt. (In Anbetracht dessen könnte die Behauptung, dass alle Modronen eins sind, wahrer sein, als es zuerst scheint.)
+
+Die Kasten der Modronen vom höchsten bis zum niedrigsten Rang sind wie folgt: Die Hierarchiemodronen bestehen aus dem Primus (dem absoluten Herrscher aller Modronen), Sekundi, Tertianen, Quintonen, Hextonen, Septonen, Oktonen, Nonatonen und Decatonen. Die Basismodronen bestehen aus den Pentadronen, Quadronen, Tridronen, Duodronen und Monodronen."
+
+Der Rest der Notizen beschäftigt sich mit Informationen über Mechanus, der Physiologie der Modronen und viele andere Themen, die für Euch nicht von besonderer Bedeutung sind.
+
+Ein Abschnitt des Anhangs zieht jedoch Euer Interesse auf sich. Es geht um die verschiedenen Sprachcodes, die von der Modrongemeinschaft verwendet werden. Ihr solltet die Notizen bei Euch behalten, da sie bei der Kommunikation mit den Modronen nützlich sein könnten.~
+
+@2100 = ~Speer des Schreckens +3~
+@2101 = ~Geschmiedet in den gefrorenen Tiefen von Cania, dem achten Kreis der Neun Höllen, strahlt diese Waffe eine Aura kalten Hasses und Bosheit aus, die sowohl die Natur ihres Ursprungs als auch die Denkweise ihres ehemaligen Meisters repräsentiert. Der Speer trifft seine Opfer mit magischem Schaden und verursacht zusätzliche Gefrierschäden, die sich durch den ganzen Körper ziehen. Darüber hinaus scheint jeder Treffer den Geist des Opfers mit Angst und Schrecken zu füllen, die seine Reflexe verlangsamen oder ganz aufhalten.
+
+EIGENSCHAFTEN:
+
+75% Chance dass das Opfer für drei Runden verlangsamt wird (Rettungswurf -3 gg. Tod)
+25% Chance dass das Opfer für eine Runde betäubt wird (Rettungswurf -3 gg. Tod)
+
+ETW0-Bonus: -3
+Schaden: 1w6 +3 (Stich), +1w6 Kälteschaden
+Initiativefaktor: 3
+Fertigkeit: Speer
+Typ: 2-händig
+Mindeststärke: 8
+
+Gewicht: 5~
+
+@2110 = ~Dodekaeder~
+@2111 = ~Dronenkontrollgerät~
+@2112 = ~Dieser merkmalslose Gegenstand hat die Form eines Dodekaeders. Er ist kalt und glatt bei Berührung und scheint aus einer metallischen Substanz hergestellt zu sein.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+@2113 = ~Dieser schwere Dodekaeder, der auf Mechanus hergestellt wurde, wurde ursprünglich als ein Notfallgerät zur Behandlung von fehlerhaften Konstrukten entwickelt. Er kann in zwei Modi umgeschaltet werden: einen Schutzmodus und einen Deaktivierungsmodus.
+
+Der Schutzmodus hüllt den Anwender in eine Wolke aus mikroskopisch kleinen Partikeln. Diese Wolke absorbiert Wärmeenergie und dient somit als Tarnung gegen die Sinnesorgane mechanischer Konstrukte, die dazu bestimmt sind, Spuren von Wärmestrahlung zu erkennen. Rassen mit angeborener Wärmesicht können ebenfalls durch das Fehlen von Wärmestrahlung irritiert werden.
+
+Der Deaktivierungsmodus ermöglicht es dem Anwender, ein Konstrukt in den Schlafmodus zu zwingen. Während dieser Modus aktiv ist, bleibt das Konstrukt passiv und regeneriert einen Trefferpunkt pro Runde. Der Schlafmodus kann jedoch durch Befehle höherer Priorität außer Kraft gesetzt werden, welche die Selbstverteidigung oder Anweisungen von Vorgesetzten beinhalten.
+
+EIGENSCHAFTEN:
+
+Thermo-optischer Schleier: Hüllt den Anwender in eine Wolke aus wärmeabsorbierenden Partikeln, was dazu führt, dass Modronenkonstrukte den Anwender ignorieren.
+  Bereich: Anwender
+  Dauer: Eine Phase
+
+Schlafmodus erzwingen: Aktiviert den Schlafmodus bei mechanischen Modronkonstrukten.
+  Bereich: 1 Wesen
+  Dauer: Dauerhaft, kann aber durch Befehle höherer Priorität außer Kraft gesetzt werden
+
+Mindestintelligenz: 9
+
+Gewicht: 1~
+@2114 = ~ist vor Konstrukten geschützt~
+@2115 = ~Thermo-optischer Schleier~
+@2116 = ~Schlafmodus erzwingen~
+@2117 = ~Schlafmodus aktiviert~
+@2118 = ~Schlafmodus beendet~
+
+@2120 = ~Stab der Modronenmacht~
+@2121 = ~Mit diesem magischen Stab kann der Anwender Modronenkonstrukte herbeirufen, die ihm im Kampf gegen seine Feinde behilflich sind. Es werden zwei bis vier Konstrukte herbeigerufen. Die Konstrukte kämpfen furchtlos bis zum Tod oder bis eine Stunde vergangen ist.
+
+EIGENSCHAFTEN:
+
+Ruft 2-4 Modronenkonstruktionen herbei
+  Reichweite: 6 m
+  Dauer: 1 Stunde
+
+Mindestintelligenz: 9
+
+Gewicht: 5~
+
+@2130 = ~Raumkrümmung
+
+Grad: 7
+Schule: Veränderung
+Reichweite: 45 m
+Dauer: 1 Phase
+Zeitaufwand: 7
+Bereich: 4,5 m Radius
+Rettungswurf: Speziell (gg. Zauber)
+
+Einer bestimmten Weltanschauung zufolge stellt das, was wir als Schwerkraft wahrnehmen, eine örtliche Krümmung des Gefüges aus Raum und Zeit dar. Durch diesen Zauber wird ein begrenztes Gebiet in gleicher Weise vorübergehend recht intensiv gekrümmt.
+
+Der Anwender wählt einen bestimmten Punkt als Zentrum seines Effekts. Dieser Punkt kann sich irgendwo in einem Umkreis von 45 Metern um den Anwender herum befinden, sogar in der Luft.
+
+Wird der Zauber gewirkt, erhält der gewählte Mittelpunkt der Auswirkungen ein Schwerkraftfeld von der Intensität, wie es normalerweise auf der Erdoberfläche zu spüren ist. Mit anderen Worten könnte man auch sagen, dass die Schwerkraft auf diesen Punkt ausgerichtet ist. Alles, was sich im Umkreis von 9 Metern befindet und nicht an einem unbeweglichen Objekt befestigt ist, fällt auf diesen Punkt zu.
+
+Die örtlich veränderte Schwerkraft kann betroffene Kreaturen auch für kurze Zeit ausschalten, wenn ein Rettungswurf -2 gg. Zauber scheitert.~
+
+@2131 = ~Raumkrümmung
+
+Grad: 8
+Schule: Veränderung
+Reichweite: 45 m
+Dauer: 1 Phase
+Zeitaufwand: 5
+Bereich: 4,5 m Radius
+Rettungswurf: Speziell (gg. Zauber)
+
+Einer bestimmten Weltanschauung zufolge stellt das, was wir als Schwerkraft wahrnehmen, eine örtliche Krümmung des Gefüges aus Raum und Zeit dar. Durch diesen Zauber wird ein begrenztes Gebiet in gleicher Weise vorübergehend recht intensiv gekrümmt.
+
+Der Anwender wählt einen bestimmten Punkt als Zentrum seines Effekts. Dieser Punkt kann sich irgendwo in einem Umkreis von 45 Metern um den Anwender herum befinden, sogar in der Luft.
+
+Wird der Zauber gewirkt, erhält der gewählte Mittelpunkt der Auswirkungen ein Schwerkraftfeld von der Intensität, wie es normalerweise auf der Erdoberfläche zu spüren ist. Mit anderen Worten könnte man auch sagen, dass die Schwerkraft auf diesen Punkt ausgerichtet ist. Alles, was sich im Umkreis von 9 Metern befindet und nicht an einem unbeweglichen Objekt befestigt ist, fällt auf diesen Punkt zu.
+
+Die örtlich veränderte Schwerkraft kann betroffene Kreaturen auch für kurze Zeit ausschalten, wenn ein Rettungswurf -2 gg. Zauber scheitert.~
+
+@2132 = ~Alte Schriftrolle~
+// @2133 = ~Treatise on space-time theorems~
+@2133 = ~Alte Notizen eines Gelehrten~
+@2134 = ~Untersuchen~
+@2135 = ~Trotz ihres Alters ist diese Schriftrolle erstaunlich gut erhalten. Seltsame Symbole wurden sorgfältig auf das Pergament geschrieben.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+@2136 = ~Diese Notizen wurden von einem Gelehrten des antiken Netheril niedergeschrieben. Sie sind mit komplexen Formeln und Diagrammen gefüllt, die verlorenes Wissen über Zeit und Raum darstellen. Ein Abschnitt scheint mit Blick auf praktische Anwendungen geschrieben worden zu sein. Es wird beschrieben, wie man ein Gravitationsfeld von beträchtlicher Stärke für einen begrenzten Zeitraum erzeugen kann. Ein intelligenter Magier oder weiser Priester kann möglicherweise dieses Wissen auf eine arkane Formel reduzieren.
+
+EIGENSCHAFTEN:
+
+Gewicht: 0~
+
+@2140 = ~Siegel~
+@2141 = ~Teufelssiegel~
+@2142 = ~Siegel sind oft mit magischen Runen oder Symbolen gekennzeichnet und sind mächtige verzauberte Artefakte, die dem Träger den Zugang zu magisch verschlossenen Bereichen ermöglichen soll. Da die meisten Siegel anwendungsspezifisch sind, ist es selten, dass man ein Siegel mit mehr als einem Zweck findet.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+@2143 = ~Siegel werden häufig verwendet, um magisch geschützte Bereiche zu betreten. Dieses Siegel ist recht kalt und trägt das seltsame Symbol eines starren Auges. Ihr habt es im Besitz eines Gelugons gefunden.
+
+EIGENSCHAFTEN:
+
+Gewicht: 1~
+
+@2150 = ~Säurezunge +3~
+@2151 = ~Dieses unheilvolle Langschwert ähnelt vom Aussehen her einer Teufelszunge. Sie hat eine Klinge, die laut Inschrift auf dem Griff "schärfer als jeder Schrei" ist. Ihre Klinge schneidet leicht durch Rüstungen und Knochen und hinterlässt in den Wunden eine zischende Säure. Der Schmerz, den die Wunden verursachen, ist so stark, dass die Opfer aufgrund der Qualen für einige Zeit nur eingeschränkt handlungsfähig sind.
+
+EIGENSCHAFTEN:
+
+10% Chance pro Schlag, das Opfer für drei Runden zu verlangsamen (Rettungswurf gg. Zauber)
+
+ETW0-Bonus: -3
+Schaden: 1w8 +3 (Klinge), +1w6 Säureschaden
+Initiativefaktor: 2
+Fertigkeit: Langschwert
+Typ: 1-händig
+Mindeststärke: 6
+
+Gewicht: 2~
+
+@2160 = ~Teufelsecho +3~
+@2161 = ~Dieser knorrige Kampfstab war einst von einem Teufel aus der Ebene von Avernus besessen. Obwohl der Teufel schon vor langer Zeit aus dem Stab fliehen konnte, verweilt ein Rest seiner Essenz immer noch in dieser Waffe. Wenn ein Befehlswort gesprochen wird, dann entsteht um den Träger eine Aura des Feuers. Obwohl die Flammen den Träger unberührt lassen, brennen sie andere mit verheerender Hitze nieder.
+
+EIGENSCHAFTEN:
+
+5% Chance pro Schlag, einen Sonnenfeuerzauber ausgehend vom Träger auszulösen
+
+- Feuerschild (Rot) zweimal pro Tag
+
+ETW0-Bonus: -3
+Schaden: 1w8 +3 (Wucht)
+Initiativefaktor: 1
+Fertigkeit: Kampfstab
+Typ: 2-händig
+Mindeststärke: 5
+
+Gewicht: 2~
+
+@2170 = ~Friedenswächter +3~
+@2171 = ~Diese Waffe hat ein kräftiger Schankwirt aus Westtor, Tad, der Gerechte, anfertigen lassen, um sich gegen randalierende Gäste zur Wehr setzen zu können. Wenn die Lage außer Kontrolle geriet, schlug Tad mit dem Knüppel gegen den Tresen. Doch häufig musste er auch handgreiflich werden, um wieder "Ruhe und Ordnung in den Laden zu bringen". Angeblich hatte Tad schon so viele Diebe niedergeknüppelt, dass kein ernst zu nehmender Verbrecher in Westtor ehrlich behaupten könnte, der Zorn des Friedenswächters hätte ihn noch nie getroffen. Doch eines Tages fühlte sich ein Verbrecher, ein Schläger namens Hellpin, durch Tads Züchtigung in seinem Innersten gekränkt. In einer Nacht- und Nebelaktion hetzte er seine Hunde auf Tad. Dieser schlug mehr als die Hälfte davon tot, bevor er schließlich überwältigt und getötet wurde. Hellpin bewahrte den Knüppel zu Hause als Trophäe und Warnung an all diejenigen auf, die sich mit ihm anlegen wollten.
+
+EIGENSCHAFTEN:
+
+- Immun gegen Berserkerwut
+- Schlägt das Ziel bei einem kritischen Treffer für zwei Runden bewusstlos (Rettungswurf gg. Tod)
+
+ETW0-Bonus: -3
+Schaden: 1W6 +3 (Wucht)
+Gewicht: 1
+Initiativefaktor: 2
+Fertigkeit: Keule
+Typ: 1-händig
+Mindeststärke: 5
+
+Gewicht: 1~
+
+
+// Dialogs
+
+// Modron Introduction
+@3000 = ~Du siehst einen Würfel mit zwei Armen, zwei Beinen und zwei kleinen Flügeln, die aus den Seiten sprießen. Auf der Vorderseite des Würfels ist ein lebhaftes Gesicht. Als du dich näherst, richtet das Wesen den Blick auf dich.~
+@3001 = ~Du siehst einen Würfel mit vier Armen und zwei Beinen, die aus den Seiten sprießen. Auf der Vorderseite des Würfels ist ein lebhaftes Gesicht. Als du dich näherst, richtet das Wesen den Blick auf dich.~
+@3002 = ~Du siehst eine Kugel mit zwei Armen und Beinen, die aus den Seiten sprießen. Auf der Vorderseite der Kugel befindet sich ein einzelnes Auge. Als du dich näherst, richtet das Wesen den Blick auf dich.~
+@3003 = ~Dieser Modron besitzt eine kugelförmigen Körper mit nur einem einzigen Auge. Zwei Arme und Beine sprießen aus den Seiten. Er scheint dich nicht wahrzunehmen.~
+@3004 = ~Dieser Modron besitzt einen würfelförmigen Körper mit zwei Armen, zwei Beinen und zwei kleinen Flügeln, die aus den Seiten sprießen. Auf der Vorderseite des Würfels ist ein lebhaftes Gesicht. Er scheint dich vollständig zu ignorieren.~
+@3005 = ~Dieser Modron besitzt einen würfelförmigen Körper mit zwei Armen und Beinen. Auf der Vorderseite des Würfels ist ein lebhaftes Gesicht. Er scheint dich vollständig zu ignorieren.~
+
+// Modron Generic
+@3500 = ~Sei gegrüßt.~
+@3501 = ~Richtet eure Fragen an den Projektleiter.~
+@3502 = ~Ihr könnt den Projektleiter im Kontrollzentrum finden.~
+@3503 = ~Ich habe ein paar Fragen...~
+@3504 = ~Also, ich muss weiter. Wiedersehen.~
+@3505 = ~Wo kann ich den Projektleiter finden?~
+@3506 = ~Ich muss mich jetzt auf den Weg machen. Leb wohl.~
+@3507 = ~Stellt eure Frage.~
+@3508 = ~Wer bist du?~
+@3509 = ~Was bist du?~
+@3510 = ~Was ist das für ein Ort?~
+@3511 = ~Was machst du hier?~
+@3512 = ~Wir sind Modron.~
+@3513 = ~Heißt das, dein Name ist Modron?~
+@3514 = ~Wir sind Modron. Wir haben keinen Namen. Wir sind Modron. Alles, was ihr hier seht, ist Teil des Modron. Wir sind eins.~
+@3515 = ~In Ordnung. Ich habe weitere Fragen...~
+@3516 = ~Wir sind Modron. Wir sind Quadron.~
+@3517 = ~Was ist ein Modron?~
+@3518 = ~Was ist ein Quadron?~
+@3519 = ~Wir sind Modron. Dies ist die einzige Identität unserer Rasse.~
+@3520 = ~Und was ist dann ein Quadron?~
+@3521 = ~Innerhalb unserer Rasse werden wir als Typ Quadron klassifiziert.~
+@3522 = ~Was ist dann ein Modron?~
+@3523 = ~Das Rubikon-Verlies-Konstrukt®.~
+@3524 = ~Was soll das denn sein?~
+@3525 = ~Richtet eure Frage an den Projektleiter.~
+@3526 = ~Warten auf Anweisungen.~
+@3527 = ~Anweisungen wofür?~
+@3528 = ~Für die Aufgabe, die als nächstes auszuführen ist.~
+@3529 = ~Was für Aufgaben? Was tust du hier eigentlich?~
+@3530 = ~Vielen Dank. Leb wohl.~
+
+// Modron Director
+@4000 = ~Ich habe den Ursprung der Invasion herausgefunden.~
+@4001 = ~Ich habe den Würfel der Strömungen mitgebracht.~
+@4002 = ~Macht nichts. Leb wohl.~
+@4003 = ~Was ist das hier noch mal für ein Ort?~
+@4004 = ~Gibt es irgendwelche Gefahren im Zusammenhang mit Rubikon, von denen ich wissen sollte?~
+@4005 = ~Kann ich am Rubikonprojekt teilnehmen?~
+@4006 = ~Kannst du mir noch mal sagen, wie ich euch helfen kann?~
+@4007 = ~Was kannst du mir über das würfelförmige Metallspielzeug in meinem Besitz sagen?~
+@4008 = ~Also, ich muss weiter. Wiedersehen.~
+@4009 = ~In Ordnung. Ich habe weitere Fragen...~
+@4010 = ~Ich verstehe. Ich muss mich jetzt auf den Weg machen. Leb wohl.~
+@4011 = ~Dies ist das Rubikon-Verlies-Konstrukt®.~
+@4012 = ~Was ist das Rubikon-Verlies-Konstrukt®?~
+@4013 = ~Kannst du mir noch mal sagen, was das Rubikon-Verlies-Konstrukt® ist?~
+@4014 = ~Rubikon: Ziel des Projekts ist zum einen die Ermittlung der sozialen und asozialen Dynamik, von der die für gewöhnlich als Verlies aufgefasste Umgebung geprägt ist, und zum anderen der Versuch einer Erklärung der Anomalien, die in solchen Umgebungen verstärkt auftreten.~
+@4015 = ~Wie willst du das anstellen?~
+@4016 = ~Von welchen Anomalien sprichst du?~
+@4017 = ~Rubikon ist in der Lage, eine Reihe von Räumen zu bilden, die so miteinander verbunden sind, dass sie ein Gebilde darstellen, das gemeinhin als *Verlies* bezeichnet wird. Das Verlies beinhaltet Monster, Fallen und Schätze.~
+@4018 = ~Jeder Raum wird dynamisch erschaffen. Der Schwierigkeitsgrad passt sich automatisch an die Erfahrungsstufe des Abenteurers an. Nach seinem Bau kann das Verlies vollständig erkundet werden. Schätze aus dem Verlies können anschließend im Eingangsbereich wiederaufbereitet werden.~
+@4019 = ~Wiederaufbereitet?~
+@4020 = ~Du hast etwas über Anomalien erwähnt?~
+@4021 = ~Ich bin ein Abenteurer. Kann ich an eurem Verlies-Experiment teilnehmen?~
+@4022 = ~Die Wiederaufbereitungsanlage wandelt Schätze aus dem Rubikon-Verlies-Konstrukt® in Belohnungen für den Teilnehmer des Experiments um. Sie befindet sich im Eingangsbereich von Rubikon. Weitere Anweisungen können direkt am Bedienpult der Wiederaufbereitungsanlage aufgerufen werden. Das Bedienpult der Wiederaufbereitungsanlage befindet sich im nordöstlichen Winkel des Eingangsbereichs zu Rubikon.~
+@4023 = ~Offene Fragen: Wodurch werden Leute von Verliesen angezogen? Warum versuchen Leute so oft, in sie hineinzugelangen, wo sie doch so gefahrvolle Orte sind? Warum gibt es Verliese überhaupt? Welche Dynamik geht von einem funktionstüchtigen Verlies aus? Wir verstehen es nicht.~
+@4024 = ~Interessant. Kann ich euer Verlies-Experiment ausprobieren?~
+@4025 = ~Ja. Lasst euch auf keinen Fall von euren Begleitern trennen, wenn ihr im Irrgang seid. Jeder Abschnitt des Irrgangs wird bei Bedarf erzeugt oder wieder zurückgesetzt. Jeder verbleibende Begleiter wird getötet, wenn der Abschnitt zurückgesetzt wird.~
+@4026 = ~Verstehe... Ich werde meine Gruppe nicht neu formieren, solange wir im Irrgarten sind. Sonst noch etwas?~
+@4027 = ~Ich werde das im Hinterkopf behalten. Kann ich euer Verlies-Experiment ausprobieren?~
+@4028 = ~Ja. Lasst keine Gegenstände oder Ausrüstung im Irrgarten fallen. Wenn der Irrgang neu gestartet würde, würden alle Gegenstände zerstört werden, die sich noch im Irrgang befinden.~
+@4029 = ~Verstehe... Ich werde nichts Wichtiges fallenlassen, solange ich im Irrgang bin. Sonst noch etwas?~
+@4030 = ~Nein... (Der Modron hält für einen Moment inne.) Nein, da gibt es nichts weiter.~
+@4031 = ~Ich verstehe. Kann ich euer Verlies-Experiment ausprobieren?~
+@4032 = ~(Es gibt eine längere Pause, bevor dir der Modron antwortet.) Bitte abgelehnt... Das Projekt zeigt Anzeichen von abnormalem Verhalten.~
+@4033 = ~(Es gibt eine weitere Pause, bevor der Modron weiterspricht.) Wir haben teilweise die Kontrolle über das Rubikon-Verlies-Projekt® verloren.~
+@4034 = ~Wie habt ihr die Kontrolle verloren?~
+@4035 = ~Ich verstehe. Ich habe noch mehr Fragen...~
+@4036 = ~Interessant. Ich muss jetzt gehen. Leb wohl.~
+@4037 = ~Wir wissen es nicht. Zugang zum Verlies-Konstrukt wurde durch eine unbekannte Macht eingeschränkt. Eine Modroneinheit, die mit der Aufgabe betraut wurde, die Anomalie zu untersuchen, hat sich noch nicht zurückgemeldet.~
+@4038 = ~Wir... (Der Modron hält wieder inne.) Wir haben auch unsere Verbindung zu Mechanus verloren. Ohne weitere Anweisungen von unseren Vorgesetzten können wir das Problem nicht lösen.~
+@4039 = ~Mechanus?~
+@4040 = ~Mechanus ist ein Ort von perfektem Recht und Ordnung. Er ist unsere Heimat. Ohne dem Würfel der Strömungen können wir keine Verbindung zu Mechanus herstellen.~
+@4041 = ~Würfel der Strömungen?~
+@4042 = ~Der Würfel der Strömungen erlaubt es uns, eine sichere Verbindung zu Mechanus aufrechtzuerhalten. Ohne den Würfel der Strömungen können wir die uns übertragene Aufgabe nicht erfüllen oder nach Abschluss der Aufgabe heimkehren.~
+@4043 = ~Wie habt ihr den Würfel verloren?~
+@4044 = ~Ich verstehe. Ich habe allerdings noch mehr Fragen...~
+@4045 = ~Der Würfel der Strömungen wurde von einer unbekannten Macht entwendet. Es ist sehr wahrscheinlich, dass die gleiche Macht auch für die Störungen im Rubikon-Verlies-Projekt® verantwortlich ist.~
+@4046 = ~Kann ich etwas tun, um euch zu helfen?~
+@4047 = ~Wir benötigen Hilfe bei den folgenden Aufgaben: Bestimmt die Art des Eindringlings. Stellt die Kontrolle über das Rubikon-Verlies-Projekt® wieder her. Bringt uns den Würfel der Strömungen.~
+@4048 = ~Irgendeine Idee, wo ich die Eindringlinge finden kann?~
+@4049 = ~Wie kann ich die Kontrolle über das Rubikon-Verlies-Projekt® wiederherstellen?~
+@4050 = ~Wo kann ich den Würfel der Strömungen finden?~
+@4051 = ~Ich sehe, was ich tun kann. Allerdings habe ich noch ein paar Fragen...~
+@4052 = ~Verstanden. Ich muss jetzt gehen. Wiedersehen.~
+@4053 = ~(Der Raum wird plötzlich von einem Summen erfüllt, das genauso schnell wieder abklingt.) Hilfe erwünscht. Ihr erhaltet Zugang zum Verlies-Konstrukt.~
+@4054 = ~Wir benötigen eure Hilfe für die folgenden Aufgaben: Bestimmt die Art des Eindringlings. Stellt die Kontrolle über das Rubikon-Verlies-Projekt® wieder her. Bringt uns den Würfel der Strömungen.~
+@4055 = ~Die Eindringlinge wurden im Verlies-Konstrukt geortet. Wir kennen nicht die Art der Eindringlinge. Wir kennen nicht den Ursprung der Invasion.~
+@4056 = ~Wir haben nicht genug Informationen, um eure Anfrage zu beantworten.~
+@4057 = ~Der Würfel der Strömungen wurde von einer unbekannten Macht entwendet. Er befindet sich wahrscheinlich noch im Besitz jener Macht. Der gegenwärtige Aufenthaltsort dieser Macht ist uns nicht bekannt.~
+@4058 = ~Dieses Objekt ist ein Portalwürfel. Der Benutzer muß die Gliedmaßen des Portalwürfels in eine solche Position bringen, daß er aktiviert wird. Wenn er aktiviert ist, transportiert der Portalwürfel den Benutzer zu dem Ziel, auf das er bei seiner Erstellung eingestellt wurde.~
+@4059 = ~Was ist die richtige Position, in der dieser hier aktiviert wird?~
+@4060 = ~Kannst du mir noch einmal sagen, was die richtige Aktivierungsposition für diesen Würfel ist?~
+@4061 = ~Der Würfel ist auf die folgenden zwei Ziele abgestimmt: Eingang zum Rubikon-Verlies-Projekt®, Ursprungsort des Nutzers.~
+@4062 = ~Um den Transport zum Eingangsbereich des Rubikon-Verlies-Konstrukts zu aktivieren, beugt das linke Knee, bis das Bein einen 15-Grad-Winkel beschreibt, öffnet beide Flügel, so weit es geht, und dreht dann dann den rechten Arm um 180 Grad in seinem Gelenk.~
+@4063 = ~Um den Transport zum Ursprungsort des Nutzers zu aktivieren, dreht den rechten Arm um 180 Grad in seinem Gelenk, öffnet beide Flügel, so weit es geht, und beugt dann das linke Knee, bis das Bein einen 15-Grad-Winkel beschreibt.~
+@4064 = ~Euer Wissen über die Art des Eindringlings wird geschätzt. (Und wieder wird der Raum von einem Summen erfüllt, das genauso schnell wieder abklingt.) Unsere Untersuchung zeigt, dass wir die Kontrolle über das Rubikon-Verlies-Projekt® zurückerlangen können, wenn der Anführer der Baatezu vernichtet wurde. Diese Aufgabe wird euch übertragen.~
+@4065 = ~Warum mir?~
+@4066 = ~Sicher, warum auch nicht? Ich werde es tun.~
+@4067 = ~Ich bin nicht interessiert. Vor allem, wenn es darum geht, eine Armee von Baatezu zu bekämpfen.~
+@4068 = ~Ihr seid in der Lage, diese Aufgabe zu erledigen. Derzeit gibt es keine alternative Vorgehensweise.~
+@4069 = ~Dann habe ich wohl keine andere Wahl. Ich werde es tun.~
+@4070 = ~Ich bin nicht interessiert. Ihr müsst das Problem alleine lösen.~
+@4071 = ~Eure Hilfe wird geschätzt. Um euch bei eurer Aufgabe zu unterstützen, haben wir ein Gerät entwickelt, das einigen Schutz vor den Konstrukten des Rubikon-Verlies-Projekts® bietet.~
+@4072 = ~Ich danke dir. Sonst noch etwas?~
+@4073 = ~Wir nehmen an, dass sich der Würfel der Strömungen im Besitz des Baatezu-Anführers befindet.~
+@4074 = ~Wir haben eure Entscheidung zur Kenntnis genommen. Wir werden die Daten weiter analysieren, um mögliche Fehler in unserer Schlussfolgerung zu finden.~
+@4075 = ~Wir sind dankbar. Diese Belohnung wird euch im Austausch für den Würfel der Strömungen gegeben.~
+@4076 = ~(Der Modron hält für einen Moment inne, und da ist auch schon wieder dieses Summen.)  Verbindung zu Mechanus wurde hergestellt. Das Rubikon-Verlies-Projekt® ruht, bis weitere Anweisungen erteilt werden. Wir werden jetzt nach Mechanus heimkehren. Lebt wohl, Abenteurer.~
+@4077 = ~Es ist leicht, sich im Rubikon-Verlies zu verlaufen. Hast du eine Gerätschaft, mit der man sich in diesem Irrgarten zurechtfinden kann?~
+@4078 = ~Eurer Bitte wurde entsprochen. Das Rubikon-Navigationssystem wurde aktiviert.~
+@4079 = ~Ich weiß das zu schätzen. Allerdings habe ich noch mehr Fragen...~
+@4080 = ~Danke, ich muß jetzt weiter. Leb wohl.~
+
+// Modron Guide
+@5001 = ~Seid gegrüßt, Abenteurer. Willkommen in Rubikon, dem Verlies-Konstrukt. Ihr könnt Zugang zu Rubikon vom Projektleiter anfordern.~
+@5002 = ~Das Wesen starrt dich ausdruckslos an.~
+@5003 = ~Ihr könnt den Projektleiter im Kontrollzentrum finden.~
+@5004 = ~Was ist Rubikon?~
+@5005 = ~Was ist ein Verlies-Konstrukt?~
+@5006 = ~Wo kann ich den Projektleiter finden?~
+@5007 = ~Danke. Das werde ich tun. Leb wohl.~
+@5008 = ~Schon gut. Ich muss jetzt gehen. Leb wohl.~
+@5009 = ~Wo finde ich das Kontrollzentrum?~
+@5010 = ~Schon gut. Ich werde es alleine finden. Leb wohl.~
+@5011 = ~Danke. Das werde ich.~
+@5012 = ~Seid gegrüßt, Abenteurer. Willkommen in Rubikon, dem Verlies-Konstrukt. Ihr könnt Rubikon durch dieses Tor erreichen. Viel Vergnügen!~
+@5013 = ~Das Wesen blinzelt dir zu, doch man merkt ihm nicht an, ob es deine Frage gehört hat.~
+@5014 = ~Das Wesen starrt dich an, ohne zu antworten.~
+
+// Modron Laborer
+@5501 = ~01011001 01100101 01110011? (Ja?)~
+@5502 = ~01011001 01100101 01110011?~
+@5503 = ~01000010 01111001 01100101. (Leb wohl.)~
+@5504 = ~Farewell.~
+@5505 = ~01001110 01100001 01101101 01100101? (Wer bist du?)~
+@5506 = ~Who are you?~
+@5507 = ~01001010 01101111 01100010? (Was machst du?)~
+@5508 = ~What are you doing?~
+@5509 = ~01001111 01101110 01100101. (Wir sind eins.)~
+@5510 = ~01010111 01101111 01110010 01101011. (Wir arbeiten.)~
+@5511 = ~Dieser Modron spricht in einer Sprache, die du nicht verstehst. Vielleicht kann jemand mit mehr Wissen einen Weg finden, um mit ihm zu kommunizieren.~
+@5512 = ~Als das Wesen versucht, mit dir zu kommunizieren, holst du die Notizen über die Modrongemeinschaft hervor.~
+@5513 = ~Das Wesen scheint zu kommunizieren, indem es Sequenzen von niedrigen und hohen Tönen aussendet. Du bemerkst schnell, dass es sich dabei um eine Art Code handelt. Nach ein paar Versuchen bist du zuversichtlich, dass du die grundlegende Bedeutung des Codes verstanden hast.~
+
+// Cornugon Taskmaster
+@6000 = ~Ah, ein weiterer ahnungsloser Abenteurer findet seinen Weg zum Zuchtmeister. Das ist gut. Das Portal zu bewachen ist ein Privileg, aber es wird nach einer Weile lästig.~
+@6001 = ~Ich bin Zuchtmeister Dogreth, Cornugon des zweiten Kreises und die rechte Hand des Meisters. Ich würde nach eurem Namen fragen, aber eure Seelen werden bald mir gehören. Dann werde ich sowieso alles über euch erfahren.~
+@6002 = ~Bist du für die Störungen im Irrgarten verantwortlich?~
+@6003 = ~Hast du den Würfel der Strömungen in deinem Besitz?~
+@6004 = ~Der Irrgarten? Er nützt uns nur wenig. Aber wir können ihn trotzdem nutzen, um die lästigen Modronen fernzuhalten, bis wir hier unsere Aufgabe erledigt haben. Zumindest ist mein Meister davon überzeugt.~
+@6005 = ~Ihr wisst also vom Würfel der Strömungen? Vielleicht hatten wir irgendetwas mit seinem Verschwinden zu tun. Der Würfel ist ein mächtiges Werkzeug in der richtigen Hand. Und ich kann euch versichern, dass mein Meister genau weiß, wie man ihn wirksam einsetzt.~
+@6006 = ~Aber das hat euch nicht weiter zu kümmern. Mein Meister befindet sich hinter mächtigen Schutzbarrieren, und nur ich habe the Möglichkeit, sie zu überwinden. Ihr werdet schon bald tot sein, nachdem meine Untergebenen ihren Spaß mit euch hatten. Ich bin sicher, dass eure Seelen eine gute Trophäe für meinen Meister abgeben werden.~
+
+// Gelugon Mastermind
+@6500 = ~Ihr seid weit gekommen, Abkömmling von Bhaal. Oh, seid nicht so überrascht. Habt ihr wirklich gedacht, dass ihr mich unvorbereitet antreffen würdet?~
+@6501 = ~Wer bist du?~
+@6502 = ~Was willst du?~
+@6503 = ~Mein wahrer Name geht euch nichts an. Ihr könnt mich "Drahtzieher" nennen. Ein passender Titel an einem Ort, an dem alle Wesen lediglich nach ihrer Funktion benannt werden, nicht wahr?~
+@6504 = ~Direkt auf den Punkt. Eure Direktheit ist eine willkommene Abwechslung, wenn man nur von List und Täuschung umgeben ist.~
+@6505 = ~Wir streben nach Macht, <PRO_RACE>. Genug Macht, um unsere Herrschaft über die Ebenen auszuweiten. Die Modronen sind eine Macht, die man sich zu Nutze machen kann. Es sind gehorsame Wesen ohne Emotionen oder Selbsterhaltungstrieb.~
+@6506 = ~Stellt euch nun einen endlosen Strom an folgsamen Modronen vor, die bis zum Tod für unsere Sache im Blutkrieg kämpfen. Um dieses Ziel zu erreichen, benötigen wir die totale Kontrolle über die Quelle der Modronen auf Mechanus. Die Übernahme dieses Konstrukts ist nur ein kleiner Schritt zur Verwirklichung dieses Plans.~
+@6507 = ~Wie wollt ihr Mechanus erreichen?~
+@6508 = ~Spielt der Würfel der Strömungen eine Rolle in eurem Plan?~
+@6509 = ~Es gibt nichts mehr zu sagen. Bereitet euch auf den Kampf vor!~
+@6510 = ~Das geht euch nichts an, Sterblicher.~
+@6511 = ~Ihr seid sehr scharfsinnig, <PRO_RACE>. Ja, der Würfel der Strömungen kann uns dabei in der Tat behilflich sein, sobald ich alle seine Geheimnisse erforscht habe.~
+@6512 = ~Eure leeren Drohungen beeindrucken mich nicht im geringsten. Ich habe sie schon zu oft von euresgleichen gehört.~
+@6513 = ~Ich habe einige Zeit darüber nachgedacht, wass ich tun würde, wenn ihr mich erreicht. Ihr habt gegen eine beachtliche Anzahl meiner Untergebenen gekämpft und sogar meinen obersten Kriegsherren besiegt. Das war eine wahrlich beeindruckende Leistung. Ihr hättet es in meinen Diensten weit bringen können.~
+@6514 = ~Bedauerlicherweise seid ihr zu unbeständig für meine Zwecke. Es ist am besten, wenn ihr einfach verschwindet. Vielleicht kann ich ja eure Seelen zu etwas gebrauchen.~
+
+// Vortex Cube
+@8000 = ~Der Würfel fühlt sich kalt an. Welche Magie auch immer in ihm ruht, scheint nicht an diesem Ort zu funktionieren.~
+@8001 = ~Der Würfel vibriert leicht in euren Händen. Ihr habt keine Ahnung, wozu man ihn benutzen könnte.~
+@8002 = ~Der Würfel fühlt sich kalt an. Selbst die wabernden Markierungen an den Seiten verändern sich kaum noch. Seine Magie scheint an diesem Ort nicht zu funktionieren.~
+@8003 = ~Der Würfel vibriert leicht in euren Händen. Er besteht aus einem unbekannten Material, und ihr könnt seltsame Markierungen auf jeder Seite erkennen.~
+@8004 = ~Ihr seht euch die wabernden Markierungen an den Seiten des Würfels genauer an. Sie ähneln Wirbeln und ändern beständig ihre Gestalt. Ihr habt keine Ahnung, welche Funktion sie erfüllen können.~
+@8005 = ~Ihr habt keine Ahnung, was passiert, wenn ihr in einen der Wirbel greift. Er könnte euch in eine fremde Dimension schleudern oder euch völlig zerstören. Wollt ihr das wirklich riskieren?~
+@8006 = ~Als ihr in einen der Wirbel greift, werdet ihr sofort hineingezogen. Für einen kurzen Moment umgibt euch totale Dunkelheit, und ihr fühlt eure Lebensenergie in die unendlichen Weiten entschwinden, nur um einen Augenblick später den brutalen Aufprall auf den Boden der materiellen Welt zu erleiden. Der Würfel hat die Reise nicht überstanden, und ihr hättet es auch fast nicht geschafft.~
+@8007 = ~Ihr entscheidet euch dagegen und steckt den Würfel zurück in eure Tasche. Vorsicht ist schließlich die Mutter der Porzellankiste.~
+@8008 = ~Leg den Würfel weg.~
+@8009 = ~Untersuche die Seiten des Würfels genauer.~
+@8010 = ~Greife in eine der Wirbel hinein.~
+@8011 = ~Nein, das ist viel zu gefährlich.~
+@8012 = ~Ja, tu es!~
+
+// Modron Cube
+@9000 = ~Leg den Würfel weg.~
+@9001 = ~Dieses kleine Metallspielzeug ist die Nachbildung eines Modronen, einem Wesen von der Welt Mechanus. Du bemerkst, dass der Gegenstand keine Summtöne von sich gibt, wenn du versuchst, seine Gliedmaßen zu bewegen. Irgendetwas an diesem Ort scheint seine Funktionen zu blockieren.~
+@9002 = ~Dieses kleine Metallspielzeug ist die Nachbildung eines würfelähnlichen Wesens mit riesigen Augen in einem seiner Gesichter. Das Spielzeug hat zwei Beine, zwei Arme, zwei zusammenfaltbare Flügel und mindestens achtzehn Gelenke. Vielleicht ist es ein Sammlerstück.~
+@9003 = ~Dieses kleine Metallspielzeug ist die Nachbildung eines Modronen, einem Wesen von der Welt Mechanus. Dieses Spielzeug ist unglaublich kompliziert gearbeitet; seine Gelenke bestehen aus winzigen Getrieben, Rädchen, Rollen und Drehgelenken, und an den Beinen sind sogar winzige Federn, die die Füße festhalten.~
+@9004 = ~Hantier mit dem Spielzeug und probier aus, ob irgendwas passiert.~
+@9005 = ~Benutze die Kombination, der den Transport zum Eingangsbereich von Rubikon aktiviert.~
+@9006 = ~Benutze die Kombination, der den Transport zurück zum Eingangsbereich von Rubikon aktiviert.~
+@9007 = ~Benutze die Kombination, der den Transport nach Hause aktiviert.~
+@9008 = ~Du biegst und verdrehst die verschiedenen Gelenke des Spielzeugs. Dabei fällt dir auf, daß die Glieder oft urplötzlich wieder in ihre Ausgangsposition zurückkehren. Als du schließlich das linke Knie beugst, *knackt* das Ding merkwürdig und zittert in deinen Händen...~
+@9009 = ~Mit einem leisen *Klicken* springen die Glieder des Spielzeugs plötzlich wieder in ihre Ausgangsposition zurück.~
+@9010 = ~Das Spielzeug *knackt* merkwürdig und zittert in deinen Händen.~
+@9011 = ~Das Spielzeug gibt ein leises *Surren* von sich.~
+@9012 = ~Das Spielzeug *summmmt* leise und wird immer wärmer.~
+@9013 = ~Ein *Surren* und *Klicken* ist zu hören, dann explodiert ein grelles weißes Licht in deinen Händen...~
+@9014 = ~Dreh den linken Arm.~
+@9015 = ~Dreh den rechten Arm.~
+@9016 = ~Zieh den linken Flügel lang.~
+@9017 = ~Zieh den rechten Flügel lang.~
+@9018 = ~Beug das rechte Knie.~
+@9019 = ~Beug das linke Knie.~
+@9020 = ~Wa...!~
+@9021 = ~Du hantierst mit den Gliedmaßen des Spielzeugs, um die Transportmagie zu aktivieren. Bevor die Magie jedoch wirksam werden kann, wird sie von der Umgebung schnell abgeleitet. Magie scheint an diesem Ort nicht zu funktionieren. Vielleicht hast du woanders mehr Glück.~
+@9022 = ~Die Besonderheiten dieses Ortes stören die Transportmagie des Würfels.~
+@9023 = ~Aus irgendeinem Grund konnte der Transport zurück zur materiellen Ebene beim letzten Mal nicht durchgeführt werden. Du versuchst es erneut und konzentrierst dich auf Ziele, die sicherer zu erreichen sind.~
+@9024 = ~Zur Sphäre der Ebenen in Athkatlas Slums.~
+@9025 = ~In Athkatlas Slums.~
+@9026 = ~In das Unterreich.~
+@9027 = ~Nach Saradush.~
+@9028 = ~In die Wildnis nahe Saradushs.~
+@9029 = ~Nach Amkethran.~
+@9030 = ~Versuch die Kombination zu finden, die dich nach Hause transportiert.~
+@9031 = ~Du biegst und verdrehst die verschiedenen Gelenke des Spielzeugs. Dabei fällt dir auf, daß die Glieder oft urplötzlich wieder in ihre Ausgangsposition zurückkehren. Als du schließlich den rechten Arm drehst, *knackt* das Ding merkwürdig und zittert in deinen Händen...~
+@9032 = ~Ein *Surren* und *Klicken* ist zu hören, dann baut sich für einen Augenblick Energie auf. Aber so schnell wie sie da war, ist sie auch wieder verschwunden. Irgendetwas an diesem Ort scheint die Magie des Würfels abzuleiten, bevor sie ihren Zweck erfüllen kann. Vielleicht hast du woanders mehr Glück.~
+@9033 = ~Du versuchst, die Gliedmaßen des Spielzeugs in die richtigen Positionen zu bewegen, wirst aber zu sehr durch den Kampflärm um dich herum abgelenkt.~
+
+// Scholarly Notes about Spacewarp
+@10000 = ~Seltsame Zeichen sind sorgfältig auf das Pergament geschrieben worden.~
+@10001 = ~Diese Schriftrolle wurden in einer Sprache des antiken Netheril geschrieben. Sie beinhaltet komplizierte Formeln und Tabellen, die verlorenes Wissen über Zeit und Raum darstellen.~
+@10002 = ~Diese Schriftrolle ist mit komplizierten Formeln und Tabellen gefüllt, die verlorenes Wissen über Zeit und Raum darstellen.~
+@10003 = ~Ein Abschnitt scheint mit Blick auf praktische Anwendungen geschrieben worden zu sein. Es wird beschrieben, wie man ein Gravitationsfeld von beträchtlicher Stärke für einen begrenzten Zeitraum erzeugen kann. Ein intelligenter Magier oder weiser Priester kann möglicherweise dieses Wissen auf eine arkane Formel reduzieren.~
+@10004 = ~Diese Schriftrolle beschreibt, wie man ein Schwerkraftfelt beträchtlicher Stärke für einen begrenzten Zeitraum erzeugen kann. Ein intelligenter Magier oder weiser Priester kann möglicherweise dieses Wissen auf eine arkane Formel reduzieren.~
+@10005 = ~Du versuchst aus den Symbolen schlau zu werden, musst aber schließlich aufgeben. Die technischen Details sind zu komplex, um sie nachzuvollziehen.~
+@10006 = ~Als du die Notizen genauer studierst, kannst du schnell ein Muster erkennen. Mit Hilfe deines Wissens über arkane Kräfte, kannst du sie erfolgreich in einen regulären Magierzauber umzuformen.~
+@10007 = ~Nachdem du die Notizen auswendig gelernt hast, fängst du an, eine höhere Logik hinter den Theorien zu erkennen. Mit dieser neugewonnenen Erkenntnis bist du in der Lage, dieses Wissen in Einklang mit deinem eigenen Glauben zu bringen.~
+@10008 = ~Untersuche die Schriftrolle genauer.~
+@10009 = ~Leg die Schriftrolle weg.~
+@10010 = ~Wandel die Schriftrolle in einen Magierzauber um.~
+@10011 = ~Präge dir dieses Wissen als Priesterzauber ein.~
+@10012 = ~hat wissenschaftliche Notizen in einen Zauber umgeformt~ [EFF_M02]
+
+// Devil offering deals
+@11000 = ~Sterblicher, lasst eure Waffe stecken und hört mich an.~
+@11002 = ~Ich biete euch einen Handel an. Abenteurer wie ihr sind immer auf der Suche nach Reichtümern, nicht wahr? Im Austausch für einen kleinen Teil eurer göttlichen Essenz, kann ich euch ein Vermögen an Gold gewähren. Ihr könnt es euch gewiss leisten. Habe ich euer Interesse geweckt?~
+@11003 = ~Dein Angebot ist verlockend. Was genau hast du im Sinn?~
+@11004 = ~Auf keinen Fall! Ich mache keine Geschäfte mit Teufeln.~
+@11005 = ~Wie hören sich <A7_GOLD_AMOUNT> Goldstücke an? Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11006 = ~Das hört sich gut an. Ich akzeptiere.~
+@11007 = ~Nein, das denke ich nicht.~
+@11008 = ~Ich biete euch einen Handel an. Im Austausch für einen kleinen Teil eurer göttlichen Essenz, kann ich euch eine mächtige Waffe anbieten. Ihr könnt es euch gewiss leisten. Habe ich euer Interesse geweckt?~
+@11009 = ~Ihr scheint ein fähiger Kämpfer zu sein. Daher biete ich euch dieses mächtige Schwert an. Es wird eure Gegner schärfer schneiden als jeder Schrei. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11010 = ~Ihr scheint ein erfahrener Anwender der magischen Künste zu sein. Daher biete ich euch diesen Kampfstab an. Er hat die Macht, alles um euch herum in Asche zu verwandeln. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11011 = ~Ihr scheint dem spirituellen Pfad zu folgen. Daher biete ich euch diese verzauberte Keule an. Mögen ihre Verzauberungen euren Gegnern Seelenfrieden bringen. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11012 = ~Ihr scheint sowohl Körper als auch euren Geist gestählt zu haben. Daher biete ich euch diese Kampfhandschuhe an. Sie sind äußerst nützlich für einen Meister des waffenlosen Kampfes. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11013 = ~Als <PRO_CLASS> scheint ihr sehr erfolgreich zu sein. Daher biete ich euch diesen tödlichen Dolch an. Seine mächtige Magie erlaubt es euch, die Seelen eurer Gegner auszulöschen. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11014 = ~Ich biete euch einen Handel an. Im Austausch für einen unbedeutenden Teil eurer göttlichen Essenz, kann ich ein Attribut eurer Wahl erhöhen. Das wird euch sicher als nützlich erweisen auf eurem Weg zur Gottheit. Ihr könnt es euch gewiss leisten. Habe ich euer Interesse geweckt?~
+@11015 = ~Ich bin in der Lage, entweder eure Stärke, Geschicklichkeit, Konstitution, Intelligenz, Weisheit oder Charisma zu erhöhen. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11016 = ~Das Attribut eurer Wahl besitzt bereits gottgleiche Ausmaße. Ich kann es nicht weiter erhöhen. Wollt ihr eine andere Wahl treffen?~
+@11017 = ~Ja, das sind wir. Erhöhe bitte meine Stärke.~
+@11018 = ~Ja, das sind wir. Erhöhe bitte meine Geschicklichkeit.~
+@11019 = ~Ja, das sind wir. Erhöhe bitte meine Konstitution.~
+@11020 = ~Ja, das sind wir. Erhöhe bitte meine Intelligenz.~
+@11021 = ~Ja, das sind wir. Erhöhe bitte meine Weisheit.~
+@11022 = ~Ja, das sind wir. Erhöhe bitte mein Charisma.~
+@11023 = ~Ja. Erhöhe bitte meine Stärke.~
+@11024 = ~Ja. Erhöhe bitte meine Geschicklichkeit.~
+@11025 = ~Ja. Erhöhe bitte meine Konstitution.~
+@11026 = ~Ja. Erhöhe bitte meine Intelligenz.~
+@11027 = ~Ja. Erhöhe bitte meine Weisheit.~
+@11028 = ~Ja. Erhöhe bitte mein Charisma.~
+@11029 = ~Das ist bedauerlich. Dann habe ich keine andere Wahl, als mir eure Seele mit Gewalt zu holen.~
+@11030 = ~Lasst mich in Ruhe, Sterblicher! Ich habe euch nichts mehr zu sagen.~
+@11031 = ~10.000~
+@11032 = ~25.000~
+@11033 = ~50.000~
+@11050 = ~Ihr seid mächtig, <RACE>. Ich kann den göttlichen Funken eurer Seele spüren.~
+@11051 = ~Ihr seid mächtig, <RACE>. Ich kann Spuren von göttlicher Macht in eurer Seele wahrnehmen. Höchst interessant.~
+@11052 = ~Hä? Ein Angebot für mich? Ähm... was verstehst du unter einem Vermögen?~
+@11053 = ~Hä? Ein Angebot für mich? Ähm... was für eine Waffe hast du im Sinn?~
+@11054 = ~Hä? Ein Angebot für mich? Ähm... heißt das etwa, ich kann noch perfekter werden?~
+@11055 = ~Ich hoffe, du weißt, auf welche Art "Handel" du dich damit einlässt.~
+@11056 = ~Meinst du das ernst, Imoen? Egal was das Angebot sein wird, der Preis ist einfach zu hoch.~
+@11057 = ~Ich biete euch einen Handel an. Im Austausch für einen unbedeutenden Teil eurer göttlichen Essenz, kann ich ein Attribut eurer Wahl erhöhen. Ihr könnt es euch gewiss leisten. Habe ich euer Interesse geweckt?~
+@11058 = ~Nur so aus Neugierde, was genau beinhaltet dieser Handel?~
+@11059 = ~Es schadet nicht, das Angebot zu kennen, oder? Also, worum geht es genau bei deinem Handel?~
+@11060 = ~Hmm, so viel Gold für eine kleines bisschen meiner Seele? Ich denke, ich kann damit Leben. Einverstanden!~
+@11061 = ~Hmm, so eine mächtige Waffe für ein kleines bisschen meiner Seele? Ich habe in der Vergangenheit schon schlimmere Entscheidungen getroffen. Abgemacht!~
+@11062 = ~Ich kann immer ein paar mehr Muskeln gebrauchen. Erhöhe meine Stärke.~
+@11063 = ~Ich wollte schon immer etwas beweglicher sein. Erhöhe meine Geschicklichkeit.~
+@11064 = ~Es schadet wohl nicht, etwas widerstandsfähiger zu werden. Erhöhe meine Konstitution.~
+@11065 = ~Eigentlich ziehe ich es vor, alle zu überlisten. Erhöhe meine Intelligenz.~
+@11066 = ~Ich sollte es mir wirklich zweimal überlegen, bevor ich in Zukunft solchen Geschäften zustimme. Erhöhe meine Weisheit.~
+@11067 = ~Ich könnte mich leichter aus Schwierigkeiten herausreden, wenn ich überzeugender auftreten könnte. Erhöhe mein Charisma.~
+@11068 = ~Ich schätze, du hast Recht. Kein Interesse!~
+@11069 = ~Natürlich nicht! Ich werde nicht auf deine Tricks hereinfallen, Scheusal.~
+@11070 = ~Ihr werdet nicht enttäuscht sein.~
+@11071 = ~Ihr scheint ein erfahrener Abenteurer zu sein. Daher biete ich euch diesen tödlichen Dolch an. Seine mächtige Magie erlaubt es euch, die Seelen eurer Gegner auszulöschen. Darüber hinaus gewähre ich euch freies Geleit durch diesen Teil des Irrgartens. Keiner meiner Untertanen wird euch hier belästigen. Sind wir uns einig?~
+@11100 = ~Lasst mich in Ruhe, Sterblicher! Ich habe eurer Art nichts zu sagen.~
+@11101 = ~Eure Seele gehört mir!~
+@11102 = ~Befehlen gehorchen ich muss, Menschling. Euch nicht angreifen ich darf.~
+@11103 = ~Mich nicht belästigen, Menschling.~
+
+
+// Misc.
+@50000 = ~Jetzt reicht's! Ich werde mich selbst um euch kümmern.~
+@50001 = ~Eure Seele wird mir gehören!~
+@50002 = ~Kauert vor Angst, Sterblicher!~
+@50003 = ~Dieses Portal scheint der Ursprung der Baatezu-Invasion zu sein. Eine Schutzbarriere hindert euch daran, es zu betreten.~
+@50004 = ~Unerträgliche Schmerzen~
+@50005 = ~Aufbereitungsprozess hat begonnen.~ [a7#rwdx]
+@50006 = ~Aufbereitungsprozess ist noch im Gange.~
+// @50007 = ~Das Bedienpult scheint nicht zu funktionieren.~
+@50008 = ~Schätze wurden aufbereitet.~
+@50009 = ~Modron-Irrgarten~
+@50010 = ~Kontrollzentrum~
+@50011 = ~Der Schutzstein blitzt für einen Moment auf, bevor er in einer Rauchwolke verdampft. Der Durchgang zum Drahtzieher der Baatezu ist offen.~
+@50012 = ~Das Bedienpult zeigt eine Reihe nicht identifierbarer Symbole an. Kurz darauf materialisiert sich eine Schriftrolle mit Anweisungen in eurem Rucksack.~
+@50013 = ~Malus auf ETW0~
+@50014 = ~Malus auf Rüstungsklasse~
+@50015 = ~Komm hervor, Kreatur der Dunkelheit! Zeig mir deine Macht!~
+@50016 = ~Die Dunkelheit in deiner Seele zieht sich endlich zurück, und du bist wieder im Besitz deiner körperlichen und geistigen Kräfte. Die Anstrengungen lassen dich allerdings müde und geistig erschöpft zurück.~
+@50017 = ~Blitzstrahl
+
+Reichweite: Sichtbereich des Konstrukts
+Dauer: Sofort
+Bereich: Pfad des Blitzes
+Rettungswurf: 1/2 (gg. Zauberstäbe)
+
+Wenn diese Fähigkeit angewendet wird, verlässt ein mächtiger Blitz aus elektrischer Energie das Konstrukt und verursacht bei jedem Wesen, das davon getroffen wird, 6W6 Schadenspunkte. Bei einem erfolgreichen Rettungswurf gegen Zauberstäbe wird der Schaden halbiert (abgerundet).~
+@50018 = ~Dieser Behälter wird durch eine unbekannte Kraft verschlossen gehalten und ist durch verschiedene Verteidigungsmechanismen vor unbefugtem Zugriff geschützt.~
+@50019 = ~Dieses Konstrukt in kugelförmiger Gestalt scheint der Energiekern des Rubikon-Verlieses zu sein. Es ist von einer Art Schutzschild umgeben. Runen weisen darauf hin, dass ein Siegel benötigt wird, um Zugang zum Kern zu erhalten.~
+@50020 = ~Sensorische Fähigkeiten beschädigt~
+@50021 = ~Motorische Fähigkeiten beschädigt~
+@50022 = ~KI beschädigt~
+@50023 = ~Selbstzerstörung~
+@50024 = ~Flammen erzeugen~
+
+
+// Quest entries
+@60000 = ~Ein fremdartiger Ort~
+@60001 = ~Labyrinth der Modronen~
+
+@60011 = ~Ein fremdartiger Ort
+
+Der Modronwürfel brachte mich zu einem fremdartigen Ort, der von eigenartigen, aber harmlosen Metallwesen bewohnt zu sein scheint.~
+
+@60012 = ~Labyrinth der Modronen
+
+Kein Witz, aber dieser Ort wird von den Modronen als ein "Feldversuch" benutzt, um zu verstehen, warum Abenteurer von Verliesen angezogen werden.
+
+Aus diesem Grund haben sie einen frei konfigurierbaren Irrgarten erschaffen, der ein Verlies nachbilden soll - komplett mit Monstern, Fallen und anderen Dingen, die man gewöhnlich in Verliesen findet. Anscheinend haben die rein logisch denkenden Modronen große Schwierigkeiten, die Lebensweise von weniger logisch agierenden Wesen zu verstehen. Vor allem "Abenteurer" scheinen von besonderem Interesse zu sein, da sie von Orten angezogen werden, die ihren sicheren Tod bedeuten können.~
+
+@60013 = ~Labyrinth der Modronen
+
+Der Projektleiter des Ortes sagte mir, dass sie vor einiger Zeit die Kontrolle über den Verlies-Simulator verloren haben.
+
+Anscheinend ist eine Gruppe von Invasoren in den Irrgarten eingedrungen und hat den "Würfel der Strömungen" von den Modronen gestolen. Er wird benötigt, um das Verlies-Konstrukt zu kontrollieren, aber auch um eine Verbindung mit ihrer Heimatwelt Mechanus herzustellen.~
+
+@60014 = ~Labyrinth der Modronen
+
+Die Modronen nahmen mein Angebot an, ihnen zu helfen. Ich wurde beauftragt, herauszufinden, wer hinter der Invasion steckt. Außerdem muss ich einen Weg finden, sowohl die Kontrolle des Verlies-Konstrukts als auch den Würfel der Strömungen den Modronen zurückzugeben. Zu diesem Zweck haben sie mir freien Zugang zum Irrgarten gewährt.~
+
+@60015 = ~Labyrinth der Modronen
+
+Der Projektleiter der Modronen erwähnte eine Wiederaufbereitungsanlage, die sich im Eingangsbereich des Irrgartens befindet. Mit ihr kann ich die "Schätze" aus dem Irrgarten in etwas Nützliches umwandeln.~
+
+@60016 = ~Labyrinth der Modronen
+
+Ich habe den Ursprung der Invasion in einem teilweise aufgelösten Bereich des Irrgartens entdeckt. Er wurde von eine Gruppe Baatezu bewacht. Nachdem ich den "Zuchtmeister" besiegte, brach auch das Portal zu den Neun Höllen in sich zusammen.
+
+Falls der Zuchtmeister der Baatezu die Wahrheit gesagt hat, dann kann ich den Drahtzieher dieser Invasion in einem versteckten Bereich hinter einer magischen Barriere finden. Ein Schutzstein aus dem Besitz des Zuchtmeisters sollte mir Eintritt gewähren. Ich sollte außerdem dem Projektleiter der Modronen von dieser Neuigkeiten berichten.~
+
+@60017 = ~Labyrinth der Modronen
+
+Die Modronen nahmen die Nachricht über die Invasion der Baatezu mit ihrer üblichen Gelassenheit auf.
+
+Allerdings belohnten sie meine Mühen mit einem einzigartigen Gegenstand, der mir Schutz vor den feindlichen Dronen bieten kann, die sich im Irrgarten befinden.~
+
+@60018 = ~Labyrinth der Modronen
+
+Ich bin endlich dem Drahtzieher der Baatezu begegnet. Es was ein Gelugon von beträchtlicher Macht. Der Diebstahl des Würfels der Strömungen war anscheinend nur ein kleiner Schritt in Richtung eines größeren Plans, die Kontrolle über die Quelle der Modronen auf Mechanus zu erlangen. Er hätte den Teufeln ermöglicht, einen unendlichen Strom an Modronsoldaten zu produzieren, um für die Baatezu im Blutkrieg zu kämpfen. Der Tod des Drahtziehers sollte diese Pläne zumindest etwas verzögern. Ich sollte den Würfen zum Projektleiter der Modronen zurückbringen.~
+
+@60019 = ~Labyrinth der Modronen
+
+Die einzelnen Abschnitte des Verlies-Simulators scheinen alle sehr ähnlich aufgebaut zu sein, so dass man sich leicht verlaufen kann. Vielleicht kann mir der Projektleiter helfen, mich leichter im Irrgarten zurechtzufinden.~
+
+@60100 = ~Labyrinth der Modronen
+
+Ich habe den Modronen den Würfel der Strömungen zurückgegeben. Sie habe mir auf ihre eigene Art und Weise gedankt und mich mit dem Stab der Modronenmacht belohnt. Der Würfel erlaubte es ihnen, die Verbindung zu Mechanus wiederherzustellen und das gestörte Verlies-Konstrukt abzuschalten. Danach kehrten sie in ihre Heimat zurück.~
+
+@60101 = ~Labyrinth der Modronen
+
+Ich konnte meine Neugierde nicht zurückhalten und habe den Würfel der Strömungen benutzt, was zu seiner Zerstörung führte. Es sieht so aus, als ob die Modronen noch eine Weile länger in ihrem kleinen Irrgarten festsitzen werden.~

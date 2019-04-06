@@ -1,0 +1,14 @@
+// -*- coding: us-ascii -*-
+
+@1 = ~Teste Deinen Mut!~
+
+@10 = ~Erfahrungspunkte fuer besiegte Monster verringern~
+@11 = ~Um 50% verringern~
+@12 = ~Um 75% verringern (empfohlen)~
+@13 = ~Um 90% verringern~
+@14 = ~Keine Erfahrungspunkte~
+
+@20 = ~Den Zauber "Raumkruemmung" in Geschaeften anbieten~
+
+@100 = ~Benoetigt BG2:EE ab Version 2.0 oder EET~
+@101 = ~Benoetigt die Hauptkomponente der Mod.~
