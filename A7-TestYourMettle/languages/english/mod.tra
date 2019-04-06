@@ -129,10 +129,10 @@ From what you can gather, the procedure is as follows:
 3. Retrieve recycled items from the containers.
 
 Each container accepts only treasure of specific type:
-- Northwest container: Type C
-- Northeast container: Type M
-- Southwest container: Type G
-- Southeast container: Type X
+- Northeast container: Type C
+- Southeast container: Type M
+- Northwest container: Type G
+- Southwest container: Type X
 
 The amount of treasure items placed into a container determines the worth of the resulting reward:
 1 item: minor reward
@@ -422,7 +422,7 @@ Weight: 1~
 @4019 = ~Recycled?~
 @4020 = ~You said something about aberrations?~
 @4021 = ~I am an adventurer. May I try out your dungeon experiment?~
-@4022 = ~The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console is located at the northwest corner of the Entrance to Rubikon.~
+@4022 = ~The recycling device converts treasure from the Rubikon Dungeon Construct Project® into rewards for the participant of the dungeon experience. It can be accessed at the Entrance to Rubikon. Further instructions can be requested at the recycler console. The recycler console is located at the northeast corner of the Entrance to Rubikon.~
 @4023 = ~Queries to be answered: What attracts people to dungeons? Why do people often seek to enter dungeons if they are places of such danger? Why are dungeons there in the first place? What are the dynamics of a workable dungeon? We do not understand.~
 @4024 = ~Interesting. May I try out your dungeon experiment?~
 @4025 = ~Yes. Do not become separated from any companions while in the maze. Each individual section of the maze is generated and reset on demand. Anyone left would be killed when the area is reset.~

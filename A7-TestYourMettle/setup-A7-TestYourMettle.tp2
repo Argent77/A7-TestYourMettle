@@ -17,7 +17,7 @@ LANGUAGE ~English~
          ~english~
          ~%MOD_FOLDER%/languages/english/setup.tra~
          ~%MOD_FOLDER%/languages/english/mod.tra~
-LANGUAGE ~Russian (by tipun)~
+LANGUAGE ~Russian (translation: tipun)~
          ~russian~
          ~%MOD_FOLDER%/languages/english/setup.tra~
          ~%MOD_FOLDER%/languages/english/mod.tra~
@@ -530,6 +530,14 @@ BEGIN @1  // Test Your Mettle!
   ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1\(en\|fy\).*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
+
+  // Installing compass bam
+  OUTER_SET copied = 0
+  COPY ~%MOD_FOLDER%/languages/%LANGUAGE%/a7#dir.bam~ ~override~ SET copied = 1 IF_EXISTS
+  ACTION_IF (NOT copied) BEGIN
+    COPY ~%MOD_FOLDER%/languages/english/a7#dir.bam~ ~override~ IF_EXISTS
+  END
+
   COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
   COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
        ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
@@ -612,8 +620,12 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
 
-  // Installing grid label bam+pvrz
-  COPY ~%MOD_FOLDER%/areas/a7#grid.bam~ ~override~
+  // Installing grid label bam
+  OUTER_SET copied = 0
+  COPY ~%MOD_FOLDER%/languages/%LANGUAGE%/a7#grid.bam~ ~override~ SET copied = 1 IF_EXISTS
+  ACTION_IF (NOT copied) BEGIN
+    COPY ~%MOD_FOLDER%/languages/english/a7#grid.bam~ ~override~ IF_EXISTS
+  END
 
   OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
     OUTER_SET x = grid REM 8
