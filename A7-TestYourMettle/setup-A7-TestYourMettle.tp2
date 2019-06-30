@@ -471,9 +471,9 @@ BEGIN @1  // Test Your Mettle!
   // *** Areas ***
   // *************
 
-  // Adding new area type "RUBICON"
+  // Adding new area type "RUBIKON"
   OUTER_SET area_type_id = 512
-  OUTER_TEXT_SPRINT area_type_name ~RUBICON~
+  OUTER_TEXT_SPRINT area_type_name ~RUBIKON~
   COPY_EXISTING ~areatype.ids~ ~override~
     COUNT_2DA_ROWS 2 numRows
     SET id = 1
@@ -505,7 +505,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
     LPF ALTER_AREA_CONTAINER
     INT_VAR
       lockpick_strref = RESOLVE_STR_REF(@50018) // This container is sealed by an unknown force...
@@ -547,7 +547,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
   COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
        ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -581,7 +581,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1fd.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -644,7 +644,7 @@ BEGIN @1  // Test Your Mettle!
       OUTER_TEXT_SPRINT mapNameDest ~A7#1%grid%~
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
-      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBICON area type
+      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
 
       // updating actor animation ids
       READ_LONG 0x54 ofsActors

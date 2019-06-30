@@ -1,21 +1,21 @@
 BEGIN ~a7#cvtx~
 
-IF ~!PartyHasItemIdentified("a7#cvtx") !AreaType(RUBICON)~ Unidentified.2
+IF ~!PartyHasItemIdentified("a7#cvtx") !AreaType(RUBIKON)~ Unidentified.2
   SAY @8000 /* The cube is cold to the touch. Whatever magic it might contain, doesn't seem to work in this place. */
   ++ @8008 /* Put the cube away. */ EXIT
 END
 
-IF ~!PartyHasItemIdentified("a7#cvtx") AreaType(RUBICON)~ Unidentified.1
+IF ~!PartyHasItemIdentified("a7#cvtx") AreaType(RUBIKON)~ Unidentified.1
   SAY @8001 /* The cube vibrates slightly in your hands. You have no idea what it could be used for. */
   ++ @8008 /* Put the cube away. */ EXIT
 END
 
-IF ~PartyHasItemIdentified("a7#cvtx") !AreaType(RUBICON)~ Identified.1
+IF ~PartyHasItemIdentified("a7#cvtx") !AreaType(RUBIKON)~ Identified.1
   SAY @8002 /* The cube is cold to the touch. Even the swirling markings on the sides are barely changing anymore. The magic of the item doesn't seem to work in this place. */
   ++ @8008 /* Put the cube away. */ EXIT
 END
 
-IF ~PartyHasItemIdentified("a7#cvtx") AreaType(RUBICON)~ Identified.2
+IF ~PartyHasItemIdentified("a7#cvtx") AreaType(RUBIKON)~ Identified.2
   SAY @8003 /* The cube vibrates slightly in your hands. It is made of an unusual material and has strange markings on each side. */
   ++ @8009 /* Examine the sides of the cube. */ + Teleport.1
   ++ @8008 /* Put the cube away. */ EXIT
