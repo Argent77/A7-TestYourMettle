@@ -71,6 +71,7 @@ END
 IF
   !GlobalTimerNotExpired("cast","LOCALS")
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
   !Range(LastSeenBy(Myself),4)
 THEN
   RESPONSE #100
@@ -83,6 +84,7 @@ END
 IF
   !GlobalTimerNotExpired("cast","LOCALS")
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
   Range(LastSeenBy(Myself),4)
 THEN
   RESPONSE #100

@@ -49,6 +49,7 @@ END
 IF
   IsWeaponRanged(Myself)
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
   !Range(LastSeenBy(Myself),5)
 THEN
   RESPONSE #100
@@ -58,6 +59,7 @@ END
 IF
   CanEquipRanged()
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
   !Range(LastSeenBy(Myself),5)
 THEN
   RESPONSE #100
@@ -67,6 +69,7 @@ END
 
 IF
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
   Range(LastSeenBy(Myself),5)
 THEN
   RESPONSE #100
@@ -76,6 +79,7 @@ END
 
 IF
   See([0.0.MODRON])
+  !Allegiance(LastSeenBy(Myself), ENEMY)
 THEN
   RESPONSE #100
     AttackReevaluate(LastSeenBy(Myself),30)

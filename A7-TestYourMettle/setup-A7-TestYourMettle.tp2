@@ -125,12 +125,14 @@ BEGIN @1  // Test Your Mettle!
     WRITE_BYTE 0x272 race_drone
 
   COPY ~%MOD_FOLDER%/creatures/a7#chigh.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#rchi.cre~ ~override~
     SAY NAME1 @1010 // High Threat Construct
     SAY NAME2 @1010 // High Threat Construct
     WRITE_LONG 0x28 slot_chigh
     WRITE_BYTE 0x272 race_drone
 
   COPY ~%MOD_FOLDER%/creatures/a7#clow.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#rclo.cre~ ~override~
     SAY NAME1 @1020 // Low Threat Construct
     SAY NAME2 @1020 // Low Threat Construct
     WRITE_LONG 0x28 slot_clow
