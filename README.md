@@ -1,6 +1,11 @@
 # Test Your Mettle!
 *A mod for BG2:EE and EET that provides you with a unique dungeon crawling experience.*
 
+**Author:** Argent77
+
+**Website:** https://argent77.github.io/A7-TestYourMettle/index.html
+
+**Discussion:** [Beamdog Forums](https://forums.beamdog.com/discussion/70489) or [Spellhold Studios Forums](http://www.shsforums.net/forum/666-test-your-mettle-ee/)
 
 ## Overview
 
