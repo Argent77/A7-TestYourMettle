@@ -2,15 +2,141 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOD: Test Your Mettle!</title>
-    <meta http-equiv="Refresh" content="0; url=index-en.html" />
+    <meta name="description" content="A mod for BG2:EE (2.0 or higher) and EET (Enhanced Edition Trilogy) that provides you with a unique dungeon crawling experience." />
+    <meta name="keywords" content="bg2ee, eet, mod, dungeon crawler" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
+    <div><a name="top" id="top"></a></div>
+    <div id="language">
+      <ul>
+        <li>English</li>
+        <li title="German"><a href="index-de.html">Deutsch</a></li>
+      </ul>
+    </div>
+
+    <header>
+      <h1 class="title">Test Your Mettle!</h1>
+      <div class="subtitle">A mod for BG2:EE and EET (Enhanced Edition Trilogy) that provides you with a unique dungeon crawling experience.</div>
+      <hr />
+      <p class="about"><strong>Author: Argent77</strong></p>
+      <ul id="globalnav" class="about">
+        <li><strong>Download</strong> (<a href="http://www.shsforums.net/files/category/135-test-your-mettle-ee/">SHS</a>)</li>
+        <li><strong>Download</strong> (<a href="https://github.com/Argent77/A7-TestYourMettle/releases/latest">GitHub</a>)</li>
+        <li><strong>Discussion</strong> (<a href="http://www.shsforums.net/forum/666-test-your-mettle-ee/">SHS</a>)</li>
+        <li><strong>Discussion</strong> (<a href="https://forums.beamdog.com/discussion/70489">Beamdog</a>)</li>
+        <li><a href="https://github.com/Argent77/A7-TestYourMettle">Project</a></li>
+        <li>Version: 1.1</li>
+      </ul>
+      <hr />
+      <nav>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#credits">Credits</a></li>
+          <li><a href="#changelog">Version History</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <main>
-      <section>
-        <h2>Redirecting...</h2>
-        <h3>Please follow <a href="index-en.html">this link</a>.</h3>
+      <!-- ================== O V E R V I E W ================== -->
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>A mod for BG2:EE (2.0 or higher) and EET (Enhanced Edition Trilogy) that provides you with a unique dungeon crawling experience.</p>
+        <p>The adventure starts in the Planar Sphere in Athkatla's Slum District, where you may encounter new victims of Lavok's planar travels. The result of the encounter will enable you to access a dungeon that has been tailor-made for the intrepid adventurer. You have the opportunity to meet exotic races, uncover a devious plot, or simply enjoy battle with an endless stream of monsters.</p>
+        <hr class="spacer" />
+        <p>Visit the <a href="http://www.shsforums.net/forum/666-test-your-mettle-ee/">SHS Forums</a> or the <a href="https://forums.beamdog.com/discussion/70489">Beamdog Forums</a> if you have questions, or download the the latest version from <a href="http://www.shsforums.net/files/category/135-test-your-mettle-ee/">Spellhold Studios</a> or <a href="https://github.com/Argent77/A7-TestYourMettle/releases/latest">GitHub</a>.</p>
+        <div class="back">
+          <a class="novisit" href="#top">BACK TO TOP</a>
+        </div>
+      </section>
+
+      <!-- ================== I N S T A L L A T I O N ================== -->
+      <section id="installation">
+        <h2>Installation</h2>
+        <p>This is a WeiDU mod, that means it is very easy to install. Simply unpack the downloaded archive into your game's installation directory (where you can find the file "chitin.key") and run <em>"setup-A7-TestYourMettle.exe"</em> (Windows) or <em>"setup-A7-TestYourMettle.command"</em> (macOS). Follow the instructions and you are ready to start.</p>
+        <p>It is not needed to start a new game after installing the mod. However, you must install it before entering the Planar Sphere in Athkatla's Slums for the first time.</p>
+        <p>To uninstall, run <em>"setup-A7-TestYourMettle.exe"</em> or <em>"setup-A7-TestYourMettle.command"</em> again and follow the prompts.</p>
+        <hr class="spacer" />
+        <h3>Compatibility</h3>
+        <p>The mod is available for BG2:EE 2.0 or higher and EET. It is recommended to patch the game to 2.5 or higher to make use of all features the mod has to offer.</p>
+        <div class="back">
+          <a class="novisit" href="#top">BACK TO TOP</a>
+        </div>
+      </section>
+
+      <!-- ================== C O M P O N E N T S ================== -->
+      <section id="components">
+        <h2>Mod Components</h2>
+        <ol class="gappedlist">
+          <li>
+            <p><strong>Test Your Mettle!</strong> <em>(requires BG2:EE or EET patched to 2.0 or higher)</em></p>
+            <p>This is the main component. It installs many new areas, creatures, items, spells and everything else needed for a unique dungeon crawling experience. Moreover, this component restores the spell "Spacewarp", which is based on cut content from BG2. It can be acquired as a mage or priest spell in the course of the adventure.</p>
+          </li>
+          <li>
+            <p><strong>Reduce experience for killing monsters</strong> <em>(requires the main component)</em></p>
+            <p>As the monsters you may encounter in the dungeon are numerous, you will quickly gain a lot of experience that could make your party too powerful to enjoy the rest of the game. This component allows you to reduce XP from killing monsters by different amounts, or remove XP altogether. Unique monsters or creatures encountered outside the dungeon are not affected.</p>
+          </li>
+          <li>
+            <p><strong>Make "Spacewarp" available to stores</strong> <em>(requires the main component)</em></p>
+            <p>This component adds the mage spell "Spacewarp" to a small number of stores for sale. In "Shadows of Amn" it can be purchased from Ribald's special store in the Adventurer Mart, that becomes available in chapter 6. In "Throne of Bhaal" it is available from Lazarus Librarus' Arcana Archives in Saradush or Amkethran as well as from Karthis al-Hezzar, who can be found in the wilderness between Saradush and the Forest of Mir.</p>
+          </li>
+        </ol>
+        <div class="back">
+          <a class="novisit" href="#top">BACK TO TOP</a>
+        </div>
+      </section>
+
+      <!-- ================== C R E D I T S ================== -->
+      <section id="credits">
+        <h2>Credits</h2>
+        <p><strong>Writing, coding &amp; testing:</strong> <a href="http://www.shsforums.net/user/14985-argent77/">Argent77</a></p>
+        <p><strong>Russian translation:</strong> tipun</p>
+        <p><strong>English proofreading:</strong> typo_tilly</p>
+        <p><strong>Additional help:</strong> Jastey</p>
+        <p>Monodrone Modron animation is based on resources from Erephine's <a href="http://www.spellholdstudios.net/ie/infinityanimations">Infinity Animations</a>.</p>
+        <p>Modron and Gelugon portraits are based on work by <a href="http://dnd.wizards.com/">Wizards of the Coast</a>.</p>
+        <hr class="spacer" />
+        <h5>Copyright Notice:</h5>
+        <div class="important">
+          <div>
+            <a rel="license" id="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+              <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+          </div>
+          <p>"Test Your Mettle!" is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          <hr class="spacer" />
+          <p>Baldur's Gate II: Enhanced Edition and Planescape Torment: Enhanced Edition &copy; Beamdog.</p>
+        </div>
+        <div class="back">
+          <a class="novisit" href="#top">BACK TO TOP</a>
+        </div>
+      </section>
+
+      <!-- ================== V E R S I O N   H I S T O R Y ================== -->
+      <section id="changelog">
+        <h2>Version History</h2>
+        <h6>Version 1.1</h6>
+        <ul>
+          <li>Added Russian translation (thanks tipun)</li>
+          <li>Added German translation</li>
+          <li>Various map improvements</li>
+          <li>Improved Planar Sphere encounter</li>
+          <li>Internal fixes</li>
+        </ul>
+        <hr class="spacer" />
+        <h6>Version 1.0</h6>
+        <ul>
+          <li>Initial release</li>
+        </ul>
+        <div class="back">
+          <a class="novisit" href="#top">BACK TO TOP</a>
+        </div>
       </section>
     </main>
   </body>
