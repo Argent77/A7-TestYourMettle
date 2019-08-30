@@ -247,7 +247,7 @@ According to one view of the universe, what we perceive as gravity is actually a
 
 When the priest casts this spell, <PRO_HESHE> selects a specific point to be the center of effect. This point may be anywhere within 150 feet of the caster.
 
-When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 30 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
+When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 15 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
 
 @2131 = ~Spacewarp
 (Alteration)
@@ -264,7 +264,7 @@ According to one view of the universe, what we perceive as gravity is actually a
 
 When the mage casts this spell, <PRO_HESHE> selects a specific point to be the center of effect. This point may be anywhere within 150 feet of the caster.
 
-When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 30 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
+When the spell is completed, this center of effect gains a gravity field equal to the force felt at the surface of the earth. In other words, gravity is centered at this point; everything within 15 feet of this center that is not attached to something immovable will fall toward the selected point. The gravitational force may also knock out affected creatures for a short while if they fail their Save vs. Spell at -2.~
 
 @2132 = ~Ancient Scroll~
 // @2133 = ~Treatise on space-time theorems~
