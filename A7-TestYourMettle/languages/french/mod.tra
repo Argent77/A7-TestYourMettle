@@ -1,0 +1,754 @@
+// -*- coding: utf-8 -*-
+
+// Créatures
+@1000 = ~Construction magicienne~
+@1010 = ~Construction d'indice de menace élevé~
+@1020 = ~Construction de faible indice de menace~
+@1030 = ~Modrone~
+@1031 = ~Modrone Roublard~
+@1032 = ~Modrone Manœuvre~
+@1033 = ~Modrone Gardien~
+@1034 = ~Modrone Directeur~
+@1035 = ~Modrone Guide~
+@1036 = ~Modrone Ouvrier~
+@1040 = ~Gélugon~
+@1041 = ~Tête pensante Gélugon~
+@1050 = ~Abishaï noir~
+@1060 = ~Abishaï vert~
+@1070 = ~Abishaï rouge~
+@1080 = ~Dogreth le contremaître~
+
+
+// Objets & Sorts
+@2000 = ~Jouet en métal~
+@2001 = ~Cube Modrone~
+@2002 = ~Ce petit jouet en métal est une réplique d'une créature cubique avec d'énormes yeux sur son visage. Le jouet a deux jambes, deux bras, deux ailes pliantes et au moins dix-huit articulations. C'est peut-être une pièce de collection.
+
+STATISTIQUES :
+
+Poids : 1~
+@2003 = ~Ce petit jouet en métal est une réplique d'un modrone, une créature originaire du plan de Méchanus. La complexité de cet artefact est incroyable ; ses articulations sont composées de petits engrenages, rouages, poulies et joints pivotants, et il y a même de petits ressorts sur les jambes qui aident à soutenir les pieds. Il y a un petit interrupteur sur le dos qui déplace les yeux d'avant en arrière, et les ailes sont faites d'une sorte de tissu métallique qui se replie proprement lorsque les ailes sont à fleur avec le corps. De tels artefacts sont généralement imprégnés de magie, qui s'active lorsque certaines conditions sont remplies.
+
+STATISTIQUES :
+
+Poids : 1~
+@2004 = ~Utiliser~
+
+@2010 = ~Étrange objet~
+@2011 = ~Un indice !~
+@2012 = ~Cet objet ne semble pas avoir d'utilité apparente. Vous l'avez trouvé dans le dédale modrone.
+
+STATISTIQUES :
+
+Poids : 0~
+@2013 = ~Ce mystérieux morceau de parchemin indique simplement :
+
+"Vous avez maintenant une meilleure compréhension de ce qui se passe...."
+
+Il y a un petit code "C#1793" griffonné au dos du parchemin.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@2020 = ~Étrange objet~
+@2021 = ~Sac de pièces~
+@2023 = ~Un petit sac rempli d'étranges pièces de monnaie. Les pièces sont imprimées d'images et d'écritures inhabituelles. Elles ne semblent avoir aucune valeur.
+
+Il y a un petit code gravé sur chaque pièce : M#3164.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@2030 = ~Objet bizarre~
+@2031 = ~Un bonus !~
+@2033 = ~On dirait une sorte de petite tige de pierre. Intéressant mais inutile.
+
+Le code "G#5886" a été gravé sur le fond de la tige.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@2040 = ~Curieux objet~
+@2041 = ~Un objet magique !~
+@2043 = ~C'est quelque chose, mais Méchanus sera damné si vous trouvez quoi. Cependant Il rayonne de magie.
+
+Vous pouvez distinguer un petit marquage ou un code sur le côté de l'article : X#9438.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@2050 = ~Pierre-sésame~
+@2051 = ~Pierre-sésame de Baatezu~
+@2052 = ~Souvent marquées par des glyphes magiques, des runes ou des symboles, les pierres-sésame sont des objets puissamment enchantés destinés à permettre à leur porteur de traverser des zones protégées par magie. Comme la plupart des pierres-sésame sont uniques et spécifiques par nature, il est rare d'en trouver une avec plus d'un usage.
+
+STATISTIQUES :
+
+Poids : 1~
+@2053 = ~Cette pierre-sésame a été trouvée sur le cadavre d'un diable baatezu de haut rang. Elle est anormalement lourde et la toucher déclenche un sentiment de malaise. Le glyphe profondément gravé dans cette pierre de garde est difficile à discerner.  Elle brûle ves yeux chaque fois que vous la regardez, ce qui la rend difficile à examiner de plus près. Cependant, elle est très probablement utilisée pour accéder à une partie importante du donjon.
+
+STATISTIQUES :
+
+Poids : 1~
+
+@2060 = ~Cube noir~
+@2061 = ~Cube de vortex~
+@2062 = ~Ce cube n'a rien d'exceptionnel, si ce n'est de légères marques tourbillonnantes de chaque côté. Il semble être fait d'un matériau que vous n'arrivez pas à reconnaître.
+
+STATISTIQUES :
+
+Poids : 3~
+@2063 = ~Ce cube est fait d'un matériau inconnu. Il est presque entièrement noir et est couvert de chaque côté de marques tourbillonnantes. Cet objet est apparemment d'une grande importance pour les modrones de cette construction.
+
+STATISTIQUES :
+
+Poids : 3~
+
+@2070 = ~Potion de Réjuvénation~
+@2071 = ~Lorsqu'elle est entièrement consommée, cette potion rafraîchit le corps et l'esprit du buveur comme s'il s’était reposé pendant une journée entière. L'effet est instantané, et la potion est détruite dans le processus.
+
+La potion puise son pouvoir dans la matière environnante de la construction modrone . Il est peu probable qu'il fonctionne en dehors de cet endroit.
+
+STATISTIQUES :
+
+Spécial : restaure les sorts, supprime la fatigue et élimine les effets temporaires comme si le buveur s’était reposé pendant une journée.
+
+Poids : 1~
+@2072 = ~Inefficace~
+@2073 = ~revigoré~
+
+@2080 = ~Instructions de recyclage~
+@2081 = ~Ce parchemin décrit d'une manière atrocement détaillée comment utiliser les conteneurs à l'entrée pour recycler le trésor du labyrinthe du donjon, ou, en d'autres termes, comment échanger le trésor contre des objets utilisables.
+
+D'après ce que vous pouvez en déduire, la procédure est la suivante :
+1. Placez un ou plusieurs objets au trésor d'un type donné dans un contenant approprié.
+2. Utilisez la console de recyclage pour lancer le processus de recyclage.
+3. Récupérez les articles recyclés dans les contenants.
+
+Chaque conteneur n'accepte que des trésors d'un type spécifique :
+- Conteneur nord-est : Type C
+- Conteneur sud-est : Type M
+- Conteneur nord-ouest : Type G
+- Conteneur sud-ouest : Type X
+
+La quantité d'objets du trésor placés dans un contenant détermine la valeur de la récompense qui en résulte :
+1 article : récompense mineure
+2-9 articles : récompense moyenne
+10-49 articles : bonne récompense
+50-99 articles : grande récompense
+100 articles ou plus : récompense exceptionnelle~
+
+@2090 = ~Notes sur la société Modrone~
+@2091 = ~Ce journal en lambeaux semble être un recueil de notes sur la société des modrones, écrites par un savant anonyme.
+
+"J'ai vécu de nombreuses années sur Méchanus, le plan d'origine des modrones. Bien que j'aie pu découvrir tout de ce qui concerne leur physiologie qui peut être découvert sans le soutien divin, j'ai encore de la difficulté à comprendre leurs processus de pensée. Voilà ce que j'ai pu recueillir jusqu'ici :
+
+Pour comprendre la société modrone, il faut abandonner toute compréhension du "soi même". C'est une propriété fondamentale des modrones que chaque rang ne peut comprendre que l'existence du rang directement au-dessus et au-dessous. Par exemple, les monodrones obéissent à la volonté des duodrones, mais ils ne peuvent même pas concevoir l'existence des tridrones. Quand un monodrone voit un tridrone, il ne voit pas de modrone, et il ne peut même pas dire ce qu'il voit. Une certaine aphasie rompt apparemment le lien entre la vue du modrone supérieur et ce qu'il est réellement. Cette aveuglement mène à une conclusion intéressante, car chaque rang croit que ceux qui le surplombent immédiatement sont la forme de vie la plus élevée et la source de la logique suprême.
+
+Il y a une conscience de tous les grades en dessous de la place d'un modrone, mais la communication est exclusivement limitée aux grades adjacents. Il semblerait que le monodrone soit presque aussi étranger au tridrone que le tridrone l'est au monodrone. Ce n'est pas le résultat de l'élitisme. Au contraire, l'ordre strict observé par la race nie complètement la moindre nécessité de communication au-delà des subalternes et supérieurs immédiats.
+
+La perception qu'a un modrone de ses supérieurs immédiats ne doit pas non plus être confondue avec la déification. Ce que d'autres pourraient appeler un dieu, les modrones ne peuvent l'imaginer, car ils sont incapables de concevoir une telle existence individuelle. Au lieu de cela, toute vie et toute direction jaillissent d'un ensemble d'actions logiques - tout ce qui est juste arrive parce qu'il doit inévitablement être, et tout ce qui est faux est ce qui ne doit pas être. Ces limites du métal rendent les relations avec les modrones difficiles.
+
+(J'ai remarqué, cependant, que les modrones sont rapides à ajuster leur chaîne de commande lorsqu'ils sont coupés de la source sur Méchanus. Il est donc possible qu'un duodrone prenne conscience d'un pentadrone, et qu'un tétradrone puisse donner des ordres directement à un monodrone. Il est concevable que ce comportement soit imprimé dans la mémoire centrale de chaque modrone et ne devienne accessible qu'en cas de besoin, faute de quoi l'ensemble de la chaîne de commandement pourrait éventuellement s'effondrer d'elle-même).
+
+Au sein de chaque grade, il n'y a pas d'individualité, ni dans la forme, ni dans la pensée. Tous les modrones s'appellent "nous", et un personnage n'a aucun moyen de savoir si le pentadrone auquel il a parlé aujourd'hui est le même que celui qui a occupé le même poste hier.
+
+Même la taille de la société modrone est figée. Dans chaque rang, il n'y a qu'un nombre fixe de modrones. Si un modrone d'un rang meurt, un candidat disponible du rang immédiatement inférieur est promu, et alors l'écart dans le rang inférieur est comblé par une promotion du rang encore inférieur. Cela continue jusqu'à ce que le rang de monodrone soit atteint. Sans rang inférieur, les créatures de ce niveau se reproduisent par fission, l'un de leurs membres se divisant mystérieusement en deux. (Dans ces conditions, l'affirmation selon laquelle tous les modrones sont un pourrait être plus vraie qu'il n'y paraît au premier abord).
+
+Du plus grand au moins, les castes des modrones sont les suivantes : Les modrones hiérarchiques se composent de Primus (la règle absolue de tous les modrones), secundus, tertians, quartons, quintons, sextons, septons, octons, nonatons, et décatons. Les modrones de base sont composés de pentadrones, tétradrones, tridrones, duodrones et monodrones."
+
+Le reste des notes traite des informations sur Méchanus, la physiologie des modrones et bien d'autres sujets qui ne vous concernent pas particulièrement.
+
+Cependant, une section de l'annexe attire votre intérêt. Il traite des différents codes linguistiques utilisés par la société modrone. Vous devriez garder les notes près de vous, car elles pourraient vous aider à améliorer la communication avec les modrones.~
+
+@2100 = ~Lance de la Terreur +3~
+@2101 = ~Forgée dans les profondeurs gelées de Cania, la huitième strate des Neuf Enfers, cette arme dégage une aura de haine froide et de malice qui représente à la fois la nature de son origine ainsi que la mentalité de son ancien maître. La lance frappe sa victime avec des dégâts magiquement accrus et lui inflige une douleur de gel supplémentaire qui se propage dans tout le corps. De plus, chaque coup semble remplir l'esprit de la victime d'angoisse et de peur qui ralentit ses réflexes ou les arrête complètement.
+
+
+STATISTIQUES :
+
+Capacités de combat :
+– 75% de chance de ralentir la cible pendant 3 rounds si elle rate un jet de sauvegarde contre la mort à -3
+– 25% de chance d'étourdir la cible pendant 1 round si elle rate un jet de sauvegarde contre la mort à -3
+
+TAC0 : +3
+Dégâts : 1d6+3 (perçant), +1d6 dégâts de froid
+Facteur de vitesse : 3
+Type de compétence : Lance
+Type: arme à 2 mains
+Force nécessaire : 8
+
+Poids : 5~
+
+@2110 = ~Dodécaèdron~
+@2111 = ~Dispositif de contrôle de drone~
+@2112 = ~Cet objet sans caractéristiques a la forme d'un dodécaèdre. Il est froid et lisse au toucher et semble être fait d'une substance métallique.
+
+STATISTIQUES :
+
+Poids : 1~
+@2113 = ~Ce lourd dodécaèdre, fabriqué sur Méchanus, a été conçu à l'origine comme un dispositif de sécurité pour gérer les constructions en mauvais état de fonctionnement. Il peut être commuté en deux modes : un mode de protection et un mode de désactivation.
+
+Le mode de protection enveloppe l'utilisateur dans un nuage de particules microscopiques. Ce nuage absorbe l'énergie thermique et agira donc comme un manteau contre les organes sensoriels des constructions mécaniques qui sont conçues pour détecter les traces de rayonnement thermique. Les races qui ont l'infravision innée peuvent aussi être distraites par le manque de rayonnement thermique.
+
+Le mode de désactivation permet à l'utilisateur de forcer une construction à passer en mode veille. Lorsque ce mode est actif, la construction reste passive et régénère d'un point de vie par round. Le mode veille peut toutefois être annulé par des commandes de priorité plus élevée, ce qui inclut l'auto-défense ou les instructions des supérieurs.
+
+STATISTIQUES :
+
+Capacités de charges :
+- Linceul thermo-optique : Enveloppe l'utilisateur dans un nuage de particules absorbant la chaleur, ce qui fait que les constructions mécaniques de conception modrone ignorent l'utilisateur.
+  Zone d'effet : Utilisateur
+  Durée : Un tour
+
+- Forcer le mode veille : Ordonne aux constructions mécaniques de conception modrone d'activer le mode veille.
+  Zone d'effet : Cible unique
+  Durée : Permanente, à moins qu'elle ne soit annulée par des commandes plus prioritaires
+
+Intelligence nécessaire : 9 
+
+Poids : 1~
+@2114 = ~Protégé contre les constructions~~Protégée contre les constructions~
+@2115 = ~Linceul thermo-optique~
+@2116 = ~Forcer le mode veille~
+@2117 = ~Mode veille activé~
+@2118 = ~Mode veillé terminé~
+
+@2120 = ~Sceptre de puissance Modrone~
+@2121 = ~Ce sceptre magique permet à l'utilisateur d'invoquer 2 à 4 constructions de conception modrone pour se battre contre ses ennemis. Le type de construction est déterminé de manière aléatoire. Les constructions se battront sans peur jusqu'à ce qu'elles soient détruites ou qu'une heure se soit écoulée.
+
+STATISTIQUES :
+
+Capacités de charges :
+– Invoque 2 à 4 constructions de conception modrone
+  Portée : 6 mètres
+  Durée: 1 heure
+
+Force nécessaire :
+ 9 Intelligence
+
+Poids : 5~
+
+@2130 = ~Courbespace
+(Altération)
+
+Niveau : 7
+Sphère : Nombres
+Portée : 50 mètres
+Durée : 1 tour
+Temps d'incantation : 7
+Zone d'effet : Sphère de 5 mètres de rayon
+Jet de sauvegarde : Spécial
+
+Selon une vision de l'univers, ce que nous percevons comme la gravité est en fait une déformation localisée du tissu de l'espace-temps. Le sort Courbespace crée une déformation temporaire mais très intense dans une zone limitée.
+
+Lorsque le prêtre lance ce sort, il sélectionne un point précis pour être le centre de l'effet. Ce point peut se trouver n'importe où à moins de 50 mètres du lanceur de sorts.
+
+Lorsque l'incantation du sort est terminée, ce centre d'effet gagne un champ de gravité égal à la force ressentie à la surface de la terre. En d'autres termes, la gravité est centrée à ce point ; tout ce qui se trouve à moins de 5 mètres de ce centre et qui n'est pas attaché à quelque chose d'inamovible tombera vers le point choisi. La force gravitationnelle peut également assommer les créatures affectées pendant un court instant si elles échouent un jet de sauvegarde contre les sorts à -2.~
+
+@2131 = ~Courbespace
+(Altération)
+
+Niveau : 8
+Range: 50 mètres
+Durée : 1 tour
+Temps d'incantation : 5
+Zone d'effet : Sphère de 5 mètres de rayon
+Jet de sauvegarde : Spécial
+
+Selon une vision de l'univers, ce que nous percevons comme la gravité est en fait une déformation localisée du tissu de l'espace-temps. Le sort Courbespace crée une déformation temporaire mais très intense dans une zone limitée.
+
+Lorsque le mage lance ce sort, il sélectionne un point précis pour être le centre de l'effet. Ce point peut se trouver n'importe où à moins de 50 mètres du lanceur de sorts.
+
+Lorsque l'incantation du sort est terminée, ce centre d'effet gagne un champ de gravité égal à la force ressentie à la surface de la terre. En d'autres termes, la gravité est centrée à ce point ; tout ce qui se trouve à moins de 5 mètres de ce centre et qui n'est pas attaché à quelque chose d'inamovible tombera vers le point choisi. La force gravitationnelle peut également assommer les créatures affectées pendant un court instant si elles échouent un jet de sauvegarde contre les sorts à -2.~
+
+@2132 = ~Ancien parchemin~
+// @2133 = ~Traité sur les théorèmes de l'espace-temps~
+@2133 = ~Anciennes notes savantes~
+@2134 = ~Examiner~
+@2135 = ~Malgré son âge, ce rouleau est étonnamment bien conservé. D'étranges symboles ont été soigneusement écris sur le parchemin.
+
+STATISTIQUES :
+
+Poids : 0~
+@2136 = ~Ces notes ont été écrites par un érudit de l'ancienne Néhéril. Elles sont remplis de formules et de graphiques complexes, représentant des connaissances perdues sur le temps et l'espace. Une section semble avoir été rédigée avec une application plus pratique à l'esprit. Il décrit comment créer un champ gravitationnel d'une puissance considérable pendant une période de temps limitée. Un mage intelligent ou un prêtre sage peut apprendre à inclure cet effet dans une formule magique.
+
+STATISTIQUES :
+
+Poids : 0~
+
+@2140 = ~Sceau~
+@2141 = ~Sceau diabolique~
+@2142 = ~Souvent marqués par des runes ou des symboles magiques, les sceaux sont des objets puissamment enchantés destinés à permettre au porteur d'accéder à des zones magiquement protégées. Comme la plupart des sceaux sont uniques et spécifiques par nature, il est rare d'en trouver un avec plus d'un usage.
+
+STATISTIQUES :
+
+Poids : 1~
+@2143 = ~Les sceaux sont couramment utilisés pour accéder à des zones protégées par magie. Ce sceau est légèrement froid au toucher et porte l'étrange symbole d'un oeil grand ouvert. Vous l'avez trouvé sur le corps d'un diable Gélugon.
+
+STATISTIQUES :
+
+Poids : 1~
+
+@2150 = ~Langue Acide +3~
+@2151 = ~Cette longue épée infernale, forgée pour ressembler à une langue de diable, a une lame "plus tranchante que n'importe quel cri" selon l'écriture sur la poignée. Son tranchant coupe facilement les armures et les os et laisse l'acide grésiller dans les plaies qu'elle inflige. La douleur qu'infligent ses blessures est si grave que ses victimes ont du mal à fonctionner, même à marcher, à cause de l'agonie.
+
+STATISTIQUES :
+
+Capacités de combat :
+– 10% de chance en touchant de ralentir la cible pendant 3 rounds (jet de sauvegarde contre les sorts pour annuler)
+
+TAC0 : +3
+Dégâts : 1d8+3, +1d3 (acide)
+Damage Type: Tranchant
+Facteur de vitesse : 2
+Type de compétence : Épée longue
+Type: Arme à 1 main
+Force nécessaire : 6
+
+Poids : 2~
+
+@2160 = ~L'écho du démon +3~
+@2161 = ~Un diable d'Averne possédait autrefois ce bâton de bois noueux. Bien que le diable se soit échappé du bâton depuis longtemps, un résidu de son essence a pénétré l'arme et persiste encore. Lorsqu'un mot de commande est prononcé, une aura de feu jaillit autour de quiconque manie le bâton ; bien que les flammes laissent le manieur intact, elles brûlent les autres avec une chaleur dévastatrice.
+
+STATISTIQUES :
+
+Capacités de combat :
+– 5% de chance en touchant de déclencher un sort de Feu solaire centré sur l'utilisateur
+
+Capacités de charges :
+– Bouclier de Feu (Rouge) deux fois par jour
+
+TAC0 : +3
+Dégâts : 1d6+3 (contondant)
+Facteur de vitesse : 1
+Type de compétence : Bâton
+Type: arme à 2 mains
+Force nécessaire : 5
+
+Poids : 2~
+
+@2170 = ~Artisan de la paix +3~
+@2171 = ~Un  barman strict de Port-Ponant nommé Tad le Juste a commandé la création de cette arme pour traiter avec ses clients chahuteurs. Tad frappait normalement la masse contre le bar si les choses devenaient incontrôlables, mais il devait souvent se joindre à la bagarre pour rétablir "l'ordre". On dit qu'il a frappé tellement de voleurs sur la tête avec sa masse qu'aucun grand criminel de Port-Ponant ne pouvait honnêtement prétendre qu'il n'avait jamais senti la brûlure de l'Artisan de la paix. L'un de ces criminels, un voyou nommé Hellpin, s'est offusqué des coups qu'il a reçus. Hellpin a lancé ses chiens sur Tad le Juste par une nuit brumeuse. Tad a réussi à tuer plus de la moitié des canidés avant qu'il ne soit submergé et tué. Hellpin a gardé le club dans son repaire comme un trophée en tant qu'avertissement pour ceux qui pourraient le croiser.
+
+STATISTIQUES :
+
+Capacités d'équipement :
+– Immunité à Berserk
+
+Capacités de combat :
+– Sur un coup critique, rend la cible inconsciente pendant 2 round (jet de sauvegarde contre la mort pour annuler)
+
+TAC0 : +3
+Dégâts : 1d6+3 (contondant)
+Facteur de vitesse : 1
+Type de compétence : masse
+Type: Arme à 1 main
+Force nécessaire : 5
+
+Poids : 1~
+
+
+// Dialogues
+
+// Introduction Modrone
+@3000 = ~Vous voyez un cube avec deux bras, deux jambes et deux petites ailes qui poussent sur ses côtés. Sur le devant du cube se trouve un visage animé. Alors que vous approchez, la créature concentre son regard sur vous.~
+@3001 = ~Vous voyez un cube avec quatre bras et deux jambes qui poussent sur ses côtés. Sur le devant du cube se trouve un visage animé. Alors que vous approchez, la créature concentre son regard sur vous.~
+@3002 = ~Vous voyez un globe avec deux bras et deux jambes qui poussent sur ses côtés. Sur le devant de l'orbe vous pouvez distinguer un seul œil. Alors que vous approchez, la créature concentre son regard sur vous.~
+@3003 = ~Ce modrone a un corps sphérique avec un seul oeil. Deux bras et deux jambes poussent de ses côtés. Il ne semble pas vous remarquer.~
+@3004 = ~Ce modrone a un corps en forme de cube avec deux bras, deux jambes et deux petites ailes sur les côtés. Sur le devant du cube se trouve un visage animé. Il vous ignore totalement.~
+@3005 = ~Ce modrone a un corps en forme de cube avec quatre bras et deux jambes. Sur le devant du cube se trouve un visage animé. Il vous ignore totalement.~
+
+// Modrone générique
+@3500 = ~Salutations.~
+@3501 = ~Adressez vos questions au directeur.~
+@3502 = ~Vous pouvez trouver le directeur dans le centre de contrôle.~
+@3503 = ~J'ai quelques questions....~
+@3504 = ~Peu importe, je dois y aller. Adieu.~
+@3505 = ~Où puis-je trouver le directeur ?~
+@3506 = ~Je dois y aller maintenant. Adieu.~
+@3507 = ~Posez votre question.~
+@3508 = ~Qui êtes-vous ?~
+@3509 = ~Qu'est-ce que vous êtes ?~
+@3510 = ~Quel est cet endroit ?~
+@3511 = ~Qu'est-ce que vous faites ici ?~
+@3512 = ~Nous sommes modrone.~
+@3513 = ~Vous vous appelez Modrone ?~
+@3514 = ~Nous sommes modrone. Nous n'avons pas de nom. Nous sommes modrone. Tout ce que vous voyez ici est modrone. Nous ne faisons qu'un.~
+@3515 = ~D'accord. J'ai d'autres questions....~
+@3516 = ~Nous sommes modrone. Nous sommes quadrone.~
+@3517 = ~Qu'est-ce qu'un modrone ?~
+@3518 = ~Qu'est-ce qu'un quadrone ?~
+@3519 = ~Nous sommes modrone. Notre race est identifiée comme telle.~
+@3520 = ~Alors qu'est-ce qu'un quadrone ?~
+@3521 = ~Dans notre race, nous sommes identifiés comme type quadrone.~
+@3522 = ~Alors qu'est-ce qu'un modrone ?~
+@3523 = ~Construction du donjon Rubikon.~
+@3524 = ~Qu'est-ce que c'est exactement ?~
+@3525 = ~Adressez votre demande au directeur.~
+@3526 = ~En attente d'instructions.~
+@3527 = ~Des instructions pour quoi ?~
+@3528 = ~Instructions sur les tâches à effectuer.~
+@3529 = ~Quelles tâches ? Qu'est-ce que vous faites ici au juste ?~
+@3530 = ~Merci. Adieu.~
+
+// Modrone Directeur
+@4000 = ~J'ai trouvé la source de l'invasion.~
+@4001 = ~J'ai rapporté le cube vortex.~
+@4002 = ~Ça ne fait rien. Adieu.~
+@4003 = ~Qu'est-ce que c'est que cet endroit déjà ?~
+@4004 = ~Y a-t-il des dangers associés à Rubikon que je devrais connaître ?~
+@4005 = ~Puis-je participer au projet Rubikon ?~
+@4006 = ~Pouvez-vous me répéter comment je peux vous aider ?~
+@4007 = ~Que pouvez-vous me dire sur le jouet en forme de créature cubique que j'ai en ma possession ?~
+@4008 = ~Ça ne fait rien. Je dois y aller maintenant. Adieu.~
+@4009 = ~D'accord. J'ai d'autres questions....~
+@4010 = ~Je dois y aller maintenant. Adieu.~
+@4011 = ~Voici le Projet de Construction de donjon Rubikon®.~
+@4012 = ~Qu'est-ce que c'est le Projet de Construction de donjon Rubikon® ?~
+@4013 = ~Pouvez-vous me répéter ce qu'est le Projet de Construction de donjon Rubikon® ?~
+@4014 = ~Rubikon : L'objectif du projet est de déterminer les dynamiques, aussi bien sociales qu'asociales, qui entourent l'environnement communément considéré comme un donjon et d'essayer d'expliquer les aberrations qui ont tendance à se produire dans de tels environnements.~
+@4015 = ~Comment faites-vous ça ?~
+@4016 = ~De quelles aberrations parlez-vous ?~
+@4017 = ~Rubikon est capable de former une série de pièces reliées entre elles de manière à former ce que l'on appelle communément un *donjon*. Le donjon est peuplé de monstres, de pièges et de trésors.~
+@4018 = ~Chaque section du donjon est créée dynamiquement et adapte la difficulté au niveau d'expérience de l'aventurier qui y participe. Après la création, le donjon peut être entièrement exploré. Ensuite, le trésor du donjon peut être recyclé dans la zone d'entrée du donjon~
+@4019 = ~Recyclé ?~
+@4020 = ~Vous avez parlé d'aberrations ?~
+@4021 = ~Je suis un aventurier. Puis-je essayer votre expérience de donjon ?~
+@4022 = ~Le dispositif de recyclage convertit le trésor du Projet de Construction de donjon Rubikon® en récompenses pour le participant de l'expérience du donjon. On peut y accéder à l'entrée de Rubikon. D'autres instructions peuvent être demandées à la console du recycleur. La console du recycleur est située à l'angle nord-est de l'entrée de Rubikon.~
+@4023 = ~Demandes de renseignements à traiter : Qu'est-ce qui attire les gens dans les donjons ? Pourquoi les gens cherchent-ils souvent à pénétrer dans des donjons s'ils sont des endroits si dangereux ? Pourquoi les donjons sont-ils là en premier lieu ? Quelle est la dynamique d'un donjon fonctionnel ? Nous ne comprenons pas.~
+@4024 = ~Intéressant. Puis-je essayer votre expérience de donjon ?~
+@4025 = ~Oui. Ne vous séparez pas de vos compagnons dans le labyrinthe. Chaque section individuelle du labyrinthe est générée et remise à zéro sur demande. Tous ceux qui resteraient seraient tués quand la zone est remise à zéro.~
+@4026 = ~Je vois.... Je ne laisserai rien ni personne derrière moi. Autre chose d'autre ?~
+@4027 = ~Je m'en souviendrai. Puis-je essayer votre expérience de donjon ?~
+@4028 = ~Oui. Ne laissez pas tomber des objets ou de l'équipement dans le labyrinthe. Ils seraient détruits lorsque la zone du labyrinthe est réinitialisée.~
+@4029 = ~Je vois.... Je ne laisserai rien tomber d'important. Si la zone du labyrinthe est remise à zéro, tout ce qui reste sera détruit. Autre chose d'autre ?~
+@4030 = ~Non... (Le modrone fait une pause un court moment.) Non, il n'y a rien d'autre.~
+@4031 = ~Je vois. Puis-je essayer votre expérience de donjon ?~
+@4032 = ~(Il y a une pause significative avant que le modrone ne vous réponde.) Demande refusée..... Le projet montre des signes de comportement anormal.~
+@4033 = ~(Il y a une autre pause avant que le modrone ne continue.) Nous avons perdu le contrôle partiel du Projet de Construction de donjon Rubikon®.~
+@4034 = ~Comment avez-vous perdu le contrôle ?~
+@4035 = ~Je vois. J'ai d'autres questions....~
+@4036 = ~Intéressant. Je dois y aller maintenant. Adieu.~
+@4037 = ~Nous ne le savons pas. L'accès au donjon a été restreint par une force inconnue. Une escouade de modrones chargée d'enquêter sur l'anomalie n'a pas encore fait de rapport à ce jour.~
+@4038 = ~Nous... (Le modrone fait de nouveau une pause.) Nous avons également perdu la connexion avec Méchanus. Sans d'autres instructions de nos supérieurs, nous sommes incapables de résoudre le problème.~
+@4039 = ~Méchanus ?~
+@4040 = ~Méchanus est un plan de loi et d'ordre parfait. C'est notre maison. Sans le cube vortex, nous sommes incapables d'établir une connexion avec Méchanus.~
+@4041 = ~Cube vortex ?~
+@4042 = ~Le cube vortex nous permet de garder une connexion stable avec Méchanus. Sans le cube vortex, nous sommes incapables d'accomplir la tâche qui nous a été assignée ou de rentrer chez nous après l'avoir accomplie.~
+@4043 = ~Comment avez-vous perdu le cube ?~
+@4044 = ~Je vois. Mais j'ai d'autres questions....~
+@4045 = ~Le cube vortex a été pris par une force inconnue. Il est fort probable que la même force soit également responsable des dysfonctionnements du Projet de Construction de donjon Rubikon®.~
+@4046 = ~Puis-je faire quelque chose pour vous aider ?~
+@4047 = ~Nous avons besoin d'aide pour les tâches suivantes. Déterminer la nature des intrus. Restaurer le contrôle du Projet de Construction de donjon Rubikon®. Nous ramener le cube vortex.~
+@4048 = ~Une idée d'où je peux trouver les intrus ?~
+@4049 = ~Comment puis-je rétablir le contrôle du Projet de Construction de donjon Rubikon® ?~
+@4050 = ~Où puis-je trouver le cube vortex ?~
+@4051 = ~Je vois ce que je peux faire. J'ai d'autres questions par contre....~
+@4052 = ~Compris. Je dois y aller maintenant. Adieu.~
+@4053 = ~(La pièce est soudainement remplie d'un bourdonnement qui s'apaise tout aussi soudainement.) Toute aide est la bienvenue. Vous avez accès à la construction du donjon.~
+@4054 = ~Nous sollicitons votre aide pour les tâches suivantes. Déterminer la nature des intrus. Restaurer le contrôle du Projet de Construction de donjon Rubikon®. Nous ramener le cube vortex.~
+@4055 = ~Les intrus ont été localisés dans le donjon. Nous ne connaissons pas la nature des intrus. Nous ne connaissons pas la source de l'intrusion.~
+@4056 = ~Nous n'avons pas assez d'informations pour répondre à votre demande.~
+@4057 = ~Le cube vortex a été pris par une force inconnue. Il est probable que le cube vortex est toujours en possession de la force. Nous ne savons pas où se trouve actuellement cette force.~
+@4058 = ~Cet objet est un cube portail. L'utilisateur doit positionner les appendices du cube portail de manière à ce qu'il s'active. Une fois activé, le cube portail transportera l'utilisateur vers n'importe quelle destination sur laquelle il a été réglé lors de sa création.~
+@4059 = ~Quelle est la position correcte pour l'activer ?~
+@4060 = ~Pouvez-vous me dire encore une fois quelle est la position correcte pour activer celui-ci ?~
+@4061 = ~Le cube est réglé sur les deux destinations suivantes : Entrée au Projet de Construction de donjon Rubikon® et lieu d'origine de l'utilisateur.~
+@4062 = ~Pour activer le transport jusqu'à l'entrée du Projet de Construction de donjon Rubikon®, pliez le genou gauche jusqu'à ce que la jambe forme un angle de quinze degrés, dépliez les deux ailes au maximum, puis tournez le bras droit de 180 degrés dans son logement.~
+@4063 = ~Pour activer le transport jusqu'au lieu d'origine de l'utilisateur, tournez le bras droit de 180 degrés par rapport à sa prise, dépliez les deux ailes au maximum, puis pliez le genou gauche jusqu'à ce que la jambe forme un angle de 15 degrés.~
+@4064 = ~Votre connaissance de la nature des intrus est appréciée. (Encore une fois, la pièce est remplie d'un bourdonnement qui s'apaise aussi vite qu'il est venu.) Notre analyse montre que la destruction du chef de la force baatezu nous permettra de reprendre le contrôle du Projet de Construction de donjon Rubikon®. Cette tâche vous est confiée.~
+@4065 = ~Pourquoi moi ?~
+@4066 = ~Bien sûr, pourquoi pas ? Je vais le faire.~
+@4067 = ~Je ne suis pas intéressé. Surtout s'il s'agit de combattre le chef d'une armée diabolique.~
+@4068 = ~Vous êtes capable d'accomplir la tâche donnée. Pour l'instant, il n'y a pas d'autre solution possible.~
+@4069 = ~Je suppose que je n'ai pas d'autre choix ? Je vais le faire.~
+@4070 = ~Je ne suis pas intéressé. Vous devez la résoudre vous-même.~~Je ne suis pas intéressée. Vous devez la résoudre vous-même.~
+@4071 = ~Votre aide est appréciée. Pour vous aider dans votre tâche, nous avons conçu un outil qui vous protège contre les constructions de menace du Projet de Construction de donjon Rubikon®.~
+@4072 = ~Je vous remercie. Autre chose d'autre ?~
+@4073 = ~Nous supposons que le cube vortex est en possession du chef baatezu.~
+@4074 = ~Votre décision a été notée. Nous analyserons plus en détail les données afin de déceler d'éventuelles erreurs dans notre conclusion.~
+@4075 = ~Nous vous en sommes reconnaissants. Une récompense vous est donnée en échange du cube vortex.~
+@4076 = ~(Le modrone s'arrête un moment et le bourdonnement retentit à nouveau.) La connexion avec Méchanus a été établie. Le Projet de Construction de donjon Rubikon® est en attente jusqu'à ce que d'autres instructions soient données. Nous allons maintenant rentrer chez nous. Adieu, aventurier.~
+@4077 = ~Il est facile de se perdre dans le donjon de Rubikon. Avez-vous un appareil qui peut m'aider à trouver mon chemin dans le labyrinthe ?~
+@4078 = ~Votre demande a été acceptée. Le système de navigation Rubikon sera activé.~
+@4079 = ~Je vous en suis reconnaissant. Par contre j'ai d'autres questions....~
+@4080 = ~Je vous remercie. Je dois y aller maintenant. Adieu.~
+
+// Guide Modrone
+@5001 = ~Salutations, aventurier. Bienvenue au Rubikon, la construction de donjon. Vous pouvez demander l'accès à Rubikon au directeur.~
+@5002 = ~La créature vous fixe d'un regard vide.~
+@5003 = ~Vous pouvez trouver le directeur au centre de contrôle.~
+@5004 = ~Qu'est-ce que Rubikon ?~
+@5005 = ~Qu'est-ce qu'une construction de donjon ?~
+@5006 = ~Où puis-je trouver le directeur ?~
+@5007 = ~Merci. C'est ce que je vais faire. Adieu.~
+@5008 = ~Aucun soucis. Il faut que j'y aille. Adieu.~
+@5009 = ~Où est le centre de contrôle ?~
+@5010 = ~Pas grave. Je le trouverai tout seul. Adieu.~
+@5011 = ~Merci. C'est ce que je vais faire.~
+@5012 = ~Salutations, aventurier. Bienvenue à Rubikon, la construction de donjon. Vous pouvez accéder à Rubikon par cette porte. Amusez-vous s'il vous plaît !~
+@5013 = ~La créature cligne des yeux mais ne donne aucune signe qu'elle a entendu votre question.~
+@5014 = ~La créature vous fixe sans répondre.~
+
+// Ouvrier Modrone
+@5501 = ~01011001 01100101 01110011? (Oui ?)~
+@5502 = ~01011001 01100101 01110011?~
+@5503 = ~01000010 01111001 01100101. (Adieu .)~
+@5504 = ~Adieu.~
+@5505 = ~01001110 01100001 01101101 01100101? (Qui êtes-vous ?)~
+@5506 = ~Qui êtes-vous ?~
+@5507 = ~01001010 01101111 01100010? (Qu'est ce que vous faites ?)~
+@5508 = ~Qu'est ce que vous faites ?~
+@5509 = ~01001111 01101110 01100101. (Nous sommes un.)~
+@5510 = ~01010111 01101111 01110010 01101011. (Nous faisons le travail.)~
+@5511 = ~Ce modrone parle dans une langue que vous ne pouvez pas comprendre. Peut-être que quelqu'un de mieux informé peut trouver un moyen de communiquer avec lui.~
+@5512 = ~Vous préparez les notes savantes sur les codes de langage modrone, pendant que la créature tente de communiquer avec vous.~
+@5513 = ~La créature semble communiquer en émettant des séquences de sons graves et aigus. Vous remarquez rapidement qu'il s'agit d'une sorte de code. Après quelques essais et erreurs, vous êtes sûr d'avoir compris la signification de base du code.~
+
+// Contremaître Cornugon
+@6000 = ~Ah, un autre aventurier minable trouve le chemin vers le contremaître. C'est une bonne chose. Garder le portail est un privilège, mais cela devient fastidieux au bout d'un moment.~
+@6001 = ~Mais les présentations d'abord. Je suis Dogreth le contremaître, cornugon du second cercle et main droite du maître. Je vous demanderais bien votre nom, mais votre âme sera bientôt la mienne. Alors je saurai tout de vous de toute façon.~
+@6002 = ~Êtes-vous responsable des dysfonctionnements du labyrinthe du donjon ?~
+@6003 = ~Avez-vous le cube vortex en votre possession ?~
+@6004 = ~Le labyrinthe ? Il ne nous est pas d'une grande utilité. Mais nous pouvons quand même en tirer avantage en gardant les ennuyeux modrones à l'écart jusqu'à ce que nous ayons terminé notre besogne dans cet endroit. C'est certainement ce que pense mon maître.~
+@6005 = ~Alors, vous êtes au courant pour le cube vortex ? Peut-être qu'on y est un peu pour quelque chose dans sa disparition. Le cube est un outil puissant entre de bonnes mains. Et je peux vous assurer que mon maître sait l'utiliser efficacement.~
+@6006 = ~Mais ça ne vous concerne pas. Mon maître est en sécurité derrière de puissantes barrières, et moi seul ai les moyens de les traverser. Vous serez bientôt mort, après que mes serviteurs se soient amusés avec vous. Je suis sûr que votre âme fera un bon trophée pour mon maître.~
+
+// Tête pensante Gélugon
+@6500 = ~Tu as fait du chemin, Enfant de Bhaal. Oh, ne soit pas surpris. Tu pensais vraiment pouvoir me prendre au dépourvu ?~
+@6501 = ~Qui êtes-vous ?~
+@6502 = ~Qu'est-ce que vous voulez ?~
+@6503 = ~Mon vrai nom n'est pas pour les gens comme toi. Tu peux m'appeler "Tête pensante". Un titre approprié dans un lieu où toutes les entités sont nommées par leur fonction, vous ne trouvez pas ?~
+@6504 = ~Va droit au but. Ta franchise est un changement rafraîchissant quand on est entouré de ruse et de tromperie.~
+@6505 = ~Nous désirons la puissance, <PRO_RACE>. Assez de puissance pour étendre notre domination sur tous les plans. La race des modrones est une force dans laquelle on peut puiser. Ce sont des créatures obéissantes, sans émotions ni aucune trace d'instinct de conservation.~
+@6506 = ~Imaginez maintenant un flot sans fin de modrones obéissants qui se battent à mort pour notre cause dans la guerre sanglante. Pour atteindre cet objectif, nous devons contrôler la source des modrones sur Méchanus. Prendre le contrôle de cette construction n'est qu'un petit pas vers la réalisation de ce projet.~
+@6507 = ~Comment comptez-vous entrer dans le plan de Méchanus ?~
+@6508 = ~Le cube vortex joue-t-il un rôle dans votre plan ?~
+@6509 = ~Plus de discours. Préparez-vous !~
+@6510 = ~Ce n'est pas à toi de le savoir, mortel.~
+@6511 = ~Tu es très perspicace pour un <PRO_RACE>. Oui, le cube vortex sera vraiment utile quand j'aurai découvert tous ses secrets.~~Tu es très perspicace pour une <PRO_RACE>. Oui, le cube vortex sera vraiment utile quand j'aurai découvert tous ses secrets.~
+@6512 = ~Tes menaces vides ne m'impressionnent pas du tout. Je les ai entendus de vous, mortels, bien trop souvent.~
+@6513 = ~J'ai réfléchi un moment à ce que je ferais quand tu m'aurais enfin atteint. Tu as combattu une foule de mes sous-fifres, et même vaincu mon premier lieutenant. Un acte impressionnant. Tu aurais pu faire du chemin à notre service.~
+@6514 = ~Hélas, tu es trop instable pour moi. Il vaut mieux que tu disparaisses tout simplement. Je peux peut-être mettre ton âme à profit.~
+
+// Cube Vortex
+@8000 = ~Le cube est froid au toucher. Quelle que soit la magie qu'il puisse contenir, il ne semble pas fonctionner dans cet endroit.~
+@8001 = ~Le cube vibre légèrement entre vos mains. Vous n'avez aucune idée de l'usage que vous pouvez en faire.~
+@8002 = ~Le cube est froid au toucher. Même les marques tourbillonnantes sur les côtés changent à peine. La magie de l'objet ne semble pas fonctionner ici.~
+@8003 = ~Le cube vibre légèrement entre vos mains. Il est fait d'un matériau inhabituel et porte d'étranges marques de chaque côté.~
+@8004 = ~Vous inspectez de plus près les marques tourbillonnantes sur les faces du cube. Ils ressemblent à des tourbillons et changent constamment leurs modèles, mais vous ne pouvez pas déterminer quelle est leur fonction éventuelle.~
+@8005 = ~Vous n'avez aucune idée de ce qui pourrait arriver si vous pénétrez dans un de ces tourbillons. Il pourrait vous envoyer dans un plan extérieur ou vous détruire complètement. Voulez-vous vraiment continuer ?~
+@8006 = ~Lorsque vous pénétrez dans un des tourbillons, vous êtes immédiatement aspiré. Pendant un bref instant tous vos sens sont dans le noir total et vous sentez que votre force vitale est aspirée par le vide sans fin, pour subir l'impact brutal du monde extérieur peu de temps après. Le cube n'a pas survécu à la balade, et vous avez failli ne pas y arriver non plus.~~Lorsque vous accédez à l'un des tourbillons, vous êtes immédiatement aspirée. Pendant un bref instant tous vos sens sont dans le noir total et vous sentez que votre force vitale est aspirée par le vide sans fin, pour subir l'impact brutal du monde extérieur peu de temps après. Le cube n'a pas survécu à la balade, et vous avez failli ne pas y arriver non plus.~
+@8007 = ~Vous décidez de ne pas bricoler le cube et de le remettre dans votre sac. La mesure est la meilleure partie de la valeur après tout.~
+@8008 = ~Ranger le cube.~
+@8009 = ~Examiner les côtés du cube.~
+@8010 = ~Pénétrez dans l'un des tourbillons.~
+@8011 = ~Non, c'est trop dangereux.~
+@8012 = ~Oui, allons-y !~
+
+// Cube Modrone
+@9000 = ~Ranger le cube.~
+@9001 = ~Ce petit jouet en métal est une réplique d'un modrone, une créature originaire du plan de Méchanus. Vous remarquez que l'objet n'émet pas les légers sons de ronflement et de bourdonnement quand vous essayez d'en manipuler les appendices. Il y a peut-être quelque chose à cet endroit qui interfère avec son fonctionnement.~
+@9002 = ~Ce petit jouet en métal est une réplique d'une créature en forme de cube avec des yeux énormes sur un de ses visages. Le jouet a deux jambes, deux bras, deux ailes pliantes et au moins dix-huit points d'articulation. C'est peut-être une pièce de collection.~
+@9003 = ~Ce petit jouet en métal est une réplique d'un modrone, une créature originaire du plan de Méchanus. La complexité de cet artefact est incroyable ; ses articulations sont composées de petits engrenages, rouages, poulies et joints pivotants, et il y a même de petits ressorts sur les jambes qui aident à soutenir les pieds.~
+@9004 = ~Manipuler le jouet et rechercher une sorte d'effet.~
+@9005 = ~Utiliser la combinaison qui active le transport vers l'entrée du donjon de Rubikon.~
+@9006 = ~Utiliser la combinaison qui active le retour vers l'entrée du donjon de Rubikon.~
+@9007 = ~Utiliser la combinaison qui active le transport de retour.~
+@9008 = ~Vous pliez, torsadez et tournez les différents points d'articulation du jouet, en notant que les membres reviennent souvent soudainement à leur position initiale. Enfin, lorsque vous pliez son genou gauche, le jouet fait un *pop!* bizarre et tremble dans vos mains....~
+@9009 =  ~Les membres du jouet reviennent soudainement à leur position d'origine avec un doux *clic*.~
+@9010 = ~Le jouet fait un *pop!* bizarre et vibre dans vos mains.~
+@9011 = ~Le jouet fait un doux son de *vrombissement*.~
+@9012 = ~Le jouet *bourdonne* légèrement, se réchauffant au toucher.~
+@9013 = ~Il y a un *vrombissement*, un *clic*, puis une lumière blanche aveuglante explose soudain entre vos mains...~
+@9014 = ~Tourner le bras gauche.~
+@9015 = ~Tourner le bras droit.~
+@9016 = ~Déployer l'aile gauche.~
+@9017 = ~Déployer l'aile droite.~
+@9018 = ~Pliez le genou droit.~
+@9019 = ~Pliez le genou gauche.~
+@9020 = ~Que... !~
+@9021 = ~Vous manipulez les appendices du jouet pour activer la magie du portail. Avant que la magie ne puisse faire effet, elle est cependant rapidement absorbée par la matière environnante. On dirait que cette zone interfère avec la magie du cube. Vous devriez peut-être réessayer ailleurs.~
+@9022 = ~La nature particulière de la zone actuelle interfère avec la magie de portail du cube.~
+@9023 = ~Pour une quelconque raison , le cube n'a pas réussi à vous ramener sur le plan matériel primaire la dernière fois. Essayez à nouveau et concentrez-vous sur les endroits les plus sûrs où aller.~
+@9024 = ~Dans la sphère planaire dans les bas quartiers d'Athkatla~
+@9025 = ~Dans les bas quartiers d'Athkatla~
+@9026 = ~Dans les Tréfonds Obscurs~
+@9027 = ~À Saradush.~
+@9028 = ~Dans la nature sauvage à proximité de Saradush.~
+@9029 = ~À Amkethran.~
+@9030 = ~Essayez de trouver la combinaison pour le transport de retour.~
+@9031 = ~Vous pliez, torsadez et tournez les différents points d'articulation du jouet, en notant que les membres reviennent souvent soudainement à leur position initiale. Enfin, lorsque vous faites tourner son bras droit, le jouet fait un *pop!*bizarre et vibre dans vos mains....~
+@9032 = ~Il y a un *vrombissement*, un *clic*, puis l'énergie s'accumule pendant un moment. Mais elle est rapidement absorbée par la matière environnante. On dirait que cette zone interfère avec la magie du cube. Vous devriez peut-être réessayer ailleurs.~
+@9033 = ~Vous essayez de vous concentrer sur la manipulation des divers appendices du jouet, mais vous êtes trop distrait par le bruit du combat autour de vous.~
+
+// Notes savantes sur Courbespace
+@10000 = ~D'étranges symboles ont été soigneusement écris sur le parchemin.~
+@10001 = ~Ce parchemin est écrit dans une langue qui a été utilisée par les érudits de l'ancienne Néhéril. Il contient des formules et des graphiques complexes, représentant des connaissances perdues sur le temps et l'espace.~
+@10002 = ~Ce parchemin est rempli de formules et de graphiques complexes, représentant les connaissances perdues sur le temps et l'espace.~
+@10003 = ~Une section semble avoir été rédigée avec une application plus pratique à l'esprit. Il décrit comment créer un champ gravitationnel d'une puissance considérable pendant une période de temps limitée. Un mage intelligent ou un prêtre sage peut apprendre à mettre cet effet dans une formule magique.~
+@10004 = ~Ce parchemin décrit comment créer un champ gravitationnel d'une puissance considérable pendant une période de temps limitée. Un mage intelligent ou un prêtre sage peut apprendre à mettre cet effet dans une formule magique.~
+@10005 = ~Vous essayez de donner un sens aux symboles, mais vous finissez par abandonner. Les détails techniques sont trop complexes pour que vous puissiez les comprendre.~
+@10006 = ~En examinant les notes de plus près, vous pouvez rapidement déceler un motif. En utilisant vos propres connaissances obscures, vous êtes capable de les transformer en un parchemin de sorts habituel.~
+@10007 = ~Après avoir mémorisé les notes vous commencez à comprendre une logique supérieure derrière les théories. Grâce à ce nouvel aperçu, vous êtes en mesure de le mettre en accord avec vos propres connaissances.~
+@10008 = ~Examiner le parchemin de plus près.~
+@10009 = ~Ranger le parchemin.~
+@10010 = ~Transformer cet effet en un rouleau de mage.~
+@10011 = ~Mémoriser cet effet comme un sort de prêtre..~
+@10012 = ~Notes savantes transformées en un parchemin de sort.~ [EFF_M02]
+
+// Affaires d'offrande diabolique
+@11000 = ~Baissez vos armes, mortel, et écoutez-moi.~
+@11002 = ~Laissez-moi vous proposer un marché. Des aventuriers comme vous sont toujours à la recherche de richesses, n'est-ce pas ? Pour un tout petit peu de votre essence divine, je vous accorderai une fortune d'or. Vous pouvez certainement vous le permettre. Qu'est-ce que vous en dites ?~
+@11003 = ~Votre offre est tentante. Qu'avez-vous en tête exactement ?~
+@11004 = ~Pas moyen ! Je ne fais pas de marché avec les diables.~
+@11005 = ~Que pensez-vous de <A7_GOLD_AMOUNT> or ? De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On est d'accord ?~
+@11006 = ~Ça m'a l'air bien. J'accepte.~
+@11007 = ~Non, je ne crois pas.~
+@11008 = ~Laissez-moi vous proposer un marché. Pour une petite fraction de votre essence divine, je peux vous accorder une arme puissante. Vous pouvez certainement vous le permettre. Qu'est-ce que vous en dites ?~
+@11009 = ~Vous semblez être un combattant très aguerri, alors je vais vous proposer cette puissante épée. Elle tranchera vos ennemis plus vite que n'importe quel cri. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On est d'accord ?~~Vous semblez être une combattante très aguerrie, alors je vais vous proposer cette puissante épée. Elle tranchera vos ennemis plus vite que n'importe quel cri. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On est d'accord ?~
+@11010 = ~Vous semblez être doué pour les arts, alors je vais vous offrir ce bâton. Il a le pouvoir réduire en cendres tout ce qui est autour de vous. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~~Vous semblez être douée pour les arts, alors je vais vous offrir ce bâton. Il a le pouvoir réduire en cendres tout ce qui est autour de vous. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11011 = ~Vous semblez suivre un chemin spirituel, alors je vais vous offrir cette masse enchantée. Que ses enchantements apportent la tranquillité d'esprit à vos adversaires. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11012 = ~Vous semblez maîtriser à la fois le corps et l'esprit, alors je vais vous offrir ces gantelets. Ils sont très utiles pour un maître du combat sans armes. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11013 = ~Vous semblez être un habile <PRO_CLASS>, donc je vais vous offrir cette dague mortelle. Elle contient la plus puissante magie  pour drainer l'âme même de votre adversaire. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~~Vous semblez être une habile <PRO_CLASS>, donc je vais vous offrir cette dague mortelle. Elle contient la plus puissante magie  pour drainer l'âme même de votre adversaire. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11014 = ~Laissez-moi vous proposer un marché. Pour une part insignifiante de votre essence divine, Je vous donnerai un coup de pouce pour un attribut de votre choix. Il vous sera sûrement utile sur votre chemin vers la divinité. Vous pouvez certainement vous le permettre. Qu'en dites vous ?~
+@11015 = ~J'ai le pouvoir d'augmenter votre force, votre dextérité, votre constitution, votre intelligence, votre sagesse ou votre charisme. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11016 = ~L'attribut que vous avez choisi semble avoir déjà des proportions divines. Je ne peux pas l'augmenter davantage. Un autre ?~
+@11017 = ~Oui, nous l'avons. S'il vous plaît, augmentez ma force.~
+@11018 = ~Oui, nous l'avons. S'il vous plaît, augmentez ma dextérité.~
+@11019 = ~Oui, nous l'avons. S'il vous plaît, augmentez ma constitution.~
+@11020 = ~Oui, nous l'avons. S'il vous plaît, augmentez mon intelligence.~
+@11021 = ~Oui, nous l'avons. S'il vous plaît, augmentez ma sagesse.~
+@11022 = ~Oui, nous l'avons. S'il vous plaît, augmentez mon charisme.~
+@11023 = ~Oui. S'il vous plaît, augmentez ma force.~
+@11024 = ~Oui. S'il vous plaît, augmentez ma dextérité.~
+@11025 = ~Oui. S'il vous plaît, augmentez ma constitution.~
+@11026 = ~Oui. S'il vous plaît, augmentez mon intelligence.~
+@11027 = ~Oui. S'il vous plaît, augmentez ma sagesse.~
+@11028 = ~Oui. S'il vous plaît, augmentez mon charisme.~
+@11029 = ~C'est malheureux. Alors je n'ai pas d'autre choix que de prendre votre âme par la force.~
+@11030 = ~Laissez-moi tranquille, mortel ! Je n'ai plus rien à dire.~
+@11031 = ~10,000~
+@11032 = ~25,000~
+@11033 = ~50,000~
+@11050 = ~Vous êtes puissante, <RACE>. Je peux sentir l'étincelle divine de votre âme.~
+@11051 = ~Vous êtes puissante, <RACE>. Je peux sentir des traces de divinité dans votre âme. Très intéressant.~
+@11052 = ~Hein ? Une offre pour moi ? Euh... combien pour une fortune ?~
+@11053 = ~Hein ? Une offre pour moi ? Euh... à quel genre d'arme pensez-vous ?~
+@11054 = ~Hein ? Une offre pour moi ? Euh... vous voulez dire que je peux devenir encore plus parfaite ?~
+@11055 = ~J'espère que vous savez dans quel genre de "marché" vous êtes impliqué.~
+@11056 = ~Tu es sérieuse, Imoen ? Quelle que soit l'offre, le prix est tout simplement trop élevé.~
+@11057 = ~Laissez-moi vous proposer un marché. Pour une part insignifiante de votre essence divine, Je vous donnerai un coup de pouce pour un attribut de votre choix. Vous pouvez certainement vous le permettre. Qu'en dites vous ?~
+@11058 = ~Juste par curiosité, en quoi consiste exactement votre marché ?~
+@11059 = ~Ça ne fait pas de mal de connaître l'offre, n'est-ce pas ? Alors, quoi de neuf avec votre affaire ?~
+@11060 = ~Hum, autant d'or pour une petite partie de mon âme ? Je pense que je peux le supporter. D'accord !~
+@11061 = ~Hum, une arme si puissante pour une petite partie de mon âme ? J'ai pris de pires décisions dans le passé. On est d'accord !~
+@11062 = ~Je pourrais toujours avoir besoin de plus de muscles. Augmentez ma force.~
+@11063 = ~J'ai toujours voulu être plus agile. Augmentez ma dextérité.~
+@11064 = ~Je suppose que ça ne fait pas de mal de devenir plus résistant. Augmentez ma constitution.~
+@11065 = ~En fait, je préfère déjouer tout le monde. Augmentez mon intelligence.~
+@11066 = ~Je devrais vraiment y réfléchir à deux fois avant d'accepter de conclure des marchés avec des diables à l'avenir. Augmentez ma sagesse.~
+@11067 = ~Je pourrais m'en sortir plus facilement si j'étais plus convaincant. Augmentez mon charisme.~
+@11068 = ~Je suppose que tu as raison. Je ne suis pas intéressée !~
+@11069 = ~Bien sûr que non ! Je ne tomberai pas dans tes pièges, diable.~
+@11070 = ~Vous ne serez pas déçu.~~Vous ne serez pas déçue.~
+@11071 = ~Vous semblez être un aventurier habile, alors je vais vous offrir cette dague mortelle. Elle contient la magie la plus puissante pour drainer l'âme même de votre adversaire. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~~Vous semblez être une aventurière habile, alors je vais vous offrir cette dague mortelle. Elle contient la magie la plus puissante pour drainer l'âme même de votre adversaire. De plus, je vous accorderai le libre passage dans cette partie du labyrinthe. Aucun de mes subordonnés ne vous dérangera pendant que vous êtes ici. On a un accord ?~
+@11100 = ~Laisse-moi tranquille, mortel ! Je n'ai rien à dire à votre espèce.~
+@11101 = ~Votre âme est à moi !~
+@11102 = ~Aux ordres j'obéis, humanoïde. Vous attaquer je ne dois pas.~
+@11103 = ~Ne me dérangez pas, humanoïde !~
+
+
+// Divers
+@50000 = ~C'est ça ! Je vais m'occuper de vous moi-même.~
+@50001 = ~Votre âme sera mienne !~
+@50002 = ~Tremblez de peur, mortel!~
+@50003 = ~Ce portail semble être la source de l'invasion des diables. Une barrière de protection vous empêche d'y pénétrer vous-même.~
+@50004 = ~Douleurs lancinantes~
+@50005 = ~Début du processus de recyclage.~ [a7#rwdx]
+@50006 = ~Le processus de recyclage est toujours en cours.~
+// @50007 = ~La console semble ne pas fonctionner.~
+@50008 = ~Bonus recyclés.~
+@50009 = ~Labyrinthe du donjon~
+@50010 = ~Centre de contrôle~
+@50011 = ~La pierre-sésame s'illumine un instant avant de se vaporiser dans un nuage de fumée. La porte vers la tête pensante Baatezu est ouverte.~
+@50012 = ~La console affiche un certain nombre de symboles indéchiffrables. Peu de temps après un parchemin d'instructions se matérialise dans votre sac à dos.~
+@50013 = ~Pénalité au TAC0~
+@50014 = ~Pénalité de Classe d'Armure~
+@50015 = ~Avancez, créature de ténèbres ! Montrez-moi votre pouvoir !~
+@50016 = ~L'obscurité à l'intérieur de vous se retire finalement, et vous êtes de nouveau maître de votre corps et de votre esprit. Mais ça vous laisse fatigué et mentalement épuisé.~
+@50017 = ~Éclair
+
+Portée : Champ de vision de la construction
+Durée : Instantanée
+Zone d'effet : Trajet de l'éclair
+Jet de sauvegarde : 1/2
+
+En utilisant cette aptitude, la construction libère un puissant éclair d'énergie électrique qui inflige 6d6 points de dégâts à chaque créature sur la trajet de l'éclair. Un jet de sauvegarde contre les baguettes réussi réduit ces dégâts de moitié (arrondi à l'inférieur).~
+@50018 = ~Ce conteneur est scellé par une force inconnue et protégé par divers mécanismes de défense contre tout accès non autorisé.~
+@50019 = ~Cette construction de conception sphérique semble être le noyau de puissance du donjon Rubikon. Il est enveloppé dans un champ de protection. Les runes indiquent qu'un sceau est nécessaire pour accéder au noyau.~
+@50020 = ~Capacités sensorielles endommagées~
+@50021 = ~Capacités motrices endommagées~
+@50022 = ~Intelligence Artificielle endommagée~
+@50023 = ~Autodestruction~
+@50024 = ~Production de flammes~
+
+
+// Entrées de quêtes
+@60000 = ~Un endroit extraplanaire~
+@60001 = ~Labyrinthes et Modrones~
+
+@60011 = ~Un endroit extraplanaire
+
+Le Cube Modrone m'a transporté dans un lieu extraplanaire, qui semble être habité par des créatures métalliques étranges mais inoffensives.~
+
+@60012 = ~Labyrinthes et Modrones
+
+Ce n'est un une blague, ce lieu est utilisé par les modrones comme un "essai sur le terrain" pour les aider à comprendre pourquoi les aventuriers sont attirés par les donjons.
+
+Pour cette raison, ils ont créé un labyrinthe librement configurable qui imite un donjon, avec des monstres, des pièges et tout ce que l'on trouve généralement dans les donjons. Apparemment, les modrones, étant des créatures de pure logique, ont du mal à comprendre le mode de vie des espèces avec une relation moins prononcée à la loi et à la logique. Les " aventuriers " semblent présenter un intérêt particulier, car ils sont attirés par des endroits qui peuvent leur valoir une mort certaine.~
+
+@60013 = ~Labyrinthes et Modrones
+
+Le modrone directeur de cet endroit m'a dit qu'ils avaient perdu le contrôle du simulateur de donjon il y a quelque temps.
+
+Apparemment, un groupe d'envahisseurs s'est infiltré dans le labyrinthe et a volé un "cube vortex" aux modrones. Il est apparemment nécessaire pour contrôler le simulateur de donjon ainsi que pour établir la connexion avec leur plan d'origine, Méchanus.~
+
+@60014 = ~Labyrinthes et Modrones
+
+Les modrones ont accepté mon offre de les aider. J'ai été chargé de découvrir qui a envahi le labyrinthe du donjon, de rétablir le contrôle et de ramener le cube vortex qui leur a été volé. En retour, on m'a accordé l'accès au labyrinthe du donjon.~
+
+@60015 = ~Labyrinthes et Modrones
+
+Le modrone directeur a parlé d'un "dispositif de recyclage" situé dans la zone d'entrée du donjon. Il peut être utilisé pour échanger des trésors du donjon contre des objets utiles.~
+
+@60016 = ~Labyrinthes et Modrones
+
+J'ai trouvé la source de l'invasion dans une partie partiellement désintégrée du labyrinthe du donjon. Il était gardé par une foule de diables. La défaite du "Contremaître" a provoqué l'effondrement du portail des Neuf Enfers.
+
+Si l'on en croit le contremaître des diables, je peux trouver la tête pensante de toute l'opération dans un repaire caché derrière une barrière magique. La pierre-sésame que j'ai trouvée sur son cadavre devrait me permettre d'entrer. Je devrais aussi en informer le modrone directeur.~
+
+@60017 = ~Labyrinthes et Modrones
+
+Les modrones ont pris la nouvelle de l'invasion des diables à leur manière stoïque habituelle.
+
+Cependant, ils ont récompensé mes efforts avec un objet unique qui offre une protection contre les drones hostiles qui peuplent le labyrinthe du donjon.~
+
+@60018 = ~Labyrinthes et Modrones
+
+J'ai enfin rencontré la tête pensante des diables. C'était un gélugon, un baatezu supérieur. Le vol du cube vortex n'était qu'un pas vers un plus grand plan pour prendre le contrôle de la source des modrones sur Méchanus. Cela aurait permit aux diables de produire un flot infini de soldats modrones obéissants pour se battre pour eux dans la guerre sanglante. Sa mort devrait au moins retarder quelque peu leurs plans. Je devrais rendre le cube au modrone directeur.~
+
+@60019 = ~Labyrinthes et Modrones
+
+Les différentes sections du simulateur de donjon semblent être de conception très similaire, ce qui permet de se perdre facilement. Peut-être que le directeur connaît un moyen de m'aider à naviguer dans le labyrinthe.~
+
+@60100 = ~Labyrinthes et Modrones
+
+J'ai rendu le cube vortex aux modrones. Ils étaient reconnaissants à leur manière et m'ont récompensé avec le Sceptre de puissance Modrone. Avec le cube en leur possession, ils ont rétabli la connexion avec Méchanus et fermé le donjon défectueux avant de rentrer chez eux.~
+
+@60101 = ~Labyrinthes et Modrones
+
+La curiosité a été trop forte et j'ai utilisé le cube vortex sur moi-même, ce qui a entraîné sa destruction. Il semble que les modrones vont restés coincés dans leur construction encore un moment.~
