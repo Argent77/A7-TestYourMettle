@@ -29,6 +29,13 @@ LANGUAGE ~Russian (translation: tipun)~
          ~%MOD_FOLDER%/languages/english/mod.tra~
          ~%MOD_FOLDER%/languages/russian/setup.tra~
          ~%MOD_FOLDER%/languages/russian/mod.tra~
+LANGUAGE ~French (translation: deratiseur)~
+         ~french~
+         ~%MOD_FOLDER%/languages/english/setup.tra~
+         ~%MOD_FOLDER%/languages/english/mod.tra~
+         ~%MOD_FOLDER%/languages/french/setup.tra~
+         ~%MOD_FOLDER%/languages/french/mod.tra~
+
 
 BEGIN @1  // Test Your Mettle!
   REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~ && FILE_EXISTS ~engine.lua~) @100  // Requires BG2:EE or EET patched to 2.0 or higher.
