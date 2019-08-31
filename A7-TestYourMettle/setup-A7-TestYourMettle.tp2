@@ -1,6 +1,6 @@
 BACKUP ~A7-TestYourMettle/backup~
 SUPPORT ~http://www.shsforums.net/forum/666-test-your-mettle-ee/~
-VERSION ~1.1~
+VERSION ~1.2~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
