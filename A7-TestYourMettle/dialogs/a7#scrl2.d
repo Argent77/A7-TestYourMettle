@@ -43,10 +43,10 @@ END
 
 IF ~~ Scribe.Mage.Success
   SAY @10006 /* As you inspect the notes more closely, you can quickly make out a pattern. Using your own arcane knowledge you are able to transform it into a regular spell scroll without much effort. */
-  IF ~~ DO ~TransformItem("a7#scrl2","a7#mscl2") DisplayString(LastTalkedToBy,@10012)~ EXIT
+  IF ~~ DO ~SetGlobal("A7#SpacewarpMage","GLOBAL",1) TransformItem("a7#scrl2","a7#mscl2") DisplayString(LastTalkedToBy,@10012)~ EXIT
 END
 
 IF ~~ Learn.Cleric.Success
   SAY @10007 /* After committing the notes to memory you begin to understand a higher logic behind the theories. With this newfound insight, you can easily bring it into accordance with your own beliefs. */
-  IF ~~ DO ~DestroyItem("a7#scrl2") AddSpecialAbility("a7#spp1") AddXPObject(LastTalkedToBy,7000)~ EXIT
+  IF ~~ DO ~SetGlobal("A7#SpacewarpPriest","GLOBAL",1) DestroyItem("a7#scrl2") AddSpecialAbility("a7#spp1") AddXPObject(LastTalkedToBy,7000)~ EXIT
 END

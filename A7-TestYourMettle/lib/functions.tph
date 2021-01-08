@@ -519,3 +519,60 @@ BEGIN
     END
   END
 END
+
+
+/**
+ * Adds the spell "Spacewarp" to the game.
+ * INT_VAR priest_spell Whether the priest spell version should be installed.
+ * INT_VAR mage_spell   Whether the mage spell version (and scroll) should be installed.
+ */
+DEFINE_ACTION_FUNCTION INSTALL_SPACEWARP
+INT_VAR
+  priest_spell = 0    // whether to install the priest spell
+  mage_spell   = 0    // whether to install the mage spell
+  add_to_shops = 0    // whether spell scrolls are added to shops (requires mage_spell != 0)
+BEGIN
+  ACTION_IF (priest_spell || mage_spell) BEGIN
+    OUTER_SET projectile = IDS_OF_SYMBOL (~projectl~ ~a7#vtx~)
+    ACTION_IF (projectile < 0) BEGIN
+      ADD_PROJECTILE ~%MOD_FOLDER%/spells/a7#vtx.pro~
+      OUTER_SET projectile = ~a7#vtx~
+    END
+
+    ACTION_IF (priest_spell && NOT FILE_EXISTS_IN_GAME ~a7#spp1.spl~) BEGIN
+      COPY ~%MOD_FOLDER%/spells/a7#spp1.spl~ ~override~
+        SAY UNIDENTIFIED_DESC @2130  // Spacewarp (priest spell)
+        LPF ALTER_SPELL_HEADER
+        INT_VAR projectile
+        END
+    END
+
+    ACTION_IF (mage_spell && NOT FILE_EXISTS_IN_GAME ~a7#spw1.spl~) BEGIN
+      COPY ~%MOD_FOLDER%/spells/a7#spw1.spl~ ~override~
+        SAY UNIDENTIFIED_DESC @2131  // Spacewarp (mage spell)
+        LPF ALTER_SPELL_HEADER
+          INT_VAR projectile
+        END
+    END
+
+    ACTION_IF (NOT FILE_EXISTS_IN_GAME ~a7#mscl2.itm~) BEGIN
+      COPY ~%MOD_FOLDER%/spells/a7#mscl2.itm~ ~override~
+        SAY IDENTIFIED_DESC @2131  // Spacewarp (mage spell)
+    END
+
+    ACTION_FOR_EACH file IN ~a7#vtxa.bam~ ~a7#vtxb.bam~ ~a7#fx01.wav~ ~a7#vtx.vvc~ BEGIN
+      COPY ~%MOD_FOLDER%/spells/a7#vtxa.bam~ ~override~
+           ~%MOD_FOLDER%/spells/a7#vtxb.bam~ ~override~
+           ~%MOD_FOLDER%/spells/a7#fx01.wav~ ~override~
+           ~%MOD_FOLDER%/spells/a7#vtx.vvc~ ~override~
+    END
+
+    ACTION_IF (mage_spell && add_to_shops) BEGIN
+      ACTION_FOR_EACH area IN ~ar0702~ ~ar5011~ ~ar5502~ ~ar6400~ BEGIN
+        ACTION_IF (NOT RESOURCE_CONTAINS ~%area%.BCS~ ~A7#SpacewarpMage~) BEGIN
+          EXTEND_TOP ~%area%.BCS~ ~%MOD_FOLDER%/scripts/append_%area%.baf~
+        END
+      END
+    END
+  END
+END

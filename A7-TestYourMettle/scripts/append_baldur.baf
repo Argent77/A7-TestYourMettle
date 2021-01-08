@@ -1,0 +1,7 @@
+IF
+  Global("A7#SpacewarpMage","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#SpacewarpMage","GLOBAL",1)
+    Continue()
+END

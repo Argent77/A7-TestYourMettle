@@ -828,22 +828,12 @@ BEGIN @1  // Test Your Mettle!
   BUT_ONLY
 
   // Spacewarp spell notes
-  ADD_PROJECTILE ~%MOD_FOLDER%/spells/a7#vtx.pro~
-
-  COPY ~%MOD_FOLDER%/spells/a7#spp1.spl~ ~override~
-    SAY UNIDENTIFIED_DESC @2130  // Spacewarp (priest spell)
-    LPF ALTER_SPELL_HEADER
-    INT_VAR projectile = ~a7#vtx~
-    END
-
-  COPY ~%MOD_FOLDER%/spells/a7#spw1.spl~ ~override~
-    SAY UNIDENTIFIED_DESC @2131  // Spacewarp (mage spell)
-    LPF ALTER_SPELL_HEADER
-    INT_VAR projectile = ~a7#vtx~
-    END
-
-  COPY ~%MOD_FOLDER%/spells/a7#mscl2.itm~ ~override~
-    SAY IDENTIFIED_DESC @2131  // Spacewarp (mage spell)
+  LAF INSTALL_SPACEWARP
+  INT_VAR
+    priest_spell = 1
+    mage_spell   = 1
+    add_to_shops = 1
+  END
 
   COPY ~%MOD_FOLDER%/spells/a7#scrl2.itm~ ~override~
     SAY NAME1 @2132 // Ancient Scroll
@@ -864,10 +854,6 @@ BEGIN @1  // Test Your Mettle!
   BUT_ONLY
 
   COPY ~%MOD_FOLDER%/spells/a7#iscl2.bam~ ~override~
-       ~%MOD_FOLDER%/spells/a7#vtxa.bam~ ~override~
-       ~%MOD_FOLDER%/spells/a7#vtxb.bam~ ~override~
-       ~%MOD_FOLDER%/spells/a7#fx01.wav~ ~override~
-       ~%MOD_FOLDER%/spells/a7#vtx.vvc~ ~override~
 
   // Drone Control Device
   COPY_EXISTING ~tooltip.2da~ ~override~
@@ -1407,20 +1393,15 @@ BEGIN @14 // No experience
 
 
 BEGIN @20 // Make "Spacewarp" available to stores
-  REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   DESIGNATED 20
 
-  // Adventurer Mart, special store
-  COPY_EXISTING ~ribald3.sto~ ~override~
-    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #1
-  BUT_ONLY IF_EXISTS
+  LAF INSTALL_SPACEWARP
+  INT_VAR
+    priest_spell = 0
+    mage_spell   = 1
+    add_to_shops = 1
+  END
 
-  // Arcana Archives (Lazarus Librarius)
-  COPY_EXISTING ~25spell.sto~ ~override~
-    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #2
-  BUT_ONLY IF_EXISTS
-
-  // Karthis al-Hezzar (Wilderness Area)
-  COPY_EXISTING ~hgkar01.sto~ ~override~
-    ADD_STORE_ITEM ~A7#MSCL2~ LAST #1 #0 #0 ~identified~ #1
-  BUT_ONLY IF_EXISTS
+  // spell is always available for sale
+  EXTEND_TOP ~baldur.bcs~ ~%MOD_FOLDER%/scripts/append_baldur.baf~
+  EXTEND_TOP ~baldur25.bcs~ ~%MOD_FOLDER%/scripts/append_baldur.baf~

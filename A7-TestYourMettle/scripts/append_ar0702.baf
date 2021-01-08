@@ -1,0 +1,9 @@
+IF
+  Global("A7#Spacewarp_ribald","GLOBAL",0)
+  Global("A7#SpacewarpMage","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#Spacewarp_ribald","GLOBAL",1)
+    AddStoreItem("ribald3","a7#mscl2",1,1)
+    Continue()
+END
