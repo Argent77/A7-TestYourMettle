@@ -1,17 +1,22 @@
-BACKUP ~A7-TestYourMettle/backup~
+BACKUP ~weidu_external/backup/A7-TestYourMettle~
 SUPPORT ~http://www.shsforums.net/forum/666-test-your-mettle-ee/~
 VERSION ~1.3~
 
 ALWAYS
+  // required because of non-standard BACKUP path
+  OUTER_TEXT_SPRINT MOD_FOLDER ~A7-TestYourMettle~
+  // root folder for mutable data
+  OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
+
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   OUTER_SET IS_PATCH25 = (FILE_EXISTS_IN_GAME ~bdcutid.cre~) ? 1 : 0
 END
 
-README ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.html~
-       ~%MOD_FOLDER%/readme/readme-%LANGUAGE%.txt~
-       ~%MOD_FOLDER%/readme/readme.html~
-       ~%MOD_FOLDER%/readme/readme.txt~
+README ~A7-TestYourMettle/readme/readme-%LANGUAGE%.html~
+       ~A7-TestYourMettle/readme/readme-%LANGUAGE%.txt~
+       ~A7-TestYourMettle/readme/readme.html~
+       ~A7-TestYourMettle/readme/readme.txt~
 
 LANGUAGE ~English~
          ~english~
