@@ -249,7 +249,7 @@ IF ~~ Invasion.Found
 END
 
 IF ~~ Invasion.Found.1
-  SAY @4068 /* You are capable of completing the given task. At present there is no alternative available. */
+  SAY @4068 /* You are capable of completing the given task. At present there is no alternative course of action available. */
   ++ @4069 /* I suppose I have no other choice? I'll do it. */ UNSOLVED_JOURNAL @60017 + Invasion.Found.2
   ++ @4070 /* I'm not interested. You have to solve it by yourself. */ + Invasion.Found.Refused
 END
@@ -262,7 +262,13 @@ END
 
 IF ~~ Invasion.Found.3
   SAY @4073 /* We assume that the vortex cube is in possession of the baatezu leader. */
+  ++ @4081 /* Do you know where I can find the baatezu leader? */ + Invasion.Found.4
   ++ @4052 /* Understood. I must be going now. Farewell. */ EXIT
+END
+
+IF ~~ Invasion.Found.4
+  SAY @4082 /* It is highly probable that the baatezu leader can be found in the control center. The control center can currently only be entered from the eastern boundary of the Rubikon Dungeon Construct Project®. */
+  ++ @4052 /* Understood. I must be going now. Farewell. */ UNSOLVED_JOURNAL @60020 EXIT
 END
 
 IF ~~ Invasion.Found.Refused
@@ -279,7 +285,7 @@ IF ~~ VortexCube.Found.1
   SAY @4076 /* (The modron pauses for a moment and there is the buzzing sound again.) Connection with Mechanus has been established. Rubikon Dungeon Construct Project® is on hold until further instructions are given. We will now return home. Farewell, adventurer. */
   IF ~~ DO ~ClearAllActions() SetGlobal("A7#ModronQuest","GLOBAL",99) SetGlobal("A7#MazeAbandoned","GLOBAL",1)
             EraseJournalEntry(@60012) EraseJournalEntry(@60013) EraseJournalEntry(@60014) EraseJournalEntry(@60015)
-            EraseJournalEntry(@60016) EraseJournalEntry(@60017) EraseJournalEntry(@60018)
+            EraseJournalEntry(@60016) EraseJournalEntry(@60017) EraseJournalEntry(@60018) EraseJournalEntry(@60020)
             StartCutSceneMode() StartCutScene("a7#ctm1")~ SOLVED_JOURNAL @60100 EXIT
 END
 

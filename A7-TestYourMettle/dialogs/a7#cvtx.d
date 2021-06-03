@@ -39,7 +39,7 @@ IF ~~ Teleport.3
             ApplySpellRES("a7#spv1",Player1) ApplySpellRES("a7#spv1",Player2) ApplySpellRES("a7#spv1",Player3)
             ApplySpellRES("a7#spv1",Player4) ApplySpellRES("a7#spv1",Player5) ApplySpellRES("a7#spv1",Player6)
             EraseJournalEntry(@60012) EraseJournalEntry(@60013) EraseJournalEntry(@60014) EraseJournalEntry(@60015)
-            EraseJournalEntry(@60016) EraseJournalEntry(@60017) EraseJournalEntry(@60018)~ SOLVED_JOURNAL @60101 EXIT
+            EraseJournalEntry(@60016) EraseJournalEntry(@60017) EraseJournalEntry(@60018) EraseJournalEntry(@60020)~ SOLVED_JOURNAL @60101 EXIT
 END
 
 IF ~~ Teleport.Cancelled

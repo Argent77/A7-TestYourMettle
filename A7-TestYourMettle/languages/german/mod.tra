@@ -468,6 +468,8 @@ Gewicht: 1~
 @4078 = ~Eurer Bitte wurde entsprochen. Das Rubikon-Navigationssystem wurde aktiviert.~
 @4079 = ~Ich weiß das zu schätzen. Allerdings habe ich noch mehr Fragen...~
 @4080 = ~Danke, ich muß jetzt weiter. Leb wohl.~
+@4081 = ~Weißt du, wo ich den Baatezu-Anführer finden kann?~
+@4082 = ~Der Baatezu-Anführer kann höchstwahrscheinlich in der Schaltzentrale gefunden werden. Die Schaltzentrale kann gegenwärtig nur von der östlichen Grenze des Rubikon-Verlies-Projekts® aus betreten werden.~
 
 // Modron Guide
 @5001 = ~Seid gegrüßt, Abenteurer. Willkommen in Rubikon, dem Verlies-Konstrukt. Ihr könnt Zugang zu Rubikon vom Projektleiter anfordern.~
@@ -736,6 +738,10 @@ Ich bin endlich dem Drahtzieher der Baatezu begegnet. Es was ein Gelugon von bet
 @60019 = ~Labyrinth der Modronen
 
 Die einzelnen Abschnitte des Verlies-Simulators scheinen alle sehr ähnlich aufgebaut zu sein, so dass man sich leicht verlaufen kann. Vielleicht kann mir der Projektleiter helfen, mich leichter im Irrgarten zurechtzufinden.~
+
+@60020 = ~Labyrinth der Modronen
+
+Nach einigem Nachhaken hat mir der Projektleiter endlich verraten, dass ich den Anführer der Baatezu-Armee wohl in der Schaltzentrale des Verließ-Konstrukts finden kann. Sie kann auf Grund der gegenwärtigen Situation nur von der östlichen Grenze des Irrgartens aus betreten werden. Der Eingang der Schaltzentrale wird wahrscheinlich magisch gegen unbefugten Zutritt geschützt sein.~
 
 @60100 = ~Labyrinth der Modronen
 

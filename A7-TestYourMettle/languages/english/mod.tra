@@ -481,6 +481,8 @@ Weight: 1~
 @4078 = ~Your request has been granted. Rubikon navigation system will be activated.~
 @4079 = ~I appreciate it. I have more questions though...~
 @4080 = ~Thank you. I must be going now. Farewell.~
+@4081 = ~Do you know where I can find the baatezu leader?~
+@4082 = ~It is highly probable that the baatezu leader can be found in the control center. The control center can currently only be entered from the eastern boundary of the Rubikon Dungeon Construct Project®.~
 
 // Modron Guide
 @5001 = ~Greetings, adventurer. Welcome to the Rubikon, the dungeon construct. You may request access to Rubikon from the director.~
@@ -536,7 +538,7 @@ Weight: 1~
 @6510 = ~This is not for you to know, mortal.~
 @6511 = ~You are very perceptive for a <PRO_RACE>. Yes, the vortex cube will be useful indeed when I have uncovered all of its secrets.~
 @6512 = ~Your empty threats don't impress me in the least. I have heard them from you mortals far too often.~
-@6513 = ~I have pondered a while what I would do when you finally reach me. You have fought through a host of my minions, and even defeated my first lieutenant. An impressive deed. You would have made it far in our service.~
+@6513 = ~I have pondered a while what I would do when you finally reach me. You have fought through a host of my minions, and even defeated my first lieutenant. An impressive feat. You would have made it far in our service.~
 @6514 = ~Alas, you are too volatile for my purposes. It is best that you simply disappear. Perhaps I can put your soul to good use.~
 
 // Vortex Cube
@@ -749,6 +751,10 @@ I have finally met the mastermind of the devils. It was a gelugon, a greater baa
 @60019 = ~Mazes and Modrons
 
 The individual sections of the dungeon simulator appear to be of very similar design, which makes it easy to get lost. Maybe the director knows a way to help me navigate the maze.~
+
+@60020 = ~Mazes and Modrons
+
+After some more prodding, the modron director finally revealed to me that the leader of the baatezu army can most likely be found in the control center. It can be accessed somewhere from the easternmost border of the Rubikon Dungeon Construct Project®. The entrance will most likely be magically warded against intrusion.~
 
 @60100 = ~Mazes and Modrons
 
