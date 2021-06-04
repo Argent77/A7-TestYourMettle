@@ -317,9 +317,9 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/items/a7#mqxbw.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#erin1.itm~ ~override~
        ~%MOD_FOLDER%/items/a7#bcor1.itm~ ~override~
-       ~%MOD_FOLDER%/items/a7#bcorb.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorb.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#bcorb.vvc~ ~override~
-       ~%MOD_FOLDER%/items/a7#bcorf.bmp~ ~override~
+       ~%MOD_FOLDER%/items/a7#bcorf.bam~ ~override~
        ~%MOD_FOLDER%/items/a7#bcorf.vvc~ ~override~
        ~%MOD_FOLDER%/spells/a7#gelu1.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#gelu2.eff~ ~override~
