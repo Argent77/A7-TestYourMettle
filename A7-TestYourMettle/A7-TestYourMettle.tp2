@@ -1345,6 +1345,32 @@ BEGIN @1  // Test Your Mettle!
   BUT_ONLY
 
 
+  // expanding areas list for debug console
+  ACTION_CLEAR_ARRAY ~lines~
+  COPY ~%MOD_FOLDER%/lua/bgee-append.lua~ ~%MOD_FOLDER%/lua/bgee-append.lua~
+    LPF READ_TEXT_LINES RET lines RET_ARRAY lines END
+  BUT_ONLY
+
+  COPY_EXISTING ~bgee.lua~ ~override~
+    PATCH_FOR_EACH array IN ~cheatAreas~ ~cheatAreasExpansion~ BEGIN
+      SET pos_start = INDEX_BUFFER(~^[ %TAB%]*%array%[ %TAB%]*=[ %TAB%]*{[ %TAB%]*[%WNL%]~)
+      PATCH_IF (pos_start >= 0) BEGIN
+        SET pos_end = INDEX_BUFFER(~^[ %TAB%]*}[ %TAB%]*[%WNL%]~ pos_start)
+        PATCH_IF (pos_end > pos_start) BEGIN
+          SET pos = pos_end
+          PATCH_PHP_EACH lines AS _ => line BEGIN
+            TEXT_SPRINT line ~%TAB%%line%%WNL%~
+            SET len = STRING_LENGTH ~%line%~
+            INSERT_BYTES pos len
+            WRITE_ASCIIE pos ~%line%~ (len)
+            SET pos += len
+          END
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
+
 BEGIN @11 // Reduce by 50%
   REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters

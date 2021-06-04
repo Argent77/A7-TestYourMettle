@@ -576,3 +576,31 @@ BEGIN
     END
   END
 END
+
+
+/**
+ * Reads all lines from the current text file into an array.
+ */
+DEFINE_PATCH_FUNCTION READ_TEXT_LINES
+INT_VAR upper = 0 // whether to upper-case the textual content
+RET lines         // number of array elements
+RET_ARRAY lines   // array containing text lines, numbered sequentially, starting at 0
+BEGIN
+  SET lines = 0
+  SET ofs1 = 0
+  CLEAR_ARRAY ~lines~
+  WHILE (ofs1 >= 0) BEGIN
+    SET ofs2 = INDEX_BUFFER(~[%WNL%]~ ofs1)
+    PATCH_IF (ofs2 < 0) BEGIN SET ofs2 = BUFFER_LENGTH END
+    READ_ASCII ofs1 line (ofs2 - ofs1)
+    PATCH_IF (upper) BEGIN TO_UPPER ~line~ END
+    TEXT_SPRINT $lines(~%lines%~) ~%line%~
+    SET lines += 1
+    SET ofs1 = INDEX_BUFFER(~[^%WNL%]~ ofs2)
+  END
+
+  // Workaround for WeiDU bug: return array must contain at least one element.
+  PATCH_IF (lines = 0) BEGIN
+    TEXT_SPRINT $lines(~%lines%~) ~~
+  END
+END
