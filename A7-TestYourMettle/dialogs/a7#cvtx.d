@@ -35,7 +35,7 @@ END
 
 IF ~~ Teleport.3
   SAY @8006 /* When you reach into one of the vortices, you are immediately sucked in. For a brief moment there is total blackness to all your senses and you feel your life force being sucked away by the endless void, only to suffer the brutal impact of the outside world a short time later. The cube didn't survive the ride, and you almost didn't make it either. */
-  IF ~~ DO ~SetGlobal("A7#LocationRubikon","GLOBAL",0) DestroyItem("a7#cvtx") RestorePartyLocations()
+  IF ~~ DO ~SetGlobal("A7#LocationRubikon","GLOBAL",0) SetGlobal("A7#ModronQuest","GLOBAL",98) DestroyItem("a7#cvtx") RestorePartyLocations()
             ApplySpellRES("a7#spv1",Player1) ApplySpellRES("a7#spv1",Player2) ApplySpellRES("a7#spv1",Player3)
             ApplySpellRES("a7#spv1",Player4) ApplySpellRES("a7#spv1",Player5) ApplySpellRES("a7#spv1",Player6)
             EraseJournalEntry(@60012) EraseJournalEntry(@60013) EraseJournalEntry(@60014) EraseJournalEntry(@60015)
