@@ -593,6 +593,8 @@ Gewicht: 1~
 @10010 = ~Wandel die Schriftrolle in einen Magierzauber um.~
 @10011 = ~Präge dir dieses Wissen als Priesterzauber ein.~
 @10012 = ~hat wissenschaftliche Notizen in einen Zauber umgeformt~ [EFF_M02]
+@10013 = ~Präge dir dieses Wissen als Magierzauber ein.~
+@10014 = ~Nachdem du die Notizen auswendig gelernt hast, fängst du an, die Bedeutung hinter den arkanen Theorien zu erkennen. Mit diesem Wissen bist du in der Lage, die arkanen Energien so zu manipulieren, um den Zauber auf Wunsch zu wirken.~
 
 // Devil offering deals
 @11000 = ~Sterblicher, lasst eure Waffe stecken und hört mich an.~

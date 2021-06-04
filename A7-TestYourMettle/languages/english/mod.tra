@@ -606,6 +606,8 @@ Weight: 1~
 @10010 = ~Turn this effect into a mage scroll.~
 @10011 = ~Memorize this effect as a priest spell.~
 @10012 = ~Transformed scholarly notes into a spell scroll~ [EFF_M02]
+@10013 = ~Memorize this effect as a mage spell.~
+@10014 = ~After committing the notes to memory you begin to understand the meaning behind the arcane theories. With this knowledge you are able to manipulate the weave well enough to cast this spell at will.~
 
 // Devil offering deals
 @11000 = ~Keep your weapons down, mortal, and hear me out.~
