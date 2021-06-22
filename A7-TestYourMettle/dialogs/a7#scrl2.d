@@ -24,8 +24,8 @@ IF ~~ Intro.Known.1
   + ~OR(2) CheckStatLT(LastTalkedToBy,15,INT) LevelLT(LastTalkedToBy,16) Class(LastTalkedToBy,SORCERER)~ + @10010 /* Turn this effect into a mage scroll. */ + Examine.Failed
   + ~CheckStatLT(LastTalkedToBy,17,WIS) Class(LastTalkedToBy,CLERIC_ALL)~ + @10011 /* Memorize this effect as a priest spell. */ + Examine.Failed
   + ~CheckStatGT(LastTalkedToBy,16,INT) OR(2) Class(LastTalkedToBy,MAGE_ALL) Class(LastTalkedToBy,BARD_ALL) !Class(LastTalkedToBy,SORCERER)~ + @10010 /* Turn this effect into a mage scroll. */ + Scribe.Mage.Success
-  + ~CheckStatGT(LastTalkedToBy,14,INT) LevelGT(LastTalkedToBy,15) Class(LastTalkedToBy,SORCERER)~ + @10013 /* Memorize this effect as a mage spell. */ + Learn.Sorcerer.Success
-  + ~CheckStatGT(LastTalkedToBy,16,WIS) Class(LastTalkedToBy,CLERIC_ALL)~ + @10011 /* Memorize this effect as a priest spell. */ + Learn.Cleric.Success
+  + ~CheckStatGT(LastTalkedToBy,14,INT) LevelGT(LastTalkedToBy,15) Class(LastTalkedToBy,SORCERER) !HaveKnownSpellRES("a7#spw1")~ + @10013 /* Memorize this effect as a mage spell. */ + Learn.Sorcerer.Success
+  + ~CheckStatGT(LastTalkedToBy,16,WIS) Class(LastTalkedToBy,CLERIC_ALL) !HaveKnownSpellRES("a7#spp1")~ + @10011 /* Memorize this effect as a priest spell. */ + Learn.Cleric.Success
   ++ @10009 /* Put the scroll away. */ EXIT
 END
 
@@ -35,8 +35,8 @@ IF ~~ Intro.Known.2
   + ~OR(2) CheckStatLT(LastTalkedToBy,15,INT) LevelLT(LastTalkedToBy,16) Class(LastTalkedToBy,SORCERER)~ + @10010 /* Turn this effect into a mage scroll. */ + Examine.Failed
   + ~CheckStatLT(LastTalkedToBy,17,WIS) Class(LastTalkedToBy,CLERIC_ALL)~ + @10011 /* Memorize this effect as a priest spell. */ + Examine.Failed
   + ~CheckStatGT(LastTalkedToBy,16,INT) OR(2) Class(LastTalkedToBy,MAGE_ALL) Class(LastTalkedToBy,BARD_ALL) !Class(LastTalkedToBy,SORCERER)~ + @10010 /* Turn this effect into a mage scroll. */ + Scribe.Mage.Success
-  + ~CheckStatGT(LastTalkedToBy,14,INT) LevelGT(LastTalkedToBy,15) Class(LastTalkedToBy,SORCERER)~ + @10013 /* Memorize this effect as a mage spell. */ + Learn.Sorcerer.Success
-  + ~CheckStatGT(LastTalkedToBy,16,WIS) Class(LastTalkedToBy,CLERIC_ALL)~ + @10011 /* Memorize this effect as a priest spell. */ + Learn.Cleric.Success
+  + ~CheckStatGT(LastTalkedToBy,14,INT) LevelGT(LastTalkedToBy,15) Class(LastTalkedToBy,SORCERER) !HaveKnownSpellRES("a7#spw1")~ + @10013 /* Memorize this effect as a mage spell. */ + Learn.Sorcerer.Success
+  + ~CheckStatGT(LastTalkedToBy,16,WIS) Class(LastTalkedToBy,CLERIC_ALL) !HaveKnownSpellRES("a7#spp1")~ + @10011 /* Memorize this effect as a priest spell. */ + Learn.Cleric.Success
   ++ @10009 /* Put the scroll away. */ EXIT
 END
 
