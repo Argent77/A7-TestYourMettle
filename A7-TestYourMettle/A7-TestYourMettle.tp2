@@ -45,6 +45,7 @@ LANGUAGE ~French (translation: deratiseur)~
 BEGIN @1  // Test Your Mettle!
   REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~ && FILE_EXISTS ~engine.lua~) @100  // Requires BG2:EE or EET patched to 2.0 or higher.
   DESIGNATED 0
+  LABEL ~A7-TESTYOURMETTLE-MAIN~
 
   // ***************
   // *** Journal ***
@@ -1375,6 +1376,7 @@ BEGIN @11 // Reduce by 50%
   REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 11
+  LABEL ~A7-TESTYOURMETTLE-REDUCE_XP_BY_50~
 
   INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
   LAF REDUCE_XP
@@ -1388,6 +1390,7 @@ BEGIN @12 // Reduce by 75% (recommended)
   REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 12
+  LABEL ~A7-TESTYOURMETTLE-REDUCE_XP_BY_75~
 
   INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
   LAF REDUCE_XP
@@ -1401,6 +1404,7 @@ BEGIN @13 // Reduce by 90%
   REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 13
+  LABEL ~A7-TESTYOURMETTLE-REDUCE_XP_BY_90~
 
   INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
   LAF REDUCE_XP
@@ -1414,6 +1418,7 @@ BEGIN @14 // No experience
   REQUIRE_COMPONENT ~A7-TestYourMettle.tp2~ 0 @101 // Requires the main component.
   SUBCOMPONENT @10 // Reduced experience for killing monsters
   DESIGNATED 14
+  LABEL ~A7-TESTYOURMETTLE-REDUCE_XP_BY_100~
 
   INCLUDE ~%MOD_FOLDER%/lib/xp_mod.tph~
   LAF REDUCE_XP
@@ -1425,6 +1430,7 @@ BEGIN @14 // No experience
 
 BEGIN @20 // Make "Spacewarp" available to stores
   DESIGNATED 20
+  LABEL ~A7-TESTYOURMETTLE-SPACEWARP_IN_STORES~
 
   LAF INSTALL_SPACEWARP
   INT_VAR
