@@ -191,18 +191,49 @@ THEN
 END
 
 IF
-  DifficultyGT(NORMAL)
+  OR(2)
+    DifficultyGT(NORMAL)
+    LevelPartyGT(13)
+  GlobalLT("chapter","GLOBAL",%bg2_chapter_8%)
   !GlobalTimerNotExpired("cast","LOCALS")
   Global("slayer","LOCALS",0)
   Global("Slayer1","GLOBAL",0)
   NumInPartyAliveGT(1)
-  OR(2)
-    See(Player1)
-    See("Imoen2")
+  See(Player1)
   !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
   CheckStat(LastSeenBy(Myself),0,SANCTUARY)
   CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
   RandomNumGT(4,1)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobalTimer("cast","LOCALS",ONE_ROUND)
+    SetGlobal("slayer","LOCALS",1)
+    FaceObject(LastSeenBy(Myself))
+    DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
+    ClearActions(LastSeenBy(Myself))
+    ActionOverride(LastSeenBy(Myself),MakeUnselectable(2))
+    ActionOverride(LastSeenBy(Myself),PlayDead(30))
+    Wait(2)
+    ForceSpellRES("a7#slr0",Myself)
+    ForceSpellRES("a7#slr1",LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    DifficultyGT(NORMAL)
+    LevelPartyGT(13)
+  GlobalGT("chapter","GLOBAL",%bg2_chapter_4%)
+  !GlobalTimerNotExpired("cast","LOCALS")
+  Global("slayer","LOCALS",0)
+  Global("Slayer1","GLOBAL",0)
+  NumInPartyAliveGT(1)
+  See("Imoen2")
+  !StateCheck(LastSeenBy(Myself),CD_STATE_NOTVALID)
+  CheckStat(LastSeenBy(Myself),0,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  RandomNumGT(3,1)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)

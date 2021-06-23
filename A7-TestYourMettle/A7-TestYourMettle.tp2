@@ -261,7 +261,6 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#erin.baf~
           ~%MOD_FOLDER%/scripts/a7#cor.baf~
           ~%MOD_FOLDER%/scripts/a7#cor1.baf~
-          ~%MOD_FOLDER%/scripts/a7#gelu.baf~
           ~%MOD_FOLDER%/scripts/a7#dron2.baf~
           ~%MOD_FOLDER%/scripts/a7#dron3.baf~
           ~%MOD_FOLDER%/scripts/a7#cimp.baf~
@@ -280,6 +279,7 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#ctm1.baf~
           ~%MOD_FOLDER%/scripts/a7#crng.baf~
           ~%MOD_FOLDER%/scripts/a7#cdef.baf~
+          ~%MOD_FOLDER%/scripts/a7#sht01.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01a.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01b.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02a.baf~
@@ -289,6 +289,8 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#ct02e.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02f.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02x.baf~
+
+  COMPILE ~%MOD_FOLDER%/scripts/a7#gelu.baf~ EVAL
 
   COMPILE ~%MOD_FOLDER%/dialogs/a7#dgelu.d~
           ~%MOD_FOLDER%/dialogs/a7#dcor1.d~

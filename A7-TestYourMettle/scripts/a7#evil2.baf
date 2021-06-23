@@ -368,6 +368,7 @@ IF
   !Range(LastSeenBy(Myself),5)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
   !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  See(LastSeenBy(Myself))
 THEN
   RESPONSE #100
     AttackOneRound(LastSeenBy(Myself))
@@ -378,6 +379,7 @@ IF
   !Range(LastSeenBy(Myself),5)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
   !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  See(LastSeenBy(Myself))
 THEN
   RESPONSE #100
     EquipRanged()
@@ -388,6 +390,7 @@ IF
   Range(LastSeenBy(Myself),5)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
   !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
+  See(LastSeenBy(Myself))
 THEN
   RESPONSE #100
     EquipMostDamagingMelee()
