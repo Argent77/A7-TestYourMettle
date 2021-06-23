@@ -30,7 +30,7 @@ This is the main component. It installs new areas, creatures and everything else
 
 As the monsters you may encounter in the dungeon are numerous, you will quickly gain a lot of experience that could make your party too powerful to enjoy the rest of the game. This component allows you to reduce XP from killing monsters by different amounts, or remove XP altogether. Unique monsters or creatures encountered outside the dungeon are not affected.
 
-### 3. Make "Spacewarp" available to stores (requires the main component)
+### 3. Make "Spacewarp" available to stores (independent component)
 
 This component adds the mage spell "Spacewarp" to a small number of stores for sale. In "Shadows of Amn" it can be purchased from Ribald's special store in the Adventurer Mart, that becomes available in chapter 6. In "Throne of Bhaal" it is available from Lazarus Librarus' Arcana Archives in Saradush or Amkethran as well as from Karthis al-Hezzar, who can be found in the wilderness between Saradush and the Forest of Mir.
 
