@@ -1149,11 +1149,11 @@ BEGIN @1  // Test Your Mettle!
     STR_VAR treasure = "A7#RDTR4" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM"
   END
   LAF DEFINE_RANDOM_TREASURE_EX
-    INT_VAR chance_0 = 15 chance_1 = 15 chance_2 = 13 chance_3 = 8 chance_4 = 3
+    INT_VAR chance_0 = 20 chance_1 = 20 chance_2 = 15 chance_3 = 10 chance_4 = 5
     STR_VAR treasure = "A7#RDTR5" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM" item_4 = "A7#POT1"
   END
   LAF DEFINE_RANDOM_TREASURE_EX
-    INT_VAR chance_0 = 20 chance_1 = 20 chance_2 = 15 chance_3 = 10 chance_4 = 3
+    INT_VAR chance_0 = 25 chance_1 = 25 chance_2 = 20 chance_3 = 15 chance_4 = 8
     STR_VAR treasure = "A7#RDTR6" item_0 = "A7#JCOIN" item_1 = "A7#JGOOD" item_2 = "A7#JCLUE" item_3 = "A7#JMITM" item_4 = "A7#POT1"
   END
 
