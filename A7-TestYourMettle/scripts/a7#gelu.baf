@@ -211,6 +211,7 @@ THEN
     SetGlobal("slayer","LOCALS",1)
     FaceObject(LastSeenBy(Myself))
     DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
+    ApplySpellRES("a7#slr2",LastSeenBy(Myself))
     ClearActions(LastSeenBy(Myself))
     ActionOverride(LastSeenBy(Myself),MakeUnselectable(2))
     ActionOverride(LastSeenBy(Myself),PlayDead(30))
@@ -241,6 +242,7 @@ THEN
     SetGlobal("slayer","LOCALS",1)
     FaceObject(LastSeenBy(Myself))
     DisplayStringHead(Myself,@50015)  // Come forth, creature of darkness! Show me your power!
+    ApplySpellRES("a7#slr2",LastSeenBy(Myself))
     ClearActions(LastSeenBy(Myself))
     ActionOverride(LastSeenBy(Myself),MakeUnselectable(2))
     ActionOverride(LastSeenBy(Myself),PlayDead(30))

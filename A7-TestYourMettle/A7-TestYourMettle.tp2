@@ -401,6 +401,12 @@ BEGIN @1  // Test Your Mettle!
       match_opcode  = 139 // Display string
       parameter1    = RESOLVE_STR_REF(@50016) // The darkness within you finally retreats, and you are once again in control of body and mind. But it leaves you fatigued and mentally drained.
     END
+  COPY ~%MOD_FOLDER%/spells/a7#slr2.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode  = 100 // Protection from creature type
+      parameter1    = race_drone
+    END
 
 
   // Spells for random monster bonuses
