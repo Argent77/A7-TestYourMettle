@@ -387,7 +387,6 @@ THEN
 END
 
 IF
-  Range(LastSeenBy(Myself),5)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
   !Allegiance(LastSeenBy(Myself),EVILCUTOFF)
   See(LastSeenBy(Myself))
