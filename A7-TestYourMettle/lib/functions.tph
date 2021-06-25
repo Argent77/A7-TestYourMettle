@@ -561,10 +561,9 @@ BEGIN
     END
 
     ACTION_FOR_EACH file IN ~a7#vtxa.bam~ ~a7#vtxb.bam~ ~a7#fx01.wav~ ~a7#vtx.vvc~ BEGIN
-      COPY ~%MOD_FOLDER%/spells/a7#vtxa.bam~ ~override~
-           ~%MOD_FOLDER%/spells/a7#vtxb.bam~ ~override~
-           ~%MOD_FOLDER%/spells/a7#fx01.wav~ ~override~
-           ~%MOD_FOLDER%/spells/a7#vtx.vvc~ ~override~
+      ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%file%~) BEGIN
+        COPY ~%MOD_FOLDER%/spells/%file%~ ~override~
+      END
     END
 
     ACTION_IF (mage_spell && add_to_shops) BEGIN
