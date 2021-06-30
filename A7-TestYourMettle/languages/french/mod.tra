@@ -476,6 +476,8 @@ Poids : 1~
 @4078 = ~Votre demande a été acceptée. Le système de navigation Rubikon sera activé.~
 @4079 = ~Je vous en suis reconnaissant. Par contre j'ai d'autres questions....~
 @4080 = ~Je vous remercie. Je dois y aller maintenant. Adieu.~
+@4081 = ~Savez-vous où je peux trouver le Chef Baatezu?~
+@4082 = ~Il est très probable que le Chef Baatezu se trouve dans le centre de contrôle. Actuellement, on ne peut entrer dans le centre de contrôle qu'à partir de la frontière est du Projet de Construction de donjon Rubikon®.~
 
 // Guide Modrone
 @5001 = ~Salutations, aventurier. Bienvenue au Rubikon, la construction de donjon. Vous pouvez demander l'accès à Rubikon au directeur.~
@@ -599,6 +601,8 @@ Poids : 1~
 @10010 = ~Transformer cet effet en un rouleau de mage.~
 @10011 = ~Mémoriser cet effet comme un sort de prêtre..~
 @10012 = ~Notes savantes transformées en un parchemin de sort.~ [EFF_M02]
+@10013 = ~Mémoriser cet effet comme un sort de mage.~
+@10014 = ~Après avoir mémorisé les notes, vous commencez à comprendre la signification des théories arcaniques. Grâce à ces connaissances, vous êtes capable de manipuler suffisamment bien la trame pour lancer ce sort à volonté.~
 
 // Affaires d'offrande diabolique
 @11000 = ~Baissez vos armes, mortel, et écoutez-moi.~
@@ -744,6 +748,10 @@ J'ai enfin rencontré la tête pensante des diables. C'était un gélugon, un ba
 @60019 = ~Labyrinthes et Modrones
 
 Les différentes sections du simulateur de donjon semblent être de conception très similaire, ce qui permet de se perdre facilement. Peut-être que le directeur connaît un moyen de m'aider à naviguer dans le labyrinthe.~
+
+@60020 = ~Labyrinthes et Modrones
+
+Après un peu plus d'insistance, le modrone directeur m'a finalement révélé que le chef de l'armée baatezu se trouve probablement dans le centre de contrôle. On peut y accéder quelque part à partir de la frontière la plus à l'est du Projet de Construction de donjon Rubikon®. L'entrée sera très probablement protégée par la magie contre toute intrusion.~
 
 @60100 = ~Labyrinthes et Modrones
 
