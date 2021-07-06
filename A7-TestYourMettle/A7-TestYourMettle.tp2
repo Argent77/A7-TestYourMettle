@@ -224,14 +224,17 @@ BEGIN @1  // Test Your Mettle!
     WRITE_LONG 0x28 slot_gelugon
 
   COPY ~%MOD_FOLDER%/creatures/a7#abb.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#tmabb.cre~ ~override~
     SAY NAME1 @1050 // Black Abishai
     SAY NAME2 @1050 // Black Abishai
 
   COPY ~%MOD_FOLDER%/creatures/a7#abg.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#tmabg.cre~ ~override~
     SAY NAME1 @1060 // Green Abishai
     SAY NAME2 @1060 // Green Abishai
 
   COPY ~%MOD_FOLDER%/creatures/a7#abr.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#tmabr.cre~ ~override~
     SAY NAME1 @1070 // Red Abishai
     SAY NAME2 @1070 // Red Abishai
 
@@ -245,10 +248,12 @@ BEGIN @1  // Test Your Mettle!
     WRITE_LONG 0x28 slot_cornugon
 
   COPY ~%MOD_FOLDER%/creatures/a7#erin.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#tmeri.cre~ ~override~
     SAY NAME1 #70635  // Erinyes
     SAY NAME2 #70636  // Erinyes
 
   COPY ~%MOD_FOLDER%/creatures/a7#imp.cre~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#tmimp.cre~ ~override~
     SAY NAME1 #35009  // Imp
     SAY NAME2 #35011  // Imp
 
@@ -280,6 +285,7 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#crng.baf~
           ~%MOD_FOLDER%/scripts/a7#cdef.baf~
           ~%MOD_FOLDER%/scripts/a7#sht01.baf~
+          ~%MOD_FOLDER%/scripts/a7#tmsum.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01a.baf~
           ~%MOD_FOLDER%/scripts/a7#ct01b.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02a.baf~
@@ -333,6 +339,7 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#sum4.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum5.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum6.eff~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sumg1.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum1.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum2.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#sum3.spl~ ~override~

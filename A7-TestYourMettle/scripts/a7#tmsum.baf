@@ -1,0 +1,7 @@
+IF
+  Die()
+THEN
+  RESPONSE #100
+    IncrementGlobal("A7#TYM#KillCount","GLOBAL",1)
+    IncrementGlobal("A7#TYM#SummonCount","GLOBAL",-1)
+END

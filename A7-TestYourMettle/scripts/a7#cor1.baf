@@ -5,7 +5,7 @@ IF
   Global("A7#BarrierGone","LOCALS",0)
 THEN
   RESPONSE #100
-    SetGlobalTimer("A7#BarrierTimer","LOCALS",TWO_TURNS)
+    SetGlobalTimer("A7#BarrierTimer","LOCALS",FIVE_TURNS)
     Continue()
 END
 
@@ -15,6 +15,63 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
+    Continue()
+END
+
+IF
+  Global("A7#TYM#SummonCountInit","A7#1FD",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#SummonCountInit","A7#1FD",1)
+    SetGlobal("A7#TYM#SummonCount","GLOBAL",9)
+    Continue()
+END
+
+IF
+  Global("A7#TYM#MaxKillCount","GLOBAL",0)
+  OR(2)
+    LevelPartyLT(10)
+    DifficultyLT(EASY)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#MaxKillCount","GLOBAL",20)
+    SetGlobal("A7#TYM#MaxSummonCount","GLOBAL",8)
+    Continue()
+END
+
+IF
+  Global("A7#TYM#MaxKillCount","GLOBAL",0)
+  LevelPartyGT(9)
+  LevelPartyLT(14)
+  DifficultyGT(EASIEST)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#MaxKillCount","GLOBAL",25)
+    SetGlobal("A7#TYM#MaxSummonCount","GLOBAL",12)
+    Continue()
+END
+
+IF
+  Global("A7#TYM#MaxKillCount","GLOBAL",0)
+  LevelPartyGT(13)
+  LevelPartyLT(18)
+  DifficultyGT(EASIEST)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#MaxKillCount","GLOBAL",30)
+    SetGlobal("A7#TYM#MaxSummonCount","GLOBAL",16)
+    Continue()
+END
+
+IF
+  Global("A7#TYM#MaxKillCount","GLOBAL",0)
+  LevelPartyGT(17)
+  DifficultyGT(EASIEST)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#MaxKillCount","GLOBAL",40)
+    SetGlobal("A7#TYM#MaxSummonCount","GLOBAL",20)
+    Continue()
 END
 
 IF
@@ -28,7 +85,9 @@ END
 
 IF
   Global("A7#BarrierGone","LOCALS",0)
-  GlobalTimerExpired("A7#BarrierTimer","LOCALS")
+  OR(2)
+    GlobalTimerExpired("A7#BarrierTimer","LOCALS")
+    GlobalsGT("A7#TYM#KillCount","A7#TYM#MaxKillCount")
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
@@ -60,6 +119,7 @@ END
 
 IF
   !GlobalTimerNotExpired("conjure","LOCALS")
+  GlobalsLT("A7#TYM#SummonCount","A7#TYM#MaxSummonCount")
   Global("A7#BarrierGone","LOCALS",0)
   OR(2)
     LevelPartyLT(10)
@@ -90,6 +150,7 @@ END
 
 IF
   !GlobalTimerNotExpired("conjure","LOCALS")
+  GlobalsLT("A7#TYM#SummonCount","A7#TYM#MaxSummonCount")
   Global("A7#BarrierGone","LOCALS",0)
   LevelPartyGT(9)
   LevelPartyLT(14)
@@ -137,6 +198,7 @@ IF
   OR(2)
     !GlobalTimerNotExpired("conjure","LOCALS")
     RandomNum(10,1)
+  GlobalsLT("A7#TYM#SummonCount","A7#TYM#MaxSummonCount")
   Global("A7#BarrierGone","LOCALS",0)
   LevelPartyGT(13)
   LevelPartyLT(18)
@@ -184,6 +246,7 @@ IF
   OR(2)
     !GlobalTimerNotExpired("conjure","LOCALS")
     RandomNum(6,1)
+  GlobalsLT("A7#TYM#SummonCount","A7#TYM#MaxSummonCount")
   Global("A7#BarrierGone","LOCALS",0)
   LevelPartyGT(17)
   DifficultyGT(EASIEST)
@@ -203,6 +266,22 @@ THEN
   RESPONSE #100
     SetGlobalTimerRandom("conjure","LOCALS",ONE_ROUND, THREE_ROUNDS)
     ForceSpellPointRES("a7#sum3",[586.752])
+  RESPONSE #50
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50001) // Your soul will be mine!
+  RESPONSE #50
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    DisplayStringHead(Myself, @50002) // Cower in fear, mortal!
+END
+
+IF
+  !GlobalTimerNotExpired("conjure","LOCALS")
+  !GlobalsLT("A7#TYM#SummonCount","A7#TYM#MaxSummonCount")
+  Global("A7#BarrierGone","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
+    NoAction()
   RESPONSE #50
     SetGlobalTimer("conjure","LOCALS",ONE_ROUND)
     DisplayStringHead(Myself, @50001) // Your soul will be mine!
