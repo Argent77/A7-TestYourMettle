@@ -1,0 +1,813 @@
+// Script for setting up creatures in the maze
+
+
+// *** Abandoned maze: don't spawn creatures ***
+IF
+  !Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+END
+
+// Active maze: Spawn creatures based on challenge rating
+IF
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",1)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",1)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",0)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #74
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #10
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #1
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    Continue()
+END
+
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",1)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #60
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #5
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    Continue()
+END
+
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",2)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #15
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    Continue()
+END
+
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature1A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature1B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature2A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature2B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature3A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature3B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature4A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature4B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature5A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature5B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature6A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature6B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature7A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature7B","GLOBAL",0)
+    Continue()
+END
+
+IF
+  Global("A7#ChallengeRating","GLOBAL",3)
+  Global("A7#MazeAbandoned","GLOBAL",0)
+THEN
+  RESPONSE #30
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #20
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8C","GLOBAL",0)
+    Continue()
+  RESPONSE #25
+    SetGlobal("A7#TYM#SpawnCreature8A","GLOBAL",0)
+    SetGlobal("A7#TYM#SpawnCreature8B","GLOBAL",0)
+    Continue()
+END
+
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    ChangeAIScript("",SPECIFICS)
+END

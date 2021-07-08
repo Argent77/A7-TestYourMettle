@@ -295,6 +295,7 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#ct02e.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02f.baf~
           ~%MOD_FOLDER%/scripts/a7#ct02x.baf~
+          ~%MOD_FOLDER%/scripts/a7#gspwn.baf~
 
   COMPILE ~%MOD_FOLDER%/scripts/a7#gelu.baf~ EVAL
 
@@ -663,6 +664,10 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%MOD_FOLDER%/languages/english/a7#grid.bam~ ~override~ IF_EXISTS
   END
 
+  COPY ~%MOD_FOLDER%/areas/a7#1g1.ini~ ~override~
+       ~%MOD_FOLDER%/areas/a7#1g2.ini~ ~override~
+       ~%MOD_FOLDER%/areas/a7#1g3.ini~ ~override~
+
   OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
     OUTER_SET x = grid REM 8
     OUTER_SET y = grid / 8
@@ -675,29 +680,6 @@ BEGIN @1  // Test Your Mettle!
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
       WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
-
-      // updating actor animation ids
-      READ_LONG 0x54 ofsActors
-      READ_SHORT 0x58 numActors
-      FOR (idx = 0; idx < numActors; ++idx) BEGIN
-        SET ofs = ofsActors + idx * 0x110
-        READ_ASCII (ofs + 0x80) resref (8) NULL
-        PATCH_MATCH ~%resref%~ WITH
-          ~A7#MDRM~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modm END
-          ~A7#MDRQ~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modq END
-          ~A7#MDRR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_modr END
-          ~A7#CLOW~ BEGIN WRITE_SHORT (ofs + 0x30) slot_clow END
-          ~A7#CHIGH~ BEGIN WRITE_SHORT (ofs + 0x30) slot_chigh END
-          ~A7#CWIZ~ BEGIN WRITE_SHORT (ofs + 0x30) slot_cwiz END
-          ~A7#COR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_cor END
-          ~A7#ERIN~ BEGIN WRITE_SHORT (ofs + 0x30) slot_erin END
-          ~A7#ABB~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abb END
-          ~A7#ABG~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abg END
-          ~A7#ABR~ BEGIN WRITE_SHORT (ofs + 0x30) slot_abr END
-          ~A7#IMP~ BEGIN WRITE_SHORT (ofs + 0x30) slot_imp END
-          DEFAULT
-        END
-      END
 
       // updating grid label
       LPF GET_ANIMATION_OFFSET

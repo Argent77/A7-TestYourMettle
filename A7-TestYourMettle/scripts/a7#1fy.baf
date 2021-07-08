@@ -6,6 +6,15 @@ THEN
     Continue()
 END
 
+// *** Initialize spawns in maze areas ***
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeAIScript("A7#GSPWN",SPECIFICS)
+    Continue()
+END
+
 // *** Calculate initial challenge rating ***
 IF
   GlobalLT("A7#ChallengeRating","GLOBAL",1)

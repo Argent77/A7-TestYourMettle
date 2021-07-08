@@ -75,6 +75,15 @@ THEN
     Continue()
 END
 
+// *** Initialize spawns in maze areas ***
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ChangeAIScript("A7#GSPWN",SPECIFICS)
+    Continue()
+END
+
 IF
   Global("A7#PortalClosed","A7#1FD",0)
   Dead("Taskmaster")
