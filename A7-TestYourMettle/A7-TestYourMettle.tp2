@@ -1426,6 +1426,7 @@ BEGIN @14 // No experience
 
 
 BEGIN @20 // Make "Spacewarp" available to stores
+  REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~ && FILE_EXISTS ~engine.lua~) @100  // Requires BG2:EE or EET patched to 2.0 or higher.
   DESIGNATED 20
   LABEL ~A7-TESTYOURMETTLE-SPACEWARP_IN_STORES~
 
