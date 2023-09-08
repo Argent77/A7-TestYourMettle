@@ -2,12 +2,12 @@
 
 BEGIN ~a7#mcube~
 
-IF ~PartyHasItemIdentified("a7#mcube") !AreaType(RUBIKON) OR(4) Global("Chapter","GLOBAL",%bg2_chapter_4%) GlobalGT("Chapter","GLOBAL",%bg2_chapter_9%) AreaCheck("AR4000") AreaCheck("AR4500")~ Intro.Denied.1
+IF ~PartyHasItemIdentified("a7#mcube") !AreaType(A7_RUBIKON) OR(4) Global("Chapter","GLOBAL",%bg2_chapter_4%) GlobalGT("Chapter","GLOBAL",%bg2_chapter_9%) AreaCheck("AR4000") AreaCheck("AR4500")~ Intro.Denied.1
   SAY @9001 /* This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. You notice that the item doesn't emit the low humming and buzzing sounds when you try to manipulate its appendages. There may be something in this location interfering with its operation. */
   ++ @9000 /* Put the cube away. */ EXIT
 END
 
-IF ~PartyHasItemIdentified("a7#mcube") !AreaType(RUBIKON) Global("Chapter","GLOBAL",%bg2_chapter_7%) Global("EnteredAR2806","GLOBAL",1)~ Intro.Denied.2
+IF ~PartyHasItemIdentified("a7#mcube") !AreaType(A7_RUBIKON) Global("Chapter","GLOBAL",%bg2_chapter_7%) Global("EnteredAR2806","GLOBAL",1)~ Intro.Denied.2
   SAY @9001 /* This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. You notice that the item doesn't emit the low humming and buzzing sounds when you try to manipulate its appendages. There may be something in this location interfering with its operation. */
   ++ @9000 /* Put the cube away. */ EXIT
 END
@@ -19,33 +19,33 @@ END
 
 IF ~PartyHasItemIdentified("a7#mcube")~ Intro2
   SAY @9003 /* This small metal toy is a replica of a modron, a creature native to the plane of Mechanus. The intricacy of this artifact is incredible; its joints are composed of tiny gears, cogs, pulleys, and swivel joints, and there are even tiny springs on the legs that help support the feet. */
-  + ~!ActuallyInCombat() !AreaType(RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",0)~
+  + ~!ActuallyInCombat() !AreaType(A7_RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",0)~
     + @9004 /* Manipulate the toy and look for some sort of effect. */ + Manipulate.Rubikon
-  + ~!ActuallyInCombat() !AreaType(RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
+  + ~!ActuallyInCombat() !AreaType(A7_RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
     + @9005 /* Use the combination that activates transport to the Rubikon dungeon entrance. */ + ToRubikon
-  + ~ActuallyInCombat() !AreaType(RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
+  + ~ActuallyInCombat() !AreaType(A7_RUBIKON) Global("A7#KnowCubeRubikon","GLOBAL",1)~
     + @9005 /* Use the combination that activates transport to the Rubikon dungeon entrance. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBIKON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
     + @9030 /* Try to figure out the combination for the transport back home. */ + Manipulate.Prime
-  + ~ActuallyInCombat() AreaType(RUBIKON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
+  + ~ActuallyInCombat() AreaType(A7_RUBIKON) Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",0)~
     + @9030 /* Try to figure out the combination for the transport back home. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",1)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubePrime","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + ToPrime
-  + ~!ActuallyInCombat() AreaType(RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",0)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",0)~
     + @9007 /* Use the combination that activates transport back home. */ + ToPrime.Failsafe
-  + ~!ActuallyInCombat() AreaType(RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
     + @9007 /* Use the combination that activates transport back home. */ + Transport.Denied
-  + ~!ActuallyInCombat() AreaType(RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#KnowCubePrime","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + Transport.Denied.Known
-  + ~ActuallyInCombat() AreaType(RUBIKON) Global("A7#KnowCubePrime","GLOBAL",1)~
+  + ~ActuallyInCombat() AreaType(A7_RUBIKON) Global("A7#KnowCubePrime","GLOBAL",1)~
     + @9007 /* Use the combination that activates transport back home. */ + Combat.Active
-  + ~!ActuallyInCombat() AreaType(RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") !AreaCheck("A7#1FY") !AreaCheck("A7#1EN")~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) !AreaCheck("A7#1FD") !AreaCheck("A7#1WZ") !AreaCheck("A7#1FY") !AreaCheck("A7#1EN")~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + ToEntrance
-  + ~!ActuallyInCombat() AreaType(RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",0)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Transport.Denied
-  + ~!ActuallyInCombat() AreaType(RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
+  + ~!ActuallyInCombat() AreaType(A7_RUBIKON) OR(2) AreaCheck("A7#1FD") AreaCheck("A7#1WZ") Global("A7#LocationRubikon","GLOBAL",1) Global("A7#KnowCubeWeakness","GLOBAL",1)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Transport.Denied.Known
-  + ~ActuallyInCombat() AreaType(RUBIKON)~
+  + ~ActuallyInCombat() AreaType(A7_RUBIKON)~
     + @9006 /* Use the combination that activates transport back to the Rubikon dungeon entrance. */ + Combat.Active
   ++ @9000 /* Put the cube away. */ EXIT
 END

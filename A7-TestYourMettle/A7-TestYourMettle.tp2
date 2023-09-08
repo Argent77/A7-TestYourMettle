@@ -72,12 +72,12 @@ BEGIN @1  // Test Your Mettle!
   // ***************************
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY anims BEGIN
-    ~modm~ => ~MODRON_MONO~
-    ~modq~ => ~MODRON_QUAD_MELEE~
-    ~modr~ => ~MODRON_QUAD_RANGED~
-    ~clow~ => ~DRONE_LIGHT~
-    ~chigh~ => ~DRONE_HEAVY~
-    ~cwiz~ => ~DRONE_WIZARD~
+    ~modm~ => ~A7_MODRON_MONO~
+    ~modq~ => ~A7_MODRON_QUAD_MELEE~
+    ~modr~ => ~A7_MODRON_QUAD_RANGED~
+    ~clow~ => ~A7_DRONE_LIGHT~
+    ~chigh~ => ~A7_DRONE_HEAVY~
+    ~cwiz~ => ~A7_DRONE_WIZARD~
   END
   ACTION_PHP_EACH anims AS folder => symbol BEGIN
     ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
@@ -96,7 +96,7 @@ BEGIN @1  // Test Your Mettle!
   LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
   COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%hexNumber%.ini~
   OUTER_SET slot_gelugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% RAVER_BLUE~
+  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_RAVER_BLUE~
 
   // Black Cornugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/a7#mcor2.bmp~ ~override~
@@ -104,7 +104,7 @@ BEGIN @1  // Test Your Mettle!
   LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
   COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%hexNumber%.ini~
   OUTER_SET slot_cornugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% CORNUGON_BLACK~
+  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_CORNUGON_BLACK~
 
   // Abishai animations
   ACTION_FOR_EACH folder IN ~abishai_black~ ~abishai_green~ ~abishai_red~ BEGIN
@@ -502,9 +502,9 @@ BEGIN @1  // Test Your Mettle!
   // *** Areas ***
   // *************
 
-  // Adding new area type "RUBIKON"
+  // Adding new area type "A7_RUBIKON"
   OUTER_SET area_type_id = 512
-  OUTER_TEXT_SPRINT area_type_name ~RUBIKON~
+  OUTER_TEXT_SPRINT area_type_name ~A7_RUBIKON~
   COPY_EXISTING ~areatype.ids~ ~override~
     COUNT_2DA_ROWS 2 numRows
     SET id = 1
@@ -536,7 +536,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
     LPF ALTER_AREA_CONTAINER
     INT_VAR
       lockpick_strref = RESOLVE_STR_REF(@50018) // This container is sealed by an unknown force...
@@ -578,7 +578,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
   COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
        ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -612,7 +612,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1fd.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -679,7 +679,7 @@ BEGIN @1  // Test Your Mettle!
       OUTER_TEXT_SPRINT mapNameDest ~A7#1%grid%~
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
-      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set RUBIKON area type
+      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
 
       // updating grid label
       LPF GET_ANIMATION_OFFSET
