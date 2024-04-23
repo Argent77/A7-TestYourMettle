@@ -40,6 +40,12 @@ LANGUAGE ~French (translation: deratiseur)~
          ~A7-TestYourMettle/languages/english/mod.tra~
          ~A7-TestYourMettle/languages/french/setup.tra~
          ~A7-TestYourMettle/languages/french/mod.tra~
+LANGUAGE ~Simplified Chinese (translation: yoshimo0417)~
+         ~schinese~
+         ~A7-TestYourMettle/languages/english/setup.tra~
+         ~A7-TestYourMettle/languages/english/mod.tra~
+         ~A7-TestYourMettle/languages/schinese/setup.tra~
+         ~A7-TestYourMettle/languages/schinese/mod.tra~
 
 
 BEGIN @1  // Test Your Mettle!
