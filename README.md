@@ -28,7 +28,7 @@ This is the main component. It installs new areas, creatures and everything else
 
 ### 2. Reduce experience for killing monsters (requires the main component)
 
-As the monsters you may encounter in the dungeon are numerous, you will quickly gain a lot of experience that could make your party too powerful to enjoy the rest of the game. This component allows you to reduce XP from killing monsters by different amounts, or remove XP altogether. Unique monsters or creatures encountered outside the dungeon are not affected.
+As the monsters you may encounter in the dungeon are numerous, you will quickly gain a lot of experience that could make your party too powerful to enjoy the rest of the game. This component allows you to reduce XP from killing monsters by different amounts, or remove XP altogether. Unique monsters or creatures encountered outside the dungeon are not affected. Only monsters from this mod are affected.
 
 ### 3. Make "Spacewarp" available to stores (independent component)
 
