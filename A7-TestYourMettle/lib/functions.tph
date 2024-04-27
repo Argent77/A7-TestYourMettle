@@ -349,6 +349,8 @@ END
 
 // Adds a new definition to SPLPROT.2DA and returns its index
 DEFINE_ACTION_FUNCTION ADD_SPLPROT_ENTRY
+INT_VAR
+  add_prefix  = 1   // whether to prefix the label by row number
 STR_VAR
   label       = ~~  // optional entry label (value of first column)
   definition  = ~~  // definition without label
@@ -384,7 +386,11 @@ BEGIN
             TEXT_SPRINT label ~%label%          ~
             INNER_PATCH_SAVE label ~%label%~ BEGIN DELETE_BYTES 10 (BUFFER_LENGTH - 10) END
           END
+          PATCH_IF (add_prefix) BEGIN
+            SPRINT label ~%index%_%label%~
+          END
           INSERT_2DA_ROW index numCols ~%label% %definition%~
+          PRETTY_PRINT_2DA
         END
       END
     BUT_ONLY IF_EXISTS

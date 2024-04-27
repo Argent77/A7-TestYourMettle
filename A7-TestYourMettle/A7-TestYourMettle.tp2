@@ -1040,7 +1040,7 @@ BEGIN @1  // Test Your Mettle!
     // Using area type check via splprot
     LAF ADD_SPLPROT_ENTRY
     STR_VAR
-      label = ~NOTRUBIKON~
+      label = ~AREATYPE!=EXTRAPLANAR~
       definition = EVAL ~0x106      %area_type_id%        9~
     RET
       index
