@@ -6,7 +6,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-30000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -18,7 +18,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-60000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -30,7 +30,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-90000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -42,7 +42,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-120000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -54,7 +54,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-150000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -66,7 +66,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-180000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -78,7 +78,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-210000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -90,7 +90,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-240000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -102,7 +102,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-270000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -114,7 +114,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-300000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -126,7 +126,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-330000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -138,7 +138,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-360000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -150,7 +150,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-390000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -162,7 +162,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-420000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -174,7 +174,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-450000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -186,7 +186,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-480000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -198,7 +198,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-510000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -210,7 +210,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-540000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -222,7 +222,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-570000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -234,7 +234,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-600000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -246,7 +246,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-630000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -258,7 +258,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-660000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -270,7 +270,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-690000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -282,7 +282,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-720000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)
@@ -293,7 +293,7 @@ IF
 THEN
   RESPONSE #100
     CutSceneId(Myself)
-    ForceSpell("Imoen2",SAREVOK_SOULSTEAL)
+    ForceSpellRES("a7#fx37","Imoen2")
     AddXPObject("Imoen2",-750000)
     Wait(5)
     StartCutSceneEx("a7#ct02x",TRUE)

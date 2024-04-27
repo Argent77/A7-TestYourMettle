@@ -363,13 +363,22 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#sp01b.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.bmp~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx37.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#deth.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#deth.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#prot.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#prot.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx02.wav~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx03.wav~ ~override~
+
+  COPY ~%MOD_FOLDER%/spells/a7#fx37.spl~ ~override~
+    SAY NAME1 ~[Soul Stealing Fx]~
 
   COPY ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
     SAY UNIDENTIFIED_DESC @50017  // Lightning Bolt description...
 
   COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
     SAY NAME1 @50024  // Produce Flame
-    SAY NAME2 @50024  // Produce Flame
 
   COPY ~%MOD_FOLDER%/spells/a7#pain.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
