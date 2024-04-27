@@ -517,25 +517,33 @@ BEGIN @1  // Test Your Mettle!
   // *** Areas ***
   // *************
 
-  // Adding new area type "A7_RUBIKON"
+  // Adding new area type "EXTRAPLANAR"
   OUTER_SET area_type_id = 512
-  OUTER_TEXT_SPRINT area_type_name ~A7_RUBIKON~
+  OUTER_TEXT_SPRINT area_type_name ~EXTRAPLANAR~
   COPY_EXISTING ~areatype.ids~ ~override~
     COUNT_2DA_ROWS 2 numRows
     SET id = 1
-    FOR (row = 0; row < numRows; ++row) BEGIN
+    SET match = 0
+    FOR (row = 0; row < numRows && NOT match; ++row) BEGIN
       READ_2DA_ENTRY row 0 2 value
+      READ_2DA_ENTRY row 1 2 name
       PATCH_IF (IS_AN_INT ~value~) BEGIN
-        PATCH_IF (value > id) BEGIN SET id = value END
+        SET id = (value > id) ? value : id
+        SET match = (~%name%~ STRING_EQUAL ~%area_type_name%~)
+        PATCH_IF (match) BEGIN
+          SET area_type_id = value
+        END
       END
     END
-    FOR (value = BIT0 ; value < BIT16 ; value <<= 1) BEGIN
-      PATCH_IF (value > id) BEGIN
-        SET area_type_id = value
-        SET value = BIT16
+    PATCH_IF (NOT match) BEGIN
+      FOR (value = BIT0 ; value < BIT16 ; value <<= 1) BEGIN
+        PATCH_IF (value > id) BEGIN
+          SET area_type_id = value
+          SET value = BIT16
+        END
       END
+      INSERT_2DA_ROW numRows 2 ~%area_type_id% %area_type_name%~
     END
-    INSERT_2DA_ROW numRows 2 ~%area_type_id% %area_type_name%~
 
   // Generic stuff
   COPY ~%MOD_FOLDER%/sounds/a7#slnt.wav~ ~override~
@@ -551,7 +559,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     LPF ALTER_AREA_CONTAINER
     INT_VAR
       lockpick_strref = RESOLVE_STR_REF(@50018) // This container is sealed by an unknown force...
@@ -563,6 +571,14 @@ BEGIN @1  // Test Your Mettle!
       info_point = RESOLVE_STR_REF(@50019)  // This construct of spherical design appears to be...
     STR_VAR
       region_name = ~info-orb~
+    END
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
     END
 
     READ_LONG 0xbc ofsSongs
@@ -593,7 +609,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
   COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
        ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -619,6 +635,14 @@ BEGIN @1  // Test Your Mettle!
         SAY (ofsMaps + 0x34 + 0x04) @50010  // Control Center
       END
     END
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
+    END
 
   // Disintegrated room
   COMPILE ~%MOD_FOLDER%/scripts/a7#1fd.baf~
@@ -627,7 +651,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1fd.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -644,9 +668,18 @@ BEGIN @1  // Test Your Mettle!
       END
     END
 
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
+    END
+
     LPF GET_TRIGGER_OFFSET
-    STR_VAR name = ~Portal Info~
-    RET offset
+      STR_VAR name = ~Portal Info~
+      RET offset
     END
     PATCH_IF (offset > 0) BEGIN
       SAY (offset + 0x64) @50003  // This portal seems to be the source of the devil invasion....
@@ -694,7 +727,16 @@ BEGIN @1  // Test Your Mettle!
       OUTER_TEXT_SPRINT mapNameDest ~A7#1%grid%~
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
-      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
+
+      // setting area type variable
+      LPF fj_are_structure
+        INT_VAR
+          fj_variable_value = 1
+        STR_VAR
+          fj_structure_type = ~variable~
+          fj_name           = ~A7_RUBIKON~
+      END
 
       // updating grid label
       LPF GET_ANIMATION_OFFSET
