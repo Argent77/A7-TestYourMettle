@@ -1,0 +1,10 @@
+// Cutscene: Door opens to the Boss Chamber (part 1)
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    CreateCreature("a7#ctspy",[690.408],0)
+    StartCutSceneEx("a7#ct10b",TRUE)
+END

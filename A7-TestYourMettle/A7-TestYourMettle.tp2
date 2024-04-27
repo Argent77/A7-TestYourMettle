@@ -696,10 +696,11 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#1gde.baf~
           ~%MOD_FOLDER%/scripts/a7#1gds.baf~
           ~%MOD_FOLDER%/scripts/a7#1gdw.baf~
-          ~%MOD_FOLDER%/scripts/a7#ward.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt1.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt2.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt3.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct10a.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct10b.baf~
 
   ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1g[1-3].*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
@@ -715,6 +716,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/areas/a7#1g1.ini~ ~override~
        ~%MOD_FOLDER%/areas/a7#1g2.ini~ ~override~
        ~%MOD_FOLDER%/areas/a7#1g3.ini~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#ctspy.cre~ ~override~
 
   OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
     OUTER_SET x = grid REM 8

@@ -1,0 +1,84 @@
+// Cutscene: Door opens to the Boss Chamber (part 2)
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("a7#cutspy")
+    Wait(1)
+    MoveViewObject(Myself,VERY_FAST)
+    Wait(3)
+    TakePartyItemAll("a7#ward")
+    DestroyItem("a7#ward")
+    OpenDoor("NorthDoor")
+    TriggerActivation("ExitWZ",TRUE)
+    AmbientActivate("A7#1xDN",FALSE)
+    Wait(5)
+    MoveViewObject(Player1,INSTANT)
+    EndCutSceneMode()
+    DestroySelf()
+END
+
+IF
+  !HasItem("a7#ward",Player2)
+  !HasItem("a7#ward",Player3)
+  !HasItem("a7#ward",Player4)
+  !HasItem("a7#ward",Player5)
+  !HasItem("a7#ward",Player6)
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    Wait(1)
+    DisplayStringHead(Player1, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player1)
+END
+
+IF
+  HasItem("a7#ward",Player2)
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)
+    Wait(1)
+    DisplayStringHead(Player2, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player2)
+END
+
+IF
+  HasItem("a7#ward",Player3)
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)
+    Wait(1)
+    DisplayStringHead(Player3, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player3)
+END
+
+IF
+  HasItem("a7#ward",Player4)
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)
+    Wait(1)
+    DisplayStringHead(Player4, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player4)
+END
+
+IF
+  HasItem("a7#ward",Player5)
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)
+    Wait(1)
+    DisplayStringHead(Player5, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player5)
+END
+
+IF
+  HasItem("a7#ward",Player6)
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    Wait(1)
+    DisplayStringHead(Player6, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
+    CreateVisualEffectObject("spfirepi",Player6)
+END
