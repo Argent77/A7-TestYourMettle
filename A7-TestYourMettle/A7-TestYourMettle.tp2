@@ -9,6 +9,7 @@ ALWAYS
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/a7#anim_slots.tph~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   OUTER_SET IS_PATCH25 = (FILE_EXISTS_IN_GAME ~bdcutid.cre~) ? 1 : 0
 END
@@ -89,34 +90,25 @@ BEGIN @1  // Test Your Mettle!
     ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
-    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7300 slotMax = 0x7400 RET slot END
-    ACTION_IF (slot < 0) BEGIN
-      LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 slotMax = 0x8000 RET slot END
-    END
-    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-    COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
+    LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster~ symbol RET slot ini_file animate_entry END
+    COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%ini_file%~
+    APPEND ~ANIMATE.IDS~ ~%animate_entry%~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
-    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
   END
 
   // Gelugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/gelugon/a7#mrav2.bmp~ ~override~
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7300 slotMax = 0x7400 RET slot END
-  ACTION_IF (slot < 0) BEGIN
-    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 slotMax = 0x8000 RET slot END
-  END
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%hexNumber%.ini~
+  LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster~ symbol = ~A7_RAVER_BLUE~ RET slot ini_file animate_entry END
+  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%ini_file%~
   OUTER_SET slot_gelugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_RAVER_BLUE~
+  APPEND ~ANIMATE.IDS~ ~%animate_entry%~
 
   // Black Cornugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/a7#mcor2.bmp~ ~override~
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe0e0 RET slot END
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%hexNumber%.ini~
-  OUTER_SET slot_cornugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_CORNUGON_BLACK~
+  LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster_icewind~ symbol = ~A7_CORNUGON_BLACK~ RET slot ini_file animate_entry END
+  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%ini_file%~
+  OUTER_SET slot_cornugon = slot    // save animation slot number for later
+  APPEND ~ANIMATE.IDS~ ~%animate_entry%~
 
   // Abishai animations
   ACTION_FOR_EACH folder IN ~abishai_black~ ~abishai_green~ ~abishai_red~ BEGIN

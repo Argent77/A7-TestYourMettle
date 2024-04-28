@@ -1,0 +1,1091 @@
+/*
+ * FIND_FREE_ANIMATION_SLOT - A function that returns a free animation slot of the given type.
+ * Author: Argent77 
+ * Licence: public domain
+ *
+ * Version: 1.0
+ * Date: 2024-04-29
+ */
+
+/**
+ * This function attempts to determine the first free animation slot matching the given parameters
+ * and returns the animation slot index, associated INI filename and optional ANIMATE.IDS definition.
+ * It can be called as action function or patch function.
+ *
+ * STR_VAR type           (Mandatory unless "slot_index" is specified) Name of the requested animation
+ *                        type. The following names are supported:
+ *                          effect                  (animation_type = 0000)
+ *                          monster_quadrant        (animation_type = 1000)
+ *                          monster_multi           (animation_type = 1000)
+ *                          multi_new               (animation_type = 1000)
+ *                          monster_layered_spell   (animation_type = 2000)
+ *                          monster_ankheg          (animation_type = 3000)
+ *                          town_static             (animation_type = 4000)
+ *                          character               (animation_type = 5000)
+ *                          character_old           (animation_type = 5000)
+ *                          monster                 (animation_type = 7000)
+ *                          monster_old             (animation_type = 7000)
+ *                          monster_layered         (animation_type = 8000)
+ *                          monster_large           (animation_type = 9000)
+ *                          monster_large16         (animation_type = a000)
+ *                          ambient_static          (animation_type = b000)
+ *                          ambient                 (animation_type = c000)
+ *                          flying                  (animation_type = d000)
+ *                          monster_icewind         (animation_type = e000)
+ *                          monster_planescape      (animation_type = f000, PSTEE only)
+ *                        Note: This parameter is ignored if "slot_index" is specified.
+ *
+ * STR_VAR symbol         (Optional) Symbolic name of the animation for ANIMATE.IDS.
+ *                        Specify this value to retrieve a fully configured entry in the 
+ *                        "animate_entry" parameter that can be added to ANIMATE.IDS.
+ *
+ * INT_VAR slot_index     (Optional unless "type" is omitted) This parameter can be used in place
+ *                        of parameter "type" to request an animation type by their slot index.
+ *                        This parameter may contain any positive number between 0 and 0xffff.
+ *                        The function attempts to determine the associated animation type.
+ *                        Important:
+ *                        You have to specify a valid slot index for ranges that are used by
+ *                        multiple animation types.
+ *                        Example: slot_index=0x7000 resolves to "monster_old" but slot_index=0x7300
+ *                        resolves to "monster" instead.
+ *
+ * INT_VAR min_index      (Optional) Specifies the minimum index of a free slot to  consider.
+ *                        Specifying a value that is greater than the supported slot range for the
+ *                        requested animation type results in a failed operation.
+ *
+ * INT_VAR silent         (Optional) Specify a non-zero value to suppress information or warning
+ *                        messages.
+ *
+ * RET slot               A free animation slot in the range supported by the requested animation
+ *                        type. Returns -1 if a free slot could not be determined.
+ *
+ * RET ini_file           Filename of the INI file that is associated with the returned animation
+ *                        slot. Returns an empty string if a free slot could not be determined.
+ *
+ * RET animate_entry      A fully configured ANIMATE.IDS entry (number and symbolic name) if the
+ *                        optional parameter "symbol" is specified and a free animation slot could
+ *                        be determined. Returns an empty string otherwise.
+ */
+DEFINE_DIMORPHIC_FUNCTION FIND_FREE_ANIMATION_SLOT
+INT_VAR
+  slot_index  = BNOT 0
+  min_index   = BNOT 0
+  silent      = 0
+STR_VAR
+  type        = ~~
+  symbol      = ~~
+RET
+  slot
+  ini_file
+  animate_entry
+BEGIN
+  OUTER_SET slot = BNOT 0
+  OUTER_SPRINT ini_file ~~
+  OUTER_SPRINT animate_entry ~~
+
+  LAF a7#__trim_string STR_VAR string = EVAL ~%type%~ RET type = string END
+  LAF a7#__trim_string INT_VAR normalize = 1 STR_VAR string = EVAL ~%symbol%~ RET symbol = string END
+
+  // Evaluating parameters
+  ACTION_IF (slot_index >= 0) BEGIN
+    // determining animation type by slot index
+    OUTER_SPRINT type ~~
+    OUTER_SET match = 0
+    ACTION_PHP_EACH a7#slot_types AS name => _ BEGIN
+      ACTION_IF (NOT match) BEGIN
+        OUTER_SET count = $a7#animation_slots(~%name%~ ~count~)
+        OUTER_FOR (i = 0; i < count; ++i) BEGIN
+          OUTER_SET slot_idx = $a7#animation_slots(~%name%~ ~%i%~ ~index~)
+          OUTER_SET slot_size = $a7#animation_slots(~%name%~ ~%i%~ ~size~)
+          ACTION_IF (slot_index >= slot_idx && slot_index < slot_idx + slot_size) BEGIN
+            OUTER_SPRINT type ~%name%~
+            OUTER_SET match = 1
+            OUTER_SET i = count
+          END
+        END
+      END
+    END
+  END ELSE ACTION_IF (NOT ~%type%~ STR_EQ ~~) BEGIN
+    // evaluating specified animation type
+    ACTION_TO_LOWER ~type~
+    OUTER_SET match = 0
+    ACTION_PHP_EACH a7#slot_types AS name => _ BEGIN
+      OUTER_SET match = match || (~%name%~ STRING_EQUAL ~%type%~)
+    END
+    ACTION_IF (NOT match) BEGIN
+      OUTER_SPRINT type ~~
+    END
+  END
+
+  // Evaluating animation type
+  OUTER_SET is_compatible = 1
+  ACTION_IF (~%type%~ STR_EQ ~~) BEGIN
+    OUTER_SET is_compatible = 0
+    ACTION_IF (NOT silent) BEGIN
+      WARN ~WARNING: Animation type could not be determined~
+    END
+  END
+
+  ACTION_IF (~%type%~ STR_EQ ~monster_planescape~ && NOT GAME_IS ~pstee~) BEGIN
+    OUTER_SET is_compatible = 0
+    ACTION_IF (NOT silent) BEGIN
+      WARN ~WARNING: Animation type not supported by this game: %type%~
+    END
+  END
+
+  // Finding free slot
+  ACTION_IF (is_compatible) BEGIN
+    OUTER_SET is_ee20 = FILE_EXISTS ~engine.lua~
+
+    // scanning for free slot
+    OUTER_SET count = $a7#animation_slots(~%type%~ ~count~)
+    OUTER_FOR (range_idx = 0; range_idx < count && slot < 0; ++range_idx) BEGIN
+      OUTER_SET slot_ofs = $a7#animation_slots(~%type%~ ~%range_idx%~ ~index~)
+      OUTER_SET slot_size = $a7#animation_slots(~%type%~ ~%range_idx%~ ~size~)
+      ACTION_IF (min_index < slot_ofs + slot_size) BEGIN
+        OUTER_FOR (i = 0; i < slot_size && slot < 0; ++i) BEGIN
+          OUTER_SET slot_idx = slot_ofs + i
+          ACTION_IF (slot_idx >= min_index) BEGIN
+            OUTER_PATCH ~~ BEGIN LOOKUP_IDS_SYMBOL_OF_INT name ~animate~ slot_idx END
+            OUTER_SET is_free = IS_AN_INT ~name~
+
+            ACTION_IF (is_free && is_ee20) BEGIN
+              // additional check for associated INI file
+              LAF a7#__to_hex_number
+                INT_VAR
+                  value = slot_idx
+                  minDigits = 4
+                RET
+                  hexNumber
+              END
+              OUTER_SET is_free = NOT FILE_EXISTS_IN_GAME ~%hexNumber%.ini~
+            END
+
+            ACTION_IF (is_free) BEGIN
+              OUTER_SET slot = slot_idx
+              LAF a7#__to_hex_number INT_VAR value = slot minDigits = 4 RET hexNumber END
+              OUTER_SPRINT ini_file ~%hexNumber%.ini~
+              ACTION_IF (NOT ~%symbol%~ STR_EQ ~~) BEGIN
+                OUTER_SPRINT animate_entry "0x%hexNumber% %symbol%"
+              END
+            END
+          END
+        END
+      END
+    END
+  END
+END
+
+
+// Used internally to return a hexadecimal representation of a decimal number.
+DEFINE_DIMORPHIC_FUNCTION a7#__to_hex_number
+INT_VAR
+  value     = 0 // Decimal number to convert
+  minDigits = 1 // Min. number of hexadecimal digits to return (not counting sign)
+  prefix    = 0 // Indicates whether to return the hexadecimal number with the "0x" prefix
+  signed    = 1 // Indicates whether "value" is treated as a signed number
+  upperCase = 0 // Indicates whether letters in the returned hexadecimal number should be uppercase
+RET
+  hexNumber     // Hexadecimal number as string
+BEGIN
+  ACTION_IF (minDigits < 1) BEGIN OUTER_SET minDigits = 1 END
+  ACTION_IF (minDigits > 8) BEGIN OUTER_SET minDigits = 8 END
+  OUTER_TEXT_SPRINT hexNumber ~~
+  ACTION_DEFINE_ARRAY digit BEGIN ~0~ ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ END
+
+  ACTION_IF (signed && value < 0) BEGIN
+    OUTER_SET isSigned = 1
+    OUTER_SET value = 0 - value
+  END ELSE BEGIN
+    OUTER_SET isSigned = 0
+  END
+
+  OUTER_WHILE (value != 0) BEGIN
+    OUTER_SET curDigit = value BAND 0xf
+    OUTER_SET value = value BLSR 4
+    OUTER_TEXT_SPRINT hexDigit $EVAL digit(~%curDigit%~)
+    OUTER_TEXT_SPRINT hexNumber ~%hexDigit%%hexNumber%~
+  END
+
+  OUTER_WHILE (STRING_LENGTH ~%hexNumber%~ < minDigits) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~0%hexNumber%~
+  END
+
+  ACTION_IF (upperCase) BEGIN
+    ACTION_TO_UPPER ~hexNumber~
+  END
+
+  ACTION_IF (prefix) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~0x%hexNumber%~
+  END
+
+  ACTION_IF (isSigned) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~-%hexNumber%~
+  END
+END
+
+
+// Used internally to trim whitespace at the beginning and end of the given string.
+// Optionally, spaces inside the string are replaced by undescores.
+DEFINE_DIMORPHIC_FUNCTION a7#__trim_string
+INT_VAR
+  normalize = 0
+STR_VAR
+  string = ~~
+RET
+  string
+BEGIN
+  OUTER_PATCH_SAVE string ~%string%~ BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]+~ ~~
+    REPLACE_TEXTUALLY ~[ %TAB%]+$~ ~~
+    PATCH_IF (normalize) BEGIN
+      REPLACE_TEXTUALLY ~[ %TAB%]~ ~_~
+    END
+  END
+END
+
+
+// This associative array maps default slot type values to their respective slot types as symbolic names
+ACTION_DEFINE_ASSOCIATIVE_ARRAY ~a7#slot_types~ BEGIN
+  ~effect~                => 0x0000
+  ~monster_quadrant~      => 0x1000
+  ~monster_multi~         => 0x1000
+  ~multi_new~             => 0x1000
+  ~monster_layered_spell~ => 0x2000
+  ~monster_ankheg~        => 0x3000
+  ~town_static~           => 0x4000
+  ~character~             => 0x5000
+  ~character_old~         => 0x5000
+  ~monster~               => 0x7000
+  ~monster_old~           => 0x7000
+  ~monster_layered~       => 0x8000
+  ~monster_large~         => 0x9000
+  ~monster_large16~       => 0xa000
+  ~ambient_static~        => 0xb000
+  ~ambient~               => 0xc000
+  ~flying~                => 0xd000
+  ~monster_icewind~       => 0xe000
+  ~monster_planescape~    => 0xf000
+END
+
+// This associative array maps animation slot ranges to their respective types
+ACTION_DEFINE_ASSOCIATIVE_ARRAY ~a7#animation_slots~ BEGIN
+  // type 0x0000
+  ~effect~, ~count~                     => 1
+  ~effect~, ~0~, ~index~                => 0x0000
+  ~effect~, ~0~, ~size~                 => 0x1000
+
+  // type 0x1000
+  ~monster_quadrant~, ~count~           => 1
+  ~monster_quadrant~, ~0~, ~index~      => 0x1000
+  ~monster_quadrant~, ~0~, ~size~       => 0x200
+
+  // type 0x1000
+  ~monster_multi~, ~count~              => 2
+  ~monster_multi~, ~0~, ~index~         => 0x1200
+  ~monster_multi~, ~0~, ~size~          => 0x100
+  ~monster_multi~, ~1~, ~index~         => 0x1400
+  ~monster_multi~, ~1~, ~size~          => 0xc00
+
+  // type 0x1000
+  ~multi_new~, ~count~                  => 1
+  ~multi_new~, ~0~, ~index~             => 0x1300
+  ~multi_new~, ~0~, ~size~              => 0x100
+
+  // type 0x2000
+  ~monster_layered_spell~, ~count~      => 1
+  ~monster_layered_spell~, ~0~, ~index~ => 0x2000
+  ~monster_layered_spell~, ~0~, ~size~  => 0x1000
+
+  // type 0x3000
+  ~monster_ankheg~, ~count~             => 1
+  ~monster_ankheg~, ~0~, ~index~        => 0x3000
+  ~monster_ankheg~, ~0~, ~size~         => 0x1000
+
+  // type 0x4000
+  ~town_static~, ~count~                => 1
+  ~town_static~, ~0~, ~index~           => 0x4000
+  ~town_static~, ~0~, ~size~            => 0x1000
+
+  // type 0x5000/0x6000
+  ~character~, ~count~                  => 4
+  ~character~, ~0~, ~index~             => 0x5000
+  ~character~, ~0~, ~size~              => 0x400
+  ~character~, ~1~, ~index~             => 0x5500
+  ~character~, ~1~, ~size~              => 0x100
+  ~character~, ~2~, ~index~             => 0x6000
+  ~character~, ~2~, ~size~              => 0x400
+  ~character~, ~3~, ~index~             => 0x6500
+  ~character~, ~3~, ~size~              => 0x100
+
+  // type 0x5000/0x6000
+  ~character_old~, ~count~              => 4
+  ~character_old~, ~0~, ~index~         => 0x5400
+  ~character_old~, ~0~, ~size~          => 0x100
+  ~character_old~, ~1~, ~index~         => 0x5600
+  ~character_old~, ~1~, ~size~          => 0xa00
+  ~character_old~, ~2~, ~index~         => 0x6400
+  ~character_old~, ~2~, ~size~          => 0x100
+  ~character_old~, ~3~, ~index~         => 0x6600
+  ~character_old~, ~3~, ~size~          => 0xa00
+
+  // type 0x7000
+  ~monster~, ~count~                    => 178
+  ~monster~, ~0~, ~index~               => 0x7002
+  ~monster~, ~0~, ~size~                => 0xe
+  ~monster~, ~1~, ~index~               => 0x7012
+  ~monster~, ~1~, ~size~                => 0xe
+  ~monster~, ~2~, ~index~               => 0x7022
+  ~monster~, ~2~, ~size~                => 0xe
+  ~monster~, ~3~, ~index~               => 0x7032
+  ~monster~, ~3~, ~size~                => 0xe
+  ~monster~, ~4~, ~index~               => 0x7042
+  ~monster~, ~4~, ~size~                => 0xe
+  ~monster~, ~5~, ~index~               => 0x7052
+  ~monster~, ~5~, ~size~                => 0xe
+  ~monster~, ~6~, ~index~               => 0x7062
+  ~monster~, ~6~, ~size~                => 0xe
+  ~monster~, ~7~, ~index~               => 0x7072
+  ~monster~, ~7~, ~size~                => 0xe
+  ~monster~, ~8~, ~index~               => 0x7082
+  ~monster~, ~8~, ~size~                => 0xe
+  ~monster~, ~9~, ~index~               => 0x7092
+  ~monster~, ~9~, ~size~                => 0xe
+  ~monster~, ~10~, ~index~              => 0x70a2
+  ~monster~, ~10~, ~size~               => 0xe
+  ~monster~, ~11~, ~index~              => 0x70b2
+  ~monster~, ~11~, ~size~               => 0xe
+  ~monster~, ~12~, ~index~              => 0x70c2
+  ~monster~, ~12~, ~size~               => 0xe
+  ~monster~, ~13~, ~index~              => 0x70d2
+  ~monster~, ~13~, ~size~               => 0xe
+  ~monster~, ~14~, ~index~              => 0x70e2
+  ~monster~, ~14~, ~size~               => 0xe
+  ~monster~, ~15~, ~index~              => 0x70f2
+  ~monster~, ~15~, ~size~               => 0xe
+  ~monster~, ~16~, ~index~              => 0x7102
+  ~monster~, ~16~, ~size~               => 0xe
+  ~monster~, ~17~, ~index~              => 0x7112
+  ~monster~, ~17~, ~size~               => 0xe
+  ~monster~, ~18~, ~index~              => 0x7122
+  ~monster~, ~18~, ~size~               => 0xe
+  ~monster~, ~19~, ~index~              => 0x7132
+  ~monster~, ~19~, ~size~               => 0xe
+  ~monster~, ~20~, ~index~              => 0x7142
+  ~monster~, ~20~, ~size~               => 0xe
+  ~monster~, ~21~, ~index~              => 0x7152
+  ~monster~, ~21~, ~size~               => 0xe
+  ~monster~, ~22~, ~index~              => 0x7162
+  ~monster~, ~22~, ~size~               => 0xe
+  ~monster~, ~23~, ~index~              => 0x7172
+  ~monster~, ~23~, ~size~               => 0xe
+  ~monster~, ~24~, ~index~              => 0x7182
+  ~monster~, ~24~, ~size~               => 0xe
+  ~monster~, ~25~, ~index~              => 0x7192
+  ~monster~, ~25~, ~size~               => 0xe
+  ~monster~, ~26~, ~index~              => 0x71a2
+  ~monster~, ~26~, ~size~               => 0xe
+  ~monster~, ~27~, ~index~              => 0x71b2
+  ~monster~, ~27~, ~size~               => 0xe
+  ~monster~, ~28~, ~index~              => 0x71c2
+  ~monster~, ~28~, ~size~               => 0xe
+  ~monster~, ~29~, ~index~              => 0x71d2
+  ~monster~, ~29~, ~size~               => 0xe
+  ~monster~, ~30~, ~index~              => 0x71e2
+  ~monster~, ~30~, ~size~               => 0xe
+  ~monster~, ~31~, ~index~              => 0x71f2
+  ~monster~, ~31~, ~size~               => 0xe
+  ~monster~, ~32~, ~index~              => 0x7204
+  ~monster~, ~32~, ~size~               => 0xc
+  ~monster~, ~33~, ~index~              => 0x7214
+  ~monster~, ~33~, ~size~               => 0xc
+  ~monster~, ~34~, ~index~              => 0x7224
+  ~monster~, ~34~, ~size~               => 0xc
+  ~monster~, ~35~, ~index~              => 0x7234
+  ~monster~, ~35~, ~size~               => 0xc
+  ~monster~, ~36~, ~index~              => 0x7244
+  ~monster~, ~36~, ~size~               => 0xc
+  ~monster~, ~37~, ~index~              => 0x7254
+  ~monster~, ~37~, ~size~               => 0xc
+  ~monster~, ~38~, ~index~              => 0x7264
+  ~monster~, ~38~, ~size~               => 0xc
+  ~monster~, ~39~, ~index~              => 0x7274
+  ~monster~, ~39~, ~size~               => 0xc
+  ~monster~, ~40~, ~index~              => 0x7284
+  ~monster~, ~40~, ~size~               => 0xc
+  ~monster~, ~41~, ~index~              => 0x7294
+  ~monster~, ~41~, ~size~               => 0xc
+  ~monster~, ~42~, ~index~              => 0x72a4
+  ~monster~, ~42~, ~size~               => 0xc
+  ~monster~, ~43~, ~index~              => 0x72b4
+  ~monster~, ~43~, ~size~               => 0xc
+  ~monster~, ~44~, ~index~              => 0x72c4
+  ~monster~, ~44~, ~size~               => 0xc
+  ~monster~, ~45~, ~index~              => 0x72d4
+  ~monster~, ~45~, ~size~               => 0xc
+  ~monster~, ~46~, ~index~              => 0x72e4
+  ~monster~, ~46~, ~size~               => 0xc
+  ~monster~, ~47~, ~index~              => 0x72f4
+  ~monster~, ~47~, ~size~               => 0xc
+  ~monster~, ~48~, ~index~              => 0x7300
+  ~monster~, ~48~, ~size~               => 0x100
+  ~monster~, ~49~, ~index~              => 0x7403
+  ~monster~, ~49~, ~size~               => 0xd
+  ~monster~, ~50~, ~index~              => 0x7413
+  ~monster~, ~50~, ~size~               => 0xd
+  ~monster~, ~51~, ~index~              => 0x7423
+  ~monster~, ~51~, ~size~               => 0xd
+  ~monster~, ~52~, ~index~              => 0x7433
+  ~monster~, ~52~, ~size~               => 0xd
+  ~monster~, ~53~, ~index~              => 0x7443
+  ~monster~, ~53~, ~size~               => 0xd
+  ~monster~, ~54~, ~index~              => 0x7453
+  ~monster~, ~54~, ~size~               => 0xd
+  ~monster~, ~55~, ~index~              => 0x7463
+  ~monster~, ~55~, ~size~               => 0xd
+  ~monster~, ~56~, ~index~              => 0x7473
+  ~monster~, ~56~, ~size~               => 0xd
+  ~monster~, ~57~, ~index~              => 0x7483
+  ~monster~, ~57~, ~size~               => 0xd
+  ~monster~, ~58~, ~index~              => 0x7493
+  ~monster~, ~58~, ~size~               => 0xd
+  ~monster~, ~59~, ~index~              => 0x74a3
+  ~monster~, ~59~, ~size~               => 0xd
+  ~monster~, ~60~, ~index~              => 0x74b3
+  ~monster~, ~60~, ~size~               => 0xd
+  ~monster~, ~61~, ~index~              => 0x74c3
+  ~monster~, ~61~, ~size~               => 0xd
+  ~monster~, ~62~, ~index~              => 0x74d3
+  ~monster~, ~62~, ~size~               => 0xd
+  ~monster~, ~63~, ~index~              => 0x74e3
+  ~monster~, ~63~, ~size~               => 0xd
+  ~monster~, ~64~, ~index~              => 0x74f3
+  ~monster~, ~64~, ~size~               => 0xd
+  ~monster~, ~65~, ~index~              => 0x7502
+  ~monster~, ~65~, ~size~               => 0xe
+  ~monster~, ~66~, ~index~              => 0x7512
+  ~monster~, ~66~, ~size~               => 0xe
+  ~monster~, ~67~, ~index~              => 0x7522
+  ~monster~, ~67~, ~size~               => 0xe
+  ~monster~, ~68~, ~index~              => 0x7532
+  ~monster~, ~68~, ~size~               => 0xe
+  ~monster~, ~69~, ~index~              => 0x7542
+  ~monster~, ~69~, ~size~               => 0xe
+  ~monster~, ~70~, ~index~              => 0x7552
+  ~monster~, ~70~, ~size~               => 0xe
+  ~monster~, ~71~, ~index~              => 0x7562
+  ~monster~, ~71~, ~size~               => 0xe
+  ~monster~, ~72~, ~index~              => 0x7572
+  ~monster~, ~72~, ~size~               => 0xe
+  ~monster~, ~73~, ~index~              => 0x7582
+  ~monster~, ~73~, ~size~               => 0xe
+  ~monster~, ~74~, ~index~              => 0x7592
+  ~monster~, ~74~, ~size~               => 0xe
+  ~monster~, ~75~, ~index~              => 0x75a2
+  ~monster~, ~75~, ~size~               => 0xe
+  ~monster~, ~76~, ~index~              => 0x75b2
+  ~monster~, ~76~, ~size~               => 0xe
+  ~monster~, ~77~, ~index~              => 0x75c2
+  ~monster~, ~77~, ~size~               => 0xe
+  ~monster~, ~78~, ~index~              => 0x75d2
+  ~monster~, ~78~, ~size~               => 0xe
+  ~monster~, ~79~, ~index~              => 0x75e2
+  ~monster~, ~79~, ~size~               => 0xe
+  ~monster~, ~80~, ~index~              => 0x75f2
+  ~monster~, ~80~, ~size~               => 0xe
+  ~monster~, ~81~, ~index~              => 0x7703
+  ~monster~, ~81~, ~size~               => 0xd
+  ~monster~, ~82~, ~index~              => 0x7713
+  ~monster~, ~82~, ~size~               => 0xd
+  ~monster~, ~83~, ~index~              => 0x7723
+  ~monster~, ~83~, ~size~               => 0xd
+  ~monster~, ~84~, ~index~              => 0x7733
+  ~monster~, ~84~, ~size~               => 0xd
+  ~monster~, ~85~, ~index~              => 0x7743
+  ~monster~, ~85~, ~size~               => 0xd
+  ~monster~, ~86~, ~index~              => 0x7753
+  ~monster~, ~86~, ~size~               => 0xd
+  ~monster~, ~87~, ~index~              => 0x7763
+  ~monster~, ~87~, ~size~               => 0xd
+  ~monster~, ~88~, ~index~              => 0x7773
+  ~monster~, ~88~, ~size~               => 0xd
+  ~monster~, ~89~, ~index~              => 0x7783
+  ~monster~, ~89~, ~size~               => 0xd
+  ~monster~, ~90~, ~index~              => 0x7793
+  ~monster~, ~90~, ~size~               => 0xd
+  ~monster~, ~91~, ~index~              => 0x77a3
+  ~monster~, ~91~, ~size~               => 0xd
+  ~monster~, ~92~, ~index~              => 0x77b3
+  ~monster~, ~92~, ~size~               => 0xd
+  ~monster~, ~93~, ~index~              => 0x77c3
+  ~monster~, ~93~, ~size~               => 0xd
+  ~monster~, ~94~, ~index~              => 0x77d3
+  ~monster~, ~94~, ~size~               => 0xd
+  ~monster~, ~95~, ~index~              => 0x77e3
+  ~monster~, ~95~, ~size~               => 0xd
+  ~monster~, ~96~, ~index~              => 0x77f3
+  ~monster~, ~96~, ~size~               => 0xd
+  ~monster~, ~97~, ~index~              => 0x7905
+  ~monster~, ~97~, ~size~               => 0xb
+  ~monster~, ~98~, ~index~              => 0x7915
+  ~monster~, ~98~, ~size~               => 0xb
+  ~monster~, ~99~, ~index~              => 0x7925
+  ~monster~, ~99~, ~size~               => 0xb
+  ~monster~, ~100~, ~index~             => 0x7935
+  ~monster~, ~100~, ~size~              => 0xb
+  ~monster~, ~101~, ~index~             => 0x7945
+  ~monster~, ~101~, ~size~              => 0xb
+  ~monster~, ~102~, ~index~             => 0x7955
+  ~monster~, ~102~, ~size~              => 0xb
+  ~monster~, ~103~, ~index~             => 0x7965
+  ~monster~, ~103~, ~size~              => 0xb
+  ~monster~, ~104~, ~index~             => 0x7975
+  ~monster~, ~104~, ~size~              => 0xb
+  ~monster~, ~105~, ~index~             => 0x7985
+  ~monster~, ~105~, ~size~              => 0xb
+  ~monster~, ~106~, ~index~             => 0x7995
+  ~monster~, ~106~, ~size~              => 0xb
+  ~monster~, ~107~, ~index~             => 0x79a5
+  ~monster~, ~107~, ~size~              => 0xb
+  ~monster~, ~108~, ~index~             => 0x79b5
+  ~monster~, ~108~, ~size~              => 0xb
+  ~monster~, ~109~, ~index~             => 0x79c5
+  ~monster~, ~109~, ~size~              => 0xb
+  ~monster~, ~110~, ~index~             => 0x79d5
+  ~monster~, ~110~, ~size~              => 0xb
+  ~monster~, ~111~, ~index~             => 0x79e5
+  ~monster~, ~111~, ~size~              => 0xb
+  ~monster~, ~112~, ~index~             => 0x79f5
+  ~monster~, ~112~, ~size~              => 0xb
+  ~monster~, ~113~, ~index~             => 0x7a05
+  ~monster~, ~113~, ~size~              => 0xb
+  ~monster~, ~114~, ~index~             => 0x7a15
+  ~monster~, ~114~, ~size~              => 0xb
+  ~monster~, ~115~, ~index~             => 0x7a25
+  ~monster~, ~115~, ~size~              => 0xb
+  ~monster~, ~116~, ~index~             => 0x7a35
+  ~monster~, ~116~, ~size~              => 0xb
+  ~monster~, ~117~, ~index~             => 0x7a45
+  ~monster~, ~117~, ~size~              => 0xb
+  ~monster~, ~118~, ~index~             => 0x7a55
+  ~monster~, ~118~, ~size~              => 0xb
+  ~monster~, ~119~, ~index~             => 0x7a65
+  ~monster~, ~119~, ~size~              => 0xb
+  ~monster~, ~120~, ~index~             => 0x7a75
+  ~monster~, ~120~, ~size~              => 0xb
+  ~monster~, ~121~, ~index~             => 0x7a85
+  ~monster~, ~121~, ~size~              => 0xb
+  ~monster~, ~122~, ~index~             => 0x7a95
+  ~monster~, ~122~, ~size~              => 0xb
+  ~monster~, ~123~, ~index~             => 0x7aa5
+  ~monster~, ~123~, ~size~              => 0xb
+  ~monster~, ~124~, ~index~             => 0x7ab5
+  ~monster~, ~124~, ~size~              => 0xb
+  ~monster~, ~125~, ~index~             => 0x7ac5
+  ~monster~, ~125~, ~size~              => 0xb
+  ~monster~, ~126~, ~index~             => 0x7ad5
+  ~monster~, ~126~, ~size~              => 0xb
+  ~monster~, ~127~, ~index~             => 0x7ae5
+  ~monster~, ~127~, ~size~              => 0xb
+  ~monster~, ~128~, ~index~             => 0x7af5
+  ~monster~, ~128~, ~size~              => 0xb
+  ~monster~, ~129~, ~index~             => 0x7b07
+  ~monster~, ~129~, ~size~              => 0x9
+  ~monster~, ~130~, ~index~             => 0x7b17
+  ~monster~, ~130~, ~size~              => 0x9
+  ~monster~, ~131~, ~index~             => 0x7b27
+  ~monster~, ~131~, ~size~              => 0x9
+  ~monster~, ~132~, ~index~             => 0x7b37
+  ~monster~, ~132~, ~size~              => 0x9
+  ~monster~, ~133~, ~index~             => 0x7b47
+  ~monster~, ~133~, ~size~              => 0x9
+  ~monster~, ~134~, ~index~             => 0x7b57
+  ~monster~, ~134~, ~size~              => 0x9
+  ~monster~, ~135~, ~index~             => 0x7b67
+  ~monster~, ~135~, ~size~              => 0x9
+  ~monster~, ~136~, ~index~             => 0x7b77
+  ~monster~, ~136~, ~size~              => 0x9
+  ~monster~, ~137~, ~index~             => 0x7b87
+  ~monster~, ~137~, ~size~              => 0x9
+  ~monster~, ~138~, ~index~             => 0x7b97
+  ~monster~, ~138~, ~size~              => 0x9
+  ~monster~, ~139~, ~index~             => 0x7ba7
+  ~monster~, ~139~, ~size~              => 0x9
+  ~monster~, ~140~, ~index~             => 0x7bb7
+  ~monster~, ~140~, ~size~              => 0x9
+  ~monster~, ~141~, ~index~             => 0x7bc7
+  ~monster~, ~141~, ~size~              => 0x9
+  ~monster~, ~142~, ~index~             => 0x7bd7
+  ~monster~, ~142~, ~size~              => 0x9
+  ~monster~, ~143~, ~index~             => 0x7be7
+  ~monster~, ~143~, ~size~              => 0x9
+  ~monster~, ~144~, ~index~             => 0x7bf7
+  ~monster~, ~144~, ~size~              => 0x9
+  ~monster~, ~145~, ~index~             => 0x7c02
+  ~monster~, ~145~, ~size~              => 0xe
+  ~monster~, ~146~, ~index~             => 0x7c12
+  ~monster~, ~146~, ~size~              => 0xe
+  ~monster~, ~147~, ~index~             => 0x7c22
+  ~monster~, ~147~, ~size~              => 0xe
+  ~monster~, ~148~, ~index~             => 0x7c32
+  ~monster~, ~148~, ~size~              => 0xe
+  ~monster~, ~149~, ~index~             => 0x7c42
+  ~monster~, ~149~, ~size~              => 0xe
+  ~monster~, ~150~, ~index~             => 0x7c52
+  ~monster~, ~150~, ~size~              => 0xe
+  ~monster~, ~151~, ~index~             => 0x7c62
+  ~monster~, ~151~, ~size~              => 0xe
+  ~monster~, ~152~, ~index~             => 0x7c72
+  ~monster~, ~152~, ~size~              => 0xe
+  ~monster~, ~153~, ~index~             => 0x7c82
+  ~monster~, ~153~, ~size~              => 0xe
+  ~monster~, ~154~, ~index~             => 0x7c92
+  ~monster~, ~154~, ~size~              => 0xe
+  ~monster~, ~155~, ~index~             => 0x7ca2
+  ~monster~, ~155~, ~size~              => 0xe
+  ~monster~, ~156~, ~index~             => 0x7cb2
+  ~monster~, ~156~, ~size~              => 0xe
+  ~monster~, ~157~, ~index~             => 0x7cc2
+  ~monster~, ~157~, ~size~              => 0xe
+  ~monster~, ~158~, ~index~             => 0x7cd2
+  ~monster~, ~158~, ~size~              => 0xe
+  ~monster~, ~159~, ~index~             => 0x7ce2
+  ~monster~, ~159~, ~size~              => 0xe
+  ~monster~, ~160~, ~index~             => 0x7cf2
+  ~monster~, ~160~, ~size~              => 0xe
+  ~monster~, ~161~, ~index~             => 0x7e02
+  ~monster~, ~161~, ~size~              => 0xe
+  ~monster~, ~162~, ~index~             => 0x7e12
+  ~monster~, ~162~, ~size~              => 0xe
+  ~monster~, ~163~, ~index~             => 0x7e22
+  ~monster~, ~163~, ~size~              => 0xe
+  ~monster~, ~164~, ~index~             => 0x7e32
+  ~monster~, ~164~, ~size~              => 0xe
+  ~monster~, ~165~, ~index~             => 0x7e42
+  ~monster~, ~165~, ~size~              => 0xe
+  ~monster~, ~166~, ~index~             => 0x7e52
+  ~monster~, ~166~, ~size~              => 0xe
+  ~monster~, ~167~, ~index~             => 0x7e62
+  ~monster~, ~167~, ~size~              => 0xe
+  ~monster~, ~168~, ~index~             => 0x7e72
+  ~monster~, ~168~, ~size~              => 0xe
+  ~monster~, ~169~, ~index~             => 0x7e82
+  ~monster~, ~169~, ~size~              => 0xe
+  ~monster~, ~170~, ~index~             => 0x7e92
+  ~monster~, ~170~, ~size~              => 0xe
+  ~monster~, ~171~, ~index~             => 0x7ea2
+  ~monster~, ~171~, ~size~              => 0xe
+  ~monster~, ~172~, ~index~             => 0x7eb2
+  ~monster~, ~172~, ~size~              => 0xe
+  ~monster~, ~173~, ~index~             => 0x7ec2
+  ~monster~, ~173~, ~size~              => 0xe
+  ~monster~, ~174~, ~index~             => 0x7ed2
+  ~monster~, ~174~, ~size~              => 0xe
+  ~monster~, ~175~, ~index~             => 0x7ee2
+  ~monster~, ~175~, ~size~              => 0xe
+  ~monster~, ~176~, ~index~             => 0x7ef2
+  ~monster~, ~176~, ~size~              => 0xe
+  ~monster~, ~177~, ~index~             => 0x7f00
+  ~monster~, ~177~, ~size~              => 0x100
+
+  // type 0x7000
+  ~monster_old~, ~count~       => 179
+  ~monster_old~, ~0~, ~index~           => 0x7000
+  ~monster_old~, ~0~, ~size~            => 0x2
+  ~monster_old~, ~1~, ~index~           => 0x7010
+  ~monster_old~, ~1~, ~size~            => 0x2
+  ~monster_old~, ~2~, ~index~           => 0x7020
+  ~monster_old~, ~2~, ~size~            => 0x2
+  ~monster_old~, ~3~, ~index~           => 0x7030
+  ~monster_old~, ~3~, ~size~            => 0x2
+  ~monster_old~, ~4~, ~index~           => 0x7040
+  ~monster_old~, ~4~, ~size~            => 0x2
+  ~monster_old~, ~5~, ~index~           => 0x7050
+  ~monster_old~, ~5~, ~size~            => 0x2
+  ~monster_old~, ~6~, ~index~           => 0x7060
+  ~monster_old~, ~6~, ~size~            => 0x2
+  ~monster_old~, ~7~, ~index~           => 0x7070
+  ~monster_old~, ~7~, ~size~            => 0x2
+  ~monster_old~, ~8~, ~index~           => 0x7080
+  ~monster_old~, ~8~, ~size~            => 0x2
+  ~monster_old~, ~9~, ~index~           => 0x7090
+  ~monster_old~, ~9~, ~size~            => 0x2
+  ~monster_old~, ~10~, ~index~          => 0x70a0
+  ~monster_old~, ~10~, ~size~           => 0x2
+  ~monster_old~, ~11~, ~index~          => 0x70b0
+  ~monster_old~, ~11~, ~size~           => 0x2
+  ~monster_old~, ~12~, ~index~          => 0x70c0
+  ~monster_old~, ~12~, ~size~           => 0x2
+  ~monster_old~, ~13~, ~index~          => 0x70d0
+  ~monster_old~, ~13~, ~size~           => 0x2
+  ~monster_old~, ~14~, ~index~          => 0x70e0
+  ~monster_old~, ~14~, ~size~           => 0x2
+  ~monster_old~, ~15~, ~index~          => 0x70f0
+  ~monster_old~, ~15~, ~size~           => 0x2
+  ~monster_old~, ~16~, ~index~          => 0x7100
+  ~monster_old~, ~16~, ~size~           => 0x2
+  ~monster_old~, ~17~, ~index~          => 0x7110
+  ~monster_old~, ~17~, ~size~           => 0x2
+  ~monster_old~, ~18~, ~index~          => 0x7120
+  ~monster_old~, ~18~, ~size~           => 0x2
+  ~monster_old~, ~19~, ~index~          => 0x7130
+  ~monster_old~, ~19~, ~size~           => 0x2
+  ~monster_old~, ~20~, ~index~          => 0x7140
+  ~monster_old~, ~20~, ~size~           => 0x2
+  ~monster_old~, ~21~, ~index~          => 0x7150
+  ~monster_old~, ~21~, ~size~           => 0x2
+  ~monster_old~, ~22~, ~index~          => 0x7160
+  ~monster_old~, ~22~, ~size~           => 0x2
+  ~monster_old~, ~23~, ~index~          => 0x7170
+  ~monster_old~, ~23~, ~size~           => 0x2
+  ~monster_old~, ~24~, ~index~          => 0x7180
+  ~monster_old~, ~24~, ~size~           => 0x2
+  ~monster_old~, ~25~, ~index~          => 0x7190
+  ~monster_old~, ~25~, ~size~           => 0x2
+  ~monster_old~, ~26~, ~index~          => 0x71a0
+  ~monster_old~, ~26~, ~size~           => 0x2
+  ~monster_old~, ~27~, ~index~          => 0x71b0
+  ~monster_old~, ~27~, ~size~           => 0x2
+  ~monster_old~, ~28~, ~index~          => 0x71c0
+  ~monster_old~, ~28~, ~size~           => 0x2
+  ~monster_old~, ~29~, ~index~          => 0x71d0
+  ~monster_old~, ~29~, ~size~           => 0x2
+  ~monster_old~, ~30~, ~index~          => 0x71e0
+  ~monster_old~, ~30~, ~size~           => 0x2
+  ~monster_old~, ~31~, ~index~          => 0x71f0
+  ~monster_old~, ~31~, ~size~           => 0x2
+  ~monster_old~, ~32~, ~index~          => 0x7200
+  ~monster_old~, ~32~, ~size~           => 0x4
+  ~monster_old~, ~33~, ~index~          => 0x7210
+  ~monster_old~, ~33~, ~size~           => 0x4
+  ~monster_old~, ~34~, ~index~          => 0x7220
+  ~monster_old~, ~34~, ~size~           => 0x4
+  ~monster_old~, ~35~, ~index~          => 0x7230
+  ~monster_old~, ~35~, ~size~           => 0x4
+  ~monster_old~, ~36~, ~index~          => 0x7240
+  ~monster_old~, ~36~, ~size~           => 0x4
+  ~monster_old~, ~37~, ~index~          => 0x7250
+  ~monster_old~, ~37~, ~size~           => 0x4
+  ~monster_old~, ~38~, ~index~          => 0x7260
+  ~monster_old~, ~38~, ~size~           => 0x4
+  ~monster_old~, ~39~, ~index~          => 0x7270
+  ~monster_old~, ~39~, ~size~           => 0x4
+  ~monster_old~, ~40~, ~index~          => 0x7280
+  ~monster_old~, ~40~, ~size~           => 0x4
+  ~monster_old~, ~41~, ~index~          => 0x7290
+  ~monster_old~, ~41~, ~size~           => 0x4
+  ~monster_old~, ~42~, ~index~          => 0x72a0
+  ~monster_old~, ~42~, ~size~           => 0x4
+  ~monster_old~, ~43~, ~index~          => 0x72b0
+  ~monster_old~, ~43~, ~size~           => 0x4
+  ~monster_old~, ~44~, ~index~          => 0x72c0
+  ~monster_old~, ~44~, ~size~           => 0x4
+  ~monster_old~, ~45~, ~index~          => 0x72d0
+  ~monster_old~, ~45~, ~size~           => 0x4
+  ~monster_old~, ~46~, ~index~          => 0x72e0
+  ~monster_old~, ~46~, ~size~           => 0x4
+  ~monster_old~, ~47~, ~index~          => 0x72f0
+  ~monster_old~, ~47~, ~size~           => 0x4
+  ~monster_old~, ~48~, ~index~          => 0x7400
+  ~monster_old~, ~48~, ~size~           => 0x3
+  ~monster_old~, ~49~, ~index~          => 0x7410
+  ~monster_old~, ~49~, ~size~           => 0x3
+  ~monster_old~, ~50~, ~index~          => 0x7420
+  ~monster_old~, ~50~, ~size~           => 0x3
+  ~monster_old~, ~51~, ~index~          => 0x7430
+  ~monster_old~, ~51~, ~size~           => 0x3
+  ~monster_old~, ~52~, ~index~          => 0x7440
+  ~monster_old~, ~52~, ~size~           => 0x3
+  ~monster_old~, ~53~, ~index~          => 0x7450
+  ~monster_old~, ~53~, ~size~           => 0x3
+  ~monster_old~, ~54~, ~index~          => 0x7460
+  ~monster_old~, ~54~, ~size~           => 0x3
+  ~monster_old~, ~55~, ~index~          => 0x7470
+  ~monster_old~, ~55~, ~size~           => 0x3
+  ~monster_old~, ~56~, ~index~          => 0x7480
+  ~monster_old~, ~56~, ~size~           => 0x3
+  ~monster_old~, ~57~, ~index~          => 0x7490
+  ~monster_old~, ~57~, ~size~           => 0x3
+  ~monster_old~, ~58~, ~index~          => 0x74a0
+  ~monster_old~, ~58~, ~size~           => 0x3
+  ~monster_old~, ~59~, ~index~          => 0x74b0
+  ~monster_old~, ~59~, ~size~           => 0x3
+  ~monster_old~, ~60~, ~index~          => 0x74c0
+  ~monster_old~, ~60~, ~size~           => 0x3
+  ~monster_old~, ~61~, ~index~          => 0x74d0
+  ~monster_old~, ~61~, ~size~           => 0x3
+  ~monster_old~, ~62~, ~index~          => 0x74e0
+  ~monster_old~, ~62~, ~size~           => 0x3
+  ~monster_old~, ~63~, ~index~          => 0x74f0
+  ~monster_old~, ~63~, ~size~           => 0x3
+  ~monster_old~, ~64~, ~index~          => 0x7500
+  ~monster_old~, ~64~, ~size~           => 0x2
+  ~monster_old~, ~65~, ~index~          => 0x7510
+  ~monster_old~, ~65~, ~size~           => 0x2
+  ~monster_old~, ~66~, ~index~          => 0x7520
+  ~monster_old~, ~66~, ~size~           => 0x2
+  ~monster_old~, ~67~, ~index~          => 0x7530
+  ~monster_old~, ~67~, ~size~           => 0x2
+  ~monster_old~, ~68~, ~index~          => 0x7540
+  ~monster_old~, ~68~, ~size~           => 0x2
+  ~monster_old~, ~69~, ~index~          => 0x7550
+  ~monster_old~, ~69~, ~size~           => 0x2
+  ~monster_old~, ~70~, ~index~          => 0x7560
+  ~monster_old~, ~70~, ~size~           => 0x2
+  ~monster_old~, ~71~, ~index~          => 0x7570
+  ~monster_old~, ~71~, ~size~           => 0x2
+  ~monster_old~, ~72~, ~index~          => 0x7580
+  ~monster_old~, ~72~, ~size~           => 0x2
+  ~monster_old~, ~73~, ~index~          => 0x7590
+  ~monster_old~, ~73~, ~size~           => 0x2
+  ~monster_old~, ~74~, ~index~          => 0x75a0
+  ~monster_old~, ~74~, ~size~           => 0x2
+  ~monster_old~, ~75~, ~index~          => 0x75b0
+  ~monster_old~, ~75~, ~size~           => 0x2
+  ~monster_old~, ~76~, ~index~          => 0x75c0
+  ~monster_old~, ~76~, ~size~           => 0x2
+  ~monster_old~, ~77~, ~index~          => 0x75d0
+  ~monster_old~, ~77~, ~size~           => 0x2
+  ~monster_old~, ~78~, ~index~          => 0x75e0
+  ~monster_old~, ~78~, ~size~           => 0x2
+  ~monster_old~, ~79~, ~index~          => 0x75f0
+  ~monster_old~, ~79~, ~size~           => 0x2
+  ~monster_old~, ~80~, ~index~          => 0x7600
+  ~monster_old~, ~80~, ~size~           => 0x100
+  ~monster_old~, ~81~, ~index~          => 0x7700
+  ~monster_old~, ~81~, ~size~           => 0x3
+  ~monster_old~, ~82~, ~index~          => 0x7710
+  ~monster_old~, ~82~, ~size~           => 0x3
+  ~monster_old~, ~83~, ~index~          => 0x7720
+  ~monster_old~, ~83~, ~size~           => 0x3
+  ~monster_old~, ~84~, ~index~          => 0x7730
+  ~monster_old~, ~84~, ~size~           => 0x3
+  ~monster_old~, ~85~, ~index~          => 0x7740
+  ~monster_old~, ~85~, ~size~           => 0x3
+  ~monster_old~, ~86~, ~index~          => 0x7750
+  ~monster_old~, ~86~, ~size~           => 0x3
+  ~monster_old~, ~87~, ~index~          => 0x7760
+  ~monster_old~, ~87~, ~size~           => 0x3
+  ~monster_old~, ~88~, ~index~          => 0x7770
+  ~monster_old~, ~88~, ~size~           => 0x3
+  ~monster_old~, ~89~, ~index~          => 0x7780
+  ~monster_old~, ~89~, ~size~           => 0x3
+  ~monster_old~, ~90~, ~index~          => 0x7790
+  ~monster_old~, ~90~, ~size~           => 0x3
+  ~monster_old~, ~91~, ~index~          => 0x77a0
+  ~monster_old~, ~91~, ~size~           => 0x3
+  ~monster_old~, ~92~, ~index~          => 0x77b0
+  ~monster_old~, ~92~, ~size~           => 0x3
+  ~monster_old~, ~93~, ~index~          => 0x77c0
+  ~monster_old~, ~93~, ~size~           => 0x3
+  ~monster_old~, ~94~, ~index~          => 0x77d0
+  ~monster_old~, ~94~, ~size~           => 0x3
+  ~monster_old~, ~95~, ~index~          => 0x77e0
+  ~monster_old~, ~95~, ~size~           => 0x3
+  ~monster_old~, ~96~, ~index~          => 0x77f0
+  ~monster_old~, ~96~, ~size~           => 0x3
+  ~monster_old~, ~97~, ~index~          => 0x7800
+  ~monster_old~, ~97~, ~size~           => 0x100
+  ~monster_old~, ~98~, ~index~          => 0x7900
+  ~monster_old~, ~98~, ~size~           => 0x5
+  ~monster_old~, ~99~, ~index~          => 0x7910
+  ~monster_old~, ~99~, ~size~           => 0x5
+  ~monster_old~, ~100~, ~index~         => 0x7920
+  ~monster_old~, ~100~, ~size~          => 0x5
+  ~monster_old~, ~101~, ~index~         => 0x7930
+  ~monster_old~, ~101~, ~size~          => 0x5
+  ~monster_old~, ~102~, ~index~         => 0x7940
+  ~monster_old~, ~102~, ~size~          => 0x5
+  ~monster_old~, ~103~, ~index~         => 0x7950
+  ~monster_old~, ~103~, ~size~          => 0x5
+  ~monster_old~, ~104~, ~index~         => 0x7960
+  ~monster_old~, ~104~, ~size~          => 0x5
+  ~monster_old~, ~105~, ~index~         => 0x7970
+  ~monster_old~, ~105~, ~size~          => 0x5
+  ~monster_old~, ~106~, ~index~         => 0x7980
+  ~monster_old~, ~106~, ~size~          => 0x5
+  ~monster_old~, ~107~, ~index~         => 0x7990
+  ~monster_old~, ~107~, ~size~          => 0x5
+  ~monster_old~, ~108~, ~index~         => 0x79a0
+  ~monster_old~, ~108~, ~size~          => 0x5
+  ~monster_old~, ~109~, ~index~         => 0x79b0
+  ~monster_old~, ~109~, ~size~          => 0x5
+  ~monster_old~, ~110~, ~index~         => 0x79c0
+  ~monster_old~, ~110~, ~size~          => 0x5
+  ~monster_old~, ~111~, ~index~         => 0x79d0
+  ~monster_old~, ~111~, ~size~          => 0x5
+  ~monster_old~, ~112~, ~index~         => 0x79e0
+  ~monster_old~, ~112~, ~size~          => 0x5
+  ~monster_old~, ~113~, ~index~         => 0x79f0
+  ~monster_old~, ~113~, ~size~          => 0x5
+  ~monster_old~, ~114~, ~index~         => 0x7a00
+  ~monster_old~, ~114~, ~size~          => 0x5
+  ~monster_old~, ~115~, ~index~         => 0x7a10
+  ~monster_old~, ~115~, ~size~          => 0x5
+  ~monster_old~, ~116~, ~index~         => 0x7a20
+  ~monster_old~, ~116~, ~size~          => 0x5
+  ~monster_old~, ~117~, ~index~         => 0x7a30
+  ~monster_old~, ~117~, ~size~          => 0x5
+  ~monster_old~, ~118~, ~index~         => 0x7a40
+  ~monster_old~, ~118~, ~size~          => 0x5
+  ~monster_old~, ~119~, ~index~         => 0x7a50
+  ~monster_old~, ~119~, ~size~          => 0x5
+  ~monster_old~, ~120~, ~index~         => 0x7a60
+  ~monster_old~, ~120~, ~size~          => 0x5
+  ~monster_old~, ~121~, ~index~         => 0x7a70
+  ~monster_old~, ~121~, ~size~          => 0x5
+  ~monster_old~, ~122~, ~index~         => 0x7a80
+  ~monster_old~, ~122~, ~size~          => 0x5
+  ~monster_old~, ~123~, ~index~         => 0x7a90
+  ~monster_old~, ~123~, ~size~          => 0x5
+  ~monster_old~, ~124~, ~index~         => 0x7aa0
+  ~monster_old~, ~124~, ~size~          => 0x5
+  ~monster_old~, ~125~, ~index~         => 0x7ab0
+  ~monster_old~, ~125~, ~size~          => 0x5
+  ~monster_old~, ~126~, ~index~         => 0x7ac0
+  ~monster_old~, ~126~, ~size~          => 0x5
+  ~monster_old~, ~127~, ~index~         => 0x7ad0
+  ~monster_old~, ~127~, ~size~          => 0x5
+  ~monster_old~, ~128~, ~index~         => 0x7ae0
+  ~monster_old~, ~128~, ~size~          => 0x5
+  ~monster_old~, ~129~, ~index~         => 0x7af0
+  ~monster_old~, ~129~, ~size~          => 0x5
+  ~monster_old~, ~130~, ~index~         => 0x7b00
+  ~monster_old~, ~130~, ~size~          => 0x7
+  ~monster_old~, ~131~, ~index~         => 0x7b10
+  ~monster_old~, ~131~, ~size~          => 0x7
+  ~monster_old~, ~132~, ~index~         => 0x7b20
+  ~monster_old~, ~132~, ~size~          => 0x7
+  ~monster_old~, ~133~, ~index~         => 0x7b30
+  ~monster_old~, ~133~, ~size~          => 0x7
+  ~monster_old~, ~134~, ~index~         => 0x7b40
+  ~monster_old~, ~134~, ~size~          => 0x7
+  ~monster_old~, ~135~, ~index~         => 0x7b50
+  ~monster_old~, ~135~, ~size~          => 0x7
+  ~monster_old~, ~136~, ~index~         => 0x7b60
+  ~monster_old~, ~136~, ~size~          => 0x7
+  ~monster_old~, ~137~, ~index~         => 0x7b70
+  ~monster_old~, ~137~, ~size~          => 0x7
+  ~monster_old~, ~138~, ~index~         => 0x7b80
+  ~monster_old~, ~138~, ~size~          => 0x7
+  ~monster_old~, ~139~, ~index~         => 0x7b90
+  ~monster_old~, ~139~, ~size~          => 0x7
+  ~monster_old~, ~140~, ~index~         => 0x7ba0
+  ~monster_old~, ~140~, ~size~          => 0x7
+  ~monster_old~, ~141~, ~index~         => 0x7bb0
+  ~monster_old~, ~141~, ~size~          => 0x7
+  ~monster_old~, ~142~, ~index~         => 0x7bc0
+  ~monster_old~, ~142~, ~size~          => 0x7
+  ~monster_old~, ~143~, ~index~         => 0x7bd0
+  ~monster_old~, ~143~, ~size~          => 0x7
+  ~monster_old~, ~144~, ~index~         => 0x7be0
+  ~monster_old~, ~144~, ~size~          => 0x7
+  ~monster_old~, ~145~, ~index~         => 0x7bf0
+  ~monster_old~, ~145~, ~size~          => 0x7
+  ~monster_old~, ~146~, ~index~         => 0x7c00
+  ~monster_old~, ~146~, ~size~          => 0x2
+  ~monster_old~, ~147~, ~index~         => 0x7c10
+  ~monster_old~, ~147~, ~size~          => 0x2
+  ~monster_old~, ~148~, ~index~         => 0x7c20
+  ~monster_old~, ~148~, ~size~          => 0x2
+  ~monster_old~, ~149~, ~index~         => 0x7c30
+  ~monster_old~, ~149~, ~size~          => 0x2
+  ~monster_old~, ~150~, ~index~         => 0x7c40
+  ~monster_old~, ~150~, ~size~          => 0x2
+  ~monster_old~, ~151~, ~index~         => 0x7c50
+  ~monster_old~, ~151~, ~size~          => 0x2
+  ~monster_old~, ~152~, ~index~         => 0x7c60
+  ~monster_old~, ~152~, ~size~          => 0x2
+  ~monster_old~, ~153~, ~index~         => 0x7c70
+  ~monster_old~, ~153~, ~size~          => 0x2
+  ~monster_old~, ~154~, ~index~         => 0x7c80
+  ~monster_old~, ~154~, ~size~          => 0x2
+  ~monster_old~, ~155~, ~index~         => 0x7c90
+  ~monster_old~, ~155~, ~size~          => 0x2
+  ~monster_old~, ~156~, ~index~         => 0x7ca0
+  ~monster_old~, ~156~, ~size~          => 0x2
+  ~monster_old~, ~157~, ~index~         => 0x7cb0
+  ~monster_old~, ~157~, ~size~          => 0x2
+  ~monster_old~, ~158~, ~index~         => 0x7cc0
+  ~monster_old~, ~158~, ~size~          => 0x2
+  ~monster_old~, ~159~, ~index~         => 0x7cd0
+  ~monster_old~, ~159~, ~size~          => 0x2
+  ~monster_old~, ~160~, ~index~         => 0x7ce0
+  ~monster_old~, ~160~, ~size~          => 0x2
+  ~monster_old~, ~161~, ~index~         => 0x7cf0
+  ~monster_old~, ~161~, ~size~          => 0x2
+  ~monster_old~, ~162~, ~index~         => 0x7d00
+  ~monster_old~, ~162~, ~size~          => 0x100
+  ~monster_old~, ~163~, ~index~         => 0x7e00
+  ~monster_old~, ~163~, ~size~          => 0x2
+  ~monster_old~, ~164~, ~index~         => 0x7e10
+  ~monster_old~, ~164~, ~size~          => 0x2
+  ~monster_old~, ~165~, ~index~         => 0x7e20
+  ~monster_old~, ~165~, ~size~          => 0x2
+  ~monster_old~, ~166~, ~index~         => 0x7e30
+  ~monster_old~, ~166~, ~size~          => 0x2
+  ~monster_old~, ~167~, ~index~         => 0x7e40
+  ~monster_old~, ~167~, ~size~          => 0x2
+  ~monster_old~, ~168~, ~index~         => 0x7e50
+  ~monster_old~, ~168~, ~size~          => 0x2
+  ~monster_old~, ~169~, ~index~         => 0x7e60
+  ~monster_old~, ~169~, ~size~          => 0x2
+  ~monster_old~, ~170~, ~index~         => 0x7e70
+  ~monster_old~, ~170~, ~size~          => 0x2
+  ~monster_old~, ~171~, ~index~         => 0x7e80
+  ~monster_old~, ~171~, ~size~          => 0x2
+  ~monster_old~, ~172~, ~index~         => 0x7e90
+  ~monster_old~, ~172~, ~size~          => 0x2
+  ~monster_old~, ~173~, ~index~         => 0x7ea0
+  ~monster_old~, ~173~, ~size~          => 0x2
+  ~monster_old~, ~174~, ~index~         => 0x7eb0
+  ~monster_old~, ~174~, ~size~          => 0x2
+  ~monster_old~, ~175~, ~index~         => 0x7ec0
+  ~monster_old~, ~175~, ~size~          => 0x2
+  ~monster_old~, ~176~, ~index~         => 0x7ed0
+  ~monster_old~, ~176~, ~size~          => 0x2
+  ~monster_old~, ~177~, ~index~         => 0x7ee0
+  ~monster_old~, ~177~, ~size~          => 0x2
+  ~monster_old~, ~178~, ~index~         => 0x7ef0
+  ~monster_old~, ~178~, ~size~          => 0x2
+
+  // type 0x8000
+  ~monster_layered~, ~count~            => 1
+  ~monster_layered~, ~0~, ~index~       => 0x8000
+  ~monster_layered~, ~0~, ~size~        => 0x1000
+
+  // type 0x9000
+  ~monster_large~, ~count~              => 1
+  ~monster_large~, ~0~, ~index~         => 0x9000
+  ~monster_large~, ~0~, ~size~          => 0x1000
+
+  // type 0xA000
+  ~monster_large16~, ~count~            => 1
+  ~monster_large16~, ~0~, ~index~       => 0xa000
+  ~monster_large16~, ~0~, ~size~        => 0x1000
+
+  // type 0xB000
+  ~ambient_static~, ~count~             => 1
+  ~ambient_static~, ~0~, ~index~        => 0xb000
+  ~ambient_static~, ~0~, ~size~         => 0x1000
+
+  // type 0xC000
+  ~ambient~, ~count~                    => 1
+  ~ambient~, ~0~, ~index~               => 0xc000
+  ~ambient~, ~0~, ~size~                => 0x1000
+
+  // type 0xD000
+  ~flying~, ~count~                     => 1
+  ~flying~, ~0~, ~index~                => 0xd000
+  ~flying~, ~0~, ~size~                 => 0x1000
+
+  // type 0xE000
+  ~monster_icewind~, ~count~            => 1
+  ~monster_icewind~, ~0~, ~index~       => 0xe000
+  ~monster_icewind~, ~0~, ~size~        => 0x1000
+
+  // type 0xF000
+  ~monster_planescape~, ~count~         => 1
+  ~monster_planescape~, ~0~, ~index~    => 0xf000
+  ~monster_planescape~, ~0~, ~size~     => 0x1000
+END
