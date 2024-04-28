@@ -30,7 +30,7 @@ THEN
     CutSceneId(Player1)
     Wait(1)
     DisplayStringHead(Player1, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player1)
+    CreateVisualEffectObject("a7#fire",Player1)
 END
 
 IF
@@ -40,7 +40,7 @@ THEN
     CutSceneId(Player2)
     Wait(1)
     DisplayStringHead(Player2, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player2)
+    CreateVisualEffectObject("a7#fire",Player2)
 END
 
 IF
@@ -50,7 +50,7 @@ THEN
     CutSceneId(Player3)
     Wait(1)
     DisplayStringHead(Player3, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player3)
+    CreateVisualEffectObject("a7#fire",Player3)
 END
 
 IF
@@ -60,7 +60,7 @@ THEN
     CutSceneId(Player4)
     Wait(1)
     DisplayStringHead(Player4, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player4)
+    CreateVisualEffectObject("a7#fire",Player4)
 END
 
 IF
@@ -70,7 +70,7 @@ THEN
     CutSceneId(Player5)
     Wait(1)
     DisplayStringHead(Player5, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player5)
+    CreateVisualEffectObject("a7#fire",Player5)
 END
 
 IF
@@ -80,5 +80,5 @@ THEN
     CutSceneId(Player6)
     Wait(1)
     DisplayStringHead(Player6, @50011) // The wardstone flashes for a moment before it vaporizes in a cloud of smoke. The door to the baatezu mastermind is open.
-    CreateVisualEffectObject("spfirepi",Player6)
+    CreateVisualEffectObject("a7#fire",Player6)
 END
