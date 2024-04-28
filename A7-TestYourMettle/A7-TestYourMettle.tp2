@@ -89,7 +89,10 @@ BEGIN @1  // Test Your Mettle!
     ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
-    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7000 RET slot END
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7300 slotMax = 0x7400 RET slot END
+    ACTION_IF (slot < 0) BEGIN
+      LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 slotMax = 0x8000 RET slot END
+    END
     LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
     COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
@@ -98,7 +101,10 @@ BEGIN @1  // Test Your Mettle!
 
   // Gelugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/gelugon/a7#mrav2.bmp~ ~override~
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 RET slot END
+  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7300 slotMax = 0x7400 RET slot END
+  ACTION_IF (slot < 0) BEGIN
+    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 slotMax = 0x8000 RET slot END
+  END
   LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
   COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%hexNumber%.ini~
   OUTER_SET slot_gelugon = slot   // save animation slot number for later
@@ -114,11 +120,19 @@ BEGIN @1  // Test Your Mettle!
 
   // Abishai animations
   ACTION_FOR_EACH folder IN ~abishai_black~ ~abishai_green~ ~abishai_red~ BEGIN
-    COPY ~%MOD_FOLDER%/creatures/animations/%folder%~ ~override~
+    ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
+      ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN
+        COPY ~%BASH_FOR_FILESPEC%~ ~override~
+      END
+    END
   END
 
   // Shared animation stuff
-  COPY ~%MOD_FOLDER%/creatures/animations/shared~ ~override~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/shared~ ~.+\.wav~ BEGIN
+    ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+  END
 
   COPY_EXISTING ~race.ids~ ~override~
     LPF ADD_IDS_ENTRY INT_VAR index = 16 STR_VAR symbol = ~DRONE~ RET race_drone = index END
