@@ -3,7 +3,7 @@
  * Author: Argent77 
  * Licence: public domain
  *
- * Version: 1.0
+ * Version: 1.1
  * Date: 2024-04-29
  */
 
@@ -49,8 +49,12 @@
  *                        Example: slot_index=0x7000 resolves to "monster_old" but slot_index=0x7300
  *                        resolves to "monster" instead.
  *
- * INT_VAR min_index      (Optional) Specifies the minimum index of a free slot to  consider.
+ * INT_VAR min_index      (Optional) Specifies the minimum index of a free slot to consider.
  *                        Specifying a value that is greater than the supported slot range for the
+ *                        requested animation type results in a failed operation.
+ *
+ * INT_VAR max_index      (Optional) Specifies the maximum index of a free slot to consider.
+ *                        Specifying a value that is smaller than the supported slot range for the
  *                        requested animation type results in a failed operation.
  *
  * INT_VAR silent         (Optional) Specify a non-zero value to suppress information or warning
@@ -69,7 +73,8 @@
 DEFINE_DIMORPHIC_FUNCTION FIND_FREE_ANIMATION_SLOT
 INT_VAR
   slot_index  = BNOT 0
-  min_index   = BNOT 0
+  min_index   = 0
+  max_index   = 0xffff
   silent      = 0
 STR_VAR
   type        = ~~
@@ -142,36 +147,34 @@ BEGIN
     OUTER_FOR (range_idx = 0; range_idx < count && slot < 0; ++range_idx) BEGIN
       OUTER_SET slot_ofs = $a7#animation_slots(~%type%~ ~%range_idx%~ ~index~)
       OUTER_SET slot_size = $a7#animation_slots(~%type%~ ~%range_idx%~ ~size~)
-      ACTION_IF (min_index < slot_ofs + slot_size) BEGIN
+      ACTION_IF (min_index < slot_ofs + slot_size && max_index >= slot_ofs) BEGIN
         OUTER_FOR (i = 0; i < slot_size && slot < 0; ++i) BEGIN
           OUTER_SET slot_idx = slot_ofs + i
-          ACTION_IF (slot_idx >= min_index) BEGIN
+          ACTION_IF (slot_idx >= min_index && slot_idx <= max_index) BEGIN
             OUTER_PATCH ~~ BEGIN LOOKUP_IDS_SYMBOL_OF_INT name ~animate~ slot_idx END
             OUTER_SET is_free = IS_AN_INT ~name~
 
             ACTION_IF (is_free && is_ee20) BEGIN
               // additional check for associated INI file
-              LAF a7#__to_hex_number
-                INT_VAR
-                  value = slot_idx
-                  minDigits = 4
-                RET
-                  hexNumber
-              END
-              OUTER_SET is_free = NOT FILE_EXISTS_IN_GAME ~%hexNumber%.ini~
+              LAF a7#__to_hex_number INT_VAR value = slot_idx min_digits = 4 RET hex_number END
+              OUTER_SET is_free = NOT FILE_EXISTS_IN_GAME ~%hex_number%.ini~
             END
 
             ACTION_IF (is_free) BEGIN
               OUTER_SET slot = slot_idx
-              LAF a7#__to_hex_number INT_VAR value = slot minDigits = 4 RET hexNumber END
-              OUTER_SPRINT ini_file ~%hexNumber%.ini~
+              LAF a7#__to_hex_number INT_VAR value = slot min_digits = 4 RET hex_number END
+              OUTER_SPRINT ini_file ~%hex_number%.ini~
               ACTION_IF (NOT ~%symbol%~ STR_EQ ~~) BEGIN
-                OUTER_SPRINT animate_entry "0x%hexNumber% %symbol%"
+                OUTER_SPRINT animate_entry "0x%hex_number% %symbol%"
               END
             END
           END
         END
       END
+    END
+
+    ACTION_IF (slot < 0 && NOT silent) BEGIN
+      WARN ~WARNING: No further animation slots available for type: %type%~
     END
   END
 END
@@ -180,17 +183,17 @@ END
 // Used internally to return a hexadecimal representation of a decimal number.
 DEFINE_DIMORPHIC_FUNCTION a7#__to_hex_number
 INT_VAR
-  value     = 0 // Decimal number to convert
-  minDigits = 1 // Min. number of hexadecimal digits to return (not counting sign)
-  prefix    = 0 // Indicates whether to return the hexadecimal number with the "0x" prefix
-  signed    = 1 // Indicates whether "value" is treated as a signed number
-  upperCase = 0 // Indicates whether letters in the returned hexadecimal number should be uppercase
+  value       = 0 // Decimal number to convert
+  min_digits  = 1 // Min. number of hexadecimal digits to return (not counting sign)
+  prefix      = 0 // Indicates whether to return the hexadecimal number with the "0x" prefix
+  signed      = 1 // Indicates whether "value" is treated as a signed number
+  upper_case  = 0 // Indicates whether letters in the returned hexadecimal number should be uppercase
 RET
-  hexNumber     // Hexadecimal number as string
+  hex_number      // Hexadecimal number as string
 BEGIN
-  ACTION_IF (minDigits < 1) BEGIN OUTER_SET minDigits = 1 END
-  ACTION_IF (minDigits > 8) BEGIN OUTER_SET minDigits = 8 END
-  OUTER_TEXT_SPRINT hexNumber ~~
+  ACTION_IF (min_digits < 1) BEGIN OUTER_SET min_digits = 1 END
+  ACTION_IF (min_digits > 8) BEGIN OUTER_SET min_digits = 8 END
+  OUTER_TEXT_SPRINT hex_number ~~
   ACTION_DEFINE_ARRAY digit BEGIN ~0~ ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ END
 
   ACTION_IF (signed && value < 0) BEGIN
@@ -204,32 +207,31 @@ BEGIN
     OUTER_SET curDigit = value BAND 0xf
     OUTER_SET value = value BLSR 4
     OUTER_TEXT_SPRINT hexDigit $EVAL digit(~%curDigit%~)
-    OUTER_TEXT_SPRINT hexNumber ~%hexDigit%%hexNumber%~
+    OUTER_TEXT_SPRINT hex_number ~%hexDigit%%hex_number%~
   END
 
-  OUTER_WHILE (STRING_LENGTH ~%hexNumber%~ < minDigits) BEGIN
-    OUTER_TEXT_SPRINT hexNumber ~0%hexNumber%~
+  OUTER_WHILE (STRING_LENGTH ~%hex_number%~ < min_digits) BEGIN
+    OUTER_TEXT_SPRINT hex_number ~0%hex_number%~
   END
 
-  ACTION_IF (upperCase) BEGIN
-    ACTION_TO_UPPER ~hexNumber~
+  ACTION_IF (upper_case) BEGIN
+    ACTION_TO_UPPER ~hex_number~
   END
 
   ACTION_IF (prefix) BEGIN
-    OUTER_TEXT_SPRINT hexNumber ~0x%hexNumber%~
+    OUTER_TEXT_SPRINT hex_number ~0x%hex_number%~
   END
 
   ACTION_IF (isSigned) BEGIN
-    OUTER_TEXT_SPRINT hexNumber ~-%hexNumber%~
+    OUTER_TEXT_SPRINT hex_number ~-%hex_number%~
   END
 END
 
 
 // Used internally to trim whitespace at the beginning and end of the given string.
-// Optionally, spaces inside the string are replaced by undescores.
 DEFINE_DIMORPHIC_FUNCTION a7#__trim_string
 INT_VAR
-  normalize = 0
+  normalize = 0 // whether to replace spaces inside the string by underscores
 STR_VAR
   string = ~~
 RET
