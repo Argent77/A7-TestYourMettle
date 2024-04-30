@@ -691,7 +691,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY ~a7#animation_slots~ BEGIN
   ~monster~, ~177~, ~size~              => 0x100
 
   // type 0x7000
-  ~monster_old~, ~count~       => 179
+  ~monster_old~, ~count~                => 179
   ~monster_old~, ~0~, ~index~           => 0x7000
   ~monster_old~, ~0~, ~size~            => 0x2
   ~monster_old~, ~1~, ~index~           => 0x7010
