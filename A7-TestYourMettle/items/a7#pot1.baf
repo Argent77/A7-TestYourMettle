@@ -2,7 +2,7 @@
 
 IF
   !StateCheck(LastSummonerOf(Myself),STATE_REALLY_DEAD)
-  !AreaType(A7_RUBIKON)
+  !AreaType(EXTRAPLANAR)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
@@ -13,7 +13,7 @@ END
 
 IF
   !StateCheck(LastSummonerOf(Myself),STATE_REALLY_DEAD)
-  AreaType(A7_RUBIKON)
+  AreaType(EXTRAPLANAR)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)

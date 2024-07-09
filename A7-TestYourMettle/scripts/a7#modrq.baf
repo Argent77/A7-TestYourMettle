@@ -9,7 +9,7 @@ THEN
     SetInterrupt(FALSE)
     SetGlobal("split","LOCALS",1)
     // CreateVisualEffectObject("ICCSWOUI",Myself)
-    CreateVisualEffectObject("SPFIREPI",Myself)
+    CreateVisualEffectObject("a7#fire",Myself)
     SmallWait(10)
     CreateCreature("a7#mdrm",[-1.-1],0)
     CreateCreature("a7#mdrm",[-1.-1],0)

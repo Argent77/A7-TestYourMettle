@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/A7-TestYourMettle~
 SUPPORT ~http://www.shsforums.net/forum/666-test-your-mettle-ee/~
-VERSION ~1.4~
+VERSION ~1.5~
 
 ALWAYS
   // required because of non-standard BACKUP path
@@ -9,6 +9,7 @@ ALWAYS
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+  INCLUDE ~%MOD_FOLDER%/lib/a7#anim_slots.tph~
   INCLUDE ~%MOD_FOLDER%/lib/eet.tph~
   OUTER_SET IS_PATCH25 = (FILE_EXISTS_IN_GAME ~bdcutid.cre~) ? 1 : 0
 END
@@ -89,36 +90,41 @@ BEGIN @1  // Test Your Mettle!
     ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
       COPY ~%BASH_FOR_FILESPEC%~ ~override~
     END
-    LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7000 RET slot END
-    LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-    COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%hexNumber%.ini~
+    LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster~ symbol RET slot ini_file animate_entry END
+    COPY ~%MOD_FOLDER%/creatures/animations/%folder%/7xxx.ini~ ~override/%ini_file%~
+    APPEND ~ANIMATE.IDS~ ~%animate_entry%~
     OUTER_SET EVAL ~slot_%folder%~ = slot   // save animation slot number for later
-    APPEND ~ANIMATE.IDS~ ~0x%hexNumber% %symbol%~
   END
 
   // Gelugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/gelugon/a7#mrav2.bmp~ ~override~
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0x7f00 RET slot END
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%hexNumber%.ini~
+  LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster~ symbol = ~A7_RAVER_BLUE~ RET slot ini_file animate_entry END
+  COPY ~%MOD_FOLDER%/creatures/animations/gelugon/7fxx.ini~ ~override/%ini_file%~
   OUTER_SET slot_gelugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_RAVER_BLUE~
+  APPEND ~ANIMATE.IDS~ ~%animate_entry%~
 
   // Black Cornugon animation
   COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/a7#mcor2.bmp~ ~override~
-  LAF FIND_FREE_ANIM_SLOT INT_VAR slotMin = 0xe0e0 RET slot END
-  LAF TO_HEX_NUMBER INT_VAR value = slot minDigits = 4 RET hexNumber END
-  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%hexNumber%.ini~
-  OUTER_SET slot_cornugon = slot   // save animation slot number for later
-  APPEND ~ANIMATE.IDS~ ~0x%hexNumber% A7_CORNUGON_BLACK~
+  LAF FIND_FREE_ANIMATION_SLOT STR_VAR type = ~monster_icewind~ symbol = ~A7_CORNUGON_BLACK~ RET slot ini_file animate_entry END
+  COPY ~%MOD_FOLDER%/creatures/animations/cornugon_black/exxx.ini~ ~override/%ini_file%~
+  OUTER_SET slot_cornugon = slot    // save animation slot number for later
+  APPEND ~ANIMATE.IDS~ ~%animate_entry%~
 
   // Abishai animations
   ACTION_FOR_EACH folder IN ~abishai_black~ ~abishai_green~ ~abishai_red~ BEGIN
-    COPY ~%MOD_FOLDER%/creatures/animations/%folder%~ ~override~
+    ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/%folder%~ ~.+\.bam~ BEGIN
+      ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN
+        COPY ~%BASH_FOR_FILESPEC%~ ~override~
+      END
+    END
   END
 
   // Shared animation stuff
-  COPY ~%MOD_FOLDER%/creatures/animations/shared~ ~override~
+  ACTION_BASH_FOR ~%MOD_FOLDER%/creatures/animations/shared~ ~.+\.wav~ BEGIN
+    ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_FILE%~) BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+    END
+  END
 
   COPY_EXISTING ~race.ids~ ~override~
     LPF ADD_IDS_ENTRY INT_VAR index = 16 STR_VAR symbol = ~DRONE~ RET race_drone = index END
@@ -363,13 +369,22 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#sp01b.eff~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.bmp~ ~override~
        ~%MOD_FOLDER%/spells/a7#sp01.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx37.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#deth.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#deth.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#prot.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#prot.bam~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx02.wav~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx03.wav~ ~override~
+
+  COPY ~%MOD_FOLDER%/spells/a7#fx37.spl~ ~override~
+    SAY NAME1 ~[Soul Stealing Fx]~
 
   COPY ~%MOD_FOLDER%/spells/a7#spx1.spl~ ~override~
     SAY UNIDENTIFIED_DESC @50017  // Lightning Bolt description...
 
   COPY ~%MOD_FOLDER%/spells/a7#pflm.spl~ ~override~
     SAY NAME1 @50024  // Produce Flame
-    SAY NAME2 @50024  // Produce Flame
 
   COPY ~%MOD_FOLDER%/spells/a7#pain.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
@@ -445,6 +460,7 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#fx15.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx16.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx17.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#fx17a.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx18.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx19.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx20.spl~ ~override~
@@ -460,6 +476,7 @@ BEGIN @1  // Test Your Mettle!
        ~%MOD_FOLDER%/spells/a7#fx30.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx31.spl~ ~override~
        ~%MOD_FOLDER%/spells/a7#fx32.spl~ ~override~
+
   COPY ~%MOD_FOLDER%/spells/a7#fx33.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
     INT_VAR
@@ -508,25 +525,33 @@ BEGIN @1  // Test Your Mettle!
   // *** Areas ***
   // *************
 
-  // Adding new area type "A7_RUBIKON"
+  // Adding new area type "EXTRAPLANAR"
   OUTER_SET area_type_id = 512
-  OUTER_TEXT_SPRINT area_type_name ~A7_RUBIKON~
+  OUTER_TEXT_SPRINT area_type_name ~EXTRAPLANAR~
   COPY_EXISTING ~areatype.ids~ ~override~
     COUNT_2DA_ROWS 2 numRows
     SET id = 1
-    FOR (row = 0; row < numRows; ++row) BEGIN
+    SET match = 0
+    FOR (row = 0; row < numRows && NOT match; ++row) BEGIN
       READ_2DA_ENTRY row 0 2 value
+      READ_2DA_ENTRY row 1 2 name
       PATCH_IF (IS_AN_INT ~value~) BEGIN
-        PATCH_IF (value > id) BEGIN SET id = value END
+        SET id = (value > id) ? value : id
+        SET match = (~%name%~ STRING_EQUAL ~%area_type_name%~)
+        PATCH_IF (match) BEGIN
+          SET area_type_id = value
+        END
       END
     END
-    FOR (value = BIT0 ; value < BIT16 ; value <<= 1) BEGIN
-      PATCH_IF (value > id) BEGIN
-        SET area_type_id = value
-        SET value = BIT16
+    PATCH_IF (NOT match) BEGIN
+      FOR (value = BIT0 ; value < BIT16 ; value <<= 1) BEGIN
+        PATCH_IF (value > id) BEGIN
+          SET area_type_id = value
+          SET value = BIT16
+        END
       END
+      INSERT_2DA_ROW numRows 2 ~%area_type_id% %area_type_name%~
     END
-    INSERT_2DA_ROW numRows 2 ~%area_type_id% %area_type_name%~
 
   // Generic stuff
   COPY ~%MOD_FOLDER%/sounds/a7#slnt.wav~ ~override~
@@ -542,7 +567,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1wz.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     LPF ALTER_AREA_CONTAINER
     INT_VAR
       lockpick_strref = RESOLVE_STR_REF(@50018) // This container is sealed by an unknown force...
@@ -554,6 +579,14 @@ BEGIN @1  // Test Your Mettle!
       info_point = RESOLVE_STR_REF(@50019)  // This construct of spherical design appears to be...
     STR_VAR
       region_name = ~info-orb~
+    END
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
     END
 
     READ_LONG 0xbc ofsSongs
@@ -584,7 +617,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/sounds/a7#rwdx.wav~ ~override~
   COPY ~%MOD_FOLDER%/areas/a7#1en.are~ ~override~
        ~%MOD_FOLDER%/areas/a7#1fy.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -610,6 +643,14 @@ BEGIN @1  // Test Your Mettle!
         SAY (ofsMaps + 0x34 + 0x04) @50010  // Control Center
       END
     END
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
+    END
 
   // Disintegrated room
   COMPILE ~%MOD_FOLDER%/scripts/a7#1fd.baf~
@@ -618,7 +659,7 @@ BEGIN @1  // Test Your Mettle!
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
   END
   COPY ~%MOD_FOLDER%/areas/a7#1fd.are~ ~override~
-    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+    WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
     FOR (idx = 0; idx < numActors; ++idx) BEGIN
@@ -635,9 +676,18 @@ BEGIN @1  // Test Your Mettle!
       END
     END
 
+    // setting area type variable
+    LPF fj_are_structure
+      INT_VAR
+        fj_variable_value = 1
+      STR_VAR
+        fj_structure_type = ~variable~
+        fj_name           = ~A7_RUBIKON~
+    END
+
     LPF GET_TRIGGER_OFFSET
-    STR_VAR name = ~Portal Info~
-    RET offset
+      STR_VAR name = ~Portal Info~
+      RET offset
     END
     PATCH_IF (offset > 0) BEGIN
       SAY (offset + 0x64) @50003  // This portal seems to be the source of the devil invasion....
@@ -654,10 +704,11 @@ BEGIN @1  // Test Your Mettle!
           ~%MOD_FOLDER%/scripts/a7#1gde.baf~
           ~%MOD_FOLDER%/scripts/a7#1gds.baf~
           ~%MOD_FOLDER%/scripts/a7#1gdw.baf~
-          ~%MOD_FOLDER%/scripts/a7#ward.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt1.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt2.baf~
           ~%MOD_FOLDER%/scripts/a7#1gt3.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct10a.baf~
+          ~%MOD_FOLDER%/scripts/a7#ct10b.baf~
 
   ACTION_BASH_FOR ~%MOD_FOLDER%/areas~ ~a[7]?#1g[1-3].*\.\(bmp\|mos\|tis\|pvrz\|wed\)~  BEGIN
     COPY ~%BASH_FOR_FILESPEC%~ ~override~
@@ -673,6 +724,7 @@ BEGIN @1  // Test Your Mettle!
   COPY ~%MOD_FOLDER%/areas/a7#1g1.ini~ ~override~
        ~%MOD_FOLDER%/areas/a7#1g2.ini~ ~override~
        ~%MOD_FOLDER%/areas/a7#1g3.ini~ ~override~
+       ~%MOD_FOLDER%/creatures/a7#ctspy.cre~ ~override~
 
   OUTER_FOR (grid = 0; grid < 64; ++grid) BEGIN
     OUTER_SET x = grid REM 8
@@ -685,7 +737,16 @@ BEGIN @1  // Test Your Mettle!
       OUTER_TEXT_SPRINT mapNameDest ~A7#1%grid%~
     END
     COPY ~%MOD_FOLDER%/areas/%mapNameSrc%.ARE~ ~override/%mapNameDest%.ARE~
-      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set A7_RUBIKON area type
+      WRITE_SHORT 0x48 (THIS | area_type_id)  // Set EXTRAPLANAR area type
+
+      // setting area type variable
+      LPF fj_are_structure
+        INT_VAR
+          fj_variable_value = 1
+        STR_VAR
+          fj_structure_type = ~variable~
+          fj_name           = ~A7_RUBIKON~
+      END
 
       // updating grid label
       LPF GET_ANIMATION_OFFSET
@@ -987,7 +1048,7 @@ BEGIN @1  // Test Your Mettle!
     // Using area type check via splprot
     LAF ADD_SPLPROT_ENTRY
     STR_VAR
-      label = ~NOTRUBIKON~
+      label = ~AREATYPE!=EXTRAPLANAR~
       definition = EVAL ~0x106      %area_type_id%        9~
     RET
       index
