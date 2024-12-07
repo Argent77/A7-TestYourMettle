@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/A7-TestYourMettle~
 SUPPORT ~http://www.shsforums.net/forum/666-test-your-mettle-ee/~
-VERSION ~1.5~
+VERSION ~1.6~
 
 ALWAYS
   // required because of non-standard BACKUP path
