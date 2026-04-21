@@ -1,0 +1,782 @@
+// -*- coding: utf-8 -*-
+
+// Creatures
+@1000 = ~Konstrukt czarodzieja~
+@1010 = ~Konstrukt wysokiego zagrożenia~
+@1020 = ~Konstrukt niskiego zagrożenia~
+@1030 = ~Modron~
+@1031 = ~Zbuntowany modron~
+@1032 = ~Modron robotnik~
+@1033 = ~Modron strażnik~
+@1034 = ~Modron nadzorca~
+@1035 = ~Modron przewodnik~
+@1036 = ~Modron pracownik~
+@1040 = ~Gelugon~
+@1041 = ~Gelugon Przywódca~
+@1050 = ~Czarny abiszaj~
+@1060 = ~Zielony abiszaj~
+@1070 = ~Czerwony abiszaj~
+@1080 = ~Dogreth Nadzorca~
+
+
+// Items & Spells
+@2000 = ~Metalowa zabawka~
+@2001 = ~Modrońska kostka~
+@2002 = ~Ta niewielka metalowa zabawka jest repliką kostkopodobnego stwora z olbrzymimi oczami na jednej ze ścian. Ma dwie nogi, dwie ręce, dwa składane skrzydła i co najmniej osiemnaście punktów artykulacji. Może to być przedmiot kolekcjonerski.
+
+PARAMETRY:
+
+Waga: 1~
+@2003 = ~Ta niewielka metalowa zabawka jest repliką modrona – istoty pochodzącej ze sfery Mechanus. Złożoność tego artefaktu zapiera dech w piersiach: stawy tworzą maleńkie trybiki, koła zębate, rolki, przekładnie i przeguby, a w nogach umieszczono nawet drobne sprężyny podpierające stopy. Z tyłu znajduje się mały przełącznik poruszający oczami w lewo i w prawo, a skrzydła wykonano z jakiegoś „tkankowego” metalu, który składa się równo, gdy przylega do korpusu. Takie przedmioty często nasyca się magią, która uaktywnia się po spełnieniu określonych warunków.
+
+PARAMETRY:
+
+Waga: 1~
+@2004 = ~Użyj~
+
+@2010 = ~Dziwny przedmiot~
+@2011 = ~Wskazówka!~
+@2012 = ~Ten przedmiot nie wydaje się mieć żadnego zastosowania. Znalazłeś go w modrońskim labiryncie.
+
+PARAMETRY:
+
+Waga: 0~ ~Ten przedmiot nie wydaje się mieć żadnego zastosowania. Znalazłaś go w modrońskim labiryncie.
+
+PARAMETRY:
+
+Waga: 0~
+@2013 = ~Ten zagadkowy skrawek pergaminu zawiera jedynie zdanie:
+
+„Teraz lepiej rozumiesz, co się dzieje...”
+
+Na odwrocie pergaminu ktoś nabazgrał mały kod: „C#1793”.
+
+PARAMETRY:
+
+Waga: 0~
+
+@2020 = ~Dziwaczny przedmiot~
+@2021 = ~Woreczek monet~
+@2023 = ~Niewielki woreczek wypełniony dziwnymi monetami. Widnieją na nich nietypowe symbole oraz napisy. Nie wyglądają na szczególnie wartościowe.
+
+Na każdej monecie wygrawerowano mały kod: M#3164.
+
+PARAMETRY:
+
+Waga: 0~
+
+@2030 = ~Osobliwy przedmiot~
+@2031 = ~Niespodzianka!~
+@2033 = ~Wygląda jak niewielki kamienny pręt lub trzpień. Ciekawy, ale bezużyteczny.
+
+Na spodzie wyryto kod: „G#5886”.
+
+PARAMETRY:
+
+Waga: 0~
+
+@2040 = ~Nietypowy przedmiot~
+@2041 = ~Magiczny przedmiot!~
+@2043 = ~Coś to jest, ale niech Mechanus będzie przeklęte, jeśli potrafisz odgadnąć co. Mimo wszystko emanuje magią.
+
+Na boku dostrzegasz niewielkie oznaczenie, coś w rodzaju kodu: X#9438.
+
+PARAMETRY:
+
+Waga: 0~
+
+@2050 = ~Kamień strażniczy~
+@2051 = ~Kamień strażniczy baatezu~
+@2052 = ~Często pokryte magicznymi glifami, runami lub symbolami, kamienie strażnicze są potężnie zaklinanymi przedmiotami, przeznaczonymi do umożliwiania posiadaczowi przejścia przez obszary chronione magią. Ponieważ większość kamieni strażniczych jest bardzo specyficzna i „szyta na miarę”, rzadko trafia się taki, który ma więcej niż jedno zastosowanie.
+
+PARAMETRY:
+
+Waga: 1~
+@2053 = ~Ten kamień strażniczy znaleziono przy zwłokach wysoko postawionego diabła baatezu. Jest nienaturalnie ciężki, a dotknięcie go wywołuje uczucie niepokoju. Głęboko wyryty glif trudno rozpoznać. Kiedy na niego patrzysz, masz wrażenie, że wypala się w twoich oczach, co utrudnia dokładniejsze oględziny. Najpewniej służy do uzyskania dostępu do ważnej części lochu.
+
+PARAMETRY:
+Waga: 1~
+
+@2060 = ~Czarna kostka~
+@2061 = ~Kostka wiru~
+@2062 = ~Ta kostka wygląda dość zwyczajnie, poza ledwie widocznymi, wirującymi znakami na każdej ze ścian. Zdaje się być wykonana z materiału, którego nie potrafisz rozpoznać.
+
+PARAMETRY:
+
+Waga: 3~
+@2063 = ~Ta kostka została wykonana z nieznanego materiału. Jest niemal całkowicie czarna, a na każdej ze ścian widnieją wirujące znaki. Ten przedmiot najwyraźniej ma ogromne znaczenie dla modronów w tym konstrukcie.
+
+PARAMETRY:
+
+Waga: 3~
+
+@2070 = ~Mikstura odnowy~
+@2071 = ~Wypita do dna, ta mikstura natychmiast odświeża ciało i umysł pijącego, jakby wypoczął przez pełną dobę. Działanie jest natychmiastowe, a sama mikstura ulega w tym procesie zniszczeniu.
+
+Mikstura czerpie moc z otaczającej materii sztucznego modrońskiego konstruktu. Poza tym miejscem zapewne nie zadziała.
+
+PARAMETRY:
+
+Specjalne:
+– Odnawia czary oraz usuwa zmęczenie i efekty tymczasowe, tak jakby pijąca ją osoba odpoczęła przez dobę
+
+Waga: 1~
+@2072 = ~Nieskuteczne~
+@2073 = ~Odświeżono~
+
+@2080 = ~Instrukcja recyklingu~
+@2081 = ~Ten zwój opisuje w okrutnie drobiazgowy sposób, jak korzystać z pojemników w obszarze wejściowym, by poddawać „recyklingowi” skarby z labiryntu lochów – innymi słowy, jak wymieniać kosztowności na użyteczne przedmioty.
+
+Z tego, co rozumiesz, procedura wygląda następująco:
+1. Umieść jeden lub więcej przedmiotów skarbu danego typu w odpowiadającym mu pojemniku.
+2. Użyj konsoli recyklingu, aby rozpocząć proces.
+3. Odbierz przetworzone przedmioty z pojemników.
+
+Każdy pojemnik przyjmuje wyłącznie skarby określonego typu:
+– Pojemnik północno-wschodni: typ C
+– Pojemnik południowo-wschodni: typ M
+– Pojemnik północno-zachodni: typ G
+– Pojemnik południowo-zachodni: typ X
+
+Liczba przedmiotów skarbu umieszczonych w pojemniku określa wartość otrzymanej nagrody:
+1 przedmiot: drobna nagroda
+2-9 przedmiotów: przeciętna nagroda
+10-49 przedmiotów: dobra nagroda
+50-99 przedmiotów: wspaniała nagroda
+100 lub więcej przedmiotów: wyjątkowa nagroda~
+
+@2090 = ~Notatki o społeczeństwie modronów~
+@2091 = ~Ten zniszczony dziennik wygląda na zbiór notatek o społeczeństwie modronów, spisanych przez anonimowego uczonego.
+
+„Przez wiele lat żyłem na Mechanusie – rodzimej sferze modronów. Choć udało mi się poznać wszystko, co można odkryć o ich fizjologii bez boskiej interwencji, wciąż mam trudności ze zrozumieniem ich procesów myślowych. Oto, co zdołałem dotąd ustalić:
+
+Aby pojąć społeczeństwo modronów, należy porzucić wszelkie pojęcie ”ja„. Podstawową cechą modronów jest to, że każda ranga potrafi zrozumieć istnienie wyłącznie rang bezpośrednio wyższej i bezpośrednio niższej. Przykładowo monodrony są posłuszne woli duodronów, lecz nie potrafią nawet wyobrazić sobie istnienia tridronów. Gdy monodron widzi tridrona, nie postrzega go jako modrona i nie potrafi nawet określić, co właściwie widzi. Jakaś forma afazji najwyraźniej zrywa związek między postrzeganiem wyższego modrona a rozpoznaniem jego natury. Ta ślepota prowadzi do interesującego wniosku: każda ranga wierzy, że istoty stojące bezpośrednio nad nią są najwyższą formą życia i źródłem najwyższej logiki.
+
+Istnieje świadomość wszystkich rang niższych od własnej, lecz komunikacja ogranicza się wyłącznie do rang sąsiednich. Wydaje się, że monodron jest niemal tak samo obcy tridronowi, jak tridron monodronowi. Nie wynika to z elitaryzmu. Przeciwnie – ścisły porządek przestrzegany przez ten lud całkowicie znosi potrzebę komunikacji wykraczającej poza bezpośrednich przełożonych i podwładnych.
+
+Postrzegania bezpośrednich przełożonych nie należy mylić z ubóstwianiem. Tego, co inni mogliby nazwać bogiem, modrony nie są w stanie sobie wyobrazić, gdyż nie potrafią pojąć istnienia jednostki jako takiej. Zamiast tego wszelkie życie i kierunek wypływają z puli logicznego działania – wszystko, co słuszne, dzieje się, ponieważ musi się stać, a wszystko, co niesłuszne, jest tym, co stać się nie może. Te metaliczne ograniczenia sprawiają, że układy z modronami bywają trudne.
+
+(Zauważyłem jednak, że modrony szybko dostosowują łańcuch dowodzenia, gdy zostaną odcięte od źródła na Mechanusie. Możliwe zatem, że duodron uświadamia sobie istnienie pentadrona, a kwadron wydaje rozkazy bezpośrednio monodronowi. Można przypuszczać, że to zachowanie jest ”wypalone„ w rdzennej pamięci każdego modrona i staje się dostępne jedynie w chwili potrzeby – w przeciwnym razie cały łańcuch dowodzenia mógłby ostatecznie ulec załamaniu).
+
+W obrębie każdej rangi nie istnieje indywidualność ani w formie, ani w myśli. Wszystkie modrony mówią o sobie ”my„, a postać nie ma sposobu, by stwierdzić, czy pentadron, z którym rozmawiała dziś, jest tym samym, który wczoraj pełnił to samo stanowisko.
+
+Nawet liczebność społeczeństwa modronów jest sztywno ustalona. W każdej randze istnieje wyłącznie określona liczba modronów. Jeśli modron dowolnej rangi zginie, dostępny kandydat z rangi bezpośrednio niższej zostaje awansowany, a lukę w tej randze wypełnia się awansem z rangi jeszcze niższej. Proces ten trwa aż do poziomu monodronów. Ponieważ nie istnieją już rangi niższe, istoty na tym szczeblu rozmnażają się przez podział: jeden z ich członków w tajemniczy sposób dzieli się na dwa. (Biorąc to pod uwagę, twierdzenie, że wszystkie modrony stanowią jedno, może być prawdziwsze, niż zrazu się wydaje).
+
+Od najwyższych do najniższych kasty modronów wyglądają następująco: modrony hierarchiczne to Primus (absolutny władca wszystkich modronów), secundowie, tertianie, quartonowie, quintonowie, hextonowie, septonowie, octonowie, nonatonowie i decatonowie. Modrony podstawowe to pentadrony, kwadrony, tridrony, duodrony i monodrony”.
+
+Dalsza część notatek dotyczy informacji o Mechanusie, fizjologii modronów oraz wielu innych tematów, które nie mają dla ciebie szczególnego znaczenia.
+
+Jednak jeden fragment dodatku przykuwa twoją uwagę. Dotyczy różnych kodów językowych używanych w społeczeństwie modronów. Trzymaj te notatki blisko – mogą pomóc ci usprawnić komunikację z modronami.~
+
+@2100 = ~Włócznia grozy +3~
+@2101 = ~Wykuta w zamarzniętych głębiach Canii – ósmego kręgu Dziewięciu Piekieł – ta broń emanuje aurą lodowatej nienawiści i złośliwości, odzwierciedlając zarówno swoje pochodzenie, jak i nastawienie dawnego właściciela. Włócznia uderza ofiarę magicznie wzmocnioną siłą, a dodatkowy, mroźny ból przenika całe ciało. Co więcej, każde trafienie zdaje się napełniać umysł wroga grozą i strachem, spowalniając jego odruchy lub wręcz je paraliżując.
+
+PARAMETRY:
+
+Specjalne:
+– 75% szans przy trafieniu, że cel musi wykonać rzut obronny przeciw śmierci z modyfikatorem -3; w przeciwnym razie zostaje spowolniony na 3 rundy
+– 25% szans przy trafieniu, że cel musi wykonać rzut obronny przeciw śmierci z modyfikatorem -3; w przeciwnym razie zostaje ogłuszony na 1 rundę
+
+Obrażenia: 1k6 +3, +1k6 obrażeń od zimna
+TraK0: +3
+Typ obrażeń: kłute
+Opóźnienie: 3
+Rodzaj biegłości: włócznia
+Typ broni: 2-ręczna
+
+Wymagania:
+– Siła: 8
+
+Waga: 5~
+
+@2110 = ~Dwunastościan~
+@2111 = ~Urządzenie kontroli dronów~
+@2112 = ~Ten pozbawiony cech szczególnych przedmiot ma kształt dwunastościanu. Jest zimny i gładki w dotyku; wygląda na wykonany z metalicznej substancji.
+
+PARAMETRY:
+
+Waga: 1~
+@2113 = ~Ten ciężki dwunastościan, wyprodukowany na Mechanusie, został pierwotnie zaprojektowany jako urządzenie awaryjne do radzenia sobie z wadliwymi konstruktami. Można przełączyć go w dwa tryby: ochronny oraz unieszkodliwiający.
+
+Tryb ochronny otula użytkownika chmurą mikroskopijnych cząstek. Chmura ta pochłania energię cieplną, przez co działa jak osłona przed narządami zmysłów mechanicznych konstruktów, wykrywającymi ślady promieniowania cieplnego. Rasy posiadające wrodzone widzenie w podczerwieni również mogą zostać zmylone brakiem sygnału cieplnego.
+
+Tryb unieszkodliwiający pozwala zmusić konstrukt do przejścia w tryb uśpienia. Gdy tryb ten jest aktywny, konstrukt pozostaje bierny i regeneruje 1 punkt wytrzymałości na rundę. Tryb uśpienia może jednak zostać przerwany przez rozkazy o wyższym priorytecie, w tym przez polecenia samoobrony lub rozkazy przełożonych.
+
+PARAMETRY:
+
+Właściwości ładunków:
+– Osłona termooptyczna: Otula użytkownika chmurą cząstek pochłaniających ciepło, przez co mechaniczne konstrukty modrońskiego projektu ignorują użytkownika.
+Obszar działania: użytkownik
+Czas działania: 1 tura
+
+– Wymuszenie trybu uśpienia: Zmusza mechaniczne konstrukty modrońskiego projektu do aktywacji trybu uśpienia.
+Obszar działania: pojedynczy cel
+Czas działania: na stałe, o ile nie zostanie przerwane rozkazem o wyższym priorytecie
+
+Wymagania:
+– Inteligencja: 9
+
+Waga: 1~
+@2114 = ~Chroniony przed konstruktami~
+@2115 = ~Osłona termooptyczna~
+@2116 = ~Wymuszenie trybu uśpienia~
+@2117 = ~Tryb uśpienia aktywowany~
+@2118 = ~Tryb uśpienia zakończony~
+
+@2120 = ~Różdżka modrońskiej potęgi~
+@2121 = ~Ta magiczna różdżka pozwala użytkownikowi przywołać od 2 do 4 konstruktów modrońskiego projektu, by walczyły z jego wrogami. Rodzaj przywołanych konstruktów jest losowy. Będą walczyć bez wahania, dopóki nie zostaną zniszczone albo nie upłynie godzina.
+
+PARAMETRY:
+
+Właściwości ładunków:
+– Przywołuje 2-4 konstrukty modrońskiego projektu
+Zasięg: 6 m
+Czas działania: 1 godzina
+
+Wymagania:
+– Inteligencja: 9
+
+Waga: 5~
+
+@2130 = ~Zakrzywienie przestrzeni
+(Przemiany)
+
+Poziom: 7
+Sfera: Liczby
+Zasięg: 45 m
+Czas działania: 1 tura
+Czas rzucania: 7
+Obszar działania: sfera o promieniu 4,5 m
+Rzut obronny: specjalny
+
+Według jednej z koncepcji wszechświata to, co postrzegamy jako grawitację, jest w rzeczywistości lokalnym zakrzywieniem tkanki czasoprzestrzeni. Zakrzywienie przestrzeni tworzy tymczasowe, lecz bardzo silne zakłócenie na ograniczonym obszarze.
+
+Gdy kapłan rzuca ten czar, wybiera konkretny punkt, który staje się centrum działania. Może on znajdować się w dowolnym miejscu w promieniu 45 metrów od rzucającego.
+
+Po zakończeniu inkantacji w punkcie tym powstaje pole grawitacyjne o sile równej grawitacji odczuwanej na powierzchni ziemi. Innymi słowy, grawitacja zostaje „skupiona” w wybranym miejscu; wszystko, co znajduje się w odległości 4,5 metra od centrum i nie jest przytwierdzone do nieruchomego obiektu, zostaje przyciągnięte ku temu punktowi. Siła pola może także na krótko pozbawić przytomności dotknięte nim istoty, jeśli nie wykonają rzutu obronnego przeciw czarom z modyfikatorem -2.~
+
+@2131 = ~Zakrzywienie przestrzeni
+(Przemiany)
+
+Poziom: 8
+Sfera: Liczby
+Zasięg: 45 m
+Czas działania: 1 tura
+Czas rzucania: 5
+Obszar działania: sfera o promieniu 4,5 m
+Rzut obronny: specjalny
+
+Według jednej z koncepcji wszechświata to, co postrzegamy jako grawitację, jest w rzeczywistości lokalnym zakrzywieniem tkanki czasoprzestrzeni. Zakrzywienie przestrzeni tworzy tymczasowe, lecz bardzo silne zakłócenie na ograniczonym obszarze.
+
+Gdy mag rzuca ten czar, wybiera konkretny punkt, który staje się centrum działania. Może on znajdować się w dowolnym miejscu w promieniu 45 metrów od rzucającego.
+
+Po zakończeniu inkantacji w punkcie tym powstaje pole grawitacyjne o sile równej grawitacji odczuwanej na powierzchni ziemi. Innymi słowy, grawitacja zostaje „skupiona” w wybranym miejscu; wszystko, co znajduje się w odległości 4,5 metra od centrum i nie jest przytwierdzone do nieruchomego obiektu, zostaje przyciągnięte ku temu punktowi. Siła pola może także na krótko pozbawić przytomności dotknięte nim istoty, jeśli nie wykonają rzutu obronnego przeciw czarom z modyfikatorem -2.~
+
+@2132 = ~Starożytny zwój~
+// @2133 = ~Traktat o twierdzeniach czasoprzestrzennych~
+@2133 = ~Starożytne notatki uczonego~
+@2134 = ~Zbadaj~
+@2135 = ~Mimo swojego wieku zwój ten jest zadziwiająco dobrze zachowany. Na pergaminie starannie naniesiono dziwne symbole.
+
+PARAMETRY:
+
+Waga: 0~
+@2136 = ~Te notatki spisał uczony ze starożytnego Netherilu. Wypełniają je złożone wzory i wykresy, przedstawiające zaginioną wiedzę o czasie i przestrzeni. Jeden z rozdziałów ma wyraźnie praktyczny charakter: opisuje, jak na ograniczony czas wytworzyć pole grawitacyjne o znacznej mocy. Inteligentny mag lub mądry kapłan może nauczyć się ująć to działanie w formułę tajemnej inkantacji.
+
+PARAMETRY:
+
+Waga: 0~
+
+@2140 = ~Pieczęć~
+@2141 = ~Piekielna pieczęć~
+@2142 = ~Często pokryte magicznymi runami lub symbolami, pieczęcie są potężnie zaklinanymi przedmiotami, przeznaczonymi do umożliwiania posiadaczowi dostępu do obszarów chronionych magią. Ponieważ większość pieczęci jest bardzo specyficzna i „szyta na miarę”, rzadko trafia się taka, która ma więcej niż jedno zastosowanie.
+
+PARAMETRY:
+
+Waga: 1~
+@2143 = ~Pieczęci powszechnie używa się do uzyskiwania dostępu do obszarów chronionych magią. Ta pieczęć jest lekko zimna w dotyku i nosi dziwny symbol niemrugającego oka. Znalazłeś ją przy zwłokach diabła gelugona.
+
+PARAMETRY:
+
+Waga: 1~
+
+@2150 = ~Kwasowy jęzor +3~
+@2151 = ~Ten piekielny miecz długi, wykuty tak, by przypominał jęzor diabła, ma głownię „ostrzejszą niż każdy krzyk”, jak głosi napis na rękojeści. Ostrze z łatwością przecina zbroje i kości, a w zadawanych ranach skwierczy kwas. Ból jest tak potężny, że ofiary mają trudności z normalnym funkcjonowaniem, a nawet z chodzeniem.
+
+PARAMETRY:
+
+Specjalne:
+– 10% szans przy trafieniu na spowolnienie celu na 3 rundy (rzut obronny przeciw czarom neguje)
+
+Obrażenia: 1k8 +3, +1k3 obrażeń od kwasu
+TraK0: +3
+Typ obrażeń: sieczne
+Opóźnienie: 2
+Rodzaj biegłości: miecz długi
+Typ broni: 1-ręczna
+
+Wymagania:
+– Siła: 6
+
+Waga: 2~
+
+@2160 = ~Echo czarta +3~
+@2161 = ~Niegdyś pewien diabeł z Avernusu był właścicielem tej sękatej, drewnianej laski. Choć dawno temu zdołał się od niej uwolnić, osad jego istoty przeniknął broń i wciąż w niej tkwi. Gdy zostaje wypowiedziane słowo rozkazu, wokół posiadacza laski wybucha ognista aura; płomienie nie czynią mu krzywdy, lecz palą innych niszczycielskim żarem.
+
+PARAMETRY:
+
+Specjalne:
+– 5% szans przy trafieniu na wyzwolenie Ognia słońca, którego centrum stanowi posiadacz
+
+Właściwości ładunków:
+– Ognista tarcza (czerwona) dwa razy dziennie
+
+Obrażenia: 1k6 +3
+TraK0: +3
+Typ obrażeń: obuchowe
+Opóźnienie: 1
+Rodzaj biegłości: kij
+Typ broni: 2-ręczna
+
+Wymagania:
+– Siła: 5
+
+Waga: 2~
+
+@2170 = ~Rozjemca +3~
+@2171 = ~Wykonanie tej broni zlecił barman z Wrót Zachodu, który zwany był Prawym Tadem. Dzięki niej miał sobie radzić z bardziej krewkimi klientami. Gdy robiło się gorąco, Tad zwykle walił maczugą w blat, lecz często i tak musiał włączyć się do bójki, by przywrócić „porządek”. Mówi się, że tylu złodziei dostało tą pałą po głowie, iż żaden większy rzezimieszek w Zachodniej Bramie nie mógł uczciwie twierdzić, że nigdy nie poczuł żądła Rozjemcy. Jeden z takich przestępców, oprych imieniem Hellpin, poczuł się urażony otrzymanym łomotem. Pewnej mglistej nocy poszczuł swoje psy na Prawego Tada. Tad zdołał zabić ponad połowę czworonogów, zanim został przygnieciony i dobity. Hellpin zatrzymał maczugę jako trofeum i trzymał ją w swojej kryjówce, by ostrzegać tych, którzy chcieliby mu podpaść.
+
+PARAMETRY:
+
+Specjalne:
+– Niewrażliwość na szał bojowy
+– Po trafieniu krytycznym ofiara pada nieprzytomna na 2 rundy (rzut obronny przeciw śmierci neguje)
+
+Obrażenia: 1k6 +3
+TraK0: +3
+Typ obrażeń: obuchowe
+Opóźnienie: 1
+Rodzaj biegłości: maczuga
+Typ broni: 1-ręczna
+
+Wymagania:
+– Siła: 5
+
+Waga: 1~
+
+
+// Dialogs
+
+// Modron Introduction
+@3000 = ~Widzisz sześcian z dwiema rękami, dwiema nogami i dwoma małymi skrzydłami wyrastającymi z boków. Na jego przedniej ścianie znajduje się ożywiona twarz. Gdy się zbliżasz, istota kieruje ku tobie wzrok.~
+@3001 = ~Widzisz sześcian z czterema rękami i dwiema nogami wyrastającymi z boków. Na jego przedniej ścianie znajduje się ożywiona twarz. Gdy się zbliżasz, istota kieruje ku tobie wzrok.~
+@3002 = ~Widzisz kulę z dwiema rękami i dwiema nogami wyrastającymi z boków. Z przodu dostrzegasz pojedyncze oko. Gdy się zbliżasz, istota skupia na tobie spojrzenie.~
+@3003 = ~Ten modron ma kuliste ciało i tylko jedno oko. Z boków wyrastają mu dwie ręce i dwie nogi. Zdaje się zupełnie cię nie zauważać.~
+@3004 = ~Ten modron ma ciało w kształcie sześcianu, dwie ręce, dwie nogi i dwa niewielkie skrzydła. Na jego przedniej ścianie widnieje ożywiona twarz. Całkowicie cię ignoruje.~
+@3005 = ~Ten modron ma ciało w kształcie sześcianu, cztery ręce i dwie nogi. Na jego przedniej ścianie widnieje ożywiona twarz. Całkowicie cię ignoruje.~
+
+// Modron Generic
+@3500 = ~Pozdrowienia.~
+@3501 = ~Pytania należy kierować do dyrektora.~
+@3502 = ~Dyrektor znajduje się w centrum sterowania.~
+@3503 = ~Mam kilka pytań.~
+@3504 = ~Nieważne. Muszę już odejść. Żegnaj.~
+@3505 = ~Gdzie mogę znaleźć dyrektora?~
+@3506 = ~Muszę już odejść. Żegnaj.~
+@3507 = ~Sformułuj zapytanie.~
+@3508 = ~Kim jesteś?~
+@3509 = ~Czym jesteś?~
+@3510 = ~Czym jest to miejsce?~
+@3511 = ~Co tu robisz?~
+@3512 = ~Jesteśmy modronami.~
+@3513 = ~Masz imię?~
+@3514 = ~Jesteśmy modronami. Nie posiadamy imion. Wszystko, co tu widzisz, to modrony. Funkcjonujemy jako jedność.~
+@3515 = ~Dobrze. Mam kolejne pytania.~
+@3516 = ~Jesteśmy modronami. Jesteśmy kwadronami.~
+@3517 = ~Czym jest modron?~
+@3518 = ~Czym jest kwadron?~
+@3519 = ~Jesteśmy modronami. Tak określa się naszą rasę.~
+@3520 = ~Czym w takim razie jest kwadron?~
+@3521 = ~W obrębie naszej rasy identyfikujemy się jako typ kwadron.~
+@3522 = ~A czym jest modron?~
+@3523 = ~Konstrukt lochu Rubikon.~
+@3524 = ~Co to właściwie oznacza?~
+@3525 = ~Zapytanie należy skierować do dyrektora.~
+@3526 = ~Oczekujemy instrukcji.~
+@3527 = ~Instrukcji do czego?~
+@3528 = ~Instrukcji określających zadania do wykonania.~
+@3529 = ~Jakie zadania? Co dokładnie tu robicie?~
+@3530 = ~Dziękuję. Żegnaj.~
+
+// Modron Director
+@4000 = ~Udało mi się ustalić źródło inwazji.~
+@4001 = ~Zwróciłem kostkę wiru.~ ~Zwróciłam kostkę wiru.~
+@4002 = ~Nieważne. Żegnaj.~
+@4003 = ~Czym jest to miejsce?~
+@4004 = ~Czy Rubikon wiąże się z jakimikolwiek zagrożeniami, o których powinienem wiedzieć?~ ~Czy Rubikon wiąże się z jakimikolwiek zagrożeniami, o których powinnam wiedzieć?~
+@4005 = ~Czy mogę wziąć udział w Projekcie Rubikon?~
+@4006 = ~Przypomnij, w jaki sposób mogę wam pomóc.~
+@4007 = ~Co możesz mi powiedzieć o tej zabawkowej istocie-kostce, którą posiadam?~
+@4008 = ~Nieważne. Muszę już iść. Żegnaj.~
+@4009 = ~Dobrze. Mam kolejne pytania.~
+@4010 = ~Muszę już iść. Żegnaj.~
+@4011 = ~To Projekt Konstruktu Lochu Rubikon®.~
+@4012 = ~Czym jest Projekt Konstruktu Lochu Rubikon®?~
+@4013 = ~Możesz ponownie wyjaśnić, czym jest Projekt Konstruktu Lochu Rubikon®?~
+@4014 = ~Rubikon: celem projektu jest analiza dynamiki – zarówno społecznej, jak i aspołecznej – środowiska powszechnie określanego jako loch oraz próba wyjaśnienia anomalii, które zwykle w nim występują.~
+@4015 = ~W jaki sposób to realizujecie?~
+@4016 = ~O jakich anomaliach mówisz?~
+@4017 = ~Rubikon tworzy ciąg połączonych pomieszczeń, składających się na to, co zwykło się nazywać loch. Loch zamieszkują potwory; rozmieszczone są w nim pułapki oraz skarby.~
+@4018 = ~Każda sekcja lochu generowana jest dynamicznie i dostosowuje poziom trudności do doświadczenia uczestniczącego poszukiwacza przygód. Po utworzeniu obszar może zostać w pełni zbadany. Skarby można następnie poddać recyklingowi przy wejściu.~
+@4019 = ~Recyklingowi?~
+@4020 = ~Co z tymi anomaliami?~
+@4021 = ~Jestem poszukiwaczem przygód. Mogę wziąć udział w tym eksperymencie?~ ~Jestem poszukiwaczką przygód. Mogę wziąć udział w tym eksperymencie?~
+@4022 = ~Urządzenie recyklingu przekształca skarby z Projektu Konstruktu Lochu Rubikon® w nagrody dla uczestnika. Znajduje się przy Wejściu do Rubikonu. Szczegółowe instrukcje dostępne są przy konsoli recyklingu, zlokalizowanej w północno-wschodnim rogu obszaru wejściowego.~
+@4023 = ~Pozostają pytania bez odpowiedzi: Co przyciąga ludzi do lochów? Dlaczego dążą do wejścia w miejsca tak niebezpieczne? Dlaczego lochy w ogóle istnieją? Jakie mechanizmy czynią loch funkcjonalnym? Nie posiadamy wystarczających danych.~
+@4024 = ~Interesujące. Mogę spróbować?~
+@4025 = ~Tak. Nie należy rozdzielać się z towarzyszami w labiryncie. Każda sekcja generowana jest i resetowana na żądanie. Pozostawienie kogokolwiek w obszarze resetu skutkuje jego śmiercią.~
+@4026 = ~Rozumiem. Nikogo nie zostawię. Czy obowiązują jeszcze jakieś zasady?~
+@4027 = ~Zapamiętam. Mogę spróbować?~
+@4028 = ~Tak. Nie należy porzucać przedmiotów ani ekwipunku w labiryncie. Zostaną zniszczone w momencie resetu obszaru.~
+@4029 = ~Rozumiem. Niczego ważnego nie zostawię. Coś jeszcze?~
+@4030 = ~Nie... (Modron zatrzymuje się). Nie. To wszystko.~
+@4031 = ~Rozumiem. Mogę spróbować?~
+@4032 = ~(Zapada długa cisza). Prośba odrzucona. Projekt wykazuje oznaki nieprawidłowego działania.~
+@4033 = ~(Po kolejnej pauzie). Utraciliśmy częściową kontrolę nad Projektem Konstruktu Lochu Rubikon®.~
+@4034 = ~Jak do tego doszło?~
+@4035 = ~Rozumiem. Mam jeszcze pytania.~
+@4036 = ~Interesujące. Muszę już odejść. Żegnaj.~
+@4037 = ~Nie wiemy. Dostęp do konstruktu lochu został ograniczony przez nieznaną siłę. Oddział wysłany w celu zbadania anomalii nie złożył raportu.~
+@4038 = ~My... (Modron zawiesza głos). Utraciliśmy również połączenie z Mechanusem. Bez dalszych instrukcji od przełożonych nie jesteśmy w stanie rozwiązać problemu.~
+@4039 = ~Z Mechanusem?~
+@4040 = ~Mechanus to sfera doskonałego prawa i porządku. Jest naszym domem. Bez kostki wiru nie możemy nawiązać połączenia z Mechanusem.~
+@4041 = ~Kostki wiru?~
+@4042 = ~Kostka wiru umożliwia utrzymanie stabilnego połączenia z Mechanusem. Bez niej nie możemy wykonać zadania ani powrócić do domu po jego zakończeniu.~
+@4043 = ~Jak ją utraciliście?~
+@4044 = ~Rozumiem. Mam jeszcze pytania.~
+@4045 = ~Kostka wiru została przejęta przez nieznaną siłę. Z dużym prawdopodobieństwem to ona odpowiada również za awarię Projektu Konstruktu Lochu Rubikon®.~
+@4046 = ~Czy mogę wam pomóc?~
+@4047 = ~Wymagamy wsparcia w następujących zadaniach: ustalenia natury intruzów, przywrócenia kontroli nad Projektem Konstruktu Lochu Rubikon® oraz odzyskania kostki wiru.~
+@4048 = ~Masz pojęcie, gdzie mogę znaleźć intruzów?~
+@4049 = ~Jak mam przywrócić kontrolę nad projektem?~
+@4050 = ~Gdzie znajdę kostkę wiru?~
+@4051 = ~Zobaczę, co da się zrobić. Mam jeszcze pytania.~
+@4052 = ~Zrozumiano. Muszę już iść. Żegnaj.~
+@4053 = ~(Pomieszczenie nagle wypełnia brzęczący dźwięk, który po chwili cichnie). Pomoc zostaje zaakceptowana. Uzyskujesz dostęp do konstruktu lochu.~
+@4054 = ~Prosimy o pomoc w następujących zadaniach: ustalenia natury intruzów, przywrócenia kontroli nad Projektem Konstruktu Lochu Rubikon® oraz odzyskania kostki wiru.~
+@4055 = ~Intruzów zlokalizowano w konstrukcie lochu. Nie znamy ich natury ani źródła wtargnięcia.~
+@4056 = ~Nie posiadamy wystarczających danych, by odpowiedzieć na to pytanie.~
+@4057 = ~Kostka wiru została przejęta przez nieznaną siłę. Najprawdopodobniej wciąż znajduje się w jej posiadaniu. Jej aktualna lokalizacja nie jest nam znana.~
+@4058 = ~To kostka portalowa. Aby ją aktywować, należy ustawić jej kończyny w odpowiedniej konfiguracji. Po aktywacji przenosi użytkownika do miejsca, do którego została dostrojona w trakcie tworzenia.~
+@4059 = ~Jakie ustawienie aktywuje tę konkretną kostkę?~
+@4060 = ~Czy możesz to jeszcze raz wyjaśnić?~
+@4061 = ~Kostka jest dostrojona do dwóch miejsc docelowych: Wejścia do Projektu Konstruktu Lochu Rubikon® oraz miejsca pochodzenia użytkownika.~
+@4062 = ~Aby przenieść się do Wejścia Projektu Konstruktu Lochu Rubikon®, zegnij lewe kolano pod kątem piętnastu stopni, rozłóż oba skrzydła do maksymalnego rozwarcia, a następnie obróć prawe ramię o sto osiemdziesiąt stopni w stawie.~
+@4063 = ~Aby przenieść się do miejsca pochodzenia użytkownika, obróć prawe ramię o sto osiemdziesiąt stopni w stawie, rozłóż oba skrzydła do maksymalnego rozwarcia, a następnie zegnij lewe kolano pod kątem piętnastu stopni.~
+@4064 = ~Twoja wiedza na temat intruzów jest cenna. (Pomieszczenie ponownie wypełnia brzęczenie). Analiza wskazuje, że eliminacja przywódcy sił baatezu pozwoli nam odzyskać kontrolę nad Projektem Konstruktu Lochu Rubikon®. Zadanie zostaje ci przydzielone.~
+@4065 = ~Dlaczego ja?~
+@4066 = ~Skoro tak, podejmę się tego.~
+@4067 = ~Nie jestem zainteresowany. Zwłaszcza jeśli wiąże się to z walką z przywódcą armii diabłów.~ ~Nie jestem zainteresowana. Zwłaszcza jeśli wiąże się to z walką z przywódcą armii diabłów.~
+@4068 = ~Jesteś zdolny do wykonania przydzielonego zadania. Nie istnieje obecnie alternatywny wariant działania.~ ~Jesteś zdolna do wykonania przydzielonego zadania. Nie istnieje obecnie alternatywny wariant działania.~
+@4069 = ~Rozumiem, że nie mam wyboru. Zrobię to.~
+@4070 = ~Nie jestem zainteresowany. Rozwiążcie to sami.~ ~Nie jestem zainteresowana. Rozwiążcie to sami.~
+@4071 = ~Doceniamy twoją pomoc. W celu wsparcia opracowaliśmy narzędzie zapewniające ochronę przed konstruktami zagrożenia Projektu Konstruktu Lochu Rubikon®.~
+@4072 = ~Dziękuję. Czy to wszystko?~
+@4073 = ~Zakładamy, że kostka wiru znajduje się w posiadaniu przywódcy baatezu.~
+@4074 = ~Twoja decyzja została odnotowana. Przeprowadzimy dalszą analizę danych w celu weryfikacji wniosków.~
+@4075 = ~Jesteśmy wdzięczni. W zamian za zwrot kostki wiru otrzymasz nagrodę.~
+@4076 = ~(Modron zatrzymuje się, a w powietrzu znów rozlega się brzęczenie). Połączenie z Mechanusem zostało przywrócone. Projekt Konstruktu Lochu Rubikon® zostaje wstrzymany do czasu otrzymania dalszych instrukcji. Wracamy do domu. Żegnaj, poszukiwaczu przygód.~ ~(Modron zatrzymuje się, a w powietrzu znów rozlega się brzęczenie). Połączenie z Mechanusem zostało przywrócone. Projekt Konstruktu Lochu Rubikon® zostaje wstrzymany do czasu otrzymania dalszych instrukcji. Wracamy do domu. Żegnaj, poszukiwaczko przygód.~
+@4077 = ~W lochu Rubikon łatwo się zgubić. Dysponujecie urządzeniem, które pomoże mi odnaleźć drogę w labiryncie?~
+@4078 = ~Wniosek zaakceptowany. System nawigacyjny Rubikon zostanie aktywowany.~
+@4079 = ~Doceniam to. Mam jeszcze pytania.~
+@4080 = ~Dziękuję. Muszę już odejść. Żegnaj.~
+@4081 = ~Wiesz, gdzie mogę znaleźć przywódcę baatezu?~
+@4082 = ~Z wysokim prawdopodobieństwem przywódca baatezu przebywa w centrum sterowania. Dostęp do centrum możliwy jest obecnie wyłącznie od wschodniej granicy Projektu Konstruktu Lochu Rubikon®.~
+
+// Modron Guide
+@5001 = ~Pozdrowienia, poszukiwaczu przygód. Witaj w Rubikonie – konstrukcie lochu. O dostęp do Rubikonu możesz wystąpić do dyrektora.~ ~Pozdrowienia, poszukiwaczko przygód. Witaj w Rubikonie – konstrukcie lochu. O dostęp do Rubikonu możesz wystąpić do dyrektora.~
+@5002 = ~Istota wpatruje się w ciebie bez wyrazu.~
+@5003 = ~Dyrektor przebywa w centrum sterowania.~
+@5004 = ~Czym jest Rubikon?~
+@5005 = ~Czym jest konstrukt lochu?~
+@5006 = ~Gdzie mogę znaleźć dyrektora?~
+@5007 = ~Dziękuję. Tak zrobię. Żegnaj.~
+@5008 = ~Nieważne. Muszę już odejść. Żegnaj.~
+@5009 = ~Gdzie znajduje się centrum sterowania?~
+@5010 = ~Nieważne. Sam je znajdę. Żegnaj.~ ~Nieważne. Sama je znajdę. Żegnaj.~
+@5011 = ~Dziękuję.~
+@5012 = ~Pozdrowienia, poszukiwaczu przygód. Witaj w Rubikonie – konstrukcie lochu. Dostęp do Rubikonu możliwy jest przez te drzwi. Zaleca się zachowanie ostrożności.~ ~Pozdrowienia, poszukiwaczko przygód. Witaj w Rubikonie – konstrukcie lochu. Dostęp do Rubikonu możliwy jest przez te drzwi. Zaleca się zachowanie ostrożności.~
+@5013 = ~Istota mruga, lecz nie reaguje na twoje pytanie.~
+@5014 = ~Istota wpatruje się w ciebie, nie udzielając odpowiedzi.~
+
+// Modron Laborer
+@5501 = ~01011001 01100101 01110011? (Tak?)~
+@5502 = ~01011001 01100101 01110011?~
+@5503 = ~01000010 01111001 01100101. (Żegnaj.)~
+@5504 = ~Żegnaj.~
+@5505 = ~01001110 01100001 01101101 01100101? (Kim jesteś?)~
+@5506 = ~Kim jesteś?~
+@5507 = ~01001010 01101111 01100010? (Co robisz?)~
+@5508 = ~Co robisz?~
+@5509 = ~01001111 01101110 01100101. (Stanowimy jedność.)~
+@5510 = ~01010111 01101111 01110010 01101011. (Wykonujemy zadania.)~
+@5511 = ~Ten modron posługuje się językiem, którego nie potrafisz zrozumieć. Być może ktoś bardziej obeznany znajdzie sposób na komunikację.~
+@5512 = ~Przygotowujesz notatki uczonego dotyczące kodów językowych modronów, podczas gdy istota próbuje się z tobą porozumieć.~
+@5513 = ~Istota komunikuje się, emitując sekwencje niskich i wysokich tonów. Szybko dostrzegasz, że jest to kod. Po krótkiej analizie nabierasz pewności, że rozumiesz jego podstawowe znaczenie.~
+
+// Cornugon Taskmaster
+@6000 = ~Ach. Kolejny zdezorientowany poszukiwacz przygód staje przed obliczem nadzorcy. Doskonale. Straż nad portalem jest zaszczytem – lecz nawet zaszczyty potrafią nużyć.~ ~Ach. Kolejna zdezorientowana poszukiwaczka przygód staje przed obliczem nadzorcy. Doskonale. Straż nad portalem jest zaszczytem – lecz nawet zaszczyty potrafią nużyć.~
+@6001 = ~Zacznijmy od formalności. Jestem Dogreth Nadzorca, kornugon drugiego kręgu i prawa ręka mojego pana. Zapytałbym o twoje imię, lecz wkrótce i tak je poznam – gdy twoja dusza trafi w moje ręce.~
+@6002 = ~To ty odpowiadasz za awarie labiryntu?~
+@6003 = ~Masz przy sobie kostkę wiru?~
+@6004 = ~Labirynt? Ma dla nas znikome znaczenie. Wystarcza jednak, by powstrzymać te irytujące modrony, dopóki nie zakończymy naszego zadania. Mój pan uznaje to za rozwiązanie w pełni satysfakcjonujące.~
+@6005 = ~A więc wiesz o kostce wiru. Być może mieliśmy pewien udział w jej zniknięciu. To potężne narzędzie – w odpowiednich rękach. Zapewniam cię, że mój pan doskonale wie, jak je wykorzystać.~
+@6006 = ~Ale to już nie twoja sprawa. Mój pan przebywa za potężnymi pieczęciami, a tylko ja potrafię je przekroczyć. Wkrótce zginiesz, po tym jak moi słudzy się tobą zabawią. Twoja dusza będzie godnym trofeum.~
+
+// Gelugon Mastermind
+@6500 = ~Zaszedłeś daleko, potomku Bhaala. Och, nie udawaj zaskoczenia. Naprawdę sądziłeś, że mógłbyś mnie podejść?~ ~Zaszłaś daleko, potomkini Bhaala. Och, nie udawaj zaskoczenia. Naprawdę sądziłaś, że mogłabyś mnie podejść?~
+@6501 = ~Kim jesteś?~
+@6502 = ~Czego chcesz?~
+@6503 = ~Moje prawdziwe imię nie jest dla twoich uszu. Możesz nazywać mnie „Przywódcą”. To trafne miano w miejscu, gdzie każda istota określana jest przez pełnioną funkcję.~
+@6504 = ~Do rzeczy. Twoja bezpośredniość jest miłą odmianą pośród intryg i fałszu.~
+@6505 = ~Pragniemy władzy. Władzy wystarczającej, by rozszerzyć nasze panowanie na inne sfery. Modrony są siłą, którą można wykorzystać – posłuszną, pozbawioną emocji i instynktu samozachowawczego.~
+@6506 = ~Wyobraź sobie niekończące się zastępy modronów, walczących w Wojnie Krwi aż do całkowitego unicestwienia. Aby to osiągnąć, potrzebujemy kontroli nad ich źródłem na Mechanusie. Przejęcie tego konstruktu to zaledwie pierwszy krok.~
+@6507 = ~Jak zamierzasz dostać się na Mechanusa?~
+@6508 = ~Czy kostka wiru odgrywa rolę w twoim planie?~
+@6509 = ~Dość rozmów. Broń się.~
+@6510 = ~To nie jest wiedza przeznaczona dla ciebie, śmiertelniku.~ ~To nie jest wiedza przeznaczona dla ciebie, śmiertelniczko.~
+@6511 = ~Przyznaję, że jak na twoją rasę jesteś bardzo przenikliwy. Tak – kostka wiru okaże się użyteczna, gdy poznam wszystkie jej właściwości.~ ~Przyznaję, że jak na twoją rasę jesteś bardzo przenikliwa. Tak – kostka wiru okaże się użyteczna, gdy poznam wszystkie jej właściwości.~
+@6512 = ~Twoje groźby są daremne. Słyszałem je od śmiertelników niezliczoną ilość razy.~
+@6513 = ~Zastanawiałem się, co zrobię, gdy w końcu do mnie dotrzesz. Przebiłeś się przez moje sługi i pokonałeś pierwszego porucznika. Imponujące. Zaszedłbyś daleko w naszych szeregach.~ ~Zastanawiałem się, co zrobię, gdy w końcu do mnie dotrzesz. Przebiłaś się przez moje sługi i pokonałaś pierwszego porucznika. Imponujące. Zaszłabyś daleko w naszych szeregach.~
+@6514 = ~Niestety, jesteś zbyt niestabilny. Najlepiej więc będzie, jak po prostu znikniesz. Być może twoja dusza okaże się użyteczna.~ ~Niestety, jesteś zbyt niestabilna. Najlepiej więc będzie, jak po prostu znikniesz. Być może twoja dusza okaże się użyteczna.~
+
+// Vortex Cube
+@8000 = ~Kostka jest zimna w dotyku. Magia, którą może zawierać, nie działa w tym miejscu.~
+@8001 = ~Kostka lekko drży w twoich dłoniach. Nie masz pojęcia, do czego mogłaby służyć.~
+@8002 = ~Kostka jest zimna w dotyku. Nawet wirujące znaki na jej ściankach niemal całkowicie znieruchomiały. Magia przedmiotu nie działa w tym miejscu.~
+@8003 = ~Kostka lekko drży w twoich dłoniach. Wykonana jest z nieznanego materiału, a każdą z jej ścianek pokrywają osobliwe symbole.~
+@8004 = ~Przyglądasz się uważniej wirującym znakom na ściankach kostki. Przypominają miniaturowe wiry i nieustannie zmieniają swój układ. Nie potrafisz określić ich przeznaczenia.~
+@8005 = ~Nie masz pojęcia, co mogłoby się stać, gdybyś sięgnął w jeden z wirów. Mógłby przerzucić cię do obcej sfery albo unicestwić bez śladu. Na pewno chcesz kontynuować?~ ~Nie masz pojęcia, co mogłoby się stać, gdybyś sięgnęła w jeden z wirów. Mógłby przerzucić cię do obcej sfery albo unicestwić bez śladu. Na pewno chcesz kontynuować?~
+@8006 = ~Gdy sięgasz w jeden z wirów, natychmiast zostajesz wciągnięty do środka. Przez krótką chwilę wszystkie zmysły pogrążają się w absolutnej czerni, a twoja siła życiowa zdaje się być wysysana przez bezkresną pustkę. Chwilę później z brutalną siłą uderza w ciebie rzeczywistość. Kostka nie przetrwała tej podróży – a niewiele brakowało, byś ty również jej nie przetrwał.~ ~Gdy sięgasz w jeden z wirów, natychmiast zostajesz wciągnięta do środka. Przez krótką chwilę wszystkie zmysły pogrążają się w absolutnej czerni, a twoja siła życiowa zdaje się być wysysana przez bezkresną pustkę. Chwilę później z brutalną siłą uderza w ciebie rzeczywistość. Kostka nie przetrwała tej podróży – a niewiele brakowało, byś ty również jej nie przetrwała.~
+@8007 = ~Rezygnujesz z dalszych manipulacji i odkładasz kostkę do plecaka. Przezorność bywa najlepszą formą odwagi.~
+@8008 = ~Schowaj kostkę.~
+@8009 = ~Obejrzyj ścianki kostki.~
+@8010 = ~Sięgnij w jeden z wirów.~
+@8011 = ~Nie, to zbyt niebezpieczne.~
+@8012 = ~Tak. Zróbmy to.~
+
+// Modron Cube
+@9000 = ~Schowaj kostkę.~
+@9001 = ~Ta niewielka metalowa zabawka jest repliką modrona – istoty pochodzącej ze sfery Mechanus. Zauważasz, że przedmiot nie emituje charakterystycznego brzęczenia ani pomruku, gdy próbujesz poruszać jego kończynami. Coś w tym miejscu najwyraźniej zakłóca jego działanie.~
+@9002 = ~Ta mała, metalowa zabawka jest repliką przypominającą sześcian stworzenia o wielkich oczach osadzonych na jednej ze ścianek. Figurka posiada dwie nogi, dwie ręce, parę składanych skrzydeł i co najmniej osiemnaście punktów artykulacji. Być może jest to przedmiot kolekcjonerski.~
+@9003 = ~Ta niewielka metalowa zabawka jest repliką modrona – istoty pochodzącej ze sfery Mechanus. Stopień skomplikowania tego artefaktu jest zdumiewający: jego przeguby tworzą miniaturowe tryby, koła zębate i zawiasy, a w nogach umieszczono drobne sprężyny podtrzymujące stopy.~
+@9004 = ~Manipuluj zabawką, próbując wywołać jakiś efekt.~
+@9005 = ~Użyj kombinacji aktywującej transport do wejścia lochu Rubikon.~
+@9006 = ~Użyj kombinacji aktywującej powrót do wejścia lochu Rubikon.~
+@9007 = ~Użyj kombinacji aktywującej powrót do domu.~
+@9008 = ~Zginasz, skręcasz i obracasz liczne przeguby zabawki, zauważając, że jej kończyny często samoczynnie wracają do pierwotnego położenia. Wreszcie, gdy zginasz jej lewe kolano, zabawka wydaje dziwne *pstryk!* i drży w twoich dłoniach...~
+@9009 = ~Kończyny zabawki nagle wracają do pierwotnego położenia z cichym *klik*.~
+@9010 = ~Zabawka wydaje dziwne *pstryk!* i drży w twoich dłoniach.~
+@9011 = ~Zabawka wydaje ciche *wirrr*.~
+@9012 = ~Zabawka cicho emituje *hmmm* i zaczyna się nagrzewać.~
+@9013 = ~Rozlega się *wirrrr*, potem *klik*, po czym w twoich dłoniach nagle eksploduje oślepiające białe światło...~
+@9014 = ~Obróć lewe ramię.~
+@9015 = ~Obróć prawe ramię.~
+@9016 = ~Rozłóż lewe skrzydło.~
+@9017 = ~Rozłóż prawe skrzydło.~
+@9018 = ~Zegnij prawe kolano.~
+@9019 = ~Zegnij lewe kolano.~
+@9020 = ~Co...?!~
+@9021 = ~Manipulujesz kończynami zabawki, próbując uruchomić magię portalu. Zanim jednak efekt może się zamanifestować, energia zostaje szybko pochłonięta przez otaczającą materię. Wygląda na to, że ten obszar zakłóca działanie kostki. Być może musisz spróbować gdzie indziej.~
+@9022 = ~Szczególna natura tego obszaru zakłóca magię portalu kostki.~
+@9023 = ~Poprzednio kostce nie udało się przenieść cię z powrotem do Pierwszej Sfery Materialnej. Próbujesz ponownie, skupiając się na miejscach, które mogą być bezpieczniejsze.~
+@9024 = ~Do Kuli Sfer w slumsach Athkatli.~
+@9025 = ~Do slumsów Athkatli.~
+@9026 = ~Do Podmroku.~
+@9027 = ~Do Saradush.~
+@9028 = ~Na pustkowia w pobliżu Saradush.~
+@9029 = ~Do Amkethran.~
+@9030 = ~Spróbuj ustalić kombinację powrotu do domu.~
+@9031 = ~Zginasz, skręcasz i obracasz liczne przeguby zabawki, zauważając, że jej kończyny często samoczynnie wracają do pierwotnego położenia. Wreszcie, gdy obracasz jej prawe ramię, zabawka wydaje dziwne *pstryk!* i drży w twoich dłoniach...~
+@9032 = ~Słychać *wirrrr*, potem *klik*, a następnie przez krótką chwilę narasta energia. Zostaje jednak szybko pochłonięta przez otaczającą materię. Wygląda na to, że ten obszar zakłóca magię kostki. Być może musisz spróbować gdzie indziej.~
+@9033 = ~Próbujesz skupić się na manipulowaniu kończynami zabawki, lecz hałas trwającej walki skutecznie cię rozprasza.~
+
+// Scholarly Notes about Spacewarp
+@10000 = ~Na pergaminie starannie zapisano dziwne symbole.~
+@10001 = ~Zwój spisano językiem używanym przez uczonych starożytnego Netherilu. Zawiera złożone formuły i diagramy opisujące utraconą wiedzę o czasie i przestrzeni.~
+@10002 = ~Zwój wypełniają skomplikowane formuły i diagramy opisujące utraconą wiedzę o czasie i przestrzeni.~
+@10003 = ~Jedna z sekcji ma wyraźnie praktyczny charakter. Opisuje sposób wytworzenia potężnego pola grawitacyjnego na ograniczony czas. Bystry mag lub mądry kapłan mógłby przełożyć ten efekt na formułę magiczną.~
+@10004 = ~Zwój opisuje sposób wytworzenia potężnego pola grawitacyjnego na ograniczony czas. Bystry mag lub mądry kapłan mógłby przełożyć ten efekt na formułę magiczną.~
+@10005 = ~Próbujesz rozszyfrować znaczenie symboli, lecz ostatecznie musisz się poddać. Szczegóły techniczne znacznie przekraczają twoje możliwości.~
+@10006 = ~Gdy przyglądasz się notatkom uważniej, dostrzegasz powtarzający się schemat. Korzystając z własnej wiedzy tajemnej, potrafisz przekształcić go w pełnoprawny zwój czaru.~
+@10007 = ~Utrwalając notatki w pamięci, zaczynasz pojmować wyższą logikę stojącą za tymi teoriami. Nowe zrozumienie pozwala ci pogodzić je z własnym systemem wierzeń.~
+@10008 = ~Przyjrzyj się zwojowi dokładniej.~
+@10009 = ~Schowaj zwój.~
+@10010 = ~Przekształć ten efekt w zwój maga.~
+@10011 = ~Zapamiętaj ten efekt jako czar kapłański.~
+@10012 = ~Notatki uczonego zostały przekształcone w zwój czaru.~ [EFF_M02]
+@10013 = ~Zapamiętaj ten efekt jako czar maga.~
+@10014 = ~Po opanowaniu zawartych tu teorii zaczynasz rozumieć ich znaczenie. Dzięki tej wiedzy potrafisz manipulować Splotem na tyle swobodnie, by rzucać ten czar wedle woli.~
+
+// Devil offering deals
+@11000 = ~Opuść broń i posłuchaj, śmiertelniku.~ ~Opuść broń i posłuchaj, śmiertelniczko.~
+@11002 = ~Pozwól, że zaproponuję ci pewien układ. Poszukiwacze przygód tacy jak ty wiecznie gonią za bogactwem. W zamian za maleńką cząstkę twojej boskiej esencji obdaruję cię fortuną w złocie. Z pewnością możesz sobie na to pozwolić. Co ty na to?~
+@11003 = ~Kusząca propozycja. Co dokładnie oferujesz?~
+@11004 = ~Nie ma mowy! Nie zawieram układów z diabłami.~
+@11005 = ~Co powiesz na <A7_GOLD_AMOUNT> sztuk złota? Dorzucę bezpieczne przejście przez tę część labiryntu. Żaden z moich sług nie tknie cię palcem. Zgoda?~
+@11006 = ~Brzmi dobrze. Zgadzam się.~
+@11007 = ~Nie. To mnie nie interesuje.~
+@11008 = ~Pozwól, że zaproponuję coś więcej. Za niewielką cząstkę twojej boskiej esencji mogę dać ci broń godną prawdziwego bohatera. Co ty na to?~ ~Pozwól, że zaproponuję coś więcej. Za niewielką cząstkę twojej boskiej esencji mogę dać ci broń godną prawdziwej bohaterki. Co ty na to?~
+@11009 = ~Wydajesz się być wojownikiem o nie lada umiejętnościach, dlatego zaoferuję ci ten potężny miecz. Będzie on ciął twoich przeciwników dotkliwiej niż jakikolwiek krzyk. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~ ~Wydajesz się być wojowniczką o nie lada umiejętnościach, dlatego zaoferuję ci ten potężny miecz. Będzie on ciął twoich przeciwników dotkliwiej niż jakikolwiek krzyk. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~
+@11010 = ~Wydajesz się biegle władać sztukami magicznymi, zaoferuję ci więc ten kostur. Posiada on moc obracania w popiół wszystkiego, co cię otacza. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~
+@11011 = ~Wygląda na to, że kroczysz duchową ścieżką, zaoferuję ci więc tę umagicznioną maczugę. Niech jej zaklęcia przyniosą spokój ducha twoim przeciwnikom. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~
+@11012 = ~Zdaje się, że opanowałeś do perfekcji zarówno ciało, jak i umysł, zaoferuję ci więc te rękawice. Są niezwykle przydatne dla mistrza walki wręcz. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~ ~Zdaje się, że opanowałaś do perfekcji zarówno ciało, jak i umysł, zaoferuję ci więc te rękawice. Są niezwykle przydatne dla mistrzyni walki wręcz. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~
+@11013 = ~Wydajesz się uzdolnioną istotą, zaoferuję ci więc ten zabójczy sztylet. Skrywa on potężną magię, zdolną wyssać duszę twojego przeciwnika. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił. Dobijemy targu?~
+@11014 = ~Pozwól, że zaproponuję ci pewien układ. W zamian za nieznaczną część twojej boskiej esencji, trwale zwiększę wybrany przez ciebie atrybut. Z pewnością przyda ci się to na drodze ku boskości. Bez trudu możesz sobie na to pozwolić. Co ty na to?~
+@11015 = ~Posiadam moc, by zwiększyć twoją siłę, zręczność, kondycję, inteligencję, mądrość lub charyzmę. Ponadto zagwarantuję ci swobodne przejście przez tę część labiryntu. Żaden z moich podwładnych nie będzie cię niepokoił, dopóki tu przebywasz. Czy dobijemy targu?~
+@11016 = ~Wygląda na to, że wybrany przez ciebie atrybut już ma wręcz boski poziom. Nie jestem w stanie zwiększyć go bardziej. Wybierzesz coś innego?~
+@11017 = ~Zgoda. Zwiększ moją siłę.~
+@11018 = ~Zgoda. Zwiększ moją zręczność.~
+@11019 = ~Zgoda. Zwiększ moją kondycję.~
+@11020 = ~Zgoda. Zwiększ moją inteligencję.~
+@11021 = ~Zgoda. Zwiększ moją mądrość.~
+@11022 = ~Zgoda. Zwiększ moją charyzmę.~
+@11023 = ~Tak. Zwiększ moją siłę.~
+@11024 = ~Tak. Zwiększ moją zręczność.~
+@11025 = ~Tak. Zwiększ moją kondycję.~
+@11026 = ~Tak. Zwiększ moją inteligencję.~
+@11027 = ~Tak. Zwiększ moją mądrość.~
+@11028 = ~Tak. Zwiększ moją charyzmę.~
+@11029 = ~Szkoda. W takim razie pozostaje mi tylko odebrać twoją duszę siłą.~
+@11030 = ~Odejdź, śmiertelniku. Nie mam ci już nic do powiedzenia.~ ~Odejdź, śmiertelniczko. Nie mam ci już nic do powiedzenia.~
+@11031 = ~10 000~
+@11032 = ~25 000~
+@11033 = ~50 000~
+@11050 = ~Jesteś potężną istotą. Wyczuwam boską iskrę w twojej duszy.~
+@11051 = ~Jesteś potężną istotą. Czuję w twojej duszy ślady boskości. Intrygujące.~
+@11052 = ~Co? Układ oferowany mnie? Eee... a ile to właściwie jest „fortuna”?~
+@11053 = ~Co? Układ oferowany mnie? Eee... jaką broń masz na myśli?~
+@11054 = ~Co? Układ oferowany mnie? Eee... serio mogę być jeszcze lepsza?~
+@11055 = ~Lepiej dobrze się zastanów, w co się pakujesz.~
+@11056 = ~Imoen, opamiętaj się. Niezależnie od oferty, cena jest zbyt wysoka.~
+@11057 = ~Pozwól, że zaproponuję układ. Za drobną cząstkę twojej boskiej esencji wzmocnię wybraną cechę.~
+@11058 = ~Tak z ciekawości – co dokładnie kryje się za tym układem?~
+@11059 = ~Wiedza jeszcze nikogo nie zabiła. No dobrze, słucham.~
+@11060 = ~Hmm... tyle złota za odrobinę mojej duszy? Chyba dam radę. Zgoda!~
+@11061 = ~Hmm... taka broń za kawałek duszy? Zdarzało mi się robić głupsze rzeczy. Umowa stoi!~
+@11062 = ~Przyda się więcej krzepy. Zwiększ moją siłę.~
+@11063 = ~Zręczność zawsze się przydaje. Zwiększ moją zręczność.~
+@11064 = ~Trochę wytrzymałości nikomu nie zaszkodzi. Zwiększ moją kondycję.~
+@11065 = ~Wolę wszystkich przechytrzyć. Zwiększ moją inteligencję.~
+@11066 = ~Może następnym razem dwa razy się zastanowię. Zwiększ moją mądrość.~
+@11067 = ~Łatwiej byłoby wyplątać się z kłopotów, gdybym była bardziej przekonująca. Zwiększ moją charyzmę.~
+@11068 = ~Masz rację. Nie jestem zainteresowana.~
+@11069 = ~Ani myślę! Nie dam się nabrać na twoje sztuczki, biesie.~
+@11070 = ~Nie pożałujesz tej decyzji.~
+@11071 = ~Wyglądasz na doświadczonego poszukiwacza przygód. Ten sztylet skrywa magię zdolną wysysać duszę przeciwnika. Dorzucam bezpieczne przejście. Zgoda?~ ~Wyglądasz na doświadczoną poszukiwaczkę przygód. Ten sztylet skrywa magię zdolną wysysać duszę przeciwnika. Dorzucam bezpieczne przejście. Zgoda?~
+@11100 = ~Odejdź, śmiertelniku. Nie mam nic do powiedzenia tobie ani tobie podobnym.~
+@11101 = ~Twoja dusza jest moja!~
+@11102 = ~Rozkazy wykonuję, człowieczku. Atakować cię nie wolno.~
+@11103 = ~Nie zawracaj mi głowy, człowieczku!~
+
+
+// Misc.
+@50000 = ~Dość tego! Sam się tobą zajmę.~
+@50001 = ~Twoja dusza będzie moja!~
+@50002 = ~Drżyj ze strachu, śmiertelniku!~ ~Drżyj ze strachu, śmiertelniczko!~
+@50003 = ~Ten portal zdaje się być źródłem diabelskiej inwazji. Chroni go bariera, która uniemożliwia ci wejście do środka.~
+@50004 = ~Rozdzierające bóle~
+@50005 = ~Proces recyklingu rozpoczęty.~ [a7#rwdx]
+@50006 = ~Proces recyklingu nadal trwa.~
+@50007 = ~~
+@50008 = ~Recykling zakończony.~
+@50009 = ~Labirynt lochu~
+@50010 = ~Centrum sterowania~
+@50011 = ~Kamień pieczęci błyska przez chwilę, po czym wyparowuje w obłoku dymu. Drzwi prowadzące do przywódcy baatezu zostają otwarte.~
+@50012 = ~Konsola wyświetla ciąg nierozpoznawalnych symboli. Wkrótce potem w twoim plecaku materializuje się zwój z instrukcjami.~
+@50013 = ~Modyfikator TraK0~
+@50014 = ~Modyfikator Klasy Pancerza~
+@50015 = ~Wyjdź mi naprzeciw, istoto ciemności! Pokaż mi swoją moc!~
+@50016 = ~Mrok w tobie wreszcie ustępuje i ponownie odzyskujesz kontrolę nad ciałem i umysłem. Jesteś jednak wyczerpany oraz psychicznie osłabiony.~ ~Mrok w tobie wreszcie ustępuje i ponownie odzyskujesz kontrolę nad ciałem i umysłem. Jesteś jednak wyczerpana oraz psychicznie osłabiona.~
+@50017 = ~Błyskawica
+
+Zasięg: widzenia konstruktu
+Czas działania: natychmiastowy
+Obszar działania: ścieżka błyskawicy
+Rzut obronny: 1/2
+
+Po użyciu tej zdolności konstrukt uwalnia potężny strumień energii elektrycznej, który zadaje 6k6 punktów obrażeń każdej istocie znajdującej się na drodze błyskawicy. Udany rzut obronny przeciw różdżkom zmniejsza te obrażenia o połowę (zaokrąglając w dół).~
+@50018 = ~Ten pojemnik jest zapieczętowany przez nieznaną siłę i chroniony przez liczne mechanizmy obronne przed nieuprawnionym dostępem.~
+@50019 = ~Ten kulisty konstrukt zdaje się być rdzeniem energetycznym lochu Rubikon. Otacza go pole ochronne. Runy wskazują, że do uzyskania dostępu do rdzenia wymagana jest pieczęć.~
+@50020 = ~Uszkodzone zmysły~
+@50021 = ~Uszkodzone zdolności motoryczne~
+@50022 = ~Uszkodzone procesy decyzyjne~
+@50023 = ~Autodestrukcja~
+@50024 = ~Wytworzenie płomienia~
+
+
+// Quest entries
+@60000 = ~Nieznane miejsce~
+@60001 = ~Labirynty i modrony~
+
+@60011 = ~Nieznane miejsce
+
+Kostka modronów przeniosła mnie do obcego miejsca, które zdaje się być zamieszkane przez dziwne, lecz niegroźne metalowe istoty.~
+
+@60012 = ~Labirynty i modrony
+
+To nie żart – to miejsce służy modronom jako „poligon doświadczalny”, mający pomóc im zrozumieć, dlaczego poszukiwacze przygód lgną do lochów.
+
+W tym celu stworzyli w pełni konfigurowalny labirynt, naśladujący loch, wraz z potworami, pułapkami i wszystkim innym, co zwykle w lochach znaleźć można. Modrony, jako istoty czystej logiki, najwyraźniej mają trudności ze zrozumieniem sposobu myślenia ras o mniej rygorystycznym podejściu do prawa i porządku. Szczególnym przedmiotem ich zainteresowania wydają się „poszukiwacze przygód”, których przyciągają miejsca mogące oznaczać dla niczego nieświadomych gości pewną śmierć.~
+
+@60013 = ~Labirynty i modrony
+
+Dyrektor tego miejsca powiedział mi, że jakiś czas temu utracili kontrolę nad symulatorem lochu.
+
+Najwyraźniej grupa intruzów przedostała się do labiryntu i skradła modronom „kostkę wiru”. Jest ona niezbędna zarówno do kontrolowania symulatora lochu, jak i do utrzymywania połączenia z ich rodzimą sferą – Mechanusem.~
+
+@60014 = ~Labirynty i modrony
+
+Modrony przyjęły moją ofertę pomocy. Zlecono mi ustalenie, kto wtargnął do labiryntu lochu, przywrócenie kontroli nad symulatorem oraz odzyskanie skradzionej kostki wiru. W zamian przyznano mi dostęp do labiryntu.~
+
+@60015 = ~Labirynty i modrony
+
+Dyrektor modronów wspomniał o „urządzeniu recyklingu” znajdującym się w obszarze wejściowym do lochu. Można je wykorzystać do wymiany skarbów zdobytych w labiryncie na użyteczne przedmioty.~
+
+@60016 = ~Labirynty i modrony
+
+Udało mi się znaleźć źródło inwazji w częściowo zdezintegrowanej sekcji labiryntu lochu. Miejsce to było strzeżone przez zastępy biesów. Pokonanie „Nadzorcy” spowodowało zawalenie się portalu prowadzącego do Dziewięciu Piekieł.
+
+Jeśli wierzyć słowom nadzorcy diabłów, przywódcę całej operacji mogę znaleźć w ukrytej kryjówce za magiczną barierą. Kamień pieczęci znaleziony przy jego ciele powinien umożliwić mi wejście. Muszę również przekazać te wieści dyrektorowi modronów.~
+
+@60017 = ~Labirynty i modrony
+
+Modrony przyjęły wiadomość o diabelskiej inwazji ze swoją typową, stoicką postawą.
+
+W nagrodę za moje wysiłki obdarzyły mnie jednak unikatowym przedmiotem, który zapewnia ochronę przed wrogimi dronami zamieszkującymi labirynt lochu.~
+
+@60018 = ~Labirynty i modrony
+
+W końcu spotkałem przywódcę diabłów. Był nim gelugon, potężny baatezu. Kradzież kostki wiru stanowiła jedynie jeden z etapów szerszego planu przejęcia kontroli nad źródłem modronów na Mechanusie. Pozwoliłoby to diabłom tworzyć niekończące się zastępy posłusznych modronów, walczących po ich stronie w Wojnie Krwi. Jego śmierć powinna przynajmniej na jakiś czas opóźnić realizację tych planów. Powinienem zwrócić kostkę dyrektorowi modronów.~ ~Labirynty i modrony
+
+W końcu spotkałam przywódcę diabłów. Był nim gelugon, potężny baatezu. Kradzież kostki wiru stanowiła jedynie jeden z etapów szerszego planu przejęcia kontroli nad źródłem modronów na Mechanusie. Pozwoliłoby to diabłom tworzyć niekończące się zastępy posłusznych modronów, walczących po ich stronie w Wojnie Krwi. Jego śmierć powinna przynajmniej na jakiś czas opóźnić realizację tych planów. Powinienem zwrócić kostkę dyrektorowi modronów.~
+
+@60019 = ~Labirynty i modrony
+
+Poszczególne sekcje symulatora lochu mają bardzo podobną budowę, co sprawia, że łatwo się w nich zgubić. Być może dyrektor zna sposób, by ułatwić mi poruszanie się po labiryncie.~
+
+@60020 = ~Labirynty i modrony
+
+Po dalszych naciskach dyrektor modronów w końcu zdradził mi, że przywódca armii baatezu najprawdopodobniej przebywa w centrum sterowania. Dostęp do niego możliwy jest gdzieś od wschodniej granicy Projektu Konstruktu Lochu Rubikon®. Wejście to będzie zapewne zabezpieczone magicznymi barierami.~
+
+@60100 = ~Labirynty i modrony
+
+Zwróciłem modronom kostkę wiru. Wyrazili wdzięczność na swój sposób i nagrodzili mnie Berłem modrońskiej potęgi. Dzięki odzyskaniu kostki ponownie nawiązali połączenie z Mechanusem i wyłączyli wadliwy konstrukt lochu, po czym powrócili do domu.~ ~Labirynty i modrony
+
+Zwróciłam modronom kostkę wiru. Wyrazili wdzięczność na swój sposób i nagrodzili mnie Berłem modrońskiej potęgi. Dzięki odzyskaniu kostki ponownie nawiązali połączenie z Mechanusem i wyłączyli wadliwy konstrukt lochu, po czym powrócili do domu.~
+
+@60101 = ~Labirynty i modrony
+
+Ciekawość wzięła górę i sam użyłem kostki wiru, co doprowadziło do jej zniszczenia. Wygląda na to, że modrony utkną w stworzonej przez siebie konstrukcji jeszcze na jakiś czas.~ ~Labirynty i modrony
+
+Ciekawość wzięła górę i sama użyłam kostki wiru, co doprowadziło do jej zniszczenia. Wygląda na to, że modrony utkną w stworzonej przez siebie konstrukcji jeszcze na jakiś czas.~
