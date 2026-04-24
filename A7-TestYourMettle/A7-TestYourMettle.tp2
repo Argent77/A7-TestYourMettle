@@ -13,18 +13,16 @@ ALWAYS
 END
 
 README ~A7-TestYourMettle/readme/readme-%LANGUAGE%.html~
+       ~A7-TestYourMettle/readme/readme-%LANGUAGE%.pdf~
        ~A7-TestYourMettle/readme/readme-%LANGUAGE%.txt~
        ~A7-TestYourMettle/readme/readme.html~
+       ~A7-TestYourMettle/readme/readme.pdf~
        ~A7-TestYourMettle/readme/readme.txt~
 
 LANGUAGE ~English~
          ~english~
          ~A7-TestYourMettle/languages/english/setup.tra~
          ~A7-TestYourMettle/languages/english/mod.tra~
-LANGUAGE ~Polish (by my_summertime, SoM Membress, part of CoB Clan)~
-         ~polish~
-         ~A7-TestYourMettle/languages/polish/setup.tra~
-         ~A7-TestYourMettle/languages/polish/mod.tra~
 LANGUAGE ~German~
          ~german~
          ~A7-TestYourMettle/languages/english/setup.tra~
@@ -49,6 +47,12 @@ LANGUAGE ~Simplified Chinese (translation: yoshimo0417)~
          ~A7-TestYourMettle/languages/english/mod.tra~
          ~A7-TestYourMettle/languages/schinese/setup.tra~
          ~A7-TestYourMettle/languages/schinese/mod.tra~
+LANGUAGE ~Polish (by my_summertime, SoM Membress, part of CoB Clan)~
+         ~polish~
+         ~A7-TestYourMettle/languages/english/setup.tra~
+         ~A7-TestYourMettle/languages/english/mod.tra~
+         ~A7-TestYourMettle/languages/polish/setup.tra~
+         ~A7-TestYourMettle/languages/polish/mod.tra~
 
 
 BEGIN @1  // Test Your Mettle!
