@@ -1,0 +1,14 @@
+// -*- coding: us-ascii -*-
+
+@1 = ~Test Your Mettle! mod do BG II EE i EET~
+
+@10 = ~Test Your Mettle!: Zmniejszenie ilosci PD za zabijanie potworow~
+@11 = ~Zmniejsz o 50%~
+@12 = ~Zmniejsz o 75% (zalecane)~
+@13 = ~Zmniejsz o 90%~
+@14 = ~Brak PD~
+
+@20 = ~Test Your Mettle!: Dodanie "Zakrzywienia przestrzeni" do sklepow~
+
+@100 = ~Wymaga BG II EE lub EET w wersji 2.0 lub wyzszej~
+@101 = ~Wymaga glownego komponentu~
